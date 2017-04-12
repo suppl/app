@@ -1,51 +1,32 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore, combineReducers} from 'redux'
-// import {
-//     BrowserRouter as Router,
-//     Route,
-//     Link
-// } from 'react-router-dom'
+import {createStore, combineReducers, applyMiddleware} from 'redux'
+import thunk from 'redux-thunk';
 
-import Header from './components/header/header';
-import Sidebar from './components/sidebar/sidebar';
-import SubHeader from './components/sub-header/sub-header';
+import {BrowserRouter as Router, Route, browserHistory} from 'react-router-dom'
 
-import actions from './reducers/actions';
-import user from './reducers/user';
+import Dashboard from './screens/dashboard.screen';
+import Player from './screens/player.screen';
+import Splash from './screens/splash.screen';
 
-// console.log('reducers', reducers);
+import user from './reducers/user.reducer';
 
-const reducer = combineReducers({
-    actions,
-    user
-});
+const reducer = combineReducers({user});
 
-console.log('reducer', reducer);
-const store = createStore(reducer);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 require('./app.scss');
 
-class App extends React.Component {
-    render() {
-        return (
-            <div className="flex flex-max">
-                <Header/>
-                <div className="flex flex-row">
-                    <Sidebar/>
-                    <div className="flex flex-max">
-                        <SubHeader/>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-}
-
 ReactDOM.render(
     <Provider store={store}>
-        <App/>
+        <Router history={browserHistory}>
+            <div className="flex flex-max">
+                <Route exact path="/" component={Splash}/>
+                <Route exact path="/dashboard" component={Dashboard}/>
+                <Route path="/player" component={Player}/>
+            </div>
+        </Router>
     </Provider>,
     document.getElementById('app')
 );

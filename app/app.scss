@@ -1,5 +1,9 @@
 @import "global/colors";
 @import "global/flex";
+@import "global/box";
+@import "global/elements";
+@import "global/splash";
+@import "global/buttons";
 
 body {
   background-color: $pale-grey;
@@ -8,7 +12,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   font-size: 13px;
-
+  color: $greyish-brown;
 
 }
 
@@ -17,6 +21,7 @@ input, textarea, select {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: $greyish-brown;
 }
 
 .fa {
@@ -28,4 +33,23 @@ input, textarea, select {
   flex-direction: column;
   height: 100vh;
   //width: 100vh;
+}
+
+p, .p {
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+a {
+  color: $black-20;
+  transition: .15s;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: $azure;
+  }
+}
+.gap {
+
 }

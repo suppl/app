@@ -20,7 +20,7 @@ class SubHeader extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps', state)
+    console.log('mapStateToProps', state);
 
     return {
         actions: state.actions,
