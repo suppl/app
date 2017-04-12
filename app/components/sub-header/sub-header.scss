@@ -1,0 +1,19 @@
+@import "../../global/colors";
+
+.sub-header-component {
+  background: $pale-grey;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  height: 70px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px 0 $black-20;
+
+  .sub-heading {
+    font-size: 18px;
+    font-weight: 600;
+    color: $dark;
+  }
+}

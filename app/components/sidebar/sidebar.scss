@@ -1,0 +1,42 @@
+@import "../../global/colors";
+
+.sidebar-component {
+  background: $dark;
+  flex: 0 0 89px;
+  display: flex;
+  flex-direction: column;
+
+  .top-menu, .bottom-menu {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto auto;
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 50px;
+      width: 50px;
+      //padding: 15px;
+      color: white;
+      margin: auto;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: .15s;
+      border-radius: 100%;
+      font-size: 30px;
+
+      &:hover {
+        background: $dark-indigo;
+
+      }
+    }
+  }
+
+  .bottom-menu {
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+}

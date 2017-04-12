@@ -1,0 +1,31 @@
+@import "global/colors";
+@import "global/flex";
+
+body {
+  background-color: $pale-grey;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-size: 13px;
+
+
+}
+
+input, textarea, select {
+  background-color: $pale-grey;
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa {
+  line-height: inherit;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  //width: 100vh;
+}

@@ -1,0 +1,67 @@
+@import "../../global/colors";
+
+.header-component {
+  height: 70px;
+  background: $pale-grey-two;
+  padding: 15px 25px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .user-logo {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    border-radius: 100%;
+    background: $azure;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .user-hello {
+    font-size: 13px;
+    font-weight: 600;
+    color: $dark;
+    margin-left: 15px;
+  }
+
+  .suppl-logo {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    color: $azure;
+    position: absolute;
+    left: 50%;
+    //align-self: center;
+    //margin: auto;
+    margin-left: -100px;
+    width: 200px;
+  }
+
+  .header-menu {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+
+    .menu-item {
+      font-size: 14px;
+      text-align: center;
+      color: $dark;
+      margin-left: 15px;
+      display: flex;
+      flex-direction: row;
+
+      i {
+        font-size: 10px;
+        margin: auto 5px;
+      }
+    }
+  }
+}

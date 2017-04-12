@@ -1,0 +1,49 @@
+@import "./colors";
+
+.flex {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+
+  &.flex-row {
+    flex-direction: row;
+  }
+
+  &.flex-max {
+    flex: 1 0 auto;
+  }
+
+  &.flex-min {
+    flex: 0 0 auto;
+  }
+
+  &.flex-shrink {
+    flex: 0 1 auto;
+  }
+
+  &.flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  &.flex-wrap-mob {
+    //@include mobile {
+    //  flex-wrap: wrap;
+    //}
+  }
+
+  &.flex-align {
+    align-items: center;
+  }
+
+  &.flex-justify {
+    justify-content: center;
+  }
+
+  &.flex-start {
+    align-self: flex-start;
+  }
+
+  &.flex-end {
+    align-self: flex-end;
+  }
+}
