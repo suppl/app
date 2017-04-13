@@ -27,12 +27,14 @@ const performAction = {
             type: ACTIONS.START_LOADING
         });
 
-        firebase.auth().signOut()
-            .then(user => store.dispatch({
-                type: ACTIONS.UNSET_USER,
-                isLoggedIn: false,
-                user: {}
-            }), error => standardError(ACTIONS.SIGN_OUT, error.message))
+        setTimeout(() => firebase.auth().signOut()
+                .then(user => store.dispatch({
+                    type: ACTIONS.UNSET_USER,
+                    isLoggedIn: false,
+                    user: {}
+                }), error => standardError(ACTIONS.SIGN_OUT, error.message))
+            , 500)
+
     }
 };
 
