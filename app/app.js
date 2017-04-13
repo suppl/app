@@ -1,32 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-import {createStore, combineReducers, applyMiddleware} from 'redux'
-import thunk from 'redux-thunk';
+import {createStore, combineReducers} from 'redux'
 
-import {BrowserRouter as Router, Route, browserHistory} from 'react-router-dom'
+import Router from 'react-router-component'
 
 import Dashboard from './screens/dashboard.screen';
 import Player from './screens/player.screen';
 import Splash from './screens/splash.screen';
+import Notification from './components/notification/notification';
 
-import user from './reducers/user.reducer';
+import userReducer from './reducers/user.reducer';
+import requestReducer from './reducers/request.reducer';
+import notificationReducer from './reducers/notification.reducer';
 
-const reducer = combineReducers({user});
+const Locations = Router.Locations;
+const Location = Router.Location;
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const reducer = combineReducers({
+    user: userReducer,
+    request: requestReducer,
+    notification: notificationReducer
+});
+
+export const store = createStore(reducer);
 
 require('./app.scss');
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={browserHistory}>
-            <div className="flex flex-max">
-                <Route exact path="/" component={Splash}/>
-                <Route exact path="/dashboard" component={Dashboard}/>
-                <Route path="/player" component={Player}/>
-            </div>
-        </Router>
+        <div className="flex flex-max">
+            <Notification></Notification>
+            <Locations hash>
+                <Location path="/" handler={Splash}/>
+                <Location path="/dashboard" handler={Dashboard}/>
+                <Location path="/player" handler={Player}/>
+            </Locations>
+        </div>
+
     </Provider>,
     document.getElementById('app')
 );

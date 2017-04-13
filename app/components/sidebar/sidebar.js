@@ -1,15 +1,16 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router-component';
+
 
 require('./sidebar.scss');
 
 const Sidebar = () => (
     <div className="sidebar-component">
         <div className="top-menu">
-            <Link to={`/player`} className="menu-item">
+            <Link href={`/player`} className="menu-item">
                 <i className="icon-headphones"/>
             </Link>
-            <Link to={`/dashboard`} className="menu-item active">
+            <Link href={`/dashboard`} className="menu-item active">
                 <i className="icon-list"/>
             </Link>
             <div className="menu-item"><i className="icon-bug"></i></div>

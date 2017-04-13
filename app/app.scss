@@ -53,3 +53,24 @@ a {
 .gap {
 
 }
+
+[data-reactroot], [data-screen] {
+  height: 100vh;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+}
+
+[data-screen] {
+  opacity: 0;
+
+  transition: .3s;
+  transform: translateX(-30px);
+
+  &.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+
+}
