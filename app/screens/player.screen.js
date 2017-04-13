@@ -19,7 +19,7 @@ class Player extends React.Component {
                 <Header/>
                 <div className="flex flex-row">
                     <Sidebar/>
-                    <div className="flex flex-max">
+                    <div data-content className="flex flex-max">
                         <SubHeader text="Player"/>
                     </div>
                 </div>

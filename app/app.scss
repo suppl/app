@@ -61,15 +61,19 @@ a {
   flex-direction: column;
 }
 
-[data-screen] {
+[data-content] {
   opacity: 0;
 
-  transition: .3s;
-  transform: translateX(-30px);
+  transition: .6s;
+  transform: translateY(-10px);
+}
 
+[data-screen] {
   &.active {
-    opacity: 1;
-    transform: translateX(0);
+    [data-content] {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
 
