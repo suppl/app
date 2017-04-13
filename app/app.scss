@@ -75,6 +75,10 @@ a {
       transform: translateY(0);
     }
   }
+}
 
-
+.content-area {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
 }

@@ -31,7 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color:#cccccc;
+    color: #cccccc;
   }
 
   input {
@@ -62,4 +62,61 @@
       color: $pinkish-grey;
     }
   }
+}
+
+.suppl-dropdown {
+  position: absolute;
+  margin-top: 30px;
+  right: 0;
+  //margin-left: -150px;
+
+  width: 150px;
+  //height: 91px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 4px 0 $black-20;
+  border: solid 1px $white-two;
+
+
+  .dropdown-item {
+    border-bottom: solid 1px $white-two;
+    background-color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 2.5;
+    color: $greyish-brown;
+    height: 30px;
+
+    display: flex;
+    flex-direction: row;
+    transition: .15s;
+    cursor: pointer;
+
+    .item-icon {
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      //color: #cccccc;
+    }
+
+    .item-text {
+      //padding-left: 7px;
+      display: flex;
+      align-items: center;
+      //justify-content: center;
+    }
+
+    &:last-child {
+      border: none;
+    }
+
+    &:hover {
+      background-color: $azure;
+      color: white;
+    }
+
+  }
+
 }

@@ -10082,6 +10082,10 @@ var _notification = __webpack_require__(331);
 
 var _notification2 = _interopRequireDefault(_notification);
 
+var _loader = __webpack_require__(335);
+
+var _loader2 = _interopRequireDefault(_loader);
+
 var _user = __webpack_require__(285);
 
 var _user2 = _interopRequireDefault(_user);
@@ -10094,6 +10098,10 @@ var _notification3 = __webpack_require__(334);
 
 var _notification4 = _interopRequireDefault(_notification3);
 
+var _settings = __webpack_require__(338);
+
+var _settings2 = _interopRequireDefault(_settings);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Locations = _reactRouterComponent2.default.Locations;
@@ -10102,7 +10110,8 @@ var Location = _reactRouterComponent2.default.Location;
 var reducer = (0, _redux.combineReducers)({
     user: _user2.default,
     request: _request2.default,
-    notification: _notification4.default
+    notification: _notification4.default,
+    settings: _settings2.default
 });
 
 var store = exports.store = (0, _redux.createStore)(reducer);
@@ -10116,6 +10125,7 @@ _reactDom2.default.render(_react2.default.createElement(
         'div',
         { className: 'flex flex-max' },
         _react2.default.createElement(_notification2.default, null),
+        _react2.default.createElement(_loader2.default, null),
         _react2.default.createElement(
             Locations,
             { hash: true },
@@ -12054,7 +12064,7 @@ exports = module.exports = __webpack_require__(91)(undefined);
 
 
 // module
-exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\n.butn {\n  max-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff; }\n  .butn:active {\n    background-color: #59c8ff; }\n\nbody {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none; }\n  a:hover {\n    color: #00a2f2; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n", ""]);
+exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 5px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer; }\n  .panel .panel-icon {\n    color: #edf5f8;\n    font-size: 60px;\n    font-weight: 100; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-top: 10px;\n    text-transform: uppercase; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    font-size: 11px;\n    text-align: center;\n    color: #999999;\n    margin-top: 10px; }\n  .panel:hover {\n    transform: translateY(-10px); }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\n.butn {\n  max-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff; }\n  .butn:active {\n    background-color: #59c8ff; }\n\nbody {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none; }\n  a:hover {\n    color: #00a2f2; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n.content-area {\n  padding: 30px;\n  display: flex;\n  flex-direction: column; }\n", ""]);
 
 // exports
 
@@ -26817,7 +26827,13 @@ var _react = __webpack_require__(84);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _actions = __webpack_require__(289);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
 var _reactRedux = __webpack_require__(206);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -26878,8 +26894,42 @@ var Header = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'menu-item' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'suppl-dropdown' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'dropdown-item' },
+                                _react2.default.createElement('div', { className: 'item-icon icon-user' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'item-text' },
+                                    'Your profile'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'dropdown-item' },
+                                _react2.default.createElement('div', { className: 'item-icon icon-cog' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'item-text' },
+                                    'Settings'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'dropdown-item', onClick: this.props.logout },
+                                _react2.default.createElement('div', { className: 'item-icon icon-exit' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'item-text' },
+                                    'Logout'
+                                )
+                            )
+                        ),
                         _react2.default.createElement('i', { className: 'icon-cog' }),
-                        ' Settings',
+                        'Settings',
                         _react2.default.createElement('i', { className: 'icon-chevron-down' })
                     )
                 )
@@ -26893,17 +26943,14 @@ var Header = function (_React$Component) {
 var mapStateToProps = function mapStateToProps(state) {
     console.log('mapStateToProps', state);
 
-    return {
-        actions: state.actions,
-        user: state.user
-    };
+    return state;
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
-        login: function login() {
+        logout: function logout() {
             return dispatch({
-                type: 'LOGIN'
+                type: ACTIONS.SIGN_OUT
             });
         }
     };
@@ -27059,7 +27106,7 @@ exports = module.exports = __webpack_require__(91)(undefined);
 
 
 // module
-exports.push([module.i, ".header-component {\n  height: 70px;\n  background: #eff2f9;\n  padding: 15px 25px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  position: relative;\n  z-index: 1; }\n  .header-component .user-logo {\n    height: 40px;\n    width: 40px;\n    min-width: 40px;\n    border-radius: 100%;\n    background: #00a2f2;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    color: white;\n    font-size: 12px;\n    font-weight: 600; }\n  .header-component .user-hello {\n    font-size: 13px;\n    font-weight: 600;\n    color: #263345;\n    margin-left: 15px; }\n  .header-component .suppl-logo {\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n    color: #00a2f2;\n    position: absolute;\n    left: 50%;\n    margin-left: -100px;\n    width: 200px; }\n  .header-component .header-menu {\n    margin-left: auto;\n    display: flex;\n    flex-direction: row; }\n    .header-component .header-menu .menu-item {\n      font-size: 14px;\n      text-align: center;\n      color: #263345;\n      margin-left: 15px;\n      display: flex;\n      flex-direction: row; }\n      .header-component .header-menu .menu-item i {\n        font-size: 10px;\n        margin: auto 5px; }\n", ""]);
+exports.push([module.i, ".header-component {\n  height: 70px;\n  background: #eff2f9;\n  padding: 15px 25px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  position: relative;\n  z-index: 1; }\n  .header-component .user-logo {\n    height: 40px;\n    width: 40px;\n    min-width: 40px;\n    border-radius: 100%;\n    background: #00a2f2;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    color: white;\n    font-size: 12px;\n    font-weight: 600; }\n  .header-component .user-hello {\n    font-size: 13px;\n    font-weight: 600;\n    color: #263345;\n    margin-left: 15px; }\n  .header-component .suppl-logo {\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n    color: #00a2f2;\n    position: absolute;\n    left: 50%;\n    margin-left: -100px;\n    width: 200px; }\n  .header-component .header-menu {\n    margin-left: auto;\n    display: flex;\n    flex-direction: row; }\n    .header-component .header-menu .menu-item {\n      font-size: 14px;\n      text-align: center;\n      color: #263345;\n      margin-left: 15px;\n      display: flex;\n      flex-direction: row;\n      position: relative; }\n      .header-component .header-menu .menu-item i {\n        font-size: 10px;\n        margin: auto 5px; }\n", ""]);
 
 // exports
 
@@ -27232,7 +27279,7 @@ var _superagent = __webpack_require__(293);
 
 var Request = _interopRequireWildcard(_superagent);
 
-var _app = __webpack_require__(86);
+var _dispatch = __webpack_require__(339);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -27241,31 +27288,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
     isLoggedIn: false,
     email: "hello@suppl.co",
-    password: "password123"
+    password: "password123",
+    user: {}
 };
 
 var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.UPDATE_LOGIN_EMAIL, function (data) {
-    return {
-        email: data.email
-    };
+    return { email: data.email };
 }), _defineProperty(_performAction, ACTIONS.UPDATE_LOGIN_PASSWORD, function (data) {
-    return {
-        password: data.password
-    };
+    return { password: data.password };
 }), _defineProperty(_performAction, ACTIONS.SET_USER, function (data) {
     window.location.hash = '/dashboard';
 
-    setTimeout(function () {
-        return _app.store.dispatch({
-            type: ACTIONS.SHOW_NOTIFICATION,
-            message: "Signed in successfully"
-        });
-    }, 1);
+    (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: "Signed in successfully" });
 
-    return {
-        isLoggedIn: true,
-        user: data.user
-    };
+    return { isLoggedIn: true, user: data.user };
+}), _defineProperty(_performAction, ACTIONS.UNSET_USER, function (data) {
+    window.location.hash = '/';
+
+    (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: "Signed out successfully" });
+
+    return { isLoggedIn: false, user: {} };
 }), _performAction);
 
 var user = function user() {
@@ -27281,6 +27323,22 @@ var user = function user() {
     console.info('NEW USER STATE:', action.type, state);
     return state;
 };
+
+var checkAuth = function checkAuth() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        (0, _dispatch.Dispatch)(ACTIONS.DONE_LOADING, 500);
+
+        if (!user) return;
+
+        (0, _dispatch.Dispatch)({ type: ACTIONS.SET_USER, user: user });
+    });
+};
+
+var init = function init() {
+    checkAuth();
+};
+
+init();
 
 exports.default = user;
 
@@ -27353,7 +27411,55 @@ var Dashboard = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
-                        _react2.default.createElement(_subHeader2.default, { text: 'Dashboard' })
+                        _react2.default.createElement(_subHeader2.default, { text: 'Dashboard' }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'content-area' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'panels' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'panel' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-icon' },
+                                        _react2.default.createElement('div', { className: 'icon-loudspeaker' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-heading' },
+                                        'Take 3'
+                                    ),
+                                    _react2.default.createElement('div', { className: 'panel-line' }),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-text' },
+                                        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, sunt.'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'panel' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-icon' },
+                                        _react2.default.createElement('div', { className: 'icon-city' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-heading' },
+                                        'Work Wellness'
+                                    ),
+                                    _react2.default.createElement('div', { className: 'panel-line' }),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-text' },
+                                        'Dolorem doloribus facere quaerat tenetur!'
+                                    )
+                                )
+                            )
+                        )
                     )
                 )
             );
@@ -27656,11 +27762,14 @@ Object.defineProperty(exports, "__esModule", {
 var UPDATE_LOGIN_EMAIL = exports.UPDATE_LOGIN_EMAIL = 'UPDATE_LOGIN_EMAIL';
 var UPDATE_LOGIN_PASSWORD = exports.UPDATE_LOGIN_PASSWORD = 'UPDATE_LOGIN_PASSWORD';
 var SET_USER = exports.SET_USER = 'SET_USER';
+var UNSET_USER = exports.UNSET_USER = 'UNSET_USER';
 
 var SIGN_IN = exports.SIGN_IN = 'SIGN_IN';
+var SIGN_OUT = exports.SIGN_OUT = 'SIGN_OUT';
 var SHOW_NOTIFICATION = exports.SHOW_NOTIFICATION = 'SHOW';
 var HIDE_NOTIFICATION = exports.HIDE_NOTIFICATION = 'HIDE';
-var SUCCESS = exports.SUCCESS = 'SUCCESS';
+var START_LOADING = exports.START_LOADING = 'START_LOADING';
+var DONE_LOADING = exports.DONE_LOADING = 'DONE_LOADING';
 
 /***/ }),
 /* 290 */,
@@ -29660,6 +29769,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _performAction;
+
 var _actions = __webpack_require__(289);
 
 var ACTIONS = _interopRequireWildcard(_actions);
@@ -29668,31 +29779,57 @@ var _superagent = __webpack_require__(293);
 
 var Request = _interopRequireWildcard(_superagent);
 
+var _dispatch = __webpack_require__(339);
+
 var _app = __webpack_require__(86);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-var initialState = {};
+var initialState = {
+    loaderVisible: true
+};
 
-var performAction = _defineProperty({}, ACTIONS.SIGN_IN, function () {
-    firebase.auth().signInWithEmailAndPassword(_app.store.getState().user.email, _app.store.getState().user.password).then(function (user) {
+var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.SIGN_IN, function () {
+    (0, _dispatch.Dispatch)({ type: ACTIONS.START_LOADING });
 
-        _app.store.dispatch({
+    console.log('State', (0, _dispatch.State)());
+
+    firebase.auth().signInWithEmailAndPassword((0, _dispatch.State)().user.email, (0, _dispatch.State)().user.password).then(function (user) {
+        return _app.store.dispatch({
             type: ACTIONS.SET_USER,
             isLoggedIn: true,
             user: user
         });
     }, function (error) {
-        _app.store.dispatch({
-            type: ACTIONS.SHOW_NOTIFICATION,
-            message: error.message,
-            theme: 'error'
-        });
-        console.error('signInWithEmailAndPassword', error);
+        return standardError(ACTIONS.SIGN_IN, error.message);
     });
-});
+}), _defineProperty(_performAction, ACTIONS.SIGN_OUT, function () {
+    (0, _dispatch.Dispatch)({
+        type: ACTIONS.START_LOADING
+    });
+
+    firebase.auth().signOut().then(function (user) {
+        return _app.store.dispatch({
+            type: ACTIONS.UNSET_USER,
+            isLoggedIn: false,
+            user: {}
+        });
+    }, function (error) {
+        return standardError(ACTIONS.SIGN_OUT, error.message);
+    });
+}), _performAction);
+
+var standardError = function standardError(action, message) {
+    console.error('ERROR', action, message);
+
+    (0, _dispatch.Dispatch)({
+        type: ACTIONS.SHOW_NOTIFICATION,
+        message: message,
+        theme: 'error'
+    });
+};
 
 var requests = function requests() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
@@ -32616,6 +32753,235 @@ var notification = function notification() {
 };
 
 exports.default = notification;
+
+/***/ }),
+/* 335 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(84);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _actions = __webpack_require__(289);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _reactRedux = __webpack_require__(206);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+__webpack_require__(337);
+
+var Loader = function (_React$Component) {
+    _inherits(Loader, _React$Component);
+
+    function Loader() {
+        _classCallCheck(this, Loader);
+
+        return _possibleConstructorReturn(this, (Loader.__proto__ || Object.getPrototypeOf(Loader)).apply(this, arguments));
+    }
+
+    _createClass(Loader, [{
+        key: 'getClasses',
+        value: function getClasses() {
+            return [this.props.settings.loaderVisible ? 'active' : ''].join(' ');
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'loader-component ' + this.getClasses() },
+                _react2.default.createElement('div', { className: 'loader-icon icon-loading icon-3d-rotate' }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'loader-text' },
+                    'Hold tight!'
+                )
+            );
+        }
+    }]);
+
+    return Loader;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    console.log('mapStateToProps', state);
+
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        showLoader: function showLoader() {
+            return dispatch({
+                type: ACTIONS.SHOW_LOADER,
+                message: 'MEEE'
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Loader);
+
+/***/ }),
+/* 336 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(91)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".loader-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #00a2f2;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3);\n  animation-name: colour-change;\n  animation-duration: 5s;\n  animation-iteration-count: infinite;\n  animation-timing-function: linear; }\n  .loader-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .loader-component .loader-icon {\n    font-weight: bold;\n    font-size: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    animation-name: rotate;\n    animation-duration: 1s;\n    animation-iteration-count: infinite;\n    animation-timing-function: linear; }\n  .loader-component .loader-text {\n    font-weight: bold;\n    margin-top: 10px; }\n\n@keyframes rotate {\n  from {\n    transform: rotate(0deg); }\n  to {\n    transform: rotate(360deg); } }\n\n@keyframes colour-change {\n  0% {\n    background-color: #00a2f2; }\n  33% {\n    background-color: #2ccfa9; }\n  66% {\n    background-color: #ff939f; }\n  100% {\n    background-color: #00a2f2; } }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(336);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(192)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./loader.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./loader.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _performAction;
+
+var _actions = __webpack_require__(289);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _superagent = __webpack_require__(293);
+
+var Request = _interopRequireWildcard(_superagent);
+
+var _dispatch = __webpack_require__(339);
+
+var _dispatch2 = _interopRequireDefault(_dispatch);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var initialState = {
+    loaderVisible: true
+};
+
+var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.START_LOADING, function (data) {
+    return {
+        loaderVisible: true
+    };
+}), _defineProperty(_performAction, ACTIONS.DONE_LOADING, function (data) {
+    return {
+        loaderVisible: false
+    };
+}), _performAction);
+
+var settings = function settings() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+
+    console.info('USER ACTION', action);
+
+    if (!performAction[action.type]) return state;
+
+    state = Object.assign({}, state, performAction[action.type](action));
+
+    console.info('NEW USER STATE:', action.type, state);
+    return state;
+};
+
+exports.default = settings;
+
+/***/ }),
+/* 339 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.State = exports.Store = exports.Dispatch = undefined;
+
+var _app = __webpack_require__(86);
+
+var Dispatch = exports.Dispatch = function Dispatch(data) {
+    var delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+    if (typeof data == 'string') {
+        setTimeout(function () {
+            return _app.store.dispatch({
+                type: data
+            });
+        }, delay);
+    } else {
+        setTimeout(function () {
+            return _app.store.dispatch(data);
+        }, delay);
+    }
+};
+
+var Store = exports.Store = function Store() {
+    return _app.store;
+};
+
+var State = exports.State = function State() {
+    return _app.store.getState();
+};
+
+exports.default = Dispatch;
 
 /***/ })
 /******/ ]);
