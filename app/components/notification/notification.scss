@@ -1,0 +1,66 @@
+@import "../../global/colors";
+
+.notification-component {
+  z-index: 1000;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: 355px;
+  height: 70px;
+  border-radius: 2px;
+  background-color: $azure;
+  background-color: $tealish;
+  box-shadow: 0 2px 3px 0 $black--12;
+
+  font-size: 15px;
+  text-align: left;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+
+  display: flex;
+
+  transition: .15s;
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(30px);
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+
+    transform: translateY(0);
+  }
+
+  .notification-content {
+    position: relative;
+    flex: 1 0 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: 25px;
+    display: flex;
+  }
+
+  .notification-icon {
+    font-weight: bold;
+
+  }
+
+  .notification-text {
+    margin-left: 10px;
+
+  }
+
+  .notification-close {
+    position: absolute;
+    top:0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  &.error {
+    background-color: $rosa;
+  }
+}
