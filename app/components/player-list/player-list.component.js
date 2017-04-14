@@ -6,11 +6,14 @@ require('./player-list.component.scss');
 
 
 class Splash extends React.Component {
-    render() {
+    componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active';
             this.forceUpdate();
         }, 1);
+    }
+
+    render() {
 
         return (
             <div className={`player-list-component`}>
@@ -18,11 +21,13 @@ class Splash extends React.Component {
                     <div className="list-background"></div>
                     <div className="list-start">
                         <div className="start-circle">
-                            <div className="start-inner-circle">Take 3</div>
+                            <div className="start-inner-circle">{this.props.settings.session.name}</div>
                         </div>
                     </div>
                     <div className="list-item">
-                        <div className="list-circle"><i className="fa fa-play fa-fw"></i></div>
+                        <div className="list-circle" onClick={this.props.showSession}>
+                            <i className="fa fa-play fa-fw"></i>
+                        </div>
                         <div className="list-line-started"></div>
                     </div>
                     <div className="list-item">
@@ -55,6 +60,10 @@ class Splash extends React.Component {
 const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
+
+    showSession: () => dispatch({
+        type: ACTIONS.SHOW_SESSION
+    }),
 
     showNotification: () => dispatch({
         type: ACTIONS.SHOW_NOTIFICATION,

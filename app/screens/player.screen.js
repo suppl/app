@@ -3,26 +3,41 @@ import {connect} from "react-redux";
 import Router from 'react-router-component'
 const Locations = Router.Locations;
 const Location = Router.Location;
+
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 import PlayerList from '../components/player-list/player-list.component';
+import Dispatch from '../services/dispatch.service'
+import * as ACTIONS from '../constants/actions.constants'
 
 import _ from 'lodash';
 import {AudioList} from '../services/audio.service';
 
 
 class Player extends React.Component {
-    render() {
+    componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active';
             this.forceUpdate();
         }, 1);
 
         const getSession = () => {
-            return this.props._ ? _.find(AudioList, {slug:this.props._[0]}) : "Player";
+            return this.props._ ? _.find(AudioList, {slug: this.props._[0]}) : undefined;
         };
 
+        if (getSession()) {
+            Dispatch({
+                type: ACTIONS.SET_SESSION,
+                session: getSession(),
+            });
+        }
+    }
+
+    render() {
+        const getSessionName = () => {
+            return this.props.settings.session ? this.props.settings.session.name : "No Session selected";
+        };
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -30,18 +45,14 @@ class Player extends React.Component {
                 <div className="flex flex-row">
                     <Sidebar/>
                     <div data-content className="flex flex-max">
-                        <SubHeader text={getSession().name}/>
-                        <Locations contextual className="content-area-plain">
-                            <Location path="/" handler={PlayerList}/>
-                            <Location path="/:sessionSlug" handler={PlayerList}/>
-                        </Locations>
+                        <SubHeader text={getSessionName()}/>
+                        <PlayerList/>
                     </div>
                 </div>
             </div>
         );
     }
 }
-
 
 
 const mapStateToProps = state => {

@@ -14,3 +14,9 @@ export const UPDATE_NAME = 'UPDATE_NAME';
 export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const LOAD_PROFILE = 'LOAD_PROFILE';
 
+export const SET_SESSION = 'SET_SESSION';
+export const SHOW_SESSION = 'SHOW_SESSION';
+export const HIDE_SESSION = 'HIDE_SESSION';
+
+
+

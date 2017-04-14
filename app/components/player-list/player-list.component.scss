@@ -40,6 +40,7 @@
       width: 140px;
       height: 140px;
       background-color: $pale-grey;
+      line-height: 1.1;
 
       .start-inner-circle {
         display: flex;
@@ -144,6 +145,7 @@
     position: relative;
     //z-index: 10;
     flex: 1 0 125px;
+    min-width: 125px;
     display: flex;
     align-items: center;
     justify-content: center;

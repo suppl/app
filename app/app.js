@@ -13,6 +13,7 @@ import Splash from './screens/splash.screen';
 import Profile from './screens/profile.screen';
 
 import Notification from './components/notification/notification';
+import Session from './components/session/session.component';
 import Loader from './components/loader/loader';
 
 import userReducer from './reducers/user.reducer';
@@ -36,6 +37,7 @@ ReactDOM.render(
     <Provider store={store}>
         <div className="flex flex-max">
             <Notification/>
+            <Session/>
             <Loader/>
             <Locations hash>
                 <Location path="/" handler={Splash}/>

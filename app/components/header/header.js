@@ -15,6 +15,10 @@ class Header extends React.Component {
         return this.props.user.user.displayName ? this.props.user.user.displayName.split(' ')[0] : 'Anonymous';
     }
 
+    getUserFirstLetter() {
+        return this.props.user.user.displayName ? this.props.user.user.displayName.split('')[0] : 'A';
+    }
+
     render() {
         const settingsClass = classNames({
             active: this.props.settings.settingsVisible,
@@ -23,7 +27,7 @@ class Header extends React.Component {
         return (
             <div className="header-component">
                 <div className="suppl-logo">SUPPL</div>
-                <a className="user-logo" href="#/profile">N</a>
+                <a className="user-logo" href="#/profile">{this.getUserFirstLetter()}</a>
                 <a className="user-hello" href="#/profile" onClick={this.props.login}>Welcome back {this.getUserFirstName()}!</a>
                 <div className="header-menu">
                     <div className="menu-item"><i className="icon-heart"></i> Refer a friend</div>

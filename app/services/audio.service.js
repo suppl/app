@@ -32,5 +32,24 @@ export const AudioList = [
                 file: ''
             }
         ]
+    },
+    {
+        slug: "true-posture",
+        name: "True Posture",
+        icon: "icon-height",
+        description: `Dolorem doloribus facere quaerat tenetur!`,
+        caption: "Level 1",
+        sessions: [
+            {
+                name: 'Howdy',
+                file: ''
+            },
+            {
+                name: 'Howdy',
+                file: ''
+            }
+        ]
     }
 ];
+
+export default AudioList;
