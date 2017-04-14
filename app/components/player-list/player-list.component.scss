@@ -1,0 +1,173 @@
+@import "../../global/colors";
+
+.player-list-component {
+  display: flex;
+  flex: 1 0 auto;
+
+  flex-direction: row;
+
+  background-color: $pale-grey;
+  position: relative;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+
+  .list-container {
+    display: flex;
+    flex: 1 0 auto;
+
+    flex-direction: row;
+    position: relative;
+    //padding-right: 50px;
+
+  }
+
+  .list-start {
+    position: relative;
+    z-index: 10;
+    width: 140px;
+    margin-left: 95px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .start-circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 100%;
+      width: 140px;
+      height: 140px;
+      background-color: $pale-grey;
+
+      .start-inner-circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        border-radius: 100%;
+        width: 126px;
+        height: 126px;
+        background-color: $white;
+        box-shadow: 0 2px 4px 0 $black-20;
+        border: solid 3px $azure;
+
+        font-size: 22px;
+        font-weight: 600;
+        color: $azure;
+      }
+    }
+  }
+
+  .list-item {
+    position: relative;
+    //z-index: 10;
+    flex: 0 0 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .list-circle {
+      position: relative;
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 100%;
+      flex: 0 0 50px;
+      width: 50px;
+      height: 50px;
+      background-color: $white;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+      color: $azure;
+      font-size: 20px;
+      transition: .15s;
+      cursor: pointer;
+      margin-left: 100px;
+      margin-right: -25px;
+
+      .fa-play {
+        margin-left: 5px;
+      }
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+
+    .list-circle-number {
+      position: relative;
+      z-index: 15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 100%;
+      flex: 0 0 50px;
+      width: 50px;
+      height: 50px;
+      background-color: $flat-blue;
+      transition: .15s;
+      margin-left: 100px;
+      margin-right: -25px;
+      font-size: 20px;
+      font-weight: 600;
+      color: $white;
+    }
+
+    .list-line {
+      height: 6px;
+      width: 125px;
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      background: $flat-blue;
+    }
+
+    .list-line-started {
+      z-index: 6;
+      height: 6px;
+      width: 125px;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      background-color: $pale-grey;
+    }
+
+  }
+
+  .last-item {
+    position: relative;
+    //z-index: 10;
+    flex: 1 0 125px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    .list-line {
+      height: 0px;
+      border-top:dashed 6px $flat-blue;
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      //background: $flat-blue;
+    }
+  }
+
+  .list-background {
+    background-color: #4e92df;
+    position: absolute;
+    //z-index: 5;
+    left: 165px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+  }
+}

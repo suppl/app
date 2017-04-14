@@ -1,12 +1,11 @@
 import React from 'react';
-
-import * as ACTIONS from '../constants/actions.constants';
-
 import {connect} from "react-redux";
 
+import * as ACTIONS from '../constants/actions.constants';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
+import {AudioList} from '../services/audio.service';
 
 
 class Dashboard extends React.Component {
@@ -26,33 +25,18 @@ class Dashboard extends React.Component {
 
                         <div className="content-area">
                             <div className="panels">
-                                <a className="panel" href="#/player">
-                                    <div className="panel-icon">
-                                        <div className="icon-loudspeaker"></div>
-
-                                    </div>
-                                    <div className="panel-heading">Take 3</div>
-                                    <div className="panel-line"></div>
-                                    <div className="panel-text">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, sunt.
-                                    </div>
-                                </a>
-
-                                <div className="panel">
-                                    <div className="panel-icon">
-                                        <div className="icon-city"></div>
-
-                                    </div>
-                                    <div className="panel-heading">Work Wellness</div>
-                                    <div className="panel-line"></div>
-                                    <div className="panel-text">
-                                        Dolorem doloribus facere quaerat tenetur!
-                                    </div>
-                                </div>
+                                {AudioList.map((session, index) =>
+                                    <a className="panel" href={`#/player/${session.slug}`} key={session.slug}>
+                                        <div className="panel-icon">
+                                            <div className={session.icon}></div>
+                                        </div>
+                                        <div className="panel-heading">{session.name}</div>
+                                        <div className="panel-line"></div>
+                                        <div className="panel-text">{session.description}</div>
+                                    </a>
+                                )}
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>

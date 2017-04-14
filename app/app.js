@@ -4,6 +4,8 @@ import {Provider} from 'react-redux';
 import {createStore, combineReducers} from 'redux'
 
 import Router from 'react-router-component'
+const Locations = Router.Locations;
+const Location = Router.Location;
 
 import Dashboard from './screens/dashboard.screen';
 import Player from './screens/player.screen';
@@ -18,8 +20,6 @@ import requestReducer from './reducers/request.reducer';
 import notificationReducer from './reducers/notification.reducer';
 import settingsReducer from './reducers/settings.reducer';
 
-const Locations = Router.Locations;
-const Location = Router.Location;
 
 const reducer = combineReducers({
     user: userReducer,
@@ -40,7 +40,7 @@ ReactDOM.render(
             <Locations hash>
                 <Location path="/" handler={Splash}/>
                 <Location path="/dashboard" handler={Dashboard}/>
-                <Location path="/player" handler={Player}/>
+                <Location path="/player(/*)" handler={Player}/>
                 <Location path="/profile" handler={Profile}/>
             </Locations>
         </div>

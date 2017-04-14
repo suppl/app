@@ -88,3 +88,9 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+.content-area-plain {
+  display: flex;
+  flex: 1;
+  max-width: calc(100vw - 89px);
+}
