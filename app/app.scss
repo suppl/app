@@ -68,6 +68,7 @@ a {
 
 [data-content] {
   opacity: 0;
+  max-width: calc(100vw - 89px);
 
   transition: .6s;
   transform: translateY(-10px);

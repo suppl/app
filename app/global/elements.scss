@@ -24,6 +24,11 @@
 
   display: flex;
   flex-direction: row;
+  transition: .15s;
+
+  &.focus {
+    border: solid 1px $azure;
+  }
 
   .input-icon {
     height: 38px;
