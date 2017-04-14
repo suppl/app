@@ -33,6 +33,7 @@
   flex-direction: column;
   transition: .15s;
   cursor: pointer;
+  text-decoration: none !important;
 
   .panel-icon {
     color: $pale-grey-four;

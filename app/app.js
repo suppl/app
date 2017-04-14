@@ -8,6 +8,8 @@ import Router from 'react-router-component'
 import Dashboard from './screens/dashboard.screen';
 import Player from './screens/player.screen';
 import Splash from './screens/splash.screen';
+import Profile from './screens/profile.screen';
+
 import Notification from './components/notification/notification';
 import Loader from './components/loader/loader';
 
@@ -39,6 +41,7 @@ ReactDOM.render(
                 <Location path="/" handler={Splash}/>
                 <Location path="/dashboard" handler={Dashboard}/>
                 <Location path="/player" handler={Player}/>
+                <Location path="/profile" handler={Profile}/>
             </Locations>
         </div>
 

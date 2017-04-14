@@ -14,19 +14,35 @@ const performAction = {
 
     [ACTIONS.UPDATE_LOGIN_PASSWORD]: data => ({password: data.password}),
 
+    [ACTIONS.UPDATE_NAME]: (data, state) => ({
+        user: {
+            ...state.user,
+            displayName: data.displayName
+        }
+    }),
+
+    [ACTIONS.LOAD_PROFILE]: (data, state) => ({
+        user: firebase.auth().currentUser
+    }),
+
+    [ACTIONS.SAVE_PROFILE]: (data, state) => {
+        firebase.auth().currentUser.updateProfile({
+            displayName: state.user.displayName,
+        }).then(() => {
+            Dispatch({
+                type:ACTIONS.SHOW_NOTIFICATION,
+                message:"Updated profile details"
+            })
+        });
+    },
+
     [ACTIONS.SET_USER]: data => {
-        window.location.hash = '/dashboard';
-
         Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: "Signed in successfully"});
-
         return {isLoggedIn: true, user: data.user}
     },
 
     [ACTIONS.UNSET_USER]: data => {
-        window.location.hash = '/';
-
         Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: "Signed out successfully"});
-
         return {isLoggedIn: false, user: {}}
     },
 };
@@ -36,7 +52,7 @@ const user = (state = initialState, action) => {
 
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action));
+    state = Object.assign({}, state, performAction[action.type](action, state));
 
     console.info('NEW USER STATE:', action.type, state);
     return state
@@ -49,7 +65,6 @@ const checkAuth = () => {
         if (!user) return;
 
         Dispatch({type: ACTIONS.SET_USER, user: user});
-
     });
 };
 

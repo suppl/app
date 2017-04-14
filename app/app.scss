@@ -5,6 +5,11 @@
 @import "global/splash";
 @import "global/buttons";
 
+html, body {
+  width: 100%;
+  overflow: hidden;
+}
+
 body {
   background-color: $pale-grey;
   font-family: 'Open Sans', sans-serif;

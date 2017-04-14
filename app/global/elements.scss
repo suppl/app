@@ -76,6 +76,15 @@
   box-shadow: 0 4px 4px 0 $black-20;
   border: solid 1px $white-two;
 
+  opacity: 0;
+  visibility: hidden;
+  transition: .15s;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
 
   .dropdown-item {
     border-bottom: solid 1px $white-two;
@@ -91,6 +100,7 @@
     flex-direction: row;
     transition: .15s;
     cursor: pointer;
+    text-decoration: none;
 
     .item-icon {
       height: 30px;
@@ -112,7 +122,7 @@
       border: none;
     }
 
-    &:hover {
+    &:hover, &.active {
       background-color: $azure;
       color: white;
     }

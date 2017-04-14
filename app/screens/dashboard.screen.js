@@ -1,5 +1,7 @@
 import React from 'react';
 
+import * as ACTIONS from '../constants/actions.constants';
+
 import {connect} from "react-redux";
 
 import SubHeader from '../components/sub-header/sub-header';
@@ -24,7 +26,7 @@ class Dashboard extends React.Component {
 
                         <div className="content-area">
                             <div className="panels">
-                                <div className="panel">
+                                <a className="panel" href="#/player">
                                     <div className="panel-icon">
                                         <div className="icon-loudspeaker"></div>
 
@@ -34,7 +36,7 @@ class Dashboard extends React.Component {
                                     <div className="panel-text">
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, sunt.
                                     </div>
-                                </div>
+                                </a>
 
                                 <div className="panel">
                                     <div className="panel-icon">
@@ -51,7 +53,6 @@ class Dashboard extends React.Component {
                         </div>
 
 
-
                     </div>
                 </div>
             </div>
@@ -60,10 +61,12 @@ class Dashboard extends React.Component {
 }
 
 
-
 const mapStateToProps = state => {
     console.log('mapStateToProps', state);
-    if (!state.user.isLoggedIn) window.location.hash = '/';
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (!user) window.location.hash = '/';
+    });
 
     return state
 };

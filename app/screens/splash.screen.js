@@ -1,8 +1,7 @@
 import React from 'react';
-
+import {connect} from "react-redux";
 import * as ACTIONS from '../constants/actions.constants';
 
-import {connect} from "react-redux";
 
 class Splash extends React.Component {
     render() {
@@ -56,7 +55,10 @@ class Splash extends React.Component {
 
 const mapStateToProps = state => {
     console.log('mapStateToProps', state);
-    if (state.user.isLoggedIn) window.location.hash = '/dashboard';
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) window.location.hash = '/dashboard';
+    });
 
     return state
 };

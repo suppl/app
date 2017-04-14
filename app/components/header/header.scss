@@ -25,6 +25,16 @@
     color: white;
     font-size: 12px;
     font-weight: 600;
+    transition: .15s;
+    text-decoration: none;
+
+    &:hover, &:focus {
+      background-color: adjust-color($azure, $saturation: 10, $lightness: 10);
+    }
+
+    &:active {
+      background-color: adjust-color($azure, $saturation: 20, $lightness: 20);
+    }
   }
 
   .user-hello {
@@ -60,10 +70,16 @@
       display: flex;
       flex-direction: row;
       position: relative;
+      cursor: pointer;
+      transition: .15s;
 
       i {
         font-size: 10px;
         margin: auto 5px;
+      }
+
+      &:hover {
+        color: $azure;
       }
     }
   }

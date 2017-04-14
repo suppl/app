@@ -41,6 +41,8 @@ const performAction = {
 const standardError = (action, message) => {
     console.error('ERROR', action, message);
 
+    Dispatch(ACTIONS.DONE_LOADING);
+
     Dispatch({
         type: ACTIONS.SHOW_NOTIFICATION,
         message: message,

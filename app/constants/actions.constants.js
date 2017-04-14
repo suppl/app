@@ -5,7 +5,12 @@ export const UNSET_USER = 'UNSET_USER';
 
 export const SIGN_IN = 'SIGN_IN';
 export const SIGN_OUT = 'SIGN_OUT';
-export const SHOW_NOTIFICATION = 'SHOW';
-export const HIDE_NOTIFICATION = 'HIDE';
+export const SHOW_NOTIFICATION = 'SHOW_NOTIFICATION';
+export const HIDE_NOTIFICATION = 'HIDE_NOTIFICATION';
 export const START_LOADING = 'START_LOADING';
 export const DONE_LOADING = 'DONE_LOADING';
+export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS';
+export const UPDATE_NAME = 'UPDATE_NAME';
+export const SAVE_PROFILE = 'SAVE_PROFILE';
+export const LOAD_PROFILE = 'LOAD_PROFILE';
+

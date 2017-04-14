@@ -1,18 +1,23 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
-import Dispatch from './../services/dispatch.service';
+import {Dispatch, State} from './../services/dispatch.service';
 
 const initialState = {
-    loaderVisible: true
+    loaderVisible: true,
+    settingsVisible: false,
 };
 
 const performAction = {
+    [ACTIONS.TOGGLE_SETTINGS]: data => ({
+        settingsVisible: !State().settings.settingsVisible,
+    }),
+
     [ACTIONS.START_LOADING]: data => ({
-        loaderVisible: true
+        loaderVisible: true,
     }),
 
     [ACTIONS.DONE_LOADING]: data => ({
-        loaderVisible: false
+        loaderVisible: false,
     }),
 };
 
