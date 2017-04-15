@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux";
 import * as ACTIONS from '../../constants/actions.constants';
+import {isAudioAvailable} from '../../services/session.service';
 
 require('./player-list.component.scss');
-
 
 class Splash extends React.Component {
     componentWillMount() {
@@ -15,42 +15,32 @@ class Splash extends React.Component {
 
     render() {
 
+        const session = this.props.settings.session;
+
         return (
             <div className={`player-list-component`}>
                 <div className="list-container">
-                    <div className="list-background"></div>
+                    <div className="list-background"/>
                     <div className="list-start">
                         <div className="start-circle">
                             <div className="start-inner-circle">{this.props.settings.session.name}</div>
                         </div>
                     </div>
-                    <div className="list-item">
-                        <div className="list-circle" onClick={this.props.showSession}>
-                            <i className="fa fa-play fa-fw"></i>
+
+                    {session.audios.map((audio, index) =>
+                        <div className="list-item">
+                            { isAudioAvailable(audio) ?
+                                <div className="list-circle" onClick={() => this.props.showAudio(session, audio)}><i className="fa fa-play fa-fw"/></div>
+                                :
+                                <div className="list-circle-number">{index}</div>
+                            }
+                            { isAudioAvailable(audio) ? <div className="list-line-started"/> : <div className="list-line"/> }
                         </div>
-                        <div className="list-line-started"></div>
-                    </div>
-                    <div className="list-item">
-                        <div className="list-circle-number">2</div>
-                        <div className="list-line"></div>
-                    </div>
-                    <div className="list-item">
-                        <div className="list-circle-number">3</div>
-                        <div className="list-line"></div>
-                    </div>
-                    <div className="list-item">
-                        <div className="list-circle-number">4</div>
-                        <div className="list-line"></div>
-                    </div>
-                    <div className="list-item">
-                        <div className="list-circle-number">5</div>
-                        <div className="list-line"></div>
-                    </div>
+                    )}
                     <div className="last-item">
-                        <div className="list-line"></div>
+                        <div className="list-line"/>
                     </div>
                 </div>
-
 
             </div>
         )
@@ -61,8 +51,10 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
 
-    showSession: () => dispatch({
-        type: ACTIONS.SHOW_SESSION
+    showAudio: (session, audio) => dispatch({
+        type: ACTIONS.SHOW_AUDIO,
+        session,
+        audio
     }),
 
     showNotification: () => dispatch({

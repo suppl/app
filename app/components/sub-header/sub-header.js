@@ -10,17 +10,15 @@ class SubHeader extends React.Component {
     render() {
         return (
             <div className="sub-header-component">
-                <div className="sub-heading">{this.props.text}</div>
+                <div className="sub-heading">
+                    {this.props.text} <div className="small-sub-heading">{this.props.subText}</div>
+                </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    console.log('mapStateToProps', state);
-
-    return state
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
     return {

@@ -1,26 +1,28 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
 import {Dispatch, State} from './../services/dispatch.service';
-import AudioList from './../services/audio.service';
+import SessionList from './../services/session.service';
 
 const initialState = {
     loaderVisible: true,
     settingsVisible: false,
-    session: AudioList[0],
-    sessionVisible: false,
+    session: SessionList[0],
+    audio: SessionList[0].audios[0],
+    audioVisible: false,
 };
 
 const performAction = {
-    [ACTIONS.HIDE_SESSION]: data => ({
-        sessionVisible: false,
+    [ACTIONS.HIDE_AUDIO]: data => ({
+        audioVisible: false,
     }),
 
-    [ACTIONS.SHOW_SESSION]: data => ({
-        sessionVisible: true,
+    [ACTIONS.SHOW_AUDIO]: data => ({
+        audio: data.audio,
+        audioVisible: true,
     }),
 
-    [ACTIONS.TOGGLE_SETTINGS]: data => ({
-        settingsVisible: !State().settings.settingsVisible,
+    [ACTIONS.TOGGLE_SETTINGS]: (data, state) => ({
+        settingsVisible: !state.settingsVisible,
     }),
 
     [ACTIONS.START_LOADING]: data => ({
@@ -37,14 +39,10 @@ const performAction = {
 };
 
 const settings = (state = initialState, action) => {
-    console.info('USER ACTION', action);
-
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action));
-
     console.info('NEW USER STATE:', action.type, state);
-    return state
+    return Object.assign({}, state, performAction[action.type](action, state));
 };
 
 export default settings;

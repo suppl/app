@@ -13,10 +13,11 @@ export const TOGGLE_SETTINGS = 'TOGGLE_SETTINGS';
 export const UPDATE_NAME = 'UPDATE_NAME';
 export const SAVE_PROFILE = 'SAVE_PROFILE';
 export const LOAD_PROFILE = 'LOAD_PROFILE';
+export const UPDATE_USER_CUSTOM_DATA = 'UPDATE_USER_CUSTOM_DATA';
 
 export const SET_SESSION = 'SET_SESSION';
-export const SHOW_SESSION = 'SHOW_SESSION';
-export const HIDE_SESSION = 'HIDE_SESSION';
+export const SHOW_AUDIO = 'SHOW_SESSION';
+export const HIDE_AUDIO = 'HIDE_SESSION';
 
 
 

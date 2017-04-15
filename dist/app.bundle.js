@@ -1219,10 +1219,11 @@ var TOGGLE_SETTINGS = exports.TOGGLE_SETTINGS = 'TOGGLE_SETTINGS';
 var UPDATE_NAME = exports.UPDATE_NAME = 'UPDATE_NAME';
 var SAVE_PROFILE = exports.SAVE_PROFILE = 'SAVE_PROFILE';
 var LOAD_PROFILE = exports.LOAD_PROFILE = 'LOAD_PROFILE';
+var UPDATE_USER_CUSTOM_DATA = exports.UPDATE_USER_CUSTOM_DATA = 'UPDATE_USER_CUSTOM_DATA';
 
 var SET_SESSION = exports.SET_SESSION = 'SET_SESSION';
-var SHOW_SESSION = exports.SHOW_SESSION = 'SHOW_SESSION';
-var HIDE_SESSION = exports.HIDE_SESSION = 'HIDE_SESSION';
+var SHOW_AUDIO = exports.SHOW_AUDIO = 'SHOW_SESSION';
+var HIDE_AUDIO = exports.HIDE_AUDIO = 'HIDE_SESSION';
 
 /***/ }),
 /* 12 */
@@ -6493,8 +6494,6 @@ var Header = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
-
     return state;
 };
 
@@ -6626,7 +6625,13 @@ var SubHeader = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'sub-heading' },
-                    this.props.text
+                    this.props.text,
+                    ' ',
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'small-sub-heading' },
+                        this.props.subText
+                    )
                 )
             );
         }
@@ -6636,8 +6641,6 @@ var SubHeader = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
-
     return state;
 };
 
@@ -14246,7 +14249,7 @@ var Loader = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
+    //console.log('', state)
 
     return state;
 };
@@ -14339,7 +14342,7 @@ var Notification = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
+    //console.log('', state)
 
     return state;
 };
@@ -14411,7 +14414,6 @@ var performAction = (_performAction = {}, _defineProperty(_performAction, ACTION
     }, 3000);
 
     return {
-        type: ACTIONS.SET_USER,
         theme: data.theme,
         message: data.message,
         visible: true
@@ -14422,14 +14424,10 @@ var notification = function notification() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
     var action = arguments[1];
 
-    console.info('NOTIFICATION ACTION', action);
-
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action));
-
     console.info('NEW NOTIFICATION STATE:', action.type, state);
-    return state;
+    return Object.assign({}, state, performAction[action.type](action, state));
 };
 
 exports.default = notification;
@@ -14515,14 +14513,10 @@ var requests = function requests() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
     var action = arguments[1];
 
-    console.info('REQUEST ACTION', action);
-
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action));
-
     console.info('NEW REQUEST STATE:', action.type, state);
-    return state;
+    return Object.assign({}, state, performAction[action.type](action));
 };
 
 exports.default = requests;
@@ -14550,9 +14544,9 @@ var Request = _interopRequireWildcard(_superagent);
 
 var _dispatch = __webpack_require__(46);
 
-var _audio = __webpack_require__(300);
+var _session = __webpack_require__(304);
 
-var _audio2 = _interopRequireDefault(_audio);
+var _session2 = _interopRequireDefault(_session);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14563,21 +14557,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var initialState = {
     loaderVisible: true,
     settingsVisible: false,
-    session: _audio2.default[0],
-    sessionVisible: false
+    session: _session2.default[0],
+    audio: _session2.default[0].audios[0],
+    audioVisible: false
 };
 
-var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.HIDE_SESSION, function (data) {
+var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.HIDE_AUDIO, function (data) {
     return {
-        sessionVisible: false
+        audioVisible: false
     };
-}), _defineProperty(_performAction, ACTIONS.SHOW_SESSION, function (data) {
+}), _defineProperty(_performAction, ACTIONS.SHOW_AUDIO, function (data) {
     return {
-        sessionVisible: true
+        audio: data.audio,
+        audioVisible: true
     };
-}), _defineProperty(_performAction, ACTIONS.TOGGLE_SETTINGS, function (data) {
+}), _defineProperty(_performAction, ACTIONS.TOGGLE_SETTINGS, function (data, state) {
     return {
-        settingsVisible: !(0, _dispatch.State)().settings.settingsVisible
+        settingsVisible: !state.settingsVisible
     };
 }), _defineProperty(_performAction, ACTIONS.START_LOADING, function (data) {
     return {
@@ -14597,14 +14593,10 @@ var settings = function settings() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
     var action = arguments[1];
 
-    console.info('USER ACTION', action);
-
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action));
-
     console.info('NEW USER STATE:', action.type, state);
-    return state;
+    return Object.assign({}, state, performAction[action.type](action, state));
 };
 
 exports.default = settings;
@@ -14642,13 +14634,16 @@ var initialState = {
     isLoggedIn: false,
     email: "hello@suppl.co",
     password: "password123",
-    user: {}
+    user: {},
+    customData: {}
 };
 
 var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.UPDATE_LOGIN_EMAIL, function (data) {
     return { email: data.email };
 }), _defineProperty(_performAction, ACTIONS.UPDATE_LOGIN_PASSWORD, function (data) {
     return { password: data.password };
+}), _defineProperty(_performAction, ACTIONS.UPDATE_USER_CUSTOM_DATA, function (data) {
+    return { customData: data.customData };
 }), _defineProperty(_performAction, ACTIONS.UPDATE_NAME, function (data, state) {
     return {
         user: _extends({}, state.user, {
@@ -14656,9 +14651,7 @@ var performAction = (_performAction = {}, _defineProperty(_performAction, ACTION
         })
     };
 }), _defineProperty(_performAction, ACTIONS.LOAD_PROFILE, function (data, state) {
-    return {
-        user: firebase.auth().currentUser
-    };
+    return { user: firebase.auth().currentUser };
 }), _defineProperty(_performAction, ACTIONS.SAVE_PROFILE, function (data, state) {
     firebase.auth().currentUser.updateProfile({
         displayName: state.user.displayName
@@ -14680,14 +14673,10 @@ var user = function user() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
     var action = arguments[1];
 
-    console.info('USER ACTION', action);
-
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action, state));
-
     console.info('NEW USER STATE:', action.type, state);
-    return state;
+    return Object.assign({}, state, performAction[action.type](action, state));
 };
 
 var checkAuth = function checkAuth() {
@@ -14697,6 +14686,38 @@ var checkAuth = function checkAuth() {
         if (!user) return;
 
         (0, _dispatch.Dispatch)({ type: ACTIONS.SET_USER, user: user });
+        trackUserCustomData();
+        checkInitialUserCustomData();
+    });
+};
+
+var checkInitialUserCustomData = function checkInitialUserCustomData() {
+    var userId = firebase.auth().currentUser.uid;
+
+    firebase.database().ref('/users/' + userId).once('value').then(function (snapshot) {
+        var data = snapshot.val();
+        console.warn('snapshot.val()', data);
+
+        if (!data) {
+            firebase.database().ref('users/' + userId).update({
+                points: 0,
+                rewards: {},
+                log: []
+            });
+        }
+    });
+};
+
+var trackUserCustomData = function trackUserCustomData() {
+    var userId = firebase.auth().currentUser.uid;
+
+    firebase.database().ref('users/' + userId).on('value', function (snapshot) {
+        console.info('db change to user', snapshot.val());
+
+        (0, _dispatch.Dispatch)({
+            type: ACTIONS.UPDATE_USER_CUSTOM_DATA,
+            customData: snapshot.val()
+        });
     });
 };
 
@@ -14743,7 +14764,7 @@ var _sidebar = __webpack_require__(44);
 
 var _sidebar2 = _interopRequireDefault(_sidebar);
 
-var _audio = __webpack_require__(300);
+var _session = __webpack_require__(304);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -14792,7 +14813,7 @@ var Dashboard = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'panels' },
-                                _audio.AudioList.map(function (session, index) {
+                                _session.SessionList.map(function (session, index) {
                                     return _react2.default.createElement(
                                         'a',
                                         { className: 'panel', href: '#/player/' + session.slug, key: session.slug },
@@ -14826,8 +14847,6 @@ var Dashboard = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) window.location.hash = '/';
     });
@@ -14892,7 +14911,7 @@ var _lodash = __webpack_require__(130);
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
-var _audio = __webpack_require__(300);
+var _session = __webpack_require__(304);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -14927,7 +14946,7 @@ var Player = function (_React$Component) {
             }, 1);
 
             var getSession = function getSession() {
-                return _this2.props._ ? _lodash2.default.find(_audio.AudioList, { slug: _this2.props._[0] }) : undefined;
+                return _this2.props._ ? _lodash2.default.find(_session.SessionList, { slug: _this2.props._[0] }) : undefined;
             };
 
             if (getSession()) {
@@ -14941,6 +14960,8 @@ var Player = function (_React$Component) {
         key: 'render',
         value: function render() {
             var _this3 = this;
+
+            var session = this.props.settings.session ? this.props.settings.session : {};
 
             var getSessionName = function getSessionName() {
                 return _this3.props.settings.session ? _this3.props.settings.session.name : "No Session selected";
@@ -14957,7 +14978,7 @@ var Player = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
-                        _react2.default.createElement(_subHeader2.default, { text: getSessionName() }),
+                        _react2.default.createElement(_subHeader2.default, { text: getSessionName(), subText: session.description }),
                         _react2.default.createElement(_playerList2.default, null)
                     )
                 )
@@ -14969,11 +14990,10 @@ var Player = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) window.location.hash = '/';
     });
+
     return state;
 };
 
@@ -15131,7 +15151,7 @@ var Profile = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
+    //console.log('', state);
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) window.location.hash = '/';
@@ -15302,7 +15322,7 @@ var Splash = function (_React$Component) {
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
+    //console.log('', state);
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) window.location.hash = '/dashboard';
@@ -34685,7 +34705,7 @@ exports = module.exports = __webpack_require__(20)(undefined);
 
 
 // module
-exports.push([module.i, ".sub-header-component {\n  background: #e7ebee;\n  padding: 15px 25px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 70px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  z-index: 10; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345; }\n", ""]);
+exports.push([module.i, ".sub-header-component {\n  background: #e7ebee;\n  padding: 15px 25px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 70px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  z-index: 10; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline; }\n    .sub-header-component .sub-heading .small-sub-heading {\n      font-size: 12px;\n      color: #263345;\n      margin-left: 15px;\n      font-weight: normal; }\n", ""]);
 
 // exports
 
@@ -50413,6 +50433,8 @@ var _actions = __webpack_require__(11);
 
 var ACTIONS = _interopRequireWildcard(_actions);
 
+var _session = __webpack_require__(304);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -50447,6 +50469,9 @@ var Splash = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
+            var session = this.props.settings.session;
 
             return _react2.default.createElement(
                 'div',
@@ -50468,56 +50493,24 @@ var Splash = function (_React$Component) {
                             )
                         )
                     ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'list-item' },
-                        _react2.default.createElement(
+                    session.audios.map(function (audio, index) {
+                        return _react2.default.createElement(
                             'div',
-                            { className: 'list-circle', onClick: this.props.showSession },
-                            _react2.default.createElement('i', { className: 'fa fa-play fa-fw' })
-                        ),
-                        _react2.default.createElement('div', { className: 'list-line-started' })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'list-item' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'list-circle-number' },
-                            '2'
-                        ),
-                        _react2.default.createElement('div', { className: 'list-line' })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'list-item' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'list-circle-number' },
-                            '3'
-                        ),
-                        _react2.default.createElement('div', { className: 'list-line' })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'list-item' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'list-circle-number' },
-                            '4'
-                        ),
-                        _react2.default.createElement('div', { className: 'list-line' })
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'list-item' },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'list-circle-number' },
-                            '5'
-                        ),
-                        _react2.default.createElement('div', { className: 'list-line' })
-                    ),
+                            { className: 'list-item' },
+                            (0, _session.isAudioAvailable)(audio) ? _react2.default.createElement(
+                                'div',
+                                { className: 'list-circle', onClick: function onClick() {
+                                        return _this3.props.showAudio(session, audio);
+                                    } },
+                                _react2.default.createElement('i', { className: 'fa fa-play fa-fw' })
+                            ) : _react2.default.createElement(
+                                'div',
+                                { className: 'list-circle-number' },
+                                index
+                            ),
+                            (0, _session.isAudioAvailable)(audio) ? _react2.default.createElement('div', { className: 'list-line-started' }) : _react2.default.createElement('div', { className: 'list-line' })
+                        );
+                    }),
                     _react2.default.createElement(
                         'div',
                         { className: 'last-item' },
@@ -50538,9 +50531,11 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
 
-        showSession: function showSession() {
+        showAudio: function showAudio(session, audio) {
             return dispatch({
-                type: ACTIONS.SHOW_SESSION
+                type: ACTIONS.SHOW_AUDIO,
+                session: session,
+                audio: audio
             });
         },
 
@@ -50596,59 +50591,7 @@ if(false) {
 }
 
 /***/ }),
-/* 300 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-var AudioList = exports.AudioList = [{
-    slug: "take-3",
-    name: "Take 3",
-    icon: "icon-loudspeaker",
-    description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores, sunt.",
-    caption: "Level 1",
-    sessions: [{
-        name: 'Howdy',
-        file: ''
-    }, {
-        name: 'Howdy',
-        file: ''
-    }]
-}, {
-    slug: "work-wellness",
-    name: "Work Wellness",
-    icon: "icon-city",
-    description: "Dolorem doloribus facere quaerat tenetur!",
-    caption: "Level 1",
-    sessions: [{
-        name: 'Howdy',
-        file: ''
-    }, {
-        name: 'Howdy',
-        file: ''
-    }]
-}, {
-    slug: "true-posture",
-    name: "True Posture",
-    icon: "icon-height",
-    description: "Dolorem doloribus facere quaerat tenetur!",
-    caption: "Level 1",
-    sessions: [{
-        name: 'Howdy',
-        file: ''
-    }, {
-        name: 'Howdy',
-        file: ''
-    }]
-}];
-
-exports.default = AudioList;
-
-/***/ }),
+/* 300 */,
 /* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -50665,11 +50608,11 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = __webpack_require__(14);
+
 var _actions = __webpack_require__(11);
 
 var ACTIONS = _interopRequireWildcard(_actions);
-
-var _reactRedux = __webpack_require__(14);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -50683,19 +50626,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 __webpack_require__(303);
 
-var Session = function (_React$Component) {
-    _inherits(Session, _React$Component);
+var Audio = function (_React$Component) {
+    _inherits(Audio, _React$Component);
 
-    function Session() {
-        _classCallCheck(this, Session);
+    function Audio() {
+        _classCallCheck(this, Audio);
 
-        return _possibleConstructorReturn(this, (Session.__proto__ || Object.getPrototypeOf(Session)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (Audio.__proto__ || Object.getPrototypeOf(Audio)).apply(this, arguments));
     }
 
-    _createClass(Session, [{
+    _createClass(Audio, [{
         key: 'getClasses',
         value: function getClasses() {
-            return [this.props.settings.sessionVisible ? 'active' : ''].join(' ');
+            return [this.props.settings.audioVisible ? 'active' : ''].join(' ');
         }
     }, {
         key: 'render',
@@ -50714,7 +50657,7 @@ var Session = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'audio-title' },
-                    'Begin Fresh'
+                    this.props.settings.audio.name
                 ),
                 _react2.default.createElement(
                     'div',
@@ -50730,12 +50673,10 @@ var Session = function (_React$Component) {
         }
     }]);
 
-    return Session;
+    return Audio;
 }(_react2.default.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    console.log('mapStateToProps', state);
-
     return state;
 };
 
@@ -50743,13 +50684,13 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         hideSession: function hideSession() {
             return dispatch({
-                type: ACTIONS.HIDE_SESSION
+                type: ACTIONS.HIDE_AUDIO
             });
         }
     };
 };
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Session);
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Audio);
 
 /***/ }),
 /* 302 */
@@ -50790,6 +50731,174 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+/* 304 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.isAudioAvailable = exports.isSessionAvailable = exports.SessionList = undefined;
+
+var _dispatch = __webpack_require__(46);
+
+var SessionList = exports.SessionList = [{
+    slug: "take-3",
+    name: "Take 3",
+    level: 1,
+    icon: "icon-loudspeaker",
+    description: "Take 3 minutes to improve your posture.",
+    caption: "Level 1",
+    rewardsNeeded: [],
+    pointLimit: 0,
+    audios: [{
+        name: 'Begin Fresh',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 0
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 0
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 100
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 100
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 100
+    }]
+}, {
+    slug: "work-wellness",
+    name: "Work Wellness",
+    level: 2,
+    icon: "icon-city",
+    description: "Dolorem doloribus facere quaerat tenetur!",
+    caption: "Level 1",
+    rewardsNeeded: [],
+    pointLimit: 0,
+    audios: [{
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }]
+}, {
+    slug: "true-posture",
+    name: "True Posture",
+    level: 3,
+    icon: "icon-height",
+    description: "Dolorem doloribus facere quaerat tenetur!",
+    caption: "Level 1",
+    rewardsNeeded: [],
+    pointLimit: 0,
+    audios: [{
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }, {
+        name: 'Howdy',
+        file: '',
+        rewardsNeeded: [],
+        pointLimit: 1000
+    }]
+}];
+
+var isSessionAvailable = exports.isSessionAvailable = function isSessionAvailable(session) {
+    var flag = true;
+
+    session.rewardsNeeded.forEach(function (reward) {});
+
+    if ((0, _dispatch.State)().user.customData.points < session.pointLimit) {
+        flag = false;
+    }
+
+    return flag;
+};
+
+var isAudioAvailable = exports.isAudioAvailable = function isAudioAvailable(audio) {
+    // console.log('audio', audio);
+    var flag = true;
+
+    audio.rewardsNeeded.forEach(function (reward) {});
+
+    if ((0, _dispatch.State)().user.customData.points < audio.pointLimit) {
+        flag = false;
+    }
+
+    return flag;
+};
+
+exports.default = SessionList;
 
 /***/ })
 /******/ ]);

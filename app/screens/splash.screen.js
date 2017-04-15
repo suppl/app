@@ -54,7 +54,7 @@ class Splash extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps', state);
+    //console.log('', state);
 
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) window.location.hash = '/dashboard';

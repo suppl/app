@@ -17,5 +17,16 @@
     font-size: 18px;
     font-weight: 600;
     color: $dark;
+
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+
+    .small-sub-heading {
+      font-size: 12px;
+      color: $dark;
+      margin-left: 15px;
+      font-weight: normal;
+    }
   }
 }

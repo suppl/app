@@ -12,7 +12,7 @@ import Dispatch from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
 
 import _ from 'lodash';
-import {AudioList} from '../services/audio.service';
+import {SessionList} from '../services/session.service';
 
 
 class Player extends React.Component {
@@ -23,7 +23,7 @@ class Player extends React.Component {
         }, 1);
 
         const getSession = () => {
-            return this.props._ ? _.find(AudioList, {slug: this.props._[0]}) : undefined;
+            return this.props._ ? _.find(SessionList, {slug: this.props._[0]}) : undefined;
         };
 
         if (getSession()) {
@@ -35,6 +35,8 @@ class Player extends React.Component {
     }
 
     render() {
+        const session = this.props.settings.session ? this.props.settings.session : {};
+
         const getSessionName = () => {
             return this.props.settings.session ? this.props.settings.session.name : "No Session selected";
         };
@@ -45,7 +47,7 @@ class Player extends React.Component {
                 <div className="flex flex-row">
                     <Sidebar/>
                     <div data-content className="flex flex-max">
-                        <SubHeader text={getSessionName()}/>
+                        <SubHeader text={getSessionName()} subText={session.description}/>
                         <PlayerList/>
                     </div>
                 </div>
@@ -56,11 +58,10 @@ class Player extends React.Component {
 
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps', state);
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) window.location.hash = '/';
     });
+
     return state
 };
 

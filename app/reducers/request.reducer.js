@@ -51,14 +51,10 @@ const standardError = (action, message) => {
 };
 
 const requests = (state = initialState, action) => {
-    console.info('REQUEST ACTION', action);
-
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action));
-
     console.info('NEW REQUEST STATE:', action.type, state);
-    return state
+    return Object.assign({}, state, performAction[action.type](action));
 };
 
 export default requests;

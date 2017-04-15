@@ -5,7 +5,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
-import {AudioList} from '../services/audio.service';
+import {SessionList} from '../services/session.service';
 
 
 class Dashboard extends React.Component {
@@ -25,7 +25,7 @@ class Dashboard extends React.Component {
 
                         <div className="content-area">
                             <div className="panels">
-                                {AudioList.map((session, index) =>
+                                {SessionList.map((session, index) =>
                                     <a className="panel" href={`#/player/${session.slug}`} key={session.slug}>
                                         <div className="panel-icon">
                                             <div className={session.icon}></div>
@@ -46,8 +46,6 @@ class Dashboard extends React.Component {
 
 
 const mapStateToProps = state => {
-    console.log('mapStateToProps', state);
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) window.location.hash = '/';
     });

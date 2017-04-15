@@ -57,11 +57,7 @@ class Header extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    console.log('mapStateToProps', state)
-
-    return state;
-};
+const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => {
     return {

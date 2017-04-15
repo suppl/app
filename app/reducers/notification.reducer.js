@@ -27,7 +27,6 @@ const performAction = {
         }, 3000);
 
         return {
-            type: ACTIONS.SET_USER,
             theme: data.theme,
             message: data.message,
             visible: true,
@@ -36,14 +35,10 @@ const performAction = {
 };
 
 const notification = (state = initialState, action) => {
-    console.info('NOTIFICATION ACTION', action);
-
     if (!performAction[action.type]) return state;
 
-    state = Object.assign({}, state, performAction[action.type](action));
-
     console.info('NEW NOTIFICATION STATE:', action.type, state);
-    return state
+    return Object.assign({}, state, performAction[action.type](action, state));
 };
 
 export default notification;
