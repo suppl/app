@@ -8,7 +8,7 @@ const initialState = {
     settingsVisible: false,
     session: SessionList[0],
     audio: SessionList[0].audios[0],
-    audioVisible: false,
+    audioVisible: false
 };
 
 const performAction = {

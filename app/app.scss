@@ -3,6 +3,7 @@
 @import "global/box";
 @import "global/elements";
 @import "global/splash";
+@import "global/register";
 @import "global/buttons";
 
 html, body {
@@ -18,6 +19,10 @@ body {
 
   font-size: 13px;
   color: $greyish-brown;
+
+  font-size: 13px;
+  font-weight: 600;
+  color: $brownish-grey;
 
 }
 
@@ -47,12 +52,18 @@ p, .p {
 
 a {
   color: $black-20;
+  color: inherit;
   transition: .15s;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
+    text-decoration: none;
     color: $azure;
+  }
+
+  &:active, &:visited, &:focus {
+    text-decoration: none;
   }
 }
 .gap {
@@ -75,7 +86,8 @@ a {
 }
 
 [data-screen] {
-  &.active {
+
+  &.active, &.active-screen {
     [data-content] {
       opacity: 1;
       transform: translateY(0);

@@ -25,13 +25,34 @@
   user-select: none;
   outline: none;
 
+  transition: .15s;
+
   &:hover, &:focus {
     background-color: adjust-color($azure, $saturation: 10, $lightness: 10);
+    outline: none;
   }
 
   &:active {
     background-color: adjust-color($azure, $saturation: 20, $lightness: 20);
+    outline: none;
   }
 
+  &.large {
+    margin-top: 35px;
+    max-width: 255px;
+    height: 75px;
+
+    font-size: 21px;
+    font-weight: 600;
+    text-align: left;
+    color: $white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events:none;
+  }
 
 }

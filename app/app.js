@@ -7,10 +7,14 @@ import Router from 'react-router-component'
 const Locations = Router.Locations;
 const Location = Router.Location;
 
-import Dashboard from './screens/dashboard.screen';
-import Player from './screens/player.screen';
-import Splash from './screens/splash.screen';
-import Profile from './screens/profile.screen';
+import DashboardScreen from './screens/dashboard.screen';
+import PlayerScreen from './screens/player.screen';
+import SplashScreen from './screens/splash.screen';
+import ProfileScreen from './screens/profile.screen';
+import RegisterScreen from './screens/register.screen';
+import RegisterPasswordScreen from './screens/register-password.screen';
+import RegisterJobScreen from './screens/register-job.screen';
+import RegisterStyleScreen from './screens/register-style.screen';
 
 import Notification from './components/notification/notification';
 import Session from './components/session/session.component';
@@ -40,10 +44,14 @@ ReactDOM.render(
             <Session/>
             <Loader/>
             <Locations hash>
-                <Location path="/" handler={Splash}/>
-                <Location path="/dashboard" handler={Dashboard}/>
-                <Location path="/player(/*)" handler={Player}/>
-                <Location path="/profile" handler={Profile}/>
+                <Location path="/" handler={SplashScreen}/>
+                <Location path="/register" handler={RegisterScreen}/>
+                <Location path="/register-password" handler={RegisterPasswordScreen}/>
+                <Location path="/register-job" handler={RegisterJobScreen}/>
+                <Location path="/register-style" handler={RegisterStyleScreen}/>
+                <Location path="/dashboard" handler={DashboardScreen}/>
+                <Location path="/player(/*)" handler={PlayerScreen}/>
+                <Location path="/profile" handler={ProfileScreen}/>
             </Locations>
         </div>
 

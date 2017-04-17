@@ -1,16 +1,53 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
 import {Dispatch, State, Store} from './../services/dispatch.service';
+import * as _ from 'lodash';
 
 const initialState = {
     isLoggedIn: false,
     email: "hello@suppl.co",
     password: "password123",
     user: {},
-    customData: {}
+    customData: {},
+    register: {
+        emailIsOk: false
+    }
 };
 
 const performAction = {
+    [ACTIONS.UPDATE_REGISTER_CHECK_EMAIL]: (data, state) => {
+        Dispatch({type: ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK, emailIsOk: false});
+        checkEmail(data);
+    },
+
+    [ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK]: (data, state) => ({
+        register: {...state.register, emailIsOk: data.emailIsOk}
+    }),
+
+    [ACTIONS.UPDATE_REGISTER_EMAIL]: (data, state) => ({
+        register: {...state.register, email: data.email}
+    }),
+
+    [ACTIONS.UPDATE_REGISTER_NAME]: (data, state) => ({
+        register: {...state.register, name: data.name}
+    }),
+
+    [ACTIONS.UPDATE_REGISTER_PASSWORD]: (data, state) => ({
+        register: {...state.register, password: data.password}
+    }),
+
+    [ACTIONS.UPDATE_REGISTER_ROLE]: (data, state) => ({
+        register: {...state.register, role: data.role}
+    }),
+
+    [ACTIONS.UPDATE_REGISTER_WORK_STYLE]: (data, state) => ({
+        register: {...state.register, workStyle: data.workStyle}
+    }),
+
+    [ACTIONS.UPDATE_REGISTER_WORK_HOURS]: (data, state) => ({
+        register: {...state.register, workHours: data.workHours}
+    }),
+
     [ACTIONS.UPDATE_LOGIN_EMAIL]: data => ({email: data.email}),
 
     [ACTIONS.UPDATE_LOGIN_PASSWORD]: data => ({password: data.password}),
@@ -51,9 +88,23 @@ const performAction = {
 const user = (state = initialState, action) => {
     if (!performAction[action.type]) return state;
 
-    console.info('NEW USER STATE:', action.type, state);
-    return Object.assign({}, state, performAction[action.type](action, state));
+    const newState = Object.assign({}, state, performAction[action.type](action, state));
+    console.info('NEW USER STATE:', action.type, newState);
+
+    return newState;
 };
+
+const checkEmail = _.debounce((data) => {
+    firebase.auth().fetchProvidersForEmail(data.email).then((data) => {
+        if (data.length === 0) {
+            Dispatch({type: ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK, emailIsOk: true});
+            Dispatch(ACTIONS.HIDE_NOTIFICATION);
+        } else {
+            Dispatch({type: ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK, emailIsOk: false})
+            Dispatch({type: ACTIONS.SHOW_NOTIFICATION, theme:'error', message: "This email already exists."});
+        }
+    }, (e) => {});
+}, 500);
 
 const checkAuth = () => {
     firebase.auth().onAuthStateChanged((user) => {

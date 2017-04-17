@@ -12,6 +12,59 @@
   text-transform: uppercase;
 }
 
+.suppl-multi {
+  height: 60px;
+  margin-top: 7px;
+  border-radius: 2px;
+  background-color: $white;
+  box-shadow: 0 2px 3px 0 $black--12;
+  //border: solid 1px $pinkish-grey-two;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  font-weight: normal;
+  user-focus: none;
+  user-select: none;
+
+  .multi-item {
+    flex: 1 0 0;
+    font-size: 18px;
+    color: $greyish-brown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    //margin: -1px;
+    cursor: pointer;
+
+    border: 1px solid $pinkish-grey-two;
+    //border-right: 1px solid $pinkish-grey-two;
+
+    transition: .15s;
+
+    border-left: none;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.05);
+    }
+
+    &:first-child {
+      border-left: 1px solid $pinkish-grey-two;
+    }
+
+    &:last-child {
+      border-right: 1px solid $pinkish-grey-two;
+    }
+
+    &.active {
+      background-color: $dark;
+      //border: solid 1px $pinkish-grey-two;
+      color: $white;
+      border: 1px solid $dark;
+    }
+  }
+}
+
 .suppl-input {
   margin-top: 7px;
   height: 40px;
@@ -25,6 +78,7 @@
   display: flex;
   flex-direction: row;
   transition: .15s;
+  font-weight: normal;
 
   &.focus {
     border: solid 1px $azure;
@@ -67,6 +121,23 @@
       color: $pinkish-grey;
     }
   }
+
+  &.large {
+    height: 60px;
+    line-height: 58px;
+    font-size: 17px;
+
+    .input-icon {
+      height: 58px;
+      width: 58px;
+    }
+
+    input {
+      height: 58px;
+      line-height: 58px;
+    }
+
+  }
 }
 
 .suppl-dropdown {
@@ -74,6 +145,8 @@
   margin-top: 30px;
   right: 0;
   //margin-left: -150px;
+  user-focus: none;
+  user-select: none;
 
   width: 150px;
   //height: 91px;

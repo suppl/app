@@ -1,0 +1,83 @@
+@import "colors";
+
+body .register-screen {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  opacity: 0;
+  transition: .6s;
+  background: white;
+
+  .register-left {
+
+    background: $pale-grey-three;
+
+    //align-items: center;
+    //justify-content: center;
+    flex-direction: column;
+    //text-align: center;
+
+    flex: 0 1 480px;
+    display: flex;
+    padding: 25px 50px;
+    //transform:translateX(-30px);
+
+    transition: .6s;
+  }
+
+  .register-right {
+    flex: 1 0 0;
+    background: white;
+  }
+
+  .register-header {
+    //margin: 25px 0 0 50px;
+
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    color: #666666;
+    align-self: flex-start;
+    justify-self: flex-start;
+    display: flex;
+    flex-direction: row;
+
+    .header-logo {
+      img {
+        height: 15px;
+      }
+    }
+
+    .header-logo-text {
+      font-size: 16px;
+      font-weight: 600;
+      color: $azure;
+      margin-left: 15px;
+    }
+
+    .header-page {
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 1px solid $warm-grey;
+    }
+
+  }
+
+  .register-heading {
+    font-size: 28px;
+    font-weight: 400;
+    //text-align: center;
+    color: #666666;
+    margin-top: 80px;
+  }
+
+
+  &.active-screen {
+    opacity: 1;
+
+    .register-left {
+      transform:translateX(0);
+    }
+  }
+}
+

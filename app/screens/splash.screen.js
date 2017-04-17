@@ -28,8 +28,8 @@ class Splash extends React.Component {
                         <div className="suppl-label">Your email</div>
 
                         <div className="suppl-input">
-                            <div className="input-icon icon-envelope"></div>
-                            <input type="email" placeholder="E.g. barry@work.com" value={this.props.user.email} onChange={this.props.updateLoginEmail}/>
+                            <div className="input-icon icon-envelope"/>
+                            <input type="email" autoFocus={true} placeholder="E.g. barry@work.com" value={this.props.user.email} onChange={this.props.updateLoginEmail}/>
                         </div>
                         <div className="suppl-label">Your password</div>
 
@@ -41,7 +41,7 @@ class Splash extends React.Component {
                         <div className="butn" style={{marginLeft: 'auto'}} tabIndex={0} onClick={this.props.signIn}>Sign in</div>
                         <p className="clearfix">
                             <a href="#/forgot" className="pull-left">Forgot Password</a>
-                            <a href="#/get-started" className="pull-right">Register</a>
+                            <a href="#/register" className="pull-right">Register</a>
                         </p>
                     </div>
 
