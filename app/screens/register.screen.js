@@ -44,7 +44,7 @@ class Register extends React.Component {
 
                         <div className="suppl-input large">
                             <div className="input-icon icon-user"/>
-                            <input type="text" placeholder="E.g. Barry Johnson" autoFocus={true} value={this.props.user.register.name} onChange={this.props.updateRegisterName}/>
+                            <input type="text" placeholder="E.g. Barry Johnson" autoFocus={true}  value={this.props.user.register.name} onChange={this.props.updateRegisterName}/>
                         </div>
 
                         <div className="suppl-label">Your email</div>

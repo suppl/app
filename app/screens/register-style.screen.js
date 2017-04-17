@@ -45,7 +45,7 @@ class RegisterStyle extends React.Component {
                             )}
                         </div>
 
-                        <a className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} >Start using Suppl</a>
+                        <a className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} onClick={this.props.registerUser}>Start using Suppl</a>
 
                         <p className="clearfix">
                             {/*<a href="#/" className="pull-left">Login</a>*/}
@@ -78,6 +78,10 @@ const mapDispatchToProps = dispatch => ({
     updateRegisterWorkStyle: (workStyle) => dispatch({
         type: ACTIONS.UPDATE_REGISTER_WORK_STYLE,
         workStyle
+    }),
+
+    registerUser: () => dispatch({
+        type: ACTIONS.REGISTER_USER
     }),
 });
 

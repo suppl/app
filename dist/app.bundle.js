@@ -819,6 +819,7 @@ var UPDATE_REGISTER_ROLE = exports.UPDATE_REGISTER_ROLE = 'UPDATE_REGISTER_ROLE'
 var UPDATE_REGISTER_WORK_STYLE = exports.UPDATE_REGISTER_WORK_STYLE = 'UPDATE_REGISTER_WORK_STYLE';
 var UPDATE_REGISTER_WORK_HOURS = exports.UPDATE_REGISTER_WORK_HOURS = 'UPDATE_REGISTER_WORK_HOURS';
 var UPDATE_REGISTER_CHECK_EMAIL = exports.UPDATE_REGISTER_CHECK_EMAIL = 'UPDATE_REGISTER_CHECK_EMAIL';
+var REGISTER_USER = exports.REGISTER_USER = 'REGISTER_USER';
 
 /***/ }),
 /* 9 */
@@ -32039,6 +32040,32 @@ var initialState = {
 var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.UPDATE_REGISTER_CHECK_EMAIL, function (data, state) {
     (0, _dispatch.Dispatch)({ type: ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK, emailIsOk: false });
     checkEmail(data);
+}), _defineProperty(_performAction, ACTIONS.REGISTER_USER, function (data, state) {
+    (0, _dispatch.Dispatch)(ACTIONS.START_LOADING);
+
+    firebase.auth().createUserWithEmailAndPassword(state.register.email, state.register.password).then(function (user) {
+
+        firebase.auth().currentUser.updateProfile({
+            displayName: state.register.name
+        });
+
+        firebase.database().ref('users/' + user.uid).update({
+            points: 0,
+            rewards: {},
+            log: [],
+            info: {
+                workStyle: state.register.workStyle,
+                workHours: state.register.workHours,
+                role: state.register.role
+            }
+        }).then(function () {
+            (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'Registered Successfully!' });
+            checkAuth();
+        });
+    }, function (error) {
+        console.error('error', error);
+        (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, theme: 'error', message: error.message });
+    });
 }), _defineProperty(_performAction, ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK, function (data, state) {
     return {
         register: _extends({}, state.register, { emailIsOk: data.emailIsOk })
@@ -32123,7 +32150,7 @@ var checkEmail = _.debounce(function (data) {
 }, 500);
 
 var checkAuth = function checkAuth() {
-    firebase.auth().onAuthStateChanged(function (user) {
+    return firebase.auth().onAuthStateChanged(function (user) {
         (0, _dispatch.Dispatch)(ACTIONS.DONE_LOADING, 500);
 
         if (!user) return;
@@ -51681,7 +51708,7 @@ var RegisterStyle = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'a',
-                            { className: 'butn large', style: { marginLeft: 'auto' }, disabled: !isValid(), tabIndex: 0 },
+                            { className: 'butn large', style: { marginLeft: 'auto' }, disabled: !isValid(), tabIndex: 0, onClick: this.props.registerUser },
                             'Start using Suppl'
                         ),
                         _react2.default.createElement(
@@ -51718,6 +51745,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
             return dispatch({
                 type: ACTIONS.UPDATE_REGISTER_WORK_STYLE,
                 workStyle: workStyle
+            });
+        },
+
+        registerUser: function registerUser() {
+            return dispatch({
+                type: ACTIONS.REGISTER_USER
             });
         }
     };

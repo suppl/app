@@ -20,6 +20,36 @@ const performAction = {
         checkEmail(data);
     },
 
+    [ACTIONS.REGISTER_USER]: (data, state) => {
+        Dispatch(ACTIONS.START_LOADING);
+
+        firebase.auth().createUserWithEmailAndPassword(state.register.email, state.register.password)
+            .then((user) => {
+
+                firebase.auth().currentUser.updateProfile({
+                    displayName: state.register.name,
+                });
+
+                firebase.database().ref('users/' + user.uid).update({
+                    points: 0,
+                    rewards: {},
+                    log: [],
+                    info: {
+                        workStyle:state.register.workStyle,
+                        workHours:state.register.workHours,
+                        role:state.register.role,
+                    }
+                }).then(() => {
+                    Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Registered Successfully!'});
+                    checkAuth();
+                });
+
+            }, (error) => {
+                console.error('error', error);
+                Dispatch({type: ACTIONS.SHOW_NOTIFICATION, theme: 'error', message: error.message});
+            });
+    },
+
     [ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK]: (data, state) => ({
         register: {...state.register, emailIsOk: data.emailIsOk}
     }),
@@ -101,13 +131,14 @@ const checkEmail = _.debounce((data) => {
             Dispatch(ACTIONS.HIDE_NOTIFICATION);
         } else {
             Dispatch({type: ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK, emailIsOk: false})
-            Dispatch({type: ACTIONS.SHOW_NOTIFICATION, theme:'error', message: "This email already exists."});
+            Dispatch({type: ACTIONS.SHOW_NOTIFICATION, theme: 'error', message: "This email already exists."});
         }
-    }, (e) => {});
+    }, (e) => {
+    });
 }, 500);
 
 const checkAuth = () => {
-    firebase.auth().onAuthStateChanged((user) => {
+    return firebase.auth().onAuthStateChanged((user) => {
         Dispatch(ACTIONS.DONE_LOADING, 500);
 
         if (!user) return;
