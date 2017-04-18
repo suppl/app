@@ -70,7 +70,7 @@ class Register extends React.Component {
                 </div>
 
                 <div className="register-right">
-                    <img className="register-img" src="/statics/images/login-one.svg" style={{marginTop:"auto",marginBottom:"-20px"}}/>
+                    <img className="register-img" src="/statics/images/login-one.svg" style={{marginTop:"auto",marginBottom:"-50px"}}/>
                 </div>
 
 

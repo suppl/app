@@ -48,7 +48,7 @@ class RegisterPassword extends React.Component {
                 </div>
 
                 <div className="register-right">
-                    <img className="register-img" src="/statics/images/login-two.svg" style={{marginLeft:"auto",marginRight:"-20px"}}/>
+                    <img className="register-img" src="/statics/images/login-two.svg" style={{marginLeft:"auto",marginRight:"-50px"}}/>
                 </div>
 
             </div>
