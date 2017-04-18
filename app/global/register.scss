@@ -27,7 +27,17 @@ body .register-screen {
 
   .register-right {
     flex: 1 0 0;
+    display: flex;
     background: white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 30px;
+  }
+
+  .register-img {
+    flex: 0 1 600px;
+
   }
 
   .register-header {

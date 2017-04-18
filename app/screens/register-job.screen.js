@@ -64,8 +64,7 @@ class RegisterJob extends React.Component {
                 </div>
 
                 <div className="register-right">
-
-
+                    <img className="register-img" src="/statics/images/login-three.svg" style={{}}/>
                 </div>
 
 

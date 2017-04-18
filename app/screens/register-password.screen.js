@@ -45,12 +45,10 @@ class RegisterPassword extends React.Component {
                             <a href="#/register" className="pull-right">Back</a>
                         </p>
                     </div>
-
-
                 </div>
 
                 <div className="register-right">
-
+                    <img className="register-img" src="/statics/images/login-two.svg" style={{marginLeft:"auto",marginRight:"-20px"}}/>
                 </div>
 
             </div>

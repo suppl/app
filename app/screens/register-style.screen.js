@@ -55,8 +55,7 @@ class RegisterStyle extends React.Component {
                 </div>
 
                 <div className="register-right">
-
-
+                    <img className="register-img" src="/statics/images/login-four.svg" style={{}}/>
                 </div>
 
 
