@@ -21,7 +21,7 @@ body {
   color: $greyish-brown;
 
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 400;
   color: $brownish-grey;
 
 }
@@ -55,19 +55,26 @@ a {
   color: inherit;
   transition: .15s;
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: underline;
 
   &:hover {
-    text-decoration: none;
+    //text-decoration: none;
     color: $azure;
   }
 
   &:active, &:visited, &:focus {
-    text-decoration: none;
+    //text-decoration: none;
   }
 }
+
 .gap {
 
+}
+
+.line {
+  height: 1px;
+  background: $warm-grey;
+  margin-top: 50px;
 }
 
 [data-reactroot], [data-screen] {

@@ -81,6 +81,13 @@ body .register-screen {
     margin-top: 80px;
   }
 
+  .register-sub-heading {
+    font-size: 16px;
+    //text-align: center;
+    color: #666666;
+    margin-top: 5px;
+  }
+
 
   &.active-screen {
     opacity: 1;

@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  text-decoration: none;
 
   margin-top: 25px;
 
@@ -37,6 +38,27 @@
     outline: none;
   }
 
+  &:hover {
+    text-decoration: none;
+    //color: $azure;
+  }
+
+  &:active, &:visited, &:focus {
+    text-decoration: none;
+  }
+
+  &.mid {
+    margin-top: 35px;
+    max-width: 255px;
+    width: 145px;
+    height: 50px;
+
+    font-size: 21px;
+    font-weight: 600;
+    color: $white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+  }
+
   &.large {
     margin-top: 35px;
     max-width: 255px;
@@ -44,7 +66,6 @@
 
     font-size: 21px;
     font-weight: 600;
-    text-align: left;
     color: $white;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
   }
@@ -53,6 +74,29 @@
     opacity: 0.3;
     cursor: not-allowed;
     pointer-events:none;
+  }
+
+  &.white {
+    background: white;
+    color: $azure;
+    text-shadow: none;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &.transparent {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    font-weight: normal;
+    width: auto;
+    max-width: none;
+    text-align: left;
+    justify-content: flex-start;
+    font-size: inherit;
   }
 
 }

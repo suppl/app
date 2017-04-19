@@ -24,7 +24,7 @@ class RegisterPassword extends React.Component {
                         </div>
                         <div className="header-logo-text">SUPPL</div>
                         <div className="header-page">Get Started</div>
-                    </div>
+                    </div>d
 
                     <div className="register-heading"><strong>Nice one</strong>! Ok, Set a secure password</div>
 
