@@ -1,0 +1,124 @@
+.stats-streak {
+  border-radius: 5px;
+  background-color: $azure;
+  box-shadow: 0 2px 4px 0 $black-20;
+  margin-top: 10px;
+  min-height: 208px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+
+  .streak-img {
+    position: absolute;
+    right: 20px;
+    height: 190px;
+  }
+
+  .streak-number {
+    width: 66px;
+    height: 66px;
+    background-color: #11acf9;
+    border: solid 1px #0488c9;
+    border-radius: 100px;
+    font-size: 34px;
+    font-weight: 600;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .streak-header {
+    font-size: 16px;
+    font-weight: 600;
+    color: $white;
+    margin-top: 10px;
+  }
+
+  .streak-line {
+    width: 25px;
+    border-top: solid 1px $white;
+    margin-top: 10px;
+  }
+
+  .streak-text {
+    margin-top: 10px;
+    font-size: 13px;
+    text-align: center;
+    color: $white;
+  }
+}
+
+.stats-box {
+  border-radius: 6px;
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 $black-20;
+  border: solid 1px $white;
+  margin-top: 10px;
+
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  .stats-stat {
+    border-top: dashed 1px $pale-grey;
+    border-left: dashed 1px $pale-grey;
+    margin: -1px 0 0 -1px;
+    flex: 1 0 200px;
+    padding: 20px;
+    flex-direction: column;
+    display: flex;
+    position: relative;
+    min-height: 115px;
+    //min-width: 208px;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    .stat-icon {
+      color: $rosa;
+      font-size: 35px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+
+      &.charcoal {
+        color: $charcoal;
+      }
+
+      &.tealish {
+        color: $tealish;
+      }
+
+      &.dark {
+        color: $dark;
+      }
+    }
+
+    .stat-number {
+      margin-top: auto;
+      color: $azure;
+      font-size: 24px;
+      text-align: right;
+      line-height: 1;
+    }
+
+    .stat-desc {
+      //margin-top: 10px;
+      font-size: 13px;
+      color: $brownish-grey;
+      padding: 5px;
+      border-bottom: 1px dashed $brownish-grey;
+      margin-left: auto;
+      flex: 0 0 auto;
+    }
+  }
+}

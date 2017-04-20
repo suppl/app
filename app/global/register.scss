@@ -21,6 +21,7 @@ body .register-screen {
     display: flex;
     padding: 25px 50px;
     //transform:translateX(-30px);
+    box-shadow: 0px 0 10px 0px $black-20;
 
     transition: .6s;
   }

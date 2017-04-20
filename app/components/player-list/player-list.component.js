@@ -19,6 +19,42 @@ class Splash extends React.Component {
 
         return (
             <div className={`player-list-component`}>
+
+
+                <div className="row">
+                    <div className="col-sm-4">
+                        <div className="sub-sub-heading">Suppl session</div>
+                        <div className="stats-box">
+                            <div className="stats-stat">
+                                <div className="stat-icon icon-heart"/>
+                                <div className="stat-number">708</div>
+                                <div className="stat-desc">Calories burnt</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-4">
+                        <div className="sub-sub-heading">Daily achievements</div>
+                        <div className="stats-box">
+                            <div className="stats-stat">
+                                <div className="stat-icon icon-heart"/>
+                                <div className="stat-number">708</div>
+                                <div className="stat-desc">Calories burnt</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-sm-4">
+                        <div className="sub-sub-heading">Your suppl stats</div>
+                        <div className="stats-box">
+                            <div className="stats-stat">
+                                <div className="stat-icon icon-heart"/>
+                                <div className="stat-number">708</div>
+                                <div className="stat-desc">Calories burnt</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div className="list-container">
                     <div className="list-background"/>
                     <div className="list-start">

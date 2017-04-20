@@ -2,9 +2,10 @@
 
 .player-list-component {
   display: flex;
-  flex: 1 0 auto;
+  flex: 1 1 auto;
 
-  flex-direction: row;
+  flex-direction: column;
+  padding: 30px;
 
   background-color: $pale-grey;
   position: relative;
@@ -14,10 +15,12 @@
   .list-container {
     display: flex;
     flex: 1 0 auto;
+    margin-top: 20px;
 
     flex-direction: row;
     position: relative;
     //padding-right: 50px;
+    background: white;
 
   }
 
@@ -37,10 +40,11 @@
       justify-content: center;
 
       border-radius: 100%;
-      width: 140px;
-      height: 140px;
-      background-color: $pale-grey;
+      //width: 140px;
+      //height: 140px;
+      //background-color: $pale-grey;
       line-height: 1.1;
+      margin-right: -25px;
 
       .start-inner-circle {
         display: flex;
@@ -110,7 +114,7 @@
       flex: 0 0 50px;
       width: 50px;
       height: 50px;
-      background-color: $flat-blue;
+      background-color: $pale-grey;
       transition: .15s;
       margin-left: 100px;
       margin-right: -25px;
@@ -125,7 +129,7 @@
       position: absolute;
       top: 50%;
       margin-top: -3px;
-      background: $flat-blue;
+      background: $pale-grey;
     }
 
     .list-line-started {
@@ -136,7 +140,7 @@
       position: absolute;
       top: 50%;
       margin-top: -3px;
-      background-color: $pale-grey;
+      background-color: $azure;
     }
 
   }
@@ -153,7 +157,7 @@
 
     .list-line {
       height: 0px;
-      border-top:dashed 6px $flat-blue;
+      border-top:dashed 6px $pale-grey;
       width: 100%;
       position: absolute;
       top: 50%;
@@ -163,7 +167,7 @@
   }
 
   .list-background {
-    background-color: #4e92df;
+    //background-color: #4e92df;
     position: absolute;
     //z-index: 5;
     left: 165px;

@@ -15,6 +15,7 @@ import RegisterScreen from './screens/register.screen';
 import RegisterPasswordScreen from './screens/register-password.screen';
 import RegisterJobScreen from './screens/register-job.screen';
 import RegisterStyleScreen from './screens/register-style.screen';
+import StatsScreen from './screens/stats.screen';
 
 import Notification from './components/notification/notification';
 import Session from './components/session/session.component';
@@ -49,6 +50,7 @@ ReactDOM.render(
                 <Location path="/register-password" handler={RegisterPasswordScreen}/>
                 <Location path="/register-job" handler={RegisterJobScreen}/>
                 <Location path="/register-style" handler={RegisterStyleScreen}/>
+                <Location path="/stats" handler={StatsScreen}/>
                 <Location path="/dashboard" handler={DashboardScreen}/>
                 <Location path="/player(/*)" handler={PlayerScreen}/>
                 <Location path="/profile" handler={ProfileScreen}/>

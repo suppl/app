@@ -5,10 +5,12 @@
 @import "global/splash";
 @import "global/register";
 @import "global/buttons";
+@import "global/stats";
 
 html, body {
   width: 100%;
   overflow: hidden;
+  min-width: 600px;
 }
 
 body {
@@ -24,6 +26,7 @@ body {
   font-weight: 400;
   color: $brownish-grey;
 
+  min-width: 600px;
 }
 
 input, textarea, select {
@@ -87,6 +90,7 @@ a {
 [data-content] {
   opacity: 0;
   max-width: calc(100vw - 89px);
+  min-width: 511px;
 
   transition: .6s;
   transform: translateY(-10px);
@@ -106,10 +110,23 @@ a {
   padding: 30px;
   display: flex;
   flex-direction: column;
+  overflow: auto;
+  flex: 1 1 auto !important;
 }
 
 .content-area-plain {
   display: flex;
   flex: 1;
   max-width: calc(100vw - 89px);
+  min-width: 511px;
+}
+
+.sub-sub-heading {
+  font-size: 15px;
+  color: $dark;
+  margin-top: 30px;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }

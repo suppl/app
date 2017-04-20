@@ -48,6 +48,9 @@ class Player extends React.Component {
                     <Sidebar/>
                     <div data-content className="flex flex-max">
                         <SubHeader text={getSessionName()} subText={session.description}/>
+
+
+
                         <PlayerList/>
                     </div>
                 </div>
