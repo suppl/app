@@ -11,7 +11,7 @@ const Sidebar = () => (
                 <i className="icon-headphones"/>
             </a>
             <a href="#/dashboard" className="menu-item active">
-                <i className="icon-list"/>
+                <i className="icon-layers"/>
             </a>
             <a href="#/stats" className="menu-item"><i className="icon-chart-growth"></i></a>
             <div className="menu-item"><i className="icon-bug"></i></div>
