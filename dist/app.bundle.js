@@ -23969,12 +23969,12 @@ var Sidebar = function Sidebar() {
             _react2.default.createElement(
                 'div',
                 { className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'icon-bug' })
+                _react2.default.createElement('i', { className: 'icon-trophy2' })
             ),
             _react2.default.createElement(
                 'div',
                 { className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'icon-trophy2' })
+                _react2.default.createElement('i', { className: 'icon-bug' })
             )
         ),
         _react2.default.createElement(
