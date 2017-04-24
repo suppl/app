@@ -43,8 +43,6 @@ const performAction = {
 };
 
 const init = () => {
-    console.info('init');
-
     firebase.auth().onAuthStateChanged(user => {
         if (!user) return;
 

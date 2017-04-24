@@ -21,12 +21,14 @@ import Popup from './components/popup/popup';
 import Notification from './components/notification/notification';
 import Session from './components/session/session.component';
 import Loader from './components/loader/loader';
+import Award from './components/award/award';
 
 import userReducer from './reducers/user.reducer';
 import requestReducer from './reducers/request.reducer';
 import notificationReducer from './reducers/notification.reducer';
 import popupReducer from './reducers/popup.reducer';
 import settingsReducer from './reducers/settings.reducer';
+import awardReducer from './reducers/award.reducer';
 
 
 const reducer = combineReducers({
@@ -35,6 +37,7 @@ const reducer = combineReducers({
     notification: notificationReducer,
     popup: popupReducer,
     settings: settingsReducer,
+    award: awardReducer,
 });
 
 export const store = createStore(reducer);
@@ -48,6 +51,7 @@ ReactDOM.render(
             <Session/>
             <Loader/>
             <Popup/>
+            <Award/>
             <Locations hash>
                 <Location path="/" handler={SplashScreen}/>
                 <Location path="/register" handler={RegisterScreen}/>

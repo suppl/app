@@ -9,6 +9,14 @@ import {SessionList} from '../services/session.service';
 
 
 class Dashboard extends React.Component {
+    componentWillMount() {
+
+
+        setTimeout(() => {
+            this.props.showAward('howdy');
+        }, 3000);
+    }
+
     render() {
         setTimeout(() => {
             this.activeClass = 'active';
@@ -53,9 +61,12 @@ const mapStateToProps = state => {
     return state
 };
 
-const mapDispatchToProps = dispatch => {
-    return {}
-};
+const mapDispatchToProps = dispatch => ({
+    showAward: (awardId) => dispatch({
+        type: ACTIONS.SHOW_AWARD,
+        awardId: awardId
+    }),
+});
 
 export default connect(
     mapStateToProps,

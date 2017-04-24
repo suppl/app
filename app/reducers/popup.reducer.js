@@ -12,35 +12,23 @@ const initialState = {
 };
 
 const performAction = {
-    [ACTIONS.UPDATE_RESET_PASSWORD_EMAIL]: (data) => ({
-        resetEmail: data.email
-    }),
+    [ACTIONS.UPDATE_RESET_PASSWORD_EMAIL]: (data) => ({resetEmail: data.email}),
 
-    [ACTIONS.SEND_RESET_PASSWORD_EMAIL]: (data, state) => {
-        firebase.auth().sendPasswordResetEmail(state.resetEmail)
-            .then(() => {
-                Dispatch({
-                    type: ACTIONS.SHOW_NOTIFICATION,
-                    message: 'Email reset sent.'
-                });
+    [ACTIONS.SEND_RESET_PASSWORD_EMAIL]: (data, state) => sendResetPasswordEmail(),
 
-                Dispatch(ACTIONS.HIDE_POPUP)
-            }, (error) => {
-                Dispatch({
-                    type: ACTIONS.SHOW_NOTIFICATION,
-                    message: error.message,
-                    theme: 'error'
-                });
-            });
-    },
+    [ACTIONS.HIDE_POPUP]: (data) => ({visible: false}),
 
-    [ACTIONS.HIDE_POPUP]: (data) => ({
-        visible: false
-    }),
+    [ACTIONS.SHOW_POPUP]: (data) => ({visible: true,}),
+};
 
-    [ACTIONS.SHOW_POPUP]: (data) => ({
-        visible: true,
-    }),
+const sendResetPasswordEmail = () => {
+    firebase.auth().sendPasswordResetEmail(state.resetEmail).then(() => {
+        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Email reset sent.'});
+
+        Dispatch(ACTIONS.HIDE_POPUP)
+    }, (error) => {
+        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: error.message, theme: 'error'});
+    });
 };
 
 const popup = (state = initialState, action) => {

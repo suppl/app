@@ -66,8 +66,6 @@ class Splash extends React.Component {
 }
 
 const mapStateToProps = state => {
-    //console.log('', state);
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) window.location.hash = '/dashboard';
     });
@@ -92,11 +90,6 @@ const mapDispatchToProps = dispatch => ({
 
     signIn: () => dispatch({
         type: ACTIONS.SIGN_IN
-    }),
-
-    showNotification: () => dispatch({
-        type: 'SHOW',
-        message: 'MEEE'
     })
 });
 
