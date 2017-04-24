@@ -9,6 +9,7 @@ const initialState = {
 
 let timeout;
 
+
 const performAction = {
 
     [ACTIONS.HIDE_NOTIFICATION]: (data) => {

@@ -44,7 +44,7 @@ class Splash extends React.Component {
                         <div className="input-icon icon-lock"/>
                         <input type="password" placeholder="Password" value={this.props.user.password} onChange={this.props.updateLoginPassword}/>
                     </div>
-                    <p className="clearfix"><a href="#" className="pull-right">Forgot your password?</a></p>
+                    <p className="clearfix"><a className="pull-right" onClick={this.props.showResetPassword}>Forgot your password?</a></p>
 
                     <div className="butn large" style={{marginLeft: 'auto'}} tabIndex={0} onClick={this.props.signIn}>Sign in</div>
 
@@ -61,45 +61,6 @@ class Splash extends React.Component {
             </div>
 
         </div>
-
-            // <div data-screen className={`splash ${this.activeClass}`}>
-            //
-            //     <div className="splash-header">
-            //         <div className="header-logo">
-            //             <img src="/statics/images/favicon.png" alt="Suppl Logo"/>
-            //         </div>
-            //         <div className="header-logo-text">SUPPL</div>
-            //         <div className="header-page">Sign In</div>
-            //     </div>
-            //
-            //     <div className="splash-heading" onClick={this.props.showNotification}>Sign in and stay supple</div>
-            //     <div className="box">
-            //
-            //         <div className="suppl-form">
-            //             <div className="suppl-label">Your email</div>
-            //
-            //             <div className="suppl-input">
-            //                 <div className="input-icon icon-envelope"/>
-            //                 <input type="email" autoFocus={true} placeholder="E.g. barry@work.com" value={this.props.user.email} onChange={this.props.updateLoginEmail}/>
-            //             </div>
-            //             <div className="suppl-label">Your password</div>
-            //
-            //             <div className="suppl-input">
-            //                 <div className="input-icon icon-lock"></div>
-            //                 <input type="password" placeholder="Password" value={this.props.user.password} onChange={this.props.updateLoginPassword}/>
-            //             </div>
-            //
-            //             <div className="butn" style={{marginLeft: 'auto'}} tabIndex={0} onClick={this.props.signIn}>Sign in</div>
-            //             <p className="clearfix">
-            //                 <a href="#/forgot" className="pull-left">Forgot Password</a>
-            //                 <a href="#/register" className="pull-right">Register</a>
-            //             </p>
-            //         </div>
-            //
-            //
-            //     </div>
-            //
-            // </div>
         )
     }
 }
@@ -115,6 +76,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    showResetPassword: () => dispatch({
+        type: ACTIONS.SHOW_POPUP
+    }),
+
     updateLoginEmail: (event) => dispatch({
         type: ACTIONS.UPDATE_LOGIN_EMAIL,
         email: event.target.value,

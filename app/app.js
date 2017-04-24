@@ -17,6 +17,7 @@ import RegisterJobScreen from './screens/register-job.screen';
 import RegisterStyleScreen from './screens/register-style.screen';
 import StatsScreen from './screens/stats.screen';
 
+import Popup from './components/popup/popup';
 import Notification from './components/notification/notification';
 import Session from './components/session/session.component';
 import Loader from './components/loader/loader';
@@ -24,6 +25,7 @@ import Loader from './components/loader/loader';
 import userReducer from './reducers/user.reducer';
 import requestReducer from './reducers/request.reducer';
 import notificationReducer from './reducers/notification.reducer';
+import popupReducer from './reducers/popup.reducer';
 import settingsReducer from './reducers/settings.reducer';
 
 
@@ -31,6 +33,7 @@ const reducer = combineReducers({
     user: userReducer,
     request: requestReducer,
     notification: notificationReducer,
+    popup: popupReducer,
     settings: settingsReducer,
 });
 
@@ -44,6 +47,7 @@ ReactDOM.render(
             <Notification/>
             <Session/>
             <Loader/>
+            <Popup/>
             <Locations hash>
                 <Location path="/" handler={SplashScreen}/>
                 <Location path="/register" handler={RegisterScreen}/>

@@ -1,7 +1,7 @@
 @import "../../global/colors";
 
 .notification-component {
-  z-index: 1000;
+  z-index: 4000;
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -62,5 +62,9 @@
 
   &.error {
     background-color: $rosa;
+
+    .notification-icon {
+      display: none;
+    }
   }
 }

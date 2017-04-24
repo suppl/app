@@ -50,7 +50,7 @@ class Profile extends React.Component {
 
                                     <div className="butn" style={{marginLeft: 'auto'}} tabIndex={0} onClick={this.props.saveProfile}>Update</div>
                                     <p className="clearfix">
-                                        <a href="#/forgot" className="pull-right">Reset Password</a>
+                                        <a className="pull-right" onClick={this.props.showResetPassword}>Reset Password</a>
                                     </p>
                                 </div>
                             </div>
@@ -63,8 +63,6 @@ class Profile extends React.Component {
 }
 
 const mapStateToProps = state => {
-    //console.log('', state);
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) window.location.hash = '/';
     });
@@ -73,6 +71,9 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
+    showResetPassword: () => dispatch({
+        type: ACTIONS.SHOW_POPUP
+    }),
 
     updateName: (event) => dispatch({
         type: ACTIONS.UPDATE_NAME,

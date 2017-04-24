@@ -36,13 +36,38 @@ const performAction = {
     [ACTIONS.SET_SESSION]: data => ({
         session: data.session,
     }),
+
+    [ACTIONS.UPDATE_AWARDS]: data => ({
+        awards: data.awards,
+    }),
 };
+
+const init = () => {
+    console.info('init');
+
+    firebase.auth().onAuthStateChanged(user => {
+        if (!user) return;
+
+        firebase.database().ref('awards').on('value', (snapshot) => {
+            console.info('get awards', snapshot.val());
+
+            Dispatch({
+                type: ACTIONS.UPDATE_AWARDS,
+                awards: snapshot.val()
+            });
+        });
+    });
+};
+
+init();
 
 const settings = (state = initialState, action) => {
     if (!performAction[action.type]) return state;
 
-    console.info('NEW USER STATE:', action.type, state);
-    return Object.assign({}, state, performAction[action.type](action, state));
+    const newState = Object.assign({}, state, performAction[action.type](action, state));
+    console.info('NEW SETTINGS STATE:', action.type, newState);
+
+    return newState;
 };
 
 export default settings;

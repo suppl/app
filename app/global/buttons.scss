@@ -1,10 +1,11 @@
 .butn {
-  max-width: 110px;
+  min-width: 110px;
   height: 40px;
   border-radius: 4px;
   background-color: $azure;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);
   border: solid 1px $azure;
+  padding: 0 15px;
 
   font-size: 14px;
   font-weight: 600;
@@ -27,6 +28,10 @@
   outline: none;
 
   transition: .15s;
+
+  &.no-margin {
+    margin: 0;
+  }
 
   &:hover, &:focus {
     background-color: adjust-color($azure, $saturation: 10, $lightness: 10);
@@ -84,7 +89,8 @@
     font-weight: 600;
   }
 
-  &.transparent {
+  &.transparent, &.clear {
+    text-shadow: none;
     background: none;
     border: none;
     color: inherit;

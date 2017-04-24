@@ -82,7 +82,7 @@ const performAction = {
 
     [ACTIONS.UPDATE_LOGIN_PASSWORD]: data => ({password: data.password}),
 
-    [ACTIONS.UPDATE_USER_CUSTOM_DATA]: data => ({customData: data.customData}),
+    [ACTIONS.SET_USER_CUSTOM_DATA]: data => ({customData: data.customData}),
 
     [ACTIONS.UPDATE_NAME]: (data, state) => ({
         user: {
@@ -113,15 +113,6 @@ const performAction = {
         Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: "Signed out successfully"});
         return {isLoggedIn: false, user: {}}
     },
-};
-
-const user = (state = initialState, action) => {
-    if (!performAction[action.type]) return state;
-
-    const newState = Object.assign({}, state, performAction[action.type](action, state));
-    console.info('NEW USER STATE:', action.type, newState);
-
-    return newState;
 };
 
 const checkEmail = _.debounce((data) => {
@@ -173,7 +164,7 @@ const trackUserCustomData = () => {
         console.info('db change to user', snapshot.val());
 
         Dispatch({
-            type: ACTIONS.UPDATE_USER_CUSTOM_DATA,
+            type: ACTIONS.SET_USER_CUSTOM_DATA,
             customData: snapshot.val()
         });
     });
@@ -184,5 +175,14 @@ const init = () => {
 };
 
 init();
+
+const user = (state = initialState, action) => {
+    if (!performAction[action.type]) return state;
+
+    const newState = Object.assign({}, state, performAction[action.type](action, state));
+    console.info('NEW USER STATE:', action.type, newState);
+
+    return newState;
+};
 
 export default user;
