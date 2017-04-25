@@ -13,12 +13,12 @@ const Sidebar = () => (
             <a href="#/dashboard" className="menu-item active">
                 <i className="icon-layers"/>
             </a>
-            <a href="#/stats" className="menu-item"><i className="icon-chart-growth"></i></a>
-            <div className="menu-item"><i className="icon-trophy2"></i></div>
-            <div className="menu-item"><i className="icon-bug"></i></div>
+            <a href="#/stats" className="menu-item"><i className="icon-chart-growth"/></a>
+            <a href="#/achievements" className="menu-item"><i className="icon-trophy2"/></a>
+            {/*<div className="menu-item"><i className="icon-bug"></i></div>*/}
         </div>
         <div className="bottom-menu">
-            <div className="menu-item"><i className="icon-book"></i></div>
+            <div className="menu-item"><i className="icon-book"/></div>
         </div>
     </div>
 );

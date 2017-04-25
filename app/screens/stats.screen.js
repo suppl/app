@@ -28,16 +28,16 @@ class Stats extends React.Component {
                         <div className="content-area flex flex-max">
 
 
-                            <div className="sub-sub-heading">Your streak</div>
-                            <div className="stats-streak">
-                                <img src="/statics/images/streak.png" alt="" className="streak-img"/>
-                                <div className="streak-number">1</div>
-                                <div className="streak-header">Day streak</div>
-                                <div className="streak-line"/>
-                                <div className="streak-text">
-                                    Keep it up superstar. Everyday is a <br/> blessing, make the most of it.
-                                </div>
-                            </div>
+                            {/*<div className="sub-sub-heading">Your streak</div>*/}
+                            {/*<div className="stats-streak">*/}
+                                {/*<img src="/statics/images/streak.png" alt="" className="streak-img"/>*/}
+                                {/*<div className="streak-number">1</div>*/}
+                                {/*<div className="streak-header">Day streak</div>*/}
+                                {/*<div className="streak-line"/>*/}
+                                {/*<div className="streak-text">*/}
+                                    {/*Keep it up superstar. Everyday is a <br/> blessing, make the most of it.*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
 
                             <div className="sub-sub-heading">Health stats</div>
                             <div className="stats-box">
