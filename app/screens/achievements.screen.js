@@ -1,4 +1,5 @@
 import React from 'react';
+import * as _ from 'lodash';
 
 import * as ACTIONS from '../constants/actions.constants';
 
@@ -9,11 +10,27 @@ import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 
 class Achievements extends React.Component {
+    getAwards() {
+        if (!this.props.user.customData.awards) return [];
+        console.log('this.props.user.customData.awards',  _.values(this.props.user.customData.awards));
+        console.log('this.props.award.awards',  this.props.award.awards);
+        console.log('this.props.award.awards',  this.props.award.awards);
+
+        return _.values(this.props.user.customData.awards).map(award => {
+            console.log('award', award)
+            return this.props.award.awards[award.awardId]
+        });
+    }
+
     componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
+
+        // setTimeout(() => {
+        //     this.props.giveAward('howdy');
+        // }, 3000);
     }
 
     render() {
@@ -58,6 +75,21 @@ class Achievements extends React.Component {
                                 </div>
                             </div>
 
+
+                            <div className="sub-sub-heading">Your Awards</div>
+
+                            <div className="award-container">
+
+                                { this.getAwards().map(award =>
+                                    <div className="award-box active">
+                                        <div className={`award-icon icon-${award.icon}`}/>
+                                        <div className="award-title">{award.name}</div>
+                                        <div className="award-text" dangerouslySetInnerHTML={{__html: award.description}}></div>
+                                    </div>
+                                )}
+
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -67,8 +99,6 @@ class Achievements extends React.Component {
 }
 
 const mapStateToProps = state => {
-    //console.log('', state);
-
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) window.location.hash = '/';
     });
@@ -78,9 +108,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
 
-    updateName: (event) => dispatch({
-        type: ACTIONS.UPDATE_NAME,
-        displayName: event.target.value,
+    giveAward: (awardId) => dispatch({
+        type: ACTIONS.GIVE_AWARD,
+        awardId: awardId,
     }),
 });
 

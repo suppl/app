@@ -10,6 +10,10 @@ import {SessionList} from '../services/session.service';
 
 class Dashboard extends React.Component {
     componentWillMount() {
+        setTimeout(() => {
+            this.activeClass = 'active';
+            this.forceUpdate();
+        }, 1);
 
 
         setTimeout(() => {
@@ -18,11 +22,6 @@ class Dashboard extends React.Component {
     }
 
     render() {
-        setTimeout(() => {
-            this.activeClass = 'active';
-            this.forceUpdate();
-        }, 1);
-
         return (
             <div data-screen className={`${this.activeClass}`}>
                 <Header/>

@@ -32,7 +32,7 @@ const performAction = {
 
                 firebase.database().ref('users/' + user.uid).update({
                     points: 0,
-                    rewards: {},
+                    awards: [],
                     log: [],
                     info: {
                         workStyle:state.register.workStyle,

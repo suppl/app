@@ -57,7 +57,7 @@ class Stats extends React.Component {
                                     <div className="stat-desc">Brain happiness</div>
                                 </div>
                                 <div className="stats-stat">
-                                    <div className="stat-icon icon-compass"/>
+                                    <div className="stat-icon icon-compass"/>a
                                     <div className="stat-number">61%</div>
                                     <div className="stat-desc">Skeletal alignment</div>
                                 </div>

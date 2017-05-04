@@ -2,7 +2,7 @@
 
 $light-azure: adjust-color($azure, $lightness: 20%, $saturation: -15%);
 
-.award-component {
+.award-component, .award-box {
   z-index: 4000;
   position: fixed;
   bottom: 15px;
@@ -72,6 +72,7 @@ $light-azure: adjust-color($azure, $lightness: 20%, $saturation: -15%);
     vertical-align: center;
     margin-top: 15px;
     font-weight: bold;
+    text-decoration: none;
   }
 
   .award-title {
@@ -91,6 +92,7 @@ $light-azure: adjust-color($azure, $lightness: 20%, $saturation: -15%);
     color: $white;
     margin-top: 10px;
     padding: 0 30px;
+    margin-bottom: 50px;
   }
 
   .award-close {
@@ -105,6 +107,25 @@ $light-azure: adjust-color($azure, $lightness: 20%, $saturation: -15%);
   &.error {
     background-color: $rosa;
   }
+}
+
+.award-box {
+  position: static;
+  bottom: auto;
+  right: auto;
+  z-index: auto;
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+  margin: 10px;
+}
+
+.award-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px -10px -10px;
 }
 
 @keyframes pulsate {

@@ -2,7 +2,7 @@ var webpack = require('webpack');
 
 var config = {
     entry: {
-        "app": "./app/app",
+        "app": ['babel-polyfill', "./app/app"],
         "lib": "./app/lib"
     },
     output: {
