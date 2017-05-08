@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import * as ACTIONS from '../../constants/actions.constants';
-import {isAudioAvailable} from '../../services/session.service';
+import {isAudioAvailable, isAudioDone} from '../../services/session.service';
 
 require('./player-list.component.scss');
 
@@ -27,7 +27,7 @@ class Splash extends React.Component {
                         <div className="stats-box">
                             <div className="stats-stat">
                                 <div className="stat-icon icon-heart"/>
-                                <div className="stat-number">708</div>
+                                <div className="stat-number">0</div>
                                 <div className="stat-desc">Calories burnt</div>
                             </div>
                         </div>
@@ -37,7 +37,7 @@ class Splash extends React.Component {
                         <div className="stats-box">
                             <div className="stats-stat">
                                 <div className="stat-icon icon-heart"/>
-                                <div className="stat-number">708</div>
+                                <div className="stat-number">0</div>
                                 <div className="stat-desc">Calories burnt</div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@ class Splash extends React.Component {
                         <div className="stats-box">
                             <div className="stats-stat">
                                 <div className="stat-icon icon-heart"/>
-                                <div className="stat-number">708</div>
+                                <div className="stat-number">0</div>
                                 <div className="stat-desc">Calories burnt</div>
                             </div>
                         </div>
@@ -59,15 +59,23 @@ class Splash extends React.Component {
                     <div className="list-background"/>
                     <div className="list-start">
                         <div className="start-circle">
-                            <div className="start-inner-circle">{this.props.settings.session.name}</div>
+                            <div className="start-inner-circle">
+                                <i className={this.props.settings.session.icon}></i>
+                            </div>
                         </div>
                     </div>
 
                     {session.audios.map((audio, index) =>
                         <div className="list-item">
+
+
+
                             { isAudioAvailable(audio)
-                                ? <div className="list-circle" onClick={() => this.props.showAudio(session, audio)}><i className="fa fa-play fa-fw"/></div>
-                                : <div className="list-circle-number">{index}</div>
+                                ? <div className={`list-circle`} onClick={() => this.props.showAudio(session, audio)}>
+                                    { isAudioDone(audio) ? <div className="list-audio-done flaticon-interface"/> : ''}
+
+                                    <i className="fa fa-play fa-fw"/></div>
+                                : <div className="list-circle-number">{index + 1}</div>
                             }
                             { isAudioAvailable(audio)
                                 ? <div className="list-line-started"/>
@@ -96,7 +104,7 @@ const mapDispatchToProps = dispatch => ({
     }),
 
     showNotification: () => dispatch({
-        type: ACTIONS.SHOW_NOTIFICATION,
+        type   : ACTIONS.SHOW_NOTIFICATION,
         message: 'MEEE'
     })
 });

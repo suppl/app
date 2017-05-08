@@ -130,3 +130,10 @@ a {
     margin-top: 0;
   }
 }
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+  font-family: Flaticon;
+  font-size: inherit;
+  font-style: inherit;
+  margin-left: inherit;
+}

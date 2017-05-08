@@ -1,12 +1,14 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
+import * as _ from 'lodash';
+
 import {store} from './../app';
 import {Dispatch, State} from './../services/dispatch.service';
 
 const initialState = {
     visible: false,
     message: "hello",
-    award: {},
+    award  : {},
 };
 
 const performAction = {
@@ -14,27 +16,37 @@ const performAction = {
     [ACTIONS.GIVE_AWARD]: (data, state) => giveAward(data, state),
     [ACTIONS.SHOW_AWARD]: (data, state) => showAward(data, state),
     [ACTIONS.HIDE_AWARD]: (data, state) => ({visible: false}),
+
+    [ACTIONS.GIVE_DONE]: (data, state) => giveDone(data, state),
 };
 
 const showAward = (data, state) => ({
-    award: state.awards[data.awardId],
-    theme: data.theme,
+    award  : state.awards[data.awardId],
+    theme  : data.theme,
     message: data.message,
     visible: true,
 });
 
 const giveAward = async (data, state) => {
-    console.info('giveAward');
     const user = firebase.auth().currentUser;
 
-    let ref = await firebase.database().ref('users/' + user.uid + '/awards').push({
+    if (_.some(State().user.customData.awards, {awardId: data.awardId})) return;
+
+    await firebase.database().ref('users/' + user.uid + '/awards').push({
         awardId: data.awardId
     });
 
-    console.info('ref', ref);
-
     Dispatch({type: ACTIONS.SHOW_AWARD, awardId: data.awardId});
-    // Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Registered Successfully!'});
+};
+
+const giveDone = async (data, state) => {
+    const user = firebase.auth().currentUser;
+
+    if (_.some(State().user.customData.done, {audioId: data.audioId})) return;
+
+    await firebase.database().ref('users/' + user.uid + '/done').push({
+        audioId: data.audioId
+    });
 };
 
 const init = () => {
@@ -45,6 +57,7 @@ const init = () => {
             console.info('get awards', snapshot.val());
 
             Dispatch({type: ACTIONS.SET_AWARDS, awards: snapshot.val()});
+            Dispatch({type: ACTIONS.GIVE_AWARD, awardId: 'howdy'});
         });
     });
 };

@@ -1,154 +1,70 @@
 import {Dispatch, State} from './../services/dispatch.service';
+import * as _ from 'lodash';
 
 export const SessionList = [
     {
-        slug        : "take-3",
-        name        : "Take 3",
+        slug        : "seated-at-work",
+        name        : "Seated at work",
         level       : 1,
-        icon        : "icon-loudspeaker",
-        description : `Take 3 minutes to improve your posture.`,
+        icon        : "flaticon-desk-chair",
+        description : `Exercises to help you improve your posture while seated at work.`,
         caption     : "Level 1",
         awardsNeeded: [],
         pointLimit  : 0,
         audios      : [
             {
-                id          : '',
+                id          : 'seated-at-work-1',
                 name        : 'Session 1/10',
                 file        : '/statics/audio/jwc-10.mp3',
                 awardsNeeded: [],
+                awardsGiven : ['first-base'],
                 audiosNeeded: [],
                 pointLimit  : 0,
                 index       : 0,
             },
             {
+                id          : 'seated-at-work-2',
                 name        : 'Session 2/10',
                 file        : 'https://ascension101.com//media/audio/5min/5%20Minute%20relaxation%20by%20Inelia%20Benz.mp3',
                 awardsNeeded: [],
-                audiosNeeded: [],
+                awardsGiven : [],
+                audiosNeeded: ['seated-at-work-1'],
                 pointLimit  : 0,
                 index       : 1,
             },
             {
-                name        : 'Howdy',
-                file        : '',
+                id          : 'seated-at-work-3',
+                name        : 'Session 2/10',
+                file        : 'https://ascension101.com//media/audio/5min/5%20Minute%20relaxation%20by%20Inelia%20Benz.mp3',
                 awardsNeeded: [],
-                pointLimit  : 100,
-                index       : 2,
+                awardsGiven : [],
+                audiosNeeded: ['seated-at-work-2'],
+                pointLimit  : 0,
+                index       : 1,
             },
-            {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 100,
-                index       : 3,
-            },
-            {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 100,
-                index       : 4,
-            }
         ]
     },
     {
-        slug        : "work-wellness",
-        name        : "Work Wellness",
+        slug        : "standing-at-work",
+        name        : "Standing at work",
         level       : 2,
-        icon        : "icon-city",
-        description : `Dolorem doloribus facere quaerat tenetur!`,
+        icon        : "flaticon-athlete",
+        description : `Exercises to help you improve your posture while standing at work.`,
         caption     : "Level 1",
         awardsNeeded: [],
         pointLimit  : 0,
-        audios      : [
-            {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            },
-            {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            },
-            {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            },
-            {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            },
-        ]
+        audios      : []
     },
     {
-        slug        : "true-posture",
-        name        : "True Posture",
+        slug        : "morning-stretch",
+        name        : "Morning Stretch",
         level       : 3,
-        icon        : "icon-height",
-        description : `Dolorem doloribus facere quaerat tenetur!`,
+        icon        : "flaticon-sunrise",
+        description : `Start everyday with a quick nimble session`,
         caption     : "Level 1",
-        awardsNeeded: [],
+        awardsNeeded: ['at work'],
         pointLimit  : 0,
-        audios      : [
-            {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            }, {
-                name        : 'Howdy',
-                file        : '',
-                awardsNeeded: [],
-                pointLimit  : 1000,
-            },
-        ]
+        audios      : []
     }
 ];
 
@@ -167,12 +83,31 @@ export const isSessionAvailable = (session) => {
 };
 
 
+export const isAudioDone = (audio) => {
+    let flag = false;
+
+    if (_.some(State().user.customData.done, {audioId: audio.id})) {
+        flag = true;
+    }
+
+    return flag;
+};
+
+
 export const isAudioAvailable = (audio) => {
     // console.log('audio', audio);
     let flag = true;
 
-    audio.awardsNeeded.forEach(award => {
+    audio.awardsNeeded.forEach(awardId => {
+        if (!_.some(State().user.customData.awards, {awardId})) {
+            flag = false;
+        }
+    });
 
+    audio.audiosNeeded.forEach(audioId => {
+        if (!_.some(State().user.customData.done, {audioId})) {
+            flag = false;
+        }
     });
 
     if (State().user.customData.points < audio.pointLimit) {

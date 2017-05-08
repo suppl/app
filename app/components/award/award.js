@@ -19,7 +19,7 @@ class Award extends React.Component {
             <div className={`award-component ${getClasses()}`}>
                 <div className="award-close icon-cross" onClick={this.props.hideAward}/>
 
-                <div className={`award-icon icon-${this.props.award.award.icon}`}/>
+                <div className={`award-icon ${this.props.award.award.icon}`}/>
                 {/*<div className="award-icon icon-hand"/>*/}
                 <div className="award-title">{this.props.award.award.name}</div>
                 <div className="award-text" dangerouslySetInnerHTML={{__html: this.props.award.award.description}}></div>

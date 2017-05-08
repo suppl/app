@@ -16,8 +16,9 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      height: 50px;
-      width: 50px;
+      flex-direction: column;
+      height: 60px;
+      //width: 50px;
       //padding: 15px;
       color: white;
       margin: auto;
@@ -28,8 +29,20 @@
       font-size: 30px;
       text-decoration: none;
 
+      i {
+        font-size: 30px;
+      }
+
+      span {
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+        margin-top: 5px;
+      }
+
       &:hover {
-        background: $dark-indigo;
+        //background: $dark-indigo;
+        color: $wheat;
 
       }
     }

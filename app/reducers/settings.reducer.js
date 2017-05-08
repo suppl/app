@@ -23,7 +23,7 @@ const performAction = {
     [ACTIONS.DONE_LOADING]   : (data, state) => ({loaderVisible: false,}),
     [ACTIONS.SET_SESSION]    : (data, state) => ({session: data.session,}),
     [ACTIONS.SET_AWARDS]     : (data, state) => ({awards: data.awards,}),
-    [ACTIONS.LOAD_AUDIO]     : (data, state) => loadAudio(data, state),
+    // [ACTIONS.LOAD_AUDIO]     : (data, state) => loadAudio(data, state),
     [ACTIONS.PLAY_AUDIO]     : (data, state) => playAudio(data, state),
     [ACTIONS.PAUSE_AUDIO]    : (data, state) => pauseAudio(data, state),
 };
@@ -36,7 +36,7 @@ const hideAudio = (data, state) => {
 
     return {
         audioVisible: false,
-        playing: false,
+        playing     : false,
     }
 };
 
@@ -66,11 +66,14 @@ const showAudio = (data, state) => {
     sound.on('end', () => {
         console.log('audio end!');
         Dispatch(ACTIONS.PAUSE_AUDIO);
+
+        state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
+        Dispatch({type: ACTIONS.GIVE_DONE, audioId: data.audio.id});
     });
 
     return {
-        sound: sound,
-        audio: data.audio,
+        sound       : sound,
+        audio       : data.audio,
         audioVisible: true,
     }
 };

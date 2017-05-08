@@ -5,6 +5,7 @@ import * as ACTIONS from '../constants/actions.constants';
 
 import {connect} from "react-redux";
 
+import {Dispatch, State} from './../services/dispatch.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -12,12 +13,8 @@ import Sidebar from '../components/sidebar/sidebar';
 class Achievements extends React.Component {
     getAwards() {
         if (!this.props.user.customData.awards) return [];
-        console.log('this.props.user.customData.awards',  _.values(this.props.user.customData.awards));
-        console.log('this.props.award.awards',  this.props.award.awards);
-        console.log('this.props.award.awards',  this.props.award.awards);
 
         return _.values(this.props.user.customData.awards).map(award => {
-            console.log('award', award)
             return this.props.award.awards[award.awardId]
         });
     }
@@ -28,9 +25,7 @@ class Achievements extends React.Component {
             this.forceUpdate();
         }, 1);
 
-        // setTimeout(() => {
-        //     this.props.giveAward('howdy');
-        // }, 3000);
+        Dispatch(ACTIONS.HIDE_AUDIO);
     }
 
     render() {
@@ -82,7 +77,7 @@ class Achievements extends React.Component {
 
                                 { this.getAwards().map(award =>
                                     <div className="award-box active">
-                                        <div className={`award-icon icon-${award.icon}`}/>
+                                        <div className={`award-icon ${award.icon}`}/>
                                         <div className="award-title">{award.name}</div>
                                         <div className="award-text" dangerouslySetInnerHTML={{__html: award.description}}></div>
                                     </div>

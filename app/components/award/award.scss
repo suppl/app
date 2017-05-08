@@ -51,6 +51,9 @@ $light-azure: adjust-color($azure, $lightness: 20%, $saturation: -15%);
 
     animation: pulsate 2s infinite;
     animation-iteration-count: infinite;
+
+    font-size: 95px;
+    max-height: 130px;
   }
 
   .award-band {
@@ -92,7 +95,7 @@ $light-azure: adjust-color($azure, $lightness: 20%, $saturation: -15%);
     color: $white;
     margin-top: 10px;
     padding: 0 30px;
-    margin-bottom: 50px;
+    //margin-bottom: 50px;
   }
 
   .award-close {

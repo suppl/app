@@ -31,6 +31,11 @@ export const SHOW_AWARD = 'SHOW_AWARD';
 export const SET_AWARDS = 'SET_AWARDS';
 export const GIVE_AWARD = 'GIVE_AWARD';
 
+// export const HIDE_AWARD = 'HIDE_AWARD';
+// export const SHOW_AWARD = 'SHOW_AWARD';
+// export const SET_AWARDS = 'SET_AWARDS';
+export const GIVE_DONE = 'GIVE_DONE';
+
 export const SEND_RESET_PASSWORD_EMAIL = 'SEND_RESET_PASSWORD_EMAIL';
 export const UPDATE_RESET_PASSWORD_EMAIL = 'UPDATE_RESET_PASSWORD_EMAIL';
 
