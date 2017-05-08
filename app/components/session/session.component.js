@@ -12,8 +12,6 @@ class Audio extends React.Component {
     // getClasses = () => [this.props.settings.audioVisible ? 'active' : ''].join(' ');
 
     componentDidMount() {
-        this.props.loadAudio();
-
         setInterval(() => {
             this.duration = this.getDuration();
             this.seek     = this.getSeek();

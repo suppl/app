@@ -17,7 +17,7 @@ const initialState = {
 
 const performAction = {
     [ACTIONS.HIDE_AUDIO]     : (data, state) => hideAudio(data, state),
-    [ACTIONS.SHOW_AUDIO]     : (data, state) => ({audio: data.audio, audioVisible: true,}),
+    [ACTIONS.SHOW_AUDIO]     : (data, state) => showAudio(data, state),
     [ACTIONS.TOGGLE_SETTINGS]: (data, state) => ({settingsVisible: !state.settingsVisible,}),
     [ACTIONS.START_LOADING]  : (data, state) => ({loaderVisible: true,}),
     [ACTIONS.DONE_LOADING]   : (data, state) => ({loaderVisible: false,}),
@@ -60,15 +60,19 @@ const playAudio = (data, state) => {
     }
 };
 
-const loadAudio = (data, state) => {
-    let sound = new Howl({src: [state.audio.file]});
+const showAudio = (data, state) => {
+    let sound = new Howl({src: [data.audio.file]});
 
     sound.once('end', () => {
         console.log('audio end!');
         Dispatch(ACTIONS.PAUSE_AUDIO);
     });
 
-    return {sound: sound}
+    return {
+        sound: sound,
+        audio: data.audio,
+        audioVisible: true,
+    }
 };
 
 const init = () => {

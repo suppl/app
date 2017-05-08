@@ -35499,8 +35499,6 @@ var Audio = function (_React$Component) {
         value: function componentDidMount() {
             var _this2 = this;
 
-            this.props.loadAudio();
-
             setInterval(function () {
                 _this2.duration = _this2.getDuration();
                 _this2.seek = _this2.getSeek();
@@ -36088,7 +36086,7 @@ var initialState = {
 var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.HIDE_AUDIO, function (data, state) {
     return hideAudio(data, state);
 }), _defineProperty(_performAction, ACTIONS.SHOW_AUDIO, function (data, state) {
-    return { audio: data.audio, audioVisible: true };
+    return showAudio(data, state);
 }), _defineProperty(_performAction, ACTIONS.TOGGLE_SETTINGS, function (data, state) {
     return { settingsVisible: !state.settingsVisible };
 }), _defineProperty(_performAction, ACTIONS.START_LOADING, function (data, state) {
@@ -36143,15 +36141,19 @@ var playAudio = function playAudio(data, state) {
     };
 };
 
-var loadAudio = function loadAudio(data, state) {
-    var sound = new Howl({ src: [state.audio.file] });
+var showAudio = function showAudio(data, state) {
+    var sound = new Howl({ src: [data.audio.file] });
 
     sound.once('end', function () {
         console.log('audio end!');
         (0, _dispatch.Dispatch)(ACTIONS.PAUSE_AUDIO);
     });
 
-    return { sound: sound };
+    return {
+        sound: sound,
+        audio: data.audio,
+        audioVisible: true
+    };
 };
 
 var init = function init() {
