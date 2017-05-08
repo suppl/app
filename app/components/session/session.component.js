@@ -1,11 +1,28 @@
 import React from 'react';
+import {Howler, Howl} from 'howler';
 import {connect} from "react-redux";
+import * as moment from "moment";
+// import {Dispatch, State, Store} from './../services/dispatch.service';
 
 import * as ACTIONS from '../../constants/actions.constants';
 
 require('./session.component.scss');
 
 class Audio extends React.Component {
+    // getClasses = () => [this.props.settings.audioVisible ? 'active' : ''].join(' ');
+
+    componentDidMount() {
+        this.props.loadAudio();
+
+        setInterval(() => {
+            this.duration = this.getDuration();
+            this.seek = this.getSeek();
+            this.dash = this.getDash();
+            this.forceUpdate();
+        }, 1000);
+    }
+
+    duration = '0:00';
 
     getClasses() {
         return [
@@ -14,17 +31,52 @@ class Audio extends React.Component {
         ].join(' ');
     }
 
+    isSoundLoaded() {
+        return !!this.props.settings.sound && this.props.settings.sound.state() === 'loaded';
+    }
+
+    getDuration() {
+        if (!this.isSoundLoaded()) return '0:00';
+        let duration = moment.duration(this.props.settings.sound.duration(), 'seconds');
+        return `${duration.minutes()}:${duration.seconds().toFixed(2)}`;
+    }
+
+    getSeek() {
+        if (!this.isSoundLoaded()) return '0:00';
+        let duration =  moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
+
+        return `${duration.minutes()}:${duration.seconds().toFixed(2)}`;
+    }
+
+    getDash() {
+        return (700 + 700 * (this.props.settings.sound.seek() / this.props.settings.sound.duration())) + 'px'
+    }
+
     render() {
 
         return (
             <div className={`session-component ${this.getClasses()}`}>
-                <div className="session-close icon-cross" onClick={this.props.hideSession}></div>
-                <div className="session-title">{this.props.settings.session.name} - Part 1</div>
+                <div className="session-close icon-cross" onClick={this.props.hideSession}/>
+                <div className="session-title">{this.props.settings.session.name}</div>
                 <div className="audio-title">{this.props.settings.audio.name}</div>
-                <div className="audio-duration">(3 mins)</div>
 
                 <div className="audio-play">
-                    <img src="/statics/images/play-btn-player.png" alt=""/>
+                    <svg>
+                        <circle r="111" cx="111" cy="111" style={{strokeDashoffset:this.dash}}></circle>
+                    </svg>
+
+                    {this.props.settings.playing ?
+                        <div className="play-inner" onClick={this.props.pauseAudio}>
+                            <i className="fa fa-pause fa-fw" style={{margin:0}}/>
+                        </div>
+                        :
+                        <div className="play-inner" onClick={this.props.playAudio}>
+                            <i className="fa fa-play fa-fw"/>
+                        </div>
+                    }
+                </div>
+                <div className="audio-duration">
+                    {this.seek} left <br/> ({this.duration} mins)
                 </div>
 
             </div>
@@ -32,19 +84,13 @@ class Audio extends React.Component {
     }
 }
 
-const mapStateToProps = state => {
-    return state;
-};
+const mapStateToProps = state => state;
 
-const mapDispatchToProps = dispatch => {
-    return {
-        hideSession: () => dispatch({
-            type: ACTIONS.HIDE_AUDIO
-        })
-    }
-};
+const mapDispatchToProps = dispatch => ({
+    hideSession: () => dispatch({type: ACTIONS.HIDE_AUDIO}),
+    loadAudio  : () => dispatch({type: ACTIONS.LOAD_AUDIO}),
+    playAudio  : () => dispatch({type: ACTIONS.PLAY_AUDIO}),
+    pauseAudio : () => dispatch({type: ACTIONS.PAUSE_AUDIO}),
+});
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Audio)
+export default connect(mapStateToProps, mapDispatchToProps)(Audio)

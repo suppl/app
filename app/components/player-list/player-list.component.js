@@ -65,13 +65,13 @@ class Splash extends React.Component {
 
                     {session.audios.map((audio, index) =>
                         <div className="list-item">
-                            { isAudioAvailable(audio) ?
-                                <div className="list-circle" onClick={() => this.props.showAudio(session, audio)}><i className="fa fa-play fa-fw"/></div> :
-                                <div className="list-circle-number">{index}</div>
+                            { isAudioAvailable(audio)
+                                ? <div className="list-circle" onClick={() => this.props.showAudio(session, audio)}><i className="fa fa-play fa-fw"/></div>
+                                : <div className="list-circle-number">{index}</div>
                             }
-                            { isAudioAvailable(audio) ?
-                                <div className="list-line-started"/> :
-                                <div className="list-line"/>
+                            { isAudioAvailable(audio)
+                                ? <div className="list-line-started"/>
+                                : <div className="list-line"/>
                             }
                         </div>
                     )}

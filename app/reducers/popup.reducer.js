@@ -21,14 +21,17 @@ const performAction = {
     [ACTIONS.SHOW_POPUP]: (data) => ({visible: true,}),
 };
 
-const sendResetPasswordEmail = () => {
-    firebase.auth().sendPasswordResetEmail(state.resetEmail).then(() => {
-        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Email reset sent.'});
-
-        Dispatch(ACTIONS.HIDE_POPUP)
-    }, (error) => {
+const sendResetPasswordEmail = async () => {
+    try {
+        await firebase.auth().sendPasswordResetEmail(state.resetEmail)
+    } catch (error) {
         Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: error.message, theme: 'error'});
-    });
+        return;
+    }
+
+    Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Email reset sent.'});
+    Dispatch(ACTIONS.HIDE_POPUP)
+
 };
 
 const popup = (state = initialState, action) => {

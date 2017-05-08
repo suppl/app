@@ -34,7 +34,7 @@ const mapStateToProps = state => state;
 
 const mapDispatchToProps = dispatch => ({
     showAward: () => dispatch({
-        type: ACTIONS.SHOW_AWARD,
+        type   : ACTIONS.SHOW_AWARD,
         message: 'MEEE'
     }),
 
@@ -43,7 +43,4 @@ const mapDispatchToProps = dispatch => ({
     })
 });
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Award)
+export default connect(mapStateToProps, mapDispatchToProps)(Award)

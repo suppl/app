@@ -76,7 +76,7 @@ const mapDispatchToProps = dispatch => ({
     }),
 
     updateName: (event) => dispatch({
-        type: ACTIONS.UPDATE_NAME,
+        type: ACTIONS.SET_DISPLAY_NAME,
         displayName: event.target.value,
     }),
 

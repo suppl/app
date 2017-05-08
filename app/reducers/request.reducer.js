@@ -9,45 +9,36 @@ const initialState = {
 };
 
 const performAction = {
-    [ACTIONS.SIGN_IN]: () => {
-        Dispatch({type: ACTIONS.START_LOADING});
-
-        console.log('State', State());
-
-        firebase.auth().signInWithEmailAndPassword(State().user.email, State().user.password)
-            .then(user => store.dispatch({
-                type: ACTIONS.SET_USER,
-                isLoggedIn: true,
-                user: user
-            }), error => standardError(ACTIONS.SIGN_IN, error.message))
-    },
-
-    [ACTIONS.SIGN_OUT]: () => {
-        Dispatch({
-            type: ACTIONS.START_LOADING
-        });
-
-        setTimeout(() => firebase.auth().signOut()
-                .then(user => store.dispatch({
-                    type: ACTIONS.UNSET_USER,
-                    isLoggedIn: false,
-                    user: {}
-                }), error => standardError(ACTIONS.SIGN_OUT, error.message))
-            , 500)
-
-    }
+    [ACTIONS.SIGN_IN]: () => signIn(),
+    [ACTIONS.SIGN_OUT]: () => signOut(),
 };
+
+const signIn = async () => {
+    let user;
+    Dispatch({type: ACTIONS.START_LOADING});
+
+    user = await firebase.auth()
+        .signInWithEmailAndPassword(State().user.email, State().user.password)
+        .catch(error => standardError(ACTIONS.SIGN_IN, error.message));
+
+    Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
+};
+
+const signOut = async () => {
+    Dispatch({type: ACTIONS.START_LOADING});
+    await sleep(500);
+
+    await firebase.auth().signOut().catch(error => standardError(ACTIONS.SIGN_OUT, error.message));
+    Dispatch({type: ACTIONS.UNSET_USER});
+};
+
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const standardError = (action, message) => {
     console.error('ERROR', action, message);
 
     Dispatch(ACTIONS.DONE_LOADING);
-
-    Dispatch({
-        type: ACTIONS.SHOW_NOTIFICATION,
-        message: message,
-        theme: 'error',
-    });
+    Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: message, theme: 'error',});
 };
 
 const requests = (state = initialState, action) => {

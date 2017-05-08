@@ -8,38 +8,43 @@ export const SessionList = [
         icon: "icon-loudspeaker",
         description: `Take 3 minutes to improve your posture.`,
         caption: "Level 1",
-        rewardsNeeded: [],
+        awardsNeeded: [],
         pointLimit: 0,
         audios: [
             {
-                name: 'Begin Fresh',
-                file: '',
-                rewardsNeeded: [],
+                name: 'Session 1/10',
+                file: 'https://ascension101.com//media/audio/5min/5%20Minute%20Advanced%20Breath%20Meditation.mp3',
+                awardsNeeded: [],
                 pointLimit: 0,
+                index: 0,
             },
             {
-                name: 'Howdy',
-                file: '',
-                rewardsNeeded: [],
+                name: 'Session 2/10',
+                file: 'https://ascension101.com//media/audio/5min/5%20Minute%20relaxation%20by%20Inelia%20Benz.mp3',
+                awardsNeeded: [],
                 pointLimit: 0,
+                index: 1,
             },
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 100,
+                index: 2,
             },
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 100,
+                index: 3,
             },
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 100,
+                index: 4,
             }
         ]
     },
@@ -50,31 +55,31 @@ export const SessionList = [
         icon: "icon-city",
         description: `Dolorem doloribus facere quaerat tenetur!`,
         caption: "Level 1",
-        rewardsNeeded: [],
+        awardsNeeded: [],
         pointLimit: 0,
         audios: [
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },
         ]
@@ -86,58 +91,58 @@ export const SessionList = [
         icon: "icon-height",
         description: `Dolorem doloribus facere quaerat tenetur!`,
         caption: "Level 1",
-        rewardsNeeded: [],
+        awardsNeeded: [],
         pointLimit: 0,
         audios: [
             {
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },{
                 name: 'Howdy',
                 file: '',
-                rewardsNeeded: [],
+                awardsNeeded: [],
                 pointLimit: 1000,
             },
         ]
@@ -147,7 +152,7 @@ export const SessionList = [
 export const isSessionAvailable = (session) => {
     let flag = true;
 
-    session.rewardsNeeded.forEach(reward => {
+    session.awardsNeeded.forEach(award => {
 
     });
 
@@ -163,7 +168,7 @@ export const isAudioAvailable = (audio) => {
     // console.log('audio', audio);
     let flag = true;
 
-    audio.rewardsNeeded.forEach(reward => {
+    audio.awardsNeeded.forEach(award => {
 
     });
 
