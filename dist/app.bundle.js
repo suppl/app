@@ -23915,13 +23915,15 @@ var SessionList = exports.SessionList = [{
     pointLimit: 0,
     audios: [{
         name: 'Session 1/10',
-        file: 'https://ascension101.com//media/audio/5min/5%20Minute%20Advanced%20Breath%20Meditation.mp3',
+        // file: 'https://ascension101.com//media/audio/5min/5%20Minute%20Advanced%20Breath%20Meditation.mp3',
+        file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         pointLimit: 0,
         index: 0
     }, {
         name: 'Session 2/10',
         file: 'https://ascension101.com//media/audio/5min/5%20Minute%20relaxation%20by%20Inelia%20Benz.mp3',
+        // file        : '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         pointLimit: 0,
         index: 1
@@ -35504,7 +35506,7 @@ var Audio = function (_React$Component) {
                 _this2.seek = _this2.getSeek();
                 _this2.dash = _this2.getDash();
                 _this2.forceUpdate();
-            }, 1000);
+            }, 10);
         }
     }, {
         key: 'getClasses',
@@ -35521,7 +35523,7 @@ var Audio = function (_React$Component) {
         value: function getDuration() {
             if (!this.isSoundLoaded()) return '0:00';
             var duration = moment.duration(this.props.settings.sound.duration(), 'seconds');
-            return duration.minutes() + ':' + duration.seconds().toFixed(2);
+            return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
         }
     }, {
         key: 'getSeek',
@@ -35529,12 +35531,17 @@ var Audio = function (_React$Component) {
             if (!this.isSoundLoaded()) return '0:00';
             var duration = moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
 
-            return duration.minutes() + ':' + duration.seconds().toFixed(2);
+            return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
         }
     }, {
         key: 'getDash',
         value: function getDash() {
             return 700 + 700 * (this.props.settings.sound.seek() / this.props.settings.sound.duration()) + 'px';
+        }
+    }, {
+        key: 'pad',
+        value: function pad(n) {
+            return n < 10 ? "0" + n : n;
         }
     }, {
         key: 'render',
@@ -36138,6 +36145,11 @@ var playAudio = function playAudio(data, state) {
 
 var loadAudio = function loadAudio(data, state) {
     var sound = new Howl({ src: [state.audio.file] });
+
+    sound.once('end', function () {
+        console.log('audio end!');
+        (0, _dispatch.Dispatch)(ACTIONS.PAUSE_AUDIO);
+    });
 
     return { sound: sound };
 };
@@ -44764,7 +44776,7 @@ exports = module.exports = __webpack_require__(37)(undefined);
 
 
 // module
-exports.push([module.i, ".session-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #00a2f2;\n  background-color: #eff2f9;\n  color: #263345;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .session-component .session-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    height: 100px;\n    width: 100px;\n    font-size: 30px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    transition: 0.15s;\n    color: #979797; }\n    .session-component .session-close:hover {\n      transform: scale(1.1); }\n    .session-component .session-close:active {\n      transform: scale(1.3); }\n  .session-component .session-title {\n    text-align: center;\n    font-size: 24px;\n    font-weight: 400;\n    position: absolute;\n    top: 40px;\n    color: #a5cbea;\n    font-size: 19px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .session-component .audio-title {\n    text-align: center;\n    font-size: 30px;\n    position: absolute;\n    top: 80px;\n    color: #263345;\n    font-weight: 100;\n    font-size: 14px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .session-component .audio-duration {\n    text-align: center;\n    font-size: 20px;\n    font-weight: 400;\n    margin-top: 90px;\n    color: #263345;\n    font-size: 19px;\n    font-style: italic;\n    color: #263345; }\n  .session-component .audio-play {\n    cursor: pointer;\n    width: 222px;\n    height: 222px;\n    background-color: #fff;\n    border-radius: 500px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    overflow: hidden; }\n    .session-component .audio-play svg {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 222px;\n      height: 222px;\n      transform: rotateY(-180deg) rotateZ(-90deg);\n      pointer-events: none; }\n      .session-component .audio-play svg circle {\n        fill: none;\n        stroke-width: 70px;\n        stroke: #00a2f2;\n        fill: none;\n        stroke-dasharray: 700px;\n        transition: 2s;\n        stroke-dashoffset: 700px; }\n    .session-component .audio-play .play-inner {\n      width: 161px;\n      height: 161px;\n      background-color: #fff;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n      border: solid 2px #00a2f2;\n      border-radius: 500px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: 0.15s;\n      position: relative; }\n      .session-component .audio-play .play-inner:hover {\n        transform: scale(1.1); }\n      .session-component .audio-play .play-inner:active {\n        transform: scale(1.2); }\n    .session-component .audio-play .icon, .session-component .audio-play .fa {\n      color: #00a2f2;\n      font-size: 100px;\n      font-size: 90px;\n      margin-left: 18px; }\n  .session-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .session-component .loader-icon {\n    font-weight: bold;\n    font-size: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    animation-name: rotate;\n    animation-duration: 1s;\n    animation-iteration-count: infinite;\n    animation-timing-function: linear; }\n  .session-component .loader-text {\n    font-weight: bold;\n    margin-top: 10px; }\n", ""]);
+exports.push([module.i, ".session-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #00a2f2;\n  background-color: #eff2f9;\n  color: #263345;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .session-component .session-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    height: 100px;\n    width: 100px;\n    font-size: 30px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    transition: 0.15s;\n    color: #979797; }\n    .session-component .session-close:hover {\n      transform: scale(1.1); }\n    .session-component .session-close:active {\n      transform: scale(1.3); }\n  .session-component .session-title {\n    text-align: center;\n    font-size: 24px;\n    font-weight: 400;\n    position: absolute;\n    top: 40px;\n    color: #a5cbea;\n    font-size: 19px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .session-component .audio-title {\n    text-align: center;\n    font-size: 30px;\n    position: absolute;\n    top: 80px;\n    color: #263345;\n    font-weight: 100;\n    font-size: 14px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .session-component .audio-duration {\n    text-align: center;\n    font-size: 20px;\n    font-weight: 400;\n    margin-top: 90px;\n    color: #263345;\n    font-size: 19px;\n    font-style: italic;\n    color: #263345; }\n  .session-component .audio-play {\n    cursor: pointer;\n    width: 222px;\n    height: 222px;\n    background-color: #fff;\n    border-radius: 500px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    overflow: hidden; }\n    .session-component .audio-play svg {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 222px;\n      height: 222px;\n      transform: rotateY(-180deg) rotateZ(-90deg);\n      pointer-events: none; }\n      .session-component .audio-play svg circle {\n        fill: none;\n        stroke-width: 70px;\n        stroke: #00a2f2;\n        fill: none;\n        stroke-dasharray: 700px;\n        stroke-dashoffset: 700px; }\n    .session-component .audio-play .play-inner {\n      width: 161px;\n      height: 161px;\n      background-color: #fff;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n      border: solid 2px #00a2f2;\n      border-radius: 500px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: 0.15s;\n      position: relative; }\n      .session-component .audio-play .play-inner:hover {\n        transform: scale(1.1); }\n      .session-component .audio-play .play-inner:active {\n        transform: scale(1.2); }\n    .session-component .audio-play .icon, .session-component .audio-play .fa {\n      color: #00a2f2;\n      font-size: 100px;\n      font-size: 90px;\n      margin-left: 18px; }\n  .session-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .session-component .loader-icon {\n    font-weight: bold;\n    font-size: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    animation-name: rotate;\n    animation-duration: 1s;\n    animation-iteration-count: infinite;\n    animation-timing-function: linear; }\n  .session-component .loader-text {\n    font-weight: bold;\n    margin-top: 10px; }\n", ""]);
 
 // exports
 

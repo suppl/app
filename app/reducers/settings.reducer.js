@@ -63,6 +63,11 @@ const playAudio = (data, state) => {
 const loadAudio = (data, state) => {
     let sound = new Howl({src: [state.audio.file]});
 
+    sound.once('end', () => {
+        console.log('audio end!');
+        Dispatch(ACTIONS.PAUSE_AUDIO);
+    });
+
     return {sound: sound}
 };
 

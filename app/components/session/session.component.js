@@ -16,10 +16,10 @@ class Audio extends React.Component {
 
         setInterval(() => {
             this.duration = this.getDuration();
-            this.seek = this.getSeek();
-            this.dash = this.getDash();
+            this.seek     = this.getSeek();
+            this.dash     = this.getDash();
             this.forceUpdate();
-        }, 1000);
+        }, 10);
     }
 
     duration = '0:00';
@@ -38,18 +38,22 @@ class Audio extends React.Component {
     getDuration() {
         if (!this.isSoundLoaded()) return '0:00';
         let duration = moment.duration(this.props.settings.sound.duration(), 'seconds');
-        return `${duration.minutes()}:${duration.seconds().toFixed(2)}`;
+        return `${this.pad(duration.minutes())}:${this.pad(duration.seconds())}`;
     }
 
     getSeek() {
         if (!this.isSoundLoaded()) return '0:00';
-        let duration =  moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
+        let duration = moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
 
-        return `${duration.minutes()}:${duration.seconds().toFixed(2)}`;
+        return `${this.pad(duration.minutes())}:${this.pad(duration.seconds())}`;
     }
 
     getDash() {
         return (700 + 700 * (this.props.settings.sound.seek() / this.props.settings.sound.duration())) + 'px'
+    }
+
+    pad(n) {
+        return (n < 10) ? ("0" + n) : n;
     }
 
     render() {
@@ -62,12 +66,12 @@ class Audio extends React.Component {
 
                 <div className="audio-play">
                     <svg>
-                        <circle r="111" cx="111" cy="111" style={{strokeDashoffset:this.dash}}></circle>
+                        <circle r="111" cx="111" cy="111" style={{strokeDashoffset: this.dash}}></circle>
                     </svg>
 
                     {this.props.settings.playing ?
                         <div className="play-inner" onClick={this.props.pauseAudio}>
-                            <i className="fa fa-pause fa-fw" style={{margin:0}}/>
+                            <i className="fa fa-pause fa-fw" style={{margin: 0}}/>
                         </div>
                         :
                         <div className="play-inner" onClick={this.props.playAudio}>
