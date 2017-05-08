@@ -12,18 +12,19 @@ export const SessionList = [
         pointLimit  : 0,
         audios      : [
             {
+                id          : '',
                 name        : 'Session 1/10',
-                // file: 'https://ascension101.com//media/audio/5min/5%20Minute%20Advanced%20Breath%20Meditation.mp3',
                 file        : '/statics/audio/jwc-10.mp3',
                 awardsNeeded: [],
+                audiosNeeded: [],
                 pointLimit  : 0,
                 index       : 0,
             },
             {
                 name        : 'Session 2/10',
-                file: 'https://ascension101.com//media/audio/5min/5%20Minute%20relaxation%20by%20Inelia%20Benz.mp3',
-                // file        : '/statics/audio/jwc-10.mp3',
+                file        : 'https://ascension101.com//media/audio/5min/5%20Minute%20relaxation%20by%20Inelia%20Benz.mp3',
                 awardsNeeded: [],
+                audiosNeeded: [],
                 pointLimit  : 0,
                 index       : 1,
             },

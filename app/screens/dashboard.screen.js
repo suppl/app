@@ -16,9 +16,9 @@ class Dashboard extends React.Component {
         }, 1);
 
 
-        setTimeout(() => {
-            this.props.showAward('howdy');
-        }, 3000);
+        // setTimeout(() => {
+        //     this.props.showAward('howdy');
+        // }, 3000);
     }
 
     render() {

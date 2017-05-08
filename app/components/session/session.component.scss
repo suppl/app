@@ -115,7 +115,6 @@
 
         stroke-width: 70px;
         stroke: $azure;
-        fill: none;
         stroke-dasharray: 700px;
         //transition: 2s;
         stroke-dashoffset: 700px;
@@ -137,18 +136,27 @@
       justify-content: center;
       transition: 0.15s;
       position: relative;
+      color: $azure;
+
+      &.playing {
+        border-color: $pale-grey;
+        color: $pale-grey;
+        //transform:rotate(360deg);
+      }
 
       &:hover {
-        transform:scale(1.1)
+        transform:scale(1.1);
+        border-color: $azure;
+        color: $azure;
       }
 
       &:active {
-        transform:scale(1.2)
+        transform:scale(1.2);
       }
     }
 
     .icon, .fa {
-      color: $azure;
+      //color: $azure;
       font-size: 100px;
       font-size: 90px;
       margin-left: 18px;

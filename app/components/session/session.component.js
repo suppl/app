@@ -47,6 +47,7 @@ class Audio extends React.Component {
     }
 
     getDash() {
+        if (!this.isSoundLoaded()) return 0;
         return (700 + 700 * (this.props.settings.sound.seek() / this.props.settings.sound.duration())) + 'px'
     }
 
@@ -64,11 +65,11 @@ class Audio extends React.Component {
 
                 <div className="audio-play">
                     <svg>
-                        <circle r="111" cx="111" cy="111" style={{strokeDashoffset: this.dash}}></circle>
+                        <circle r="111" cx="111" cy="111" style={{strokeDashoffset: this.dash}}/>
                     </svg>
 
                     {this.props.settings.playing ?
-                        <div className="play-inner" onClick={this.props.pauseAudio}>
+                        <div className="play-inner playing" onClick={this.props.pauseAudio}>
                             <i className="fa fa-pause fa-fw" style={{margin: 0}}/>
                         </div>
                         :
@@ -80,7 +81,6 @@ class Audio extends React.Component {
                 <div className="audio-duration">
                     {this.seek} left <br/> ({this.duration} mins)
                 </div>
-
             </div>
         )
     }
