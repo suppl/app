@@ -2,42 +2,49 @@
 
 .sidebar-component {
   background: $dark;
-  flex: 0 0 89px;
+  flex: 0 0 146px;
   display: flex;
   flex-direction: column;
 
   .top-menu, .bottom-menu {
     display: flex;
     flex-direction: column;
-    margin: 0 auto auto;
+    margin: 0 15px auto;
 
     .menu-item {
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+      //justify-content: center;
+      //text-align: center;
       flex-direction: column;
-      height: 60px;
+      height: 30px;
       //width: 50px;
       //padding: 15px;
       color: white;
-      margin: auto;
+      //margin: auto;
       margin-top: 15px;
       cursor: pointer;
       transition: .15s;
       border-radius: 100%;
       font-size: 30px;
       text-decoration: none;
+      text-align: left;
+      //padding: 0 10px;
+
+      font-size: 13px;
+      color: $white;
+      flex-direction: row;
 
       i {
-        font-size: 30px;
+        font-size: 21px;
+        margin-right: 10px;
       }
 
       span {
-        font-size: 10px;
-        text-transform: uppercase;
-        font-weight: 600;
-        margin-top: 5px;
+        font-size: 13px;
+        //text-transform: uppercase;
+        font-weight: normal;
+        //margin-top: 5px;
       }
 
       &:hover {

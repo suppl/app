@@ -89,7 +89,7 @@ a {
 
 [data-content] {
   opacity: 0;
-  max-width: calc(100vw - 89px);
+  max-width: calc(100vw - 146px);
   min-width: 511px;
 
   transition: .6s;
@@ -117,7 +117,7 @@ a {
 .content-area-plain {
   display: flex;
   flex: 1;
-  max-width: calc(100vw - 89px);
+  max-width: calc(100vw - 146px);
   min-width: 511px;
 }
 
@@ -136,4 +136,9 @@ a {
   font-size: inherit;
   font-style: inherit;
   margin-left: inherit;
+  font-size: 110%;
+}
+
+i {
+  font-style: normal;
 }

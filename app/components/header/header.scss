@@ -2,7 +2,7 @@
 
 .header-component {
   height: 70px;
-  background: $pale-grey-two;
+  background: white;
   padding: 15px 25px;
   display: flex;
   flex-direction: row;
@@ -42,6 +42,10 @@
     font-weight: 600;
     color: $dark;
     margin-left: 15px;
+    text-decoration: none;
+    a {
+      text-decoration: none;
+    }
   }
 
   .suppl-logo {

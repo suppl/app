@@ -5,8 +5,10 @@ import * as _ from 'lodash';
 
 const initialState = {
     isLoggedIn: false,
-    email     : "hello@suppl.co",
-    password  : "password123",
+    // email     : "hello@suppl.co",
+    // password  : "password123",
+    email     : "",
+    password  : "",
     user      : {},
     customData: {},
     register  : {

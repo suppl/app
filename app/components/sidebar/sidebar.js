@@ -21,8 +21,17 @@ const Sidebar = () => (
                 <span>Stats</span>
             </a>
             <a href="#/achievements" className="menu-item">
+                <i className="flaticon-quality"/>
+                <span>Awards</span>
+            </a>
+            <a className="menu-item">
                 <i className="icon-trophy2"/>
-                <span>Achievements</span></a>
+                <span>Buddies</span>
+            </a>
+            <a  className="menu-item">
+                <i className="flaticon-cup"/>
+                <span>Challenges</span>
+            </a>
             {/*<div className="menu-item"><i className="icon-bug"></i></div>*/}
         </div>
         <div className="bottom-menu">
