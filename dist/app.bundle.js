@@ -27569,7 +27569,7 @@ var Sidebar = function Sidebar() {
             _react2.default.createElement(
                 'a',
                 { href: '#/player', className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'icon-headphones' }),
+                _react2.default.createElement('i', { className: 'flaticon-headphones-2' }),
                 _react2.default.createElement(
                     'span',
                     null,
@@ -27589,7 +27589,7 @@ var Sidebar = function Sidebar() {
             _react2.default.createElement(
                 'a',
                 { href: '#/stats', className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'icon-chart-growth' }),
+                _react2.default.createElement('i', { className: 'flaticon-graphics' }),
                 _react2.default.createElement(
                     'span',
                     null,
@@ -27609,7 +27609,7 @@ var Sidebar = function Sidebar() {
             _react2.default.createElement(
                 'a',
                 { className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'icon-trophy2' }),
+                _react2.default.createElement('i', { className: 'flaticon-people-1' }),
                 _react2.default.createElement(
                     'span',
                     null,
