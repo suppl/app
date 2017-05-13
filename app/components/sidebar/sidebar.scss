@@ -9,7 +9,7 @@
   .top-menu, .bottom-menu {
     display: flex;
     flex-direction: column;
-    margin: 0 15px auto;
+    margin: 0 0px auto;
 
     .menu-item {
       display: flex;
@@ -22,7 +22,8 @@
       //padding: 15px;
       color: white;
       //margin: auto;
-      margin-top: 15px;
+      margin-top: 20px;
+      margin-left: 15px;
       cursor: pointer;
       transition: .15s;
       border-radius: 100%;
@@ -36,7 +37,7 @@
       flex-direction: row;
 
       i {
-        font-size: 21px;
+        font-size: 24px;
         margin-right: 10px;
       }
 

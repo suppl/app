@@ -27619,7 +27619,7 @@ var Sidebar = function Sidebar() {
             _react2.default.createElement(
                 'a',
                 { className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'flaticon-cup' }),
+                _react2.default.createElement('i', { className: 'flaticon-fight' }),
                 _react2.default.createElement(
                     'span',
                     null,
@@ -60386,7 +60386,7 @@ exports = module.exports = __webpack_require__(38)(undefined);
 
 
 // module
-exports.push([module.i, ".sidebar-component {\n  background: #263345;\n  flex: 0 0 146px;\n  display: flex;\n  flex-direction: column; }\n  .sidebar-component .top-menu, .sidebar-component .bottom-menu {\n    display: flex;\n    flex-direction: column;\n    margin: 0 15px auto; }\n    .sidebar-component .top-menu .menu-item, .sidebar-component .bottom-menu .menu-item {\n      display: flex;\n      align-items: center;\n      flex-direction: column;\n      height: 30px;\n      color: white;\n      margin-top: 15px;\n      cursor: pointer;\n      transition: .15s;\n      border-radius: 100%;\n      font-size: 30px;\n      text-decoration: none;\n      text-align: left;\n      font-size: 13px;\n      color: #fff;\n      flex-direction: row; }\n      .sidebar-component .top-menu .menu-item i, .sidebar-component .bottom-menu .menu-item i {\n        font-size: 21px;\n        margin-right: 10px; }\n      .sidebar-component .top-menu .menu-item span, .sidebar-component .bottom-menu .menu-item span {\n        font-size: 13px;\n        font-weight: normal; }\n      .sidebar-component .top-menu .menu-item:hover, .sidebar-component .bottom-menu .menu-item:hover {\n        color: #fadf89; }\n  .sidebar-component .bottom-menu {\n    margin: auto;\n    margin-bottom: 15px; }\n", ""]);
+exports.push([module.i, ".sidebar-component {\n  background: #263345;\n  flex: 0 0 146px;\n  display: flex;\n  flex-direction: column; }\n  .sidebar-component .top-menu, .sidebar-component .bottom-menu {\n    display: flex;\n    flex-direction: column;\n    margin: 0 0px auto; }\n    .sidebar-component .top-menu .menu-item, .sidebar-component .bottom-menu .menu-item {\n      display: flex;\n      align-items: center;\n      flex-direction: column;\n      height: 30px;\n      color: white;\n      margin-top: 20px;\n      margin-left: 15px;\n      cursor: pointer;\n      transition: .15s;\n      border-radius: 100%;\n      font-size: 30px;\n      text-decoration: none;\n      text-align: left;\n      font-size: 13px;\n      color: #fff;\n      flex-direction: row; }\n      .sidebar-component .top-menu .menu-item i, .sidebar-component .bottom-menu .menu-item i {\n        font-size: 24px;\n        margin-right: 10px; }\n      .sidebar-component .top-menu .menu-item span, .sidebar-component .bottom-menu .menu-item span {\n        font-size: 13px;\n        font-weight: normal; }\n      .sidebar-component .top-menu .menu-item:hover, .sidebar-component .bottom-menu .menu-item:hover {\n        color: #fadf89; }\n  .sidebar-component .bottom-menu {\n    margin: auto;\n    margin-bottom: 15px; }\n", ""]);
 
 // exports
 

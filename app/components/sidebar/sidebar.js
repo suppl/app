@@ -29,7 +29,7 @@ const Sidebar = () => (
                 <span>Buddies</span>
             </a>
             <a  className="menu-item">
-                <i className="flaticon-cup"/>
+                <i className="flaticon-fight"/>
                 <span>Challenges</span>
             </a>
             {/*<div className="menu-item"><i className="icon-bug"></i></div>*/}
