@@ -19,8 +19,6 @@ class Dashboard extends React.Component {
 
     render() {
         const sessionGroup = _.groupBy(SessionList, 'category');
-        console.log('sessionGroup', sessionGroup)
-
 
         return (
             <div data-screen className={`${this.activeClass}`}>
