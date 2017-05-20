@@ -9,7 +9,7 @@ const initialState = {
 };
 
 const performAction = {
-    [ACTIONS.SIGN_IN]: () => signIn(),
+    [ACTIONS.SIGN_IN] : () => signIn(),
     [ACTIONS.SIGN_OUT]: () => signOut(),
 };
 

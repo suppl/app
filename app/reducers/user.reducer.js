@@ -9,6 +9,7 @@ const initialState = {
     // password  : "password123",
     email     : "",
     password  : "",
+    streak    : 0,
     user      : {},
     customData: {},
     register  : {
@@ -17,23 +18,33 @@ const initialState = {
 };
 
 const performAction = {
-    [ACTIONS.REGISTER_USER]: (data, state) => registerUser(data, state),
+    [ACTIONS.REGISTER_USER]              : (data, state) => registerUser(data, state),
     [ACTIONS.UPDATE_REGISTER_CHECK_EMAIL]: (data, state) => checkEmail(data, state),
     [ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK]: (data, state) => emailIsOk(data, state),
-    [ACTIONS.UPDATE_REGISTER_EMAIL]: (data, state) => ({register: {...state.register, email: data.email}}),
-    [ACTIONS.UPDATE_REGISTER_NAME]: (data, state) => ({register: {...state.register, name: data.name}}),
-    [ACTIONS.UPDATE_REGISTER_PASSWORD]: (data, state) => ({register: {...state.register, password: data.password}}),
-    [ACTIONS.UPDATE_REGISTER_ROLE]: (data, state) => ({register: {...state.register, role: data.role}}),
-    [ACTIONS.UPDATE_REGISTER_WORK_STYLE]: (data, state) => ({register: {...state.register, workStyle: data.workStyle}}),
-    [ACTIONS.UPDATE_REGISTER_WORK_HOURS]: (data, state) => ({register: {...state.register, workHours: data.workHours}}),
-    [ACTIONS.UPDATE_LOGIN_EMAIL]: data => ({email: data.email}),
-    [ACTIONS.UPDATE_LOGIN_PASSWORD]: data => ({password: data.password}),
-    [ACTIONS.SET_USER_CUSTOM_DATA]: data => ({customData: data.customData}),
-    [ACTIONS.SET_DISPLAY_NAME]: (data, state) => setDisplayName(data, state),
-    [ACTIONS.LOAD_PROFILE]: (data, state) => ({user: firebase.auth().currentUser}),
-    [ACTIONS.SAVE_PROFILE]: (data, state) => saveProfile(data, state),
-    [ACTIONS.SET_USER]: (data, state) => setUser(data, state),
-    [ACTIONS.UNSET_USER]: (data, state) => unsetUser(data, state),
+    [ACTIONS.UPDATE_REGISTER_EMAIL]      : (data, state) => ({register: {...state.register, email: data.email}}),
+    [ACTIONS.UPDATE_REGISTER_NAME]       : (data, state) => ({register: {...state.register, name: data.name}}),
+    [ACTIONS.UPDATE_REGISTER_PASSWORD]   : (data, state) => ({register: {...state.register, password: data.password}}),
+    [ACTIONS.UPDATE_REGISTER_ROLE]       : (data, state) => ({register: {...state.register, role: data.role}}),
+    [ACTIONS.UPDATE_REGISTER_WORK_STYLE] : (data, state) => ({
+        register: {
+            ...state.register,
+            workStyle: data.workStyle
+        }
+    }),
+    [ACTIONS.UPDATE_REGISTER_WORK_HOURS] : (data, state) => ({
+        register: {
+            ...state.register,
+            workHours: data.workHours
+        }
+    }),
+    [ACTIONS.UPDATE_LOGIN_EMAIL]         : data => ({email: data.email}),
+    [ACTIONS.UPDATE_LOGIN_PASSWORD]      : data => ({password: data.password}),
+    [ACTIONS.SET_USER_CUSTOM_DATA]       : data => ({customData: data.customData}),
+    [ACTIONS.SET_DISPLAY_NAME]           : (data, state) => setDisplayName(data, state),
+    [ACTIONS.LOAD_PROFILE]               : (data, state) => ({user: firebase.auth().currentUser}),
+    [ACTIONS.SAVE_PROFILE]               : (data, state) => saveProfile(data, state),
+    [ACTIONS.SET_USER]                   : (data, state) => setUser(data, state),
+    [ACTIONS.UNSET_USER]                 : (data, state) => unsetUser(data, state),
 };
 
 const emailIsOk = (data, state) => ({
@@ -83,10 +94,10 @@ const registerUser = async (data, state) => {
 
     customData = {
         points: 0,
-        info: {
+        info  : {
             workStyle: state.register.workStyle,
             workHours: state.register.workHours,
-            role: state.register.role,
+            role     : state.register.role,
         }
     };
 
@@ -137,7 +148,7 @@ const trackUserCustomData = () => {
         console.info('db change to user', snapshot.val());
 
         Dispatch({
-            type: ACTIONS.SET_USER_CUSTOM_DATA,
+            type      : ACTIONS.SET_USER_CUSTOM_DATA,
             customData: snapshot.val()
         });
     });

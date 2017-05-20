@@ -1,6 +1,7 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
 import * as _ from 'lodash';
+import moment from 'moment';
 
 import {store} from './../app';
 import {Dispatch, State} from './../services/dispatch.service';
@@ -16,8 +17,8 @@ const performAction = {
     [ACTIONS.GIVE_AWARD]: (data, state) => giveAward(data, state),
     [ACTIONS.SHOW_AWARD]: (data, state) => showAward(data, state),
     [ACTIONS.HIDE_AWARD]: (data, state) => ({visible: false}),
-
-    [ACTIONS.GIVE_DONE]: (data, state) => giveDone(data, state),
+    [ACTIONS.GIVE_DONE] : (data, state) => giveDone(data, state),
+    [ACTIONS.GIVE_DONE] : (data, state) => giveStreak(data, state),
 };
 
 const showAward = (data, state) => ({
@@ -45,6 +46,15 @@ const giveDone = async (data, state) => {
     if (_.some(State().user.customData.done, {audioId: data.audioId})) return;
 
     await firebase.database().ref('users/' + user.uid + '/done').push({
+        audioId: data.audioId
+    });
+};
+
+const giveStreak = async (data, state) => {
+    const user = firebase.auth().currentUser;
+    const date = moment().format('YYYYMMDD');
+
+    await firebase.database().ref('users/' + user.uid + '/streak/' + date).push({
         audioId: data.audioId
     });
 };

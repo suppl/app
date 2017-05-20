@@ -9,11 +9,11 @@ const Sidebar = () => (
         <div className="top-menu">
             <a href="#/player" className="menu-item">
                 <i className="flaticon-headphones-2"/>
-                <span>Sessions</span>
+                <span>Dashboard</span>
             </a>
             <a href="#/dashboard" className="menu-item active">
                 <i className="icon-layers"/>
-                <span>Dashboard</span>
+                <span>Sessions</span>
 
             </a>
             <a href="#/stats" className="menu-item">
