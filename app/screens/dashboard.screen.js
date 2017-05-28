@@ -1,11 +1,17 @@
 import React from 'react';
 import {connect} from "react-redux";
-import * as _ from 'lodash';
+import Router from 'react-router-component'
+const Locations = Router.Locations;
+const Location = Router.Location;
 
-import * as ACTIONS from '../constants/actions.constants';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
+import PlayerList from '../components/player-list/player-list.component';
+import Dispatch from '../services/dispatch.service'
+import * as ACTIONS from '../constants/actions.constants'
+
+import _ from 'lodash';
 import {SessionList} from '../services/session.service';
 
 
@@ -15,10 +21,25 @@ class Dashboard extends React.Component {
             this.activeClass = 'active';
             this.forceUpdate();
         }, 1);
+
+        const getSession = () => {
+            return this.props._ ? _.find(SessionList, {slug: this.props._[0]}) : undefined;
+        };
+
+        if (getSession()) {
+            Dispatch({
+                type: ACTIONS.SET_SESSION,
+                session: getSession(),
+            });
+        }
     }
 
     render() {
-        const sessionGroup = _.groupBy(SessionList, 'category');
+        const session = this.props.settings.session ? this.props.settings.session : {};
+
+        const getSessionName = () => {
+            return this.props.settings.session ? this.props.settings.session.name : "No Session selected";
+        };
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -26,37 +47,12 @@ class Dashboard extends React.Component {
                 <div className="flex flex-row">
                     <Sidebar/>
                     <div data-content className="flex flex-max">
-                        <SubHeader text="Sessions"/>
-
-                        <div className="content-area" style={{paddingTop:0}}>
-                            {Object.keys(sessionGroup).map((category) =>
-                                <div>
-                                    <div className="line-heading">{category}</div>
-                                    <div className="panels">
-                                        {sessionGroup[category].map((session, index) =>
-                                            <a className="panel" href={`#/player/${session.slug}`} key={session.slug}>
-                                                <div className="panel-icon" style={{background: session.color}}>
-                                                    <div className={session.icon}></div>
-                                                </div>
-                                                <div className="panel-heading">
-                                                    <span>{session.name}</span>
-                                                    <span>{session.audios.length}</span>
-                                                </div>
-
-                                                <div className="panel-text">
-                                                    <span>{session.category}</span>
-                                                    <span>Levels</span>
-                                                </div>
-                                            </a>
-                                        )}
-                                    </div>
-
-                                </div>
-                            )}
+                        <SubHeader text="Dashboard"/>
+                        {/*<SubHeader text={getSessionName()} subText={session.description}/>*/}
 
 
 
-                        </div>
+                        <PlayerList/>
                     </div>
                 </div>
             </div>
@@ -73,12 +69,9 @@ const mapStateToProps = state => {
     return state
 };
 
-const mapDispatchToProps = dispatch => ({
-    showAward: (awardId) => dispatch({
-        type   : ACTIONS.SHOW_AWARD,
-        awardId: awardId
-    }),
-});
+const mapDispatchToProps = dispatch => {
+    return {}
+};
 
 export default connect(
     mapStateToProps,

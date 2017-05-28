@@ -11,33 +11,36 @@
     flex-direction: column;
     margin: 0 0px auto;
 
+    .menu-label {
+      margin-left: 15px;
+      margin-top: 20px;
+      font-size: 8px;
+      font-weight: 600;
+      text-align: left;
+      color: $pinkish-grey;
+      text-transform: uppercase;
+      margin-bottom: -5px;
+    }
+
     .menu-item {
       display: flex;
       align-items: center;
-      //justify-content: center;
-      //text-align: center;
-      flex-direction: column;
-      height: 30px;
-      //width: 50px;
-      //padding: 15px;
-      color: white;
-      //margin: auto;
-      margin-top: 20px;
-      margin-left: 15px;
+      height: 20px;
+      margin-top: 15px;
+      padding-left: 10px;
       cursor: pointer;
       transition: .15s;
-      border-radius: 100%;
-      font-size: 30px;
       text-decoration: none;
       text-align: left;
-      //padding: 0 10px;
 
       font-size: 13px;
       color: $white;
       flex-direction: row;
 
+      border-left: 5px solid transparent;
+
       i {
-        font-size: 24px;
+        font-size: 18px;
         margin-right: 10px;
       }
 
@@ -50,7 +53,8 @@
 
       &:hover {
         //background: $dark-indigo;
-        color: $wheat;
+        color: $azure;
+        border-left: 5px solid $azure;
 
       }
     }

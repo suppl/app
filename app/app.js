@@ -7,8 +7,8 @@ import Router from 'react-router-component'
 const Locations = Router.Locations;
 const Location = Router.Location;
 
+import SessionsScreen from './screens/sessions.screen';
 import DashboardScreen from './screens/dashboard.screen';
-import PlayerScreen from './screens/player.screen';
 import SplashScreen from './screens/splash.screen';
 import ProfileScreen from './screens/profile.screen';
 import RegisterScreen from './screens/register.screen';
@@ -61,8 +61,8 @@ ReactDOM.render(
                 <Location path="/register-style" handler={RegisterStyleScreen}/>
                 <Location path="/achievements" handler={AchievementsScreen}/>
                 <Location path="/stats" handler={StatsScreen}/>
-                <Location path="/dashboard" handler={DashboardScreen}/>
-                <Location path="/player(/*)" handler={PlayerScreen}/>
+                <Location path="/dashboard" handler={SessionsScreen}/>
+                <Location path="/player(/*)" handler={DashboardScreen}/>
                 <Location path="/profile" handler={ProfileScreen}/>
             </Locations>
         </div>

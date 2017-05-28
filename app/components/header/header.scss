@@ -15,7 +15,7 @@
     width: 40px;
     min-width: 40px;
     border-radius: 100%;
-    background: $azure;
+    background: $beige;
 
     display: flex;
     justify-content: center;
@@ -24,16 +24,17 @@
 
     color: white;
     font-size: 12px;
+    font-size: 20px;
     font-weight: 600;
     transition: .15s;
     text-decoration: none;
 
     &:hover, &:focus {
-      background-color: adjust-color($azure, $saturation: 10, $lightness: 10);
+      background-color: adjust-color($beige, $saturation: 10, $lightness: 10);
     }
 
     &:active {
-      background-color: adjust-color($azure, $saturation: 20, $lightness: 20);
+      background-color: adjust-color($beige, $saturation: 20, $lightness: 20);
     }
   }
 
@@ -67,10 +68,10 @@
     flex-direction: row;
 
     .menu-item {
-      font-size: 14px;
+      font-size: 16px;
       text-align: center;
       color: $dark;
-      margin-left: 15px;
+      margin-left: 5px;
       display: flex;
       flex-direction: row;
       position: relative;
@@ -78,8 +79,12 @@
       transition: .15s;
 
       i {
-        font-size: 10px;
+        font-size: 20px;
         margin: auto 5px;
+      }
+
+      .icon-chevron-down {
+        font-size: 10px;
       }
 
       &:hover {

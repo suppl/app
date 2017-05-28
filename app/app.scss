@@ -126,6 +126,12 @@ a {
   color: $dark;
   margin-top: 20px;
 
+  font-size: 12px;
+  font-weight: 600;
+  text-align: left;
+  color: $warm-grey-two;
+  text-transform: uppercase;
+
   &:first-child {
     margin-top: 0;
   }

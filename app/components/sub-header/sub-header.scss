@@ -20,16 +20,43 @@
     font-size: 18px;
     font-weight: 600;
     color: $dark;
+    flex: 1;
 
     display: flex;
     flex-direction: row;
     align-items: baseline;
+    justify-content: space-between;
 
     .small-sub-heading {
       font-size: 12px;
       color: $dark;
       margin-left: 15px;
       font-weight: normal;
+    }
+  }
+
+  .user-count {
+    display: flex;
+    width: 100px;
+    height: 35px;
+    border-radius: 3px;
+    background-color: $pale-grey-two;
+
+    font-size: 13px;
+    text-align: left;
+    color: $dark;
+    font-weight: normal;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    margin-left: auto;
+
+    i {
+      margin-right: auto;
+      font-size: 17px;
     }
   }
 }

@@ -30,7 +30,8 @@ class Header extends React.Component {
                 <a className="user-logo" href="#/profile">{this.getUserFirstLetter()}</a>
                 <a className="user-hello" href="#/profile" onClick={this.props.login}>Welcome back {this.getUserFirstName()}!</a>
                 <div className="header-menu">
-                    <div className="menu-item"><i className="icon-heart"></i> Refer a friend</div>
+                    <div className="menu-item"><i className="flaticon-bell"></i></div>
+                    <div className="menu-item"><i className="flaticon-add-user"></i></div>
                     <div className="menu-item ${settingsClass}" onClick={this.props.toggleSettings}>
                         <div className={`suppl-dropdown ${settingsClass}`}>
                             <a className="dropdown-item" href="#/profile">
@@ -47,8 +48,7 @@ class Header extends React.Component {
                             </div>
 
                         </div>
-                        <i className="icon-cog"></i>
-                        Settings
+                        <i className="flaticon-cog"></i>
                         <i className="icon-chevron-down"></i>
                     </div>
                 </div>

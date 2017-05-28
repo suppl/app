@@ -21,37 +21,66 @@ class Splash extends React.Component {
             <div className={`player-list-component`}>
 
 
-                <div className="row">
-                    <div className="col-sm-4">
+                <div className="flex flex-row flex-min stats-all">
+
+                    <div className="stats-container">
                         <div className="sub-sub-heading">Suppl session</div>
                         <div className="stats-box">
                             <div className="stats-stat">
-                                <div className="stat-icon icon-heart"/>
-                                <div className="stat-number">0</div>
-                                <div className="stat-desc">Calories burnt</div>
+                                <div className={`stat-icon session-icon ${session.icon}`} style={{
+                                    background: session.color,
+                                    color     : 'white',
+                                }}/>
+                                <div className="flex">
+                                    <div className="stat-number">{session.name}</div>
+                                    <div className="stat-desc">Level {session.level}</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-4">
+
+                    <div className="stats-container">
                         <div className="sub-sub-heading">Daily achievements</div>
                         <div className="stats-box">
                             <div className="stats-stat">
-                                <div className="stat-icon icon-heart"/>
-                                <div className="stat-number">0</div>
-                                <div className="stat-desc">Calories burnt</div>
+                                <div className="stat-icon flaticon-technology-1 light-gold"/>
+                                <div className="flex">
+                                    <div className="stat-number">5 <span>min</span></div>
+                                    <div className="stat-desc">Calories burnt</div>
+                                </div>
+                            </div>
+
+                            <div className="stats-stat">
+                                <div className="stat-icon flaticon-lungs-with-bronchi light-gold"/>
+                                <div className="flex">
+                                    <div className="stat-number">1</div>
+                                    <div className="stat-desc">Day streak</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-4">
-                        <div className="sub-sub-heading">Your suppl stats</div>
+
+                    <div className="stats-container">
+                        <div className="sub-sub-heading">Healthy stats</div>
                         <div className="stats-box">
                             <div className="stats-stat">
-                                <div className="stat-icon icon-heart"/>
-                                <div className="stat-number">0</div>
-                                <div className="stat-desc">Calories burnt</div>
+                                <div className="stat-icon flaticon-star"/>
+                                <div className="flex">
+                                    <div className="stat-number">20</div>
+                                    <div className="stat-desc">Lung love</div>
+                                </div>
+                            </div>
+                            <div className="stats-stat">
+                                <div className="stat-icon flaticon-brain-1"/>
+                                <div className="flex">
+                                    <div className="stat-number">10</div>
+                                    <div className="stat-desc">Brain boost</div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
                 </div>
 
 
@@ -67,7 +96,6 @@ class Splash extends React.Component {
 
                     {session.audios.map((audio, index) =>
                         <div className="list-item">
-
 
 
                             { isAudioAvailable(audio)
@@ -104,7 +132,7 @@ const mapDispatchToProps = dispatch => ({
     }),
 
     showNotification: () => dispatch({
-        type   : ACTIONS.SHOW_NOTIFICATION,
+        type: ACTIONS.SHOW_NOTIFICATION,
         message: 'MEEE'
     })
 });

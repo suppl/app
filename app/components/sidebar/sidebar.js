@@ -8,22 +8,29 @@ const Sidebar = () => (
     <div className="sidebar-component">
         <div className="top-menu">
             <a href="#/player" className="menu-item">
-                <i className="flaticon-headphones-2"/>
+                <i className="flaticon-headphones"/>
                 <span>Dashboard</span>
             </a>
+
+            <div className="menu-label">
+                All yours
+            </div>
             <a href="#/dashboard" className="menu-item active">
                 <i className="icon-layers"/>
                 <span>Sessions</span>
-
             </a>
             <a href="#/stats" className="menu-item">
-                <i className="flaticon-graphics"/>
+                <i className="flaticon-graphic"/>
                 <span>Stats</span>
             </a>
             <a href="#/achievements" className="menu-item">
-                <i className="flaticon-quality"/>
+                <i className="flaticon-medal"/>
                 <span>Awards</span>
             </a>
+
+            <div className="menu-label">
+                Community
+            </div>
             <a className="menu-item">
                 <i className="flaticon-people-1"/>
                 <span>Buddies</span>
