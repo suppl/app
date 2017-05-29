@@ -80489,17 +80489,16 @@ var settings = function settings() {
 var init = function init() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (!user) return;
-        var userId = firebase.auth().currentUser.uid;
-
-        // firebase.database().ref(`online/${userId}`).update(customData);
 
         var connectedRef = firebase.database().ref('.info/connected');
-        var userRef = firebase.database().ref('public/online/' + userId);
+        var userRef = firebase.database().ref('public/online/' + user.uid);
 
         connectedRef.on('value', function (snapshot) {
             if (snapshot.val()) {
                 userRef.onDisconnect().remove();
-                userRef.set(true);
+                userRef.set({
+                    name: user.displayName
+                });
             }
         });
     });

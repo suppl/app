@@ -28,17 +28,16 @@ const settings = (state = initialState, action) => {
 const init = () => {
     firebase.auth().onAuthStateChanged(user => {
         if (!user) return;
-        const userId = firebase.auth().currentUser.uid;
-
-        // firebase.database().ref(`online/${userId}`).update(customData);
 
         const connectedRef = firebase.database().ref('.info/connected');
-        const userRef      = firebase.database().ref(`public/online/${userId}`);
+        const userRef      = firebase.database().ref(`public/online/${user.uid}`);
 
         connectedRef.on('value', (snapshot) => {
             if (snapshot.val()) {
                 userRef.onDisconnect().remove();
-                userRef.set(true);
+                userRef.set({
+                    name: user.displayName
+                });
             }
         });
     });
