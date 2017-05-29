@@ -316,8 +316,8 @@ export const SessionList = [
         ],
     },
     {
-        slug        : "fall-sleep",
-        name        : "Fall sleep",
+        slug        : "fall-asleep",
+        name        : "Fall asleep",
         category    : "Sleep Series",
         level       : 1,
         icon        : "flaticon-people-2",

@@ -5,7 +5,7 @@ import {createStore, combineReducers} from 'redux'
 
 import Router from 'react-router-component'
 const Locations = Router.Locations;
-const Location = Router.Location;
+const Location  = Router.Location;
 
 import SessionsScreen from './screens/sessions.screen';
 import DashboardScreen from './screens/dashboard.screen';
@@ -30,15 +30,17 @@ import notificationReducer from './reducers/notification.reducer';
 import popupReducer from './reducers/popup.reducer';
 import settingsReducer from './reducers/settings.reducer';
 import awardReducer from './reducers/award.reducer';
+import publicReducer from './reducers/public.reducer';
 
 
 const reducer = combineReducers({
-    user: userReducer,
-    request: requestReducer,
+    user        : userReducer,
+    request     : requestReducer,
     notification: notificationReducer,
-    popup: popupReducer,
-    settings: settingsReducer,
-    award: awardReducer,
+    popup       : popupReducer,
+    settings    : settingsReducer,
+    award       : awardReducer,
+    public      : publicReducer,
 });
 
 export const store = createStore(reducer);

@@ -45,13 +45,13 @@ class Splash extends React.Component {
                             <div className="stats-stat">
                                 <div className="stat-icon flaticon-technology-1 light-gold"/>
                                 <div className="flex">
-                                    <div className="stat-number">5 <span>min</span></div>
-                                    <div className="stat-desc">Calories burnt</div>
+                                    <div className="stat-number">5<span>min</span></div>
+                                    <div className="stat-desc">Active today</div>
                                 </div>
                             </div>
 
                             <div className="stats-stat">
-                                <div className="stat-icon flaticon-lungs-with-bronchi light-gold"/>
+                                <div className="stat-icon flaticon-star light-gold"/>
                                 <div className="flex">
                                     <div className="stat-number">1</div>
                                     <div className="stat-desc">Day streak</div>
@@ -64,7 +64,7 @@ class Splash extends React.Component {
                         <div className="sub-sub-heading">Healthy stats</div>
                         <div className="stats-box">
                             <div className="stats-stat">
-                                <div className="stat-icon flaticon-star"/>
+                                <div className="stat-icon flaticon-lungs-with-bronchi"/>
                                 <div className="flex">
                                     <div className="stat-number">20</div>
                                     <div className="stat-desc">Lung love</div>
@@ -88,7 +88,10 @@ class Splash extends React.Component {
                     <div className="list-background"/>
                     <div className="list-start">
                         <div className="start-circle">
-                            <div className="start-inner-circle">
+                            <div className="start-inner-circle" style={{
+                                background: session.color,
+                                color     : 'white',
+                            }}>
                                 <i className={this.props.settings.session.icon}></i>
                             </div>
                         </div>

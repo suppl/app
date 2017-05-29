@@ -5162,6 +5162,9 @@ var GIVE_DONE = exports.GIVE_DONE = 'GIVE_DONE';
 var SEND_RESET_PASSWORD_EMAIL = exports.SEND_RESET_PASSWORD_EMAIL = 'SEND_RESET_PASSWORD_EMAIL';
 var UPDATE_RESET_PASSWORD_EMAIL = exports.UPDATE_RESET_PASSWORD_EMAIL = 'UPDATE_RESET_PASSWORD_EMAIL';
 
+var SET_ONLINE_STATUS = exports.SET_ONLINE_STATUS = 'SET_ONLINE_STATUS';
+var SET_ONLINE_COUNT = exports.SET_ONLINE_COUNT = 'SET_ONLINE_COUNT';
+
 var UPDATE_REGISTER_EMAIL = exports.UPDATE_REGISTER_EMAIL = 'UPDATE_REGISTER_EMAIL';
 var UPDATE_REGISTER_EMAIL_IS_OK = exports.UPDATE_REGISTER_EMAIL_IS_OK = 'UPDATE_REGISTER_EMAIL_IS_OK';
 var UPDATE_REGISTER_NAME = exports.UPDATE_REGISTER_NAME = 'UPDATE_REGISTER_NAME';
@@ -25886,6 +25889,10 @@ var _award3 = __webpack_require__(359);
 
 var _award4 = _interopRequireDefault(_award3);
 
+var _public = __webpack_require__(734);
+
+var _public2 = _interopRequireDefault(_public);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Locations = _reactRouterComponent2.default.Locations;
@@ -25897,7 +25904,8 @@ var reducer = (0, _redux.combineReducers)({
     notification: _notification4.default,
     popup: _popup4.default,
     settings: _settings2.default,
-    award: _award4.default
+    award: _award4.default,
+    public: _public2.default
 });
 
 var store = exports.store = (0, _redux.createStore)(reducer);
@@ -28426,7 +28434,8 @@ var SubHeader = function (_React$Component) {
                         'div',
                         { className: 'user-count' },
                         _react2.default.createElement('i', { className: 'flaticon-users' }),
-                        ' 220'
+                        ' ',
+                        this.props.public.onlineCount
                     )
                 )
             );
@@ -30358,8 +30367,8 @@ var SessionList = exports.SessionList = [{
         alignAce: 100
     }]
 }, {
-    slug: "fall-sleep",
-    name: "Fall sleep",
+    slug: "fall-asleep",
+    name: "Fall asleep",
     category: "Sleep Series",
     level: 1,
     icon: "flaticon-people-2",
@@ -51005,7 +51014,7 @@ var Splash = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'stat-number' },
-                                        '5 ',
+                                        '5',
                                         _react2.default.createElement(
                                             'span',
                                             null,
@@ -51015,14 +51024,14 @@ var Splash = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'stat-desc' },
-                                        'Calories burnt'
+                                        'Active today'
                                     )
                                 )
                             ),
                             _react2.default.createElement(
                                 'div',
                                 { className: 'stats-stat' },
-                                _react2.default.createElement('div', { className: 'stat-icon flaticon-lungs-with-bronchi light-gold' }),
+                                _react2.default.createElement('div', { className: 'stat-icon flaticon-star light-gold' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'flex' },
@@ -51054,7 +51063,7 @@ var Splash = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'stats-stat' },
-                                _react2.default.createElement('div', { className: 'stat-icon flaticon-star' }),
+                                _react2.default.createElement('div', { className: 'stat-icon flaticon-lungs-with-bronchi' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'flex' },
@@ -51104,7 +51113,10 @@ var Splash = function (_React$Component) {
                             { className: 'start-circle' },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'start-inner-circle' },
+                                { className: 'start-inner-circle', style: {
+                                        background: session.color,
+                                        color: 'white'
+                                    } },
                                 _react2.default.createElement('i', { className: this.props.settings.session.icon })
                             )
                         )
@@ -60434,7 +60446,7 @@ exports = module.exports = __webpack_require__(38)(undefined);
 
 
 // module
-exports.push([module.i, ".player-list-component {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column;\n  padding: 20px;\n  background-color: #e7ebee;\n  position: relative;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch; }\n  .player-list-component .list-container {\n    display: flex;\n    flex: 1 0 auto;\n    margin-top: 20px;\n    margin: 30px -30px -30px;\n    flex-direction: row;\n    position: relative;\n    background: white; }\n  .player-list-component .list-start {\n    position: relative;\n    z-index: 10;\n    width: 140px;\n    margin-left: 95px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .player-list-component .list-start .start-circle {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      border-radius: 100%;\n      line-height: 1.1;\n      margin-right: -25px; }\n      .player-list-component .list-start .start-circle .start-inner-circle {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        text-align: center;\n        border-radius: 100%;\n        width: 126px;\n        height: 126px;\n        background-color: #fff;\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n        border: solid 3px #00a2f2;\n        font-size: 22px;\n        font-weight: 600;\n        color: #00a2f2; }\n        .player-list-component .list-start .start-circle .start-inner-circle i {\n          color: #e5e9ea;\n          color: #00a2f2;\n          font-size: 60px;\n          font-weight: 100;\n          font-style: normal; }\n  .player-list-component .list-item {\n    position: relative;\n    flex: 0 0 125px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .player-list-component .list-item .list-audio-done {\n      background: #2ccfa9;\n      position: absolute;\n      width: 20px;\n      height: 20px;\n      color: white;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n      font-size: 10px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      border-radius: 100px;\n      z-index: 100;\n      font-weight: bold;\n      left: 31px;\n      margin-top: -16px;\n      transform: rotate(13deg);\n      pointer-events: none; }\n    .player-list-component .list-item .list-circle {\n      position: relative;\n      z-index: 15;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      border-radius: 100%;\n      flex: 0 0 50px;\n      width: 50px;\n      height: 50px;\n      background-color: #fff;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);\n      color: #00a2f2;\n      font-size: 20px;\n      transition: .15s;\n      cursor: pointer;\n      margin-left: 100px;\n      margin-right: -25px; }\n      .player-list-component .list-item .list-circle .fa-play {\n        margin-left: 5px; }\n      .player-list-component .list-item .list-circle:hover {\n        transform: scale(1.3); }\n    .player-list-component .list-item .list-circle-number {\n      position: relative;\n      z-index: 15;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      border-radius: 100%;\n      flex: 0 0 50px;\n      width: 50px;\n      height: 50px;\n      background-color: #e7ebee;\n      transition: .15s;\n      margin-left: 100px;\n      margin-right: -25px;\n      font-size: 20px;\n      font-weight: 600;\n      color: #fff; }\n    .player-list-component .list-item .list-line {\n      height: 6px;\n      width: 125px;\n      position: absolute;\n      top: 50%;\n      margin-top: -3px;\n      background: #e7ebee; }\n    .player-list-component .list-item .list-line-started {\n      z-index: 6;\n      height: 6px;\n      width: 125px;\n      left: 0;\n      position: absolute;\n      top: 50%;\n      margin-top: -3px;\n      background-color: #00a2f2; }\n  .player-list-component .last-item {\n    position: relative;\n    flex: 1 0 125px;\n    min-width: 125px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .player-list-component .last-item .list-line {\n      height: 0px;\n      border-top: dashed 6px #e7ebee;\n      width: 100%;\n      position: absolute;\n      top: 50%;\n      margin-top: -3px; }\n  .player-list-component .list-background {\n    position: absolute;\n    left: 165px;\n    top: 0;\n    right: 0;\n    bottom: 0; }\n", ""]);
+exports.push([module.i, ".player-list-component {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column;\n  padding: 20px;\n  background-color: #e7ebee;\n  position: relative;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch; }\n  .player-list-component .list-container {\n    display: flex;\n    flex: 1 0 auto;\n    margin-top: 20px;\n    margin: 30px -30px -30px;\n    flex-direction: row;\n    position: relative;\n    background: white; }\n  .player-list-component .list-start {\n    position: relative;\n    z-index: 10;\n    width: 140px;\n    margin-left: 95px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .player-list-component .list-start .start-circle {\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      border-radius: 100%;\n      line-height: 1.1;\n      margin-right: -25px; }\n      .player-list-component .list-start .start-circle .start-inner-circle {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        text-align: center;\n        border-radius: 100%;\n        width: 126px;\n        height: 126px;\n        background-color: #fff;\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n        border: solid 3px #00a2f2;\n        font-size: 22px;\n        font-weight: 600;\n        color: #00a2f2; }\n        .player-list-component .list-start .start-circle .start-inner-circle i {\n          color: #e5e9ea;\n          color: #00a2f2;\n          color: white;\n          font-size: 60px;\n          font-weight: 100;\n          font-style: normal; }\n  .player-list-component .list-item {\n    position: relative;\n    flex: 0 0 125px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .player-list-component .list-item .list-audio-done {\n      background: #2ccfa9;\n      position: absolute;\n      width: 20px;\n      height: 20px;\n      color: white;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n      font-size: 10px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      border-radius: 100px;\n      z-index: 100;\n      font-weight: bold;\n      left: 31px;\n      margin-top: -16px;\n      transform: rotate(13deg);\n      pointer-events: none; }\n    .player-list-component .list-item .list-circle {\n      position: relative;\n      z-index: 15;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      border-radius: 100%;\n      flex: 0 0 50px;\n      width: 50px;\n      height: 50px;\n      background-color: #fff;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);\n      color: #00a2f2;\n      font-size: 20px;\n      transition: .15s;\n      cursor: pointer;\n      margin-left: 100px;\n      margin-right: -25px; }\n      .player-list-component .list-item .list-circle .fa-play {\n        margin-left: 5px; }\n      .player-list-component .list-item .list-circle:hover {\n        transform: scale(1.3); }\n    .player-list-component .list-item .list-circle-number {\n      position: relative;\n      z-index: 15;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      border-radius: 100%;\n      flex: 0 0 50px;\n      width: 50px;\n      height: 50px;\n      background-color: #e7ebee;\n      transition: .15s;\n      margin-left: 100px;\n      margin-right: -25px;\n      font-size: 20px;\n      font-weight: 600;\n      color: #fff; }\n    .player-list-component .list-item .list-line {\n      height: 6px;\n      width: 125px;\n      position: absolute;\n      top: 50%;\n      margin-top: -3px;\n      background: #e7ebee; }\n    .player-list-component .list-item .list-line-started {\n      z-index: 6;\n      height: 6px;\n      width: 125px;\n      left: 0;\n      position: absolute;\n      top: 50%;\n      margin-top: -3px;\n      background-color: #00a2f2; }\n  .player-list-component .last-item {\n    position: relative;\n    flex: 1 0 125px;\n    min-width: 125px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n    .player-list-component .last-item .list-line {\n      height: 0px;\n      border-top: dashed 6px #e7ebee;\n      width: 100%;\n      position: absolute;\n      top: 50%;\n      margin-top: -3px; }\n  .player-list-component .list-background {\n    position: absolute;\n    left: 165px;\n    top: 0;\n    right: 0;\n    bottom: 0; }\n", ""]);
 
 // exports
 
@@ -80415,6 +80427,97 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Sessions);
+
+/***/ }),
+/* 734 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _performAction;
+
+var _actions = __webpack_require__(13);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _superagent = __webpack_require__(75);
+
+var Request = _interopRequireWildcard(_superagent);
+
+var _dispatch = __webpack_require__(42);
+
+var _session = __webpack_require__(110);
+
+var _session2 = _interopRequireDefault(_session);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+// let timeLoop;
+
+var initialState = {
+    online: [],
+    onlineCount: 0
+};
+
+var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.SET_ONLINE_STATUS, function (data, state) {
+    return { online: data.online };
+}), _defineProperty(_performAction, ACTIONS.SET_ONLINE_COUNT, function (data, state) {
+    return { onlineCount: data.onlineCount };
+}), _performAction);
+
+var settings = function settings() {
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+    var action = arguments[1];
+
+    if (!performAction[action.type]) return state;
+
+    var newState = Object.assign({}, state, performAction[action.type](action, state));
+    console.info('NEW PUBLIC STATE:', action.type, newState);
+
+    return newState;
+};
+
+var init = function init() {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (!user) return;
+        var userId = firebase.auth().currentUser.uid;
+
+        // firebase.database().ref(`online/${userId}`).update(customData);
+
+        var connectedRef = firebase.database().ref('.info/connected');
+        var userRef = firebase.database().ref('public/online/' + userId);
+
+        connectedRef.on('value', function (snapshot) {
+            if (snapshot.val()) {
+                userRef.onDisconnect().remove();
+                userRef.set(true);
+            }
+        });
+    });
+
+    var listRef = firebase.database().ref("public/online");
+
+    // Number of online users is the number of objects in the presence list.
+    listRef.on("value", function (snapshot) {
+        (0, _dispatch.Dispatch)({ type: ACTIONS.SET_ONLINE_STATUS, online: snapshot.val() });
+        (0, _dispatch.Dispatch)({ type: ACTIONS.SET_ONLINE_COUNT, onlineCount: snapshot.numChildren() });
+        console.log("online status = ", snapshot.val());
+        console.log("# of online users = ", snapshot.numChildren());
+    });
+};
+
+init();
+
+exports.default = settings;
 
 /***/ })
 /******/ ]);

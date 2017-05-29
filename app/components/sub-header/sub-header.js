@@ -12,7 +12,7 @@ class SubHeader extends React.Component {
             <div className="sub-header-component">
                 <div className="sub-heading">
                     {this.props.text} <div className="small-sub-heading">{this.props.subText}</div>
-                    <div className="user-count"><i className="flaticon-users"></i> 220</div>
+                    <div className="user-count"><i className="flaticon-users"></i> {this.props.public.onlineCount}</div>
                 </div>
             </div>
         )
