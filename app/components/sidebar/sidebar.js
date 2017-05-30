@@ -7,7 +7,7 @@ require('./sidebar.scss');
 const Sidebar = () => (
     <div className="sidebar-component">
         <div className="top-menu">
-            <a href="#/player" className="menu-item">
+            <a href="#/dashboard" className="menu-item">
                 <i className="flaticon-headphones"/>
                 <span>Dashboard</span>
             </a>
@@ -15,7 +15,7 @@ const Sidebar = () => (
             <div className="menu-label">
                 All yours
             </div>
-            <a href="#/dashboard" className="menu-item active">
+            <a href="#/sessions" className="menu-item active">
                 <i className="icon-layers"/>
                 <span>Sessions</span>
             </a>

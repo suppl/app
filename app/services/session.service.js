@@ -380,7 +380,7 @@ export const isAudioDone = (audio) => {
 
 
 export const isAudioAvailable = (audio) => {
-    // console.log('audio', audio);
+    console.log('audio', audio);
     let flag = true;
 
     audio.awardsNeeded.forEach(awardId => {

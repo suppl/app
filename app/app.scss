@@ -168,3 +168,106 @@ a {
 i {
   font-style: normal;
 }
+
+.link {
+  color: $azure;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.session-banner {
+  height: 110px;
+  background-color: #70c4ee;
+  padding: 10px 50px;
+  background: $azure;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 10px;
+
+  .session-icon {
+    font-size: 60px;
+    display: flex;
+    //flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .session-content {
+    margin-left: 50px;
+
+    div {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+  }
+}
+
+.session-levels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 10px -10px -10px;
+  transition: .15s;
+
+  .session-level {
+    width: 150px;
+    height: 120px;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background: white;
+    cursor: pointer;
+    text-decoration: none;
+
+    .level-top {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+
+      .level-icon {
+        flex: 0 0 50px;
+        background: $azure;
+        width: 50px;
+        height: 50px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: white;
+      }
+    }
+
+    .level-bottom {
+      height: 39px;
+      background-color: #f3f3f3;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: $dark;
+      padding: 0 15px;
+
+      i {
+        color: $azure;
+        font-size: 18px;
+      }
+
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+}

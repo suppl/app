@@ -34,7 +34,7 @@ class Sessions extends React.Component {
                                     <div className="line-heading">{category}</div>
                                     <div className="panels">
                                         {sessionGroup[category].map((session, index) =>
-                                            <a className="panel" href={`#/player/${session.slug}`} key={session.slug}>
+                                            <a className="panel" href={`#/sessions/${session.slug}`} key={session.slug}>
                                                 <div className="panel-icon" style={{background: session.color}}>
                                                     <div className={session.icon}></div>
                                                 </div>
