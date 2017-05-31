@@ -27762,7 +27762,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.isAudioAvailable = exports.isAudioDone = exports.isSessionAvailable = exports.SessionList = undefined;
+exports.isAudioAvailable = exports.isAudioDone = exports.getSessionTime = exports.isSessionAvailable = exports.SessionList = undefined;
 
 var _lodash = __webpack_require__(43);
 
@@ -27770,321 +27770,15 @@ var _ = _interopRequireWildcard(_lodash);
 
 var _dispatch = __webpack_require__(35);
 
+var _sessions = __webpack_require__(735);
+
+var _sessions2 = _interopRequireDefault(_sessions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
-var SessionList = exports.SessionList = [{
-    slug: "seated-at-work",
-    name: "Take a seat",
-    category: "Work Series",
-    level: 1,
-    icon: "flaticon-desk-chair",
-    description: 'Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.',
-    caption: "",
-    color: "#70c4ee",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'sat-at-work-01-01',
-        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['first-timer'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['sat-at-work-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-03',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['sat-at-work-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-04',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['sat-at-work-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-05',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['sat-at-work-01-04'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}, {
-    slug: "stand-up-desk",
-    name: "Stand up desk",
-    category: "Work Series",
-    level: 1,
-    icon: "flaticon-athlete-5",
-    description: 'Get up, stand up. Introduce active movement to boost your balance and blood flow, strengthening your core and improving your awareness and focus.',
-    caption: "",
-    color: "#70c4ee",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'stand-at-work-01-01',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['first-timer'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['stand-at-work-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-03',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['stand-at-work-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-04',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['stand-at-work-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-05',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['stand-at-work-01-04'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}, {
-    slug: "hot-desking",
-    name: "Hot desking",
-    category: "Work Series",
-    level: 1,
-    icon: "flaticon-desk",
-    description: 'Flexi-desk, flexi-you. Learn how to align yourself whilst working on the fly.',
-    caption: "",
-    color: "#70c4ee",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'hot-desking-01-01',
-        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['first-timer'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'hot-desking-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['hot-desking-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'hot-desking-01-03',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['hot-desking-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'hot-desking-01-04',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['hot-desking-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'hot-desking-01-05',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['hot-desking-01-04'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}, {
-    slug: "wake-up-brighter",
-    name: "Wake up brighter",
-    category: "Sleep Series",
-    level: 1,
-    icon: "flaticon-waking-up",
-    description: 'Rise and shine. Wake up feeling lighter, brighter and full of energy with our morning special.',
-    color: "#ffb6a9",
-    caption: "",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'wake-up-brighter-01-01',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['first-timer'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'wake-up-brighter-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['wake-up-brighter-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'wake-up-brighter-01-03',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['wake-up-brighter-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'wake-up-brighter-01-04',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['wake-up-brighter-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'wake-up-brighter-01-05',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['wake-up-brighter-01-04'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}, {
-    slug: "i-cant-sleep",
-    name: "I can't sleep",
-    category: "Sleep Series",
-    level: 1,
-    icon: "flaticon-emoticon",
-    description: 'Don\'t stress. ease back into a sleep with our calming approach to getting some zzz\'s.',
-    color: "#ffb6a9",
-    caption: "",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'i-cant-sleep-01-01',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['power-pillow'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'i-cant-sleep-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['power-pillow'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}, {
-    slug: "fall-asleep",
-    name: "Fall asleep",
-    category: "Sleep Series",
-    level: 1,
-    icon: "flaticon-people-2",
-    description: 'Long day? Get comfortable, align your body and mind to calmly fall asleep earning yourself some crucial zzz\'s.',
-    color: "#ffb6a9",
-    caption: "",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'fall-sleep-01-01',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['knight-night'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'fall-sleep-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['knight-night'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}];
+var SessionList = exports.SessionList = _sessions2.default;
 
 var isSessionAvailable = exports.isSessionAvailable = function isSessionAvailable(session) {
     var flag = true;
@@ -28096,6 +27790,11 @@ var isSessionAvailable = exports.isSessionAvailable = function isSessionAvailabl
     // }
 
     return flag;
+};
+
+var getSessionTime = exports.getSessionTime = function getSessionTime(session) {
+    // return _.reduce(session.audios, audio);
+    return 25;
 };
 
 var isAudioDone = exports.isAudioDone = function isAudioDone(audio) {
@@ -54158,7 +53857,7 @@ var Sessions = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var sessionGroup = _.groupBy(_session.SessionList, 'category');
+            var seriesList = _.groupBy(_session.SessionList, 'category');
 
             return _react2.default.createElement(
                 'div',
@@ -54175,7 +53874,7 @@ var Sessions = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'content-area', style: { paddingTop: 0 } },
-                            Object.keys(sessionGroup).map(function (category) {
+                            Object.keys(seriesList).map(function (category) {
                                 return _react2.default.createElement(
                                     'div',
                                     null,
@@ -54186,43 +53885,48 @@ var Sessions = function (_React$Component) {
                                     ),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'panels' },
-                                        sessionGroup[category].map(function (session, index) {
+                                        { className: 'series-list' },
+                                        seriesList[category].map(function (series, index) {
                                             return _react2.default.createElement(
                                                 'a',
-                                                { className: 'panel', href: '#/sessions/' + session.slug, key: session.slug },
+                                                { className: 'series', href: '#/sessions/' + series.slug, key: series.slug },
                                                 _react2.default.createElement(
                                                     'div',
-                                                    { className: 'panel-icon', style: { background: session.color } },
-                                                    _react2.default.createElement('div', { className: session.icon })
+                                                    { className: 'series-top' },
+                                                    _react2.default.createElement('div', { className: 'series-icon ' + series.icon, style: { color: series.color } })
                                                 ),
                                                 _react2.default.createElement(
                                                     'div',
-                                                    { className: 'panel-heading' },
+                                                    { className: 'series-time' },
                                                     _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        session.name
+                                                        'div',
+                                                        { className: 'time-number' },
+                                                        series.audios.length
                                                     ),
                                                     _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        session.audios.length
+                                                        'div',
+                                                        { className: 'time-text' },
+                                                        'levels'
                                                     )
                                                 ),
                                                 _react2.default.createElement(
                                                     'div',
-                                                    { className: 'panel-text' },
+                                                    { className: 'series-info' },
                                                     _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        session.category
+                                                        'div',
+                                                        { className: 'flex' },
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'info-title' },
+                                                            series.name
+                                                        ),
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'info-text' },
+                                                            series.name
+                                                        )
                                                     ),
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        'Levels'
-                                                    )
+                                                    _react2.default.createElement('i', { className: 'flaticon-right-chevron go-icon' })
                                                 )
                                             );
                                         })
@@ -60977,7 +60681,7 @@ exports = module.exports = __webpack_require__(39)(undefined);
 
 
 // module
-exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\nbody .register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  body .register-screen .register-left {\n    background: #eff5f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.2);\n    transition: .6s; }\n  body .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px; }\n  body .register-screen .register-img {\n    flex: 0 1 600px; }\n  body .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    body .register-screen .register-header .header-logo img {\n      height: 15px; }\n    body .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px; }\n    body .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  body .register-screen .register-heading {\n    font-size: 28px;\n    font-weight: 400;\n    color: #666666;\n    margin-top: 80px; }\n  body .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  body .register-screen.active-screen {\n    opacity: 1; }\n    body .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #979797;\n  margin-top: 50px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  font-size: 15px;\n  color: #263345;\n  margin-top: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  display: flex;\n  font-size: 12px;\n  font-weight: 600;\n  text-align: left;\n  color: #999999;\n  align-items: center;\n  flex-direction: row;\n  margin-top: 30px;\n  width: 100%; }\n  .line-heading:after {\n    content: \"\";\n    height: 1px;\n    background: white;\n    margin-left: 20px;\n    flex: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.session-banner {\n  height: 110px;\n  background-color: #70c4ee;\n  padding: 10px 50px;\n  background: #00a2f2;\n  color: white;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  margin-top: 10px; }\n  .session-banner .session-icon {\n    font-size: 60px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .session-banner .session-content {\n    margin-left: 50px; }\n    .session-banner .session-content div {\n      margin-top: 5px;\n      font-size: 12px; }\n\n.session-levels {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 10px -10px -10px;\n  transition: .15s; }\n  .session-levels .session-level {\n    width: 150px;\n    height: 120px;\n    border-radius: 3px;\n    display: flex;\n    flex-direction: column;\n    margin: 10px;\n    background: white;\n    cursor: pointer;\n    text-decoration: none; }\n    .session-levels .session-level .level-top {\n      display: flex;\n      flex: 1;\n      align-items: center;\n      justify-content: center; }\n      .session-levels .session-level .level-top .level-icon {\n        flex: 0 0 50px;\n        background: #00a2f2;\n        width: 50px;\n        height: 50px;\n        border-radius: 100px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        font-size: 20px;\n        color: white; }\n    .session-levels .session-level .level-bottom {\n      height: 39px;\n      background-color: #f3f3f3;\n      display: flex;\n      flex-direction: row;\n      justify-content: space-between;\n      align-items: center;\n      font-size: 13px;\n      font-weight: 600;\n      color: #263345;\n      padding: 0 15px; }\n      .session-levels .session-level .level-bottom i {\n        color: #00a2f2;\n        font-size: 18px; }\n    .session-levels .session-level[disabled] {\n      opacity: 0.5;\n      pointer-events: none; }\n    .session-levels .session-level:active {\n      transform: scale(0.9); }\n", ""]);
+exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\nbody .register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  body .register-screen .register-left {\n    background: #eff5f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.2);\n    transition: .6s; }\n  body .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px; }\n  body .register-screen .register-img {\n    flex: 0 1 600px; }\n  body .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    body .register-screen .register-header .header-logo img {\n      height: 15px; }\n    body .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px; }\n    body .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  body .register-screen .register-heading {\n    font-size: 28px;\n    font-weight: 400;\n    color: #666666;\n    margin-top: 80px; }\n  body .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  body .register-screen.active-screen {\n    opacity: 1; }\n    body .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #fff;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent; }\n  .series .series-top {\n    background-color: #eff2f9;\n    position: absolute;\n    z-index: 0;\n    transform: rotate(-9deg);\n    width: 400px;\n    height: 150px;\n    top: -50px;\n    left: -100px; }\n    .series .series-top .series-icon {\n      font-size: 70px;\n      position: absolute;\n      bottom: 10px;\n      left: 163px; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 59px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #979797;\n  margin-top: 50px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  font-size: 15px;\n  color: #263345;\n  margin-top: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.session-banner {\n  height: 110px;\n  background-color: #70c4ee;\n  padding: 10px 50px;\n  background: #00a2f2;\n  color: white;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  margin-top: 10px; }\n  .session-banner .session-icon {\n    font-size: 60px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .session-banner .session-content {\n    margin-left: 50px; }\n    .session-banner .session-content div {\n      margin-top: 5px;\n      font-size: 12px; }\n\n.session-levels {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 10px -10px -10px;\n  transition: .15s; }\n  .session-levels .session-level {\n    width: 150px;\n    height: 120px;\n    border-radius: 3px;\n    display: flex;\n    flex-direction: column;\n    margin: 10px;\n    background: white;\n    cursor: pointer;\n    text-decoration: none; }\n    .session-levels .session-level .level-top {\n      display: flex;\n      flex: 1;\n      align-items: center;\n      justify-content: center; }\n      .session-levels .session-level .level-top .level-icon {\n        flex: 0 0 50px;\n        background: #00a2f2;\n        width: 50px;\n        height: 50px;\n        border-radius: 100px;\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        font-size: 20px;\n        color: white; }\n    .session-levels .session-level .level-bottom {\n      height: 39px;\n      background-color: #f3f3f3;\n      display: flex;\n      flex-direction: row;\n      justify-content: space-between;\n      align-items: center;\n      font-size: 13px;\n      font-weight: 600;\n      color: #263345;\n      padding: 0 15px; }\n      .session-levels .session-level .level-bottom i {\n        color: #00a2f2;\n        font-size: 18px; }\n    .session-levels .session-level[disabled] {\n      opacity: 0.5;\n      pointer-events: none; }\n    .session-levels .session-level:hover {\n      top: -5px; }\n    .session-levels .session-level:active {\n      transform: scale(0.95); }\n", ""]);
 
 // exports
 
@@ -80710,6 +80414,333 @@ module.exports = __webpack_amd_options__;
 __webpack_require__(351);
 module.exports = __webpack_require__(67);
 
+
+/***/ }),
+/* 735 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var SESSIONS = [{
+    slug: "seated-at-work",
+    name: "Take a seat",
+    category: "Work Series",
+    level: 1,
+    icon: "flaticon-desk-chair",
+    description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
+    caption: "",
+    color: "#70c4ee",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'sat-at-work-01-01',
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['first-timer'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'sat-at-work-01-02',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['sat-at-work-01-01'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'sat-at-work-01-03',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['threedom'],
+        audiosNeeded: ['sat-at-work-01-02'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'sat-at-work-01-04',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['sat-at-work-01-03'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'sat-at-work-01-05',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['level-up'],
+        audiosNeeded: ['sat-at-work-01-04'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}, {
+    slug: "stand-up-desk",
+    name: "Stand up desk",
+    category: "Work Series",
+    level: 1,
+    icon: "flaticon-athlete-5",
+    description: "Get up, stand up. Introduce active movement to boost your balance and blood flow, strengthening your core and improving your awareness and focus.",
+    caption: "",
+    color: "#70c4ee",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'stand-at-work-01-01',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['first-timer'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'stand-at-work-01-02',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['stand-at-work-01-01'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'stand-at-work-01-03',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['threedom'],
+        audiosNeeded: ['stand-at-work-01-02'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'stand-at-work-01-04',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['stand-at-work-01-03'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'stand-at-work-01-05',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['level-up'],
+        audiosNeeded: ['stand-at-work-01-04'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}, {
+    slug: "hot-desking",
+    name: "Hot desking",
+    category: "Work Series",
+    level: 1,
+    icon: "flaticon-desk",
+    description: "Flexi-desk, flexi-you. Learn how to align yourself whilst working on the fly.",
+    caption: "",
+    color: "#70c4ee",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'hot-desking-01-01',
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['first-timer'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'hot-desking-01-02',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['hot-desking-01-01'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'hot-desking-01-03',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['threedom'],
+        audiosNeeded: ['hot-desking-01-02'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'hot-desking-01-04',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['hot-desking-01-03'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'hot-desking-01-05',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['level-up'],
+        audiosNeeded: ['hot-desking-01-04'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}, {
+    slug: "wake-up-brighter",
+    name: "Wake up brighter",
+    category: "Sleep Series",
+    level: 1,
+    icon: "flaticon-waking-up",
+    description: "Rise and shine. Wake up feeling lighter, brighter and full of energy with our morning special.",
+    color: "#ffb6a9",
+    caption: "",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'wake-up-brighter-01-01',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['first-timer'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'wake-up-brighter-01-02',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['wake-up-brighter-01-01'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'wake-up-brighter-01-03',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['threedom'],
+        audiosNeeded: ['wake-up-brighter-01-02'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'wake-up-brighter-01-04',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['wake-up-brighter-01-03'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'wake-up-brighter-01-05',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['level-up'],
+        audiosNeeded: ['wake-up-brighter-01-04'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}, {
+    slug: "i-cant-sleep",
+    name: "I can't sleep",
+    category: "Sleep Series",
+    level: 1,
+    icon: "flaticon-emoticon",
+    description: "Don't stress. ease back into a sleep with our calming approach to getting some zzz's.",
+    color: "#ffb6a9",
+    caption: "",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'i-cant-sleep-01-01',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['power-pillow'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'i-cant-sleep-01-02',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['power-pillow'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}, {
+    slug: "fall-asleep",
+    name: "Fall asleep",
+    category: "Sleep Series",
+    level: 1,
+    icon: "flaticon-people-2",
+    description: "Long day? Get comfortable, align your body and mind to calmly fall asleep earning yourself some crucial zzz's.",
+    color: "#ffb6a9",
+    caption: "",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'fall-sleep-01-01',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['knight-night'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'fall-sleep-01-02',
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['knight-night'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}];
+
+exports.default = SESSIONS;
 
 /***/ })
 /******/ ]);

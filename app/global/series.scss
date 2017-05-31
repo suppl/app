@@ -1,0 +1,117 @@
+@import "colors";
+
+.series-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 12px -12px 12px;
+
+}
+
+.series {
+  width: 245px;
+  height: 203px;
+  background-color: $white;
+  margin: 12px;
+  overflow: hidden;
+  position: relative;
+  transition: .15s;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none !important;
+  line-height: 1;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0);
+
+  .series-top {
+    background-color: $pale-grey-two;
+    position: absolute;
+    z-index: 0;
+    transform: rotate(-9deg);
+
+    width: 400px;
+    height: 150px;
+    top: -50px;
+    left: -100px;
+
+    .series-icon {
+      font-size: 70px;
+      position: absolute;
+      bottom: 10px;
+      left: 163px;
+    }
+  }
+
+  .series-time {
+    width: 50px;
+    height: 50px;
+    background-color: $white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 100px;
+    position: absolute;
+    top: 59px;
+    right: 25px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    .time-number {
+      font-size: 19px;
+      color: $dark;
+    }
+
+    .time-text {
+      font-size: 9px;
+      color: $dark;
+      margin-top: 1px;
+    }
+  }
+
+  .series-info {
+    margin-top: auto;
+    //align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+
+    padding: 25px;
+    align-items: center;
+
+    .flex {
+      max-width: 100%;
+    }
+
+    .info-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: $dark;
+      text-transform: uppercase;
+    }
+
+    .info-text {
+      margin-top: 3px;
+      font-size: 10px;
+      color: $dark;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      flex: 1 1 auto;
+    }
+
+    .go-icon {
+      color: $azure;
+      font-size: 18px;
+      margin-left: auto;
+      padding-left: 10px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

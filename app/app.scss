@@ -6,6 +6,7 @@
 @import "global/register";
 @import "global/buttons";
 @import "global/stats";
+@import "global/series";
 
 html, body {
   width: 100%;
@@ -138,23 +139,29 @@ a {
 }
 
 .line-heading {
-  display: flex;
-  font-size: 12px;
-  font-weight: 600;
-  text-align: left;
-  color: $warm-grey-two;
-  align-items: center;
-  flex-direction: row;
-  margin-top: 30px;
-  width: 100%;
+  //display: flex;
+  //font-size: 12px;
+  //font-weight: 600;
+  //text-align: left;
+  //color: $warm-grey-two;
+  //align-items: center;
+  //flex-direction: row;
+  //margin-top: 30px;
+  //width: 100%;
 
-  &:after {
-    content: "";
-    height: 1px;
-    background: white;
-    margin-left: 20px;
-    flex: 1;
-  }
+  //&:after {
+  //  content: "";
+  //  height: 1px;
+  //  background: white;
+  //  margin-left: 20px;
+  //  flex: 1;
+  //}
+
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  color: $dark;
+  line-height: 1;
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before, [class^="flaticon-"]:after, [class*=" flaticon-"]:after {
@@ -266,8 +273,12 @@ i {
       pointer-events: none;
     }
 
+    &:hover {
+      top:-5px;
+    }
+
     &:active {
-      transform: scale(0.9);
+      transform: scale(0.95);
     }
   }
 }

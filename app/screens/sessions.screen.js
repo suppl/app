@@ -6,7 +6,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
-import {SessionList} from '../services/session.service';
+import {SessionList, getSessionTime} from '../services/session.service';
 
 
 class Sessions extends React.Component {
@@ -18,7 +18,7 @@ class Sessions extends React.Component {
     }
 
     render() {
-        const sessionGroup = _.groupBy(SessionList, 'category');
+        const seriesList = _.groupBy(SessionList, 'category');
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -28,24 +28,28 @@ class Sessions extends React.Component {
                     <div data-content className="flex flex-max">
                         <SubHeader text="Sessions"/>
 
-                        <div className="content-area" style={{paddingTop:0}}>
-                            {Object.keys(sessionGroup).map((category) =>
+                        <div className="content-area" style={{paddingTop: 0}}>
+                            {Object.keys(seriesList).map((category) =>
                                 <div>
                                     <div className="line-heading">{category}</div>
-                                    <div className="panels">
-                                        {sessionGroup[category].map((session, index) =>
-                                            <a className="panel" href={`#/sessions/${session.slug}`} key={session.slug}>
-                                                <div className="panel-icon" style={{background: session.color}}>
-                                                    <div className={session.icon}></div>
+                                    <div className="series-list">
+                                        {seriesList[category].map((series, index) =>
+                                            <a className="series" href={`#/sessions/${series.slug}`} key={series.slug}>
+                                                <div className="series-top">
+                                                    <div className={`series-icon ${series.icon}`} style={{color: series.color}}></div>
                                                 </div>
-                                                <div className="panel-heading">
-                                                    <span>{session.name}</span>
-                                                    <span>{session.audios.length}</span>
+                                                <div className="series-time">
+                                                    <div className="time-number">{series.audios.length}</div>
+                                                    <div className="time-text">levels</div>
                                                 </div>
 
-                                                <div className="panel-text">
-                                                    <span>{session.category}</span>
-                                                    <span>Levels</span>
+                                                <div className="series-info">
+                                                    <div className="flex">
+                                                        <div className="info-title">{series.name}</div>
+                                                        <div className="info-text">{series.name}</div>
+                                                    </div>
+
+                                                    <i className="flaticon-right-chevron go-icon"></i>
                                                 </div>
                                             </a>
                                         )}
@@ -53,7 +57,6 @@ class Sessions extends React.Component {
 
                                 </div>
                             )}
-
 
 
                         </div>
