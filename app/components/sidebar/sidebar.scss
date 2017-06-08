@@ -2,9 +2,11 @@
 
 .sidebar-component {
   background: $dark;
+  background: $pale-grey-six;
   flex: 0 0 146px;
   display: flex;
   flex-direction: column;
+  color: $battleship-grey;
 
   .top-menu, .bottom-menu {
     display: flex;
@@ -17,7 +19,8 @@
       font-size: 8px;
       font-weight: 600;
       text-align: left;
-      color: $pinkish-grey;
+      //color: $pinkish-grey;
+      color: $battleship-grey;
       text-transform: uppercase;
       margin-bottom: -5px;
     }
@@ -34,7 +37,7 @@
       text-align: left;
 
       font-size: 13px;
-      color: $white;
+      color: $battleship-grey;
       flex-direction: row;
 
       border-left: 5px solid transparent;

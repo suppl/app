@@ -1,10 +1,11 @@
-
-const SESSIONS =  [
+const SESSIONS = [
     {
         slug        : "seated-at-work",
         name        : "Take a seat",
         category    : "Work Series",
         level       : 1,
+        banner      : "/statics/images/stand-up-desk.svg",
+        image       : "/statics/images/sit-down.svg",
         icon        : "flaticon-desk-chair",
         description : `Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.`,
         caption     : "",
