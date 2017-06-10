@@ -26788,7 +26788,7 @@ var _achievements = __webpack_require__(367);
 
 var _achievements2 = _interopRequireDefault(_achievements);
 
-var _popup = __webpack_require__(356);
+var _popup = __webpack_require__(357);
 
 var _popup2 = _interopRequireDefault(_popup);
 
@@ -26796,9 +26796,9 @@ var _notification = __webpack_require__(354);
 
 var _notification2 = _interopRequireDefault(_notification);
 
-var _session3 = __webpack_require__(357);
+var _player = __webpack_require__(356);
 
-var _session4 = _interopRequireDefault(_session3);
+var _player2 = _interopRequireDefault(_player);
 
 var _loader = __webpack_require__(353);
 
@@ -26862,7 +26862,7 @@ _reactDom2.default.render(_react2.default.createElement(
         'div',
         { className: 'flex flex-max' },
         _react2.default.createElement(_notification2.default, null),
-        _react2.default.createElement(_session4.default, null),
+        _react2.default.createElement(_player2.default, null),
         _react2.default.createElement(_loader2.default, null),
         _react2.default.createElement(_popup2.default, null),
         _react2.default.createElement(_award2.default, null),
@@ -50891,6 +50891,258 @@ var _react = __webpack_require__(7);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _howler = __webpack_require__(590);
+
+var _reactRedux = __webpack_require__(17);
+
+var _moment = __webpack_require__(0);
+
+var moment = _interopRequireWildcard(_moment);
+
+var _actions = __webpack_require__(12);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import {Dispatch, State, Store} from './../services/dispatch.service';
+
+__webpack_require__(721);
+
+var Player = function (_React$Component) {
+    _inherits(Player, _React$Component);
+
+    function Player() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, Player);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Player.__proto__ || Object.getPrototypeOf(Player)).call.apply(_ref, [this].concat(args))), _this), _this.duration = '0:00', _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(Player, [{
+        key: 'componentDidMount',
+
+        // getClasses = () => [this.props.settings.audioVisible ? 'active' : ''].join(' ');
+
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            setInterval(function () {
+                _this2.duration = _this2.getDuration();
+                _this2.seek = _this2.getSeek();
+                _this2.dash = _this2.getDash();
+                _this2.forceUpdate();
+            }, 10);
+        }
+    }, {
+        key: 'getClasses',
+        value: function getClasses() {
+            return [this.props.settings.audioVisible ? 'active' : ''].join(' ');
+        }
+    }, {
+        key: 'isSoundLoaded',
+        value: function isSoundLoaded() {
+            return !!this.props.settings.sound && this.props.settings.sound.state() === 'loaded';
+        }
+    }, {
+        key: 'getDuration',
+        value: function getDuration() {
+            if (!this.isSoundLoaded()) return '0:00';
+            var duration = moment.duration(this.props.settings.sound.duration(), 'seconds');
+            return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
+        }
+    }, {
+        key: 'getSeek',
+        value: function getSeek() {
+            if (!this.isSoundLoaded()) return '0:00';
+            var duration = moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
+
+            return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
+        }
+    }, {
+        key: 'getDash',
+        value: function getDash() {
+            if (!this.isSoundLoaded()) return 0;
+            return this.props.settings.sound.seek() / this.props.settings.sound.duration() * 100 + '%';
+        }
+    }, {
+        key: 'pad',
+        value: function pad(n) {
+            return n < 10 ? "0" + n : n;
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'player-component ' + this.getClasses() },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'player-main' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'player-header' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-back clickable', onClick: this.props.hideSession },
+                            _react2.default.createElement('i', { className: 'fa fa-angle-left' })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-right' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'header-name' },
+                                this.props.settings.session.name
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'header-number' },
+                                '1'
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'player-info' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'big-text' },
+                            'Get Ready!'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'player-bar' },
+                        _react2.default.createElement('div', { className: 'bar-fill', style: { width: this.getDash() } })
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'player-controls' },
+                        this.props.settings.playing ? _react2.default.createElement(
+                            'div',
+                            { className: 'controls-control clickable', onClick: this.props.pauseAudio },
+                            _react2.default.createElement('i', { className: 'flaticon-pause-1', style: { margin: 0 } })
+                        ) : _react2.default.createElement(
+                            'div',
+                            { className: 'controls-control clickable', onClick: this.props.playAudio },
+                            _react2.default.createElement('i', { className: 'flaticon-arrows', style: { marginLeft: '3px' } })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'controls-time' },
+                            this.seek
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'player-sidebar' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'sidebar-header' },
+                        'Session reactions'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'sidebar-feed' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'feed-reaction' },
+                            _react2.default.createElement('div', { className: 'reaction-icon' })
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'sidebar-reactions' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'reactions-faces' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'face-circle clickable' },
+                                _react2.default.createElement('i', { className: 'flaticon-shapes' })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'face-circle clickable' },
+                                _react2.default.createElement('i', { className: 'emotions-emoticon-square-face-with-a-smile' })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'face-circle clickable' },
+                                _react2.default.createElement('i', { className: 'emotions-yawning-emoticon-square-face-1' })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'reactions-text' },
+                            'React to your session'
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Player;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        hideSession: function hideSession() {
+            return dispatch({ type: ACTIONS.HIDE_AUDIO });
+        },
+        loadAudio: function loadAudio() {
+            return dispatch({ type: ACTIONS.LOAD_AUDIO });
+        },
+        playAudio: function playAudio() {
+            return dispatch({ type: ACTIONS.PLAY_AUDIO });
+        },
+        pauseAudio: function pauseAudio() {
+            return dispatch({ type: ACTIONS.PAUSE_AUDIO });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Player);
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
 var _reactRedux = __webpack_require__(17);
 
 var _actions = __webpack_require__(12);
@@ -50907,7 +51159,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-__webpack_require__(721);
+__webpack_require__(722);
 
 var Popup = function (_React$Component) {
     _inherits(Popup, _React$Component);
@@ -51018,192 +51270,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Popup);
-
-/***/ }),
-/* 357 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _howler = __webpack_require__(590);
-
-var _reactRedux = __webpack_require__(17);
-
-var _moment = __webpack_require__(0);
-
-var moment = _interopRequireWildcard(_moment);
-
-var _actions = __webpack_require__(12);
-
-var ACTIONS = _interopRequireWildcard(_actions);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import {Dispatch, State, Store} from './../services/dispatch.service';
-
-__webpack_require__(722);
-
-var Audio = function (_React$Component) {
-    _inherits(Audio, _React$Component);
-
-    function Audio() {
-        var _ref;
-
-        var _temp, _this, _ret;
-
-        _classCallCheck(this, Audio);
-
-        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-            args[_key] = arguments[_key];
-        }
-
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Audio.__proto__ || Object.getPrototypeOf(Audio)).call.apply(_ref, [this].concat(args))), _this), _this.duration = '0:00', _temp), _possibleConstructorReturn(_this, _ret);
-    }
-
-    _createClass(Audio, [{
-        key: 'componentDidMount',
-
-        // getClasses = () => [this.props.settings.audioVisible ? 'active' : ''].join(' ');
-
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            setInterval(function () {
-                _this2.duration = _this2.getDuration();
-                _this2.seek = _this2.getSeek();
-                _this2.dash = _this2.getDash();
-                _this2.forceUpdate();
-            }, 10);
-        }
-    }, {
-        key: 'getClasses',
-        value: function getClasses() {
-            return [this.props.settings.audioVisible ? 'active' : ''].join(' ');
-        }
-    }, {
-        key: 'isSoundLoaded',
-        value: function isSoundLoaded() {
-            return !!this.props.settings.sound && this.props.settings.sound.state() === 'loaded';
-        }
-    }, {
-        key: 'getDuration',
-        value: function getDuration() {
-            if (!this.isSoundLoaded()) return '0:00';
-            var duration = moment.duration(this.props.settings.sound.duration(), 'seconds');
-            return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
-        }
-    }, {
-        key: 'getSeek',
-        value: function getSeek() {
-            if (!this.isSoundLoaded()) return '0:00';
-            var duration = moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
-
-            return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
-        }
-    }, {
-        key: 'getDash',
-        value: function getDash() {
-            if (!this.isSoundLoaded()) return 0;
-            return 700 + 700 * (this.props.settings.sound.seek() / this.props.settings.sound.duration()) + 'px';
-        }
-    }, {
-        key: 'pad',
-        value: function pad(n) {
-            return n < 10 ? "0" + n : n;
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-
-            return _react2.default.createElement(
-                'div',
-                { className: 'session-component ' + this.getClasses() },
-                _react2.default.createElement('div', { className: 'session-close icon-cross', onClick: this.props.hideSession }),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'session-title' },
-                    this.props.settings.session.name
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'audio-title' },
-                    this.props.settings.audio.name
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'audio-play' },
-                    _react2.default.createElement(
-                        'svg',
-                        null,
-                        _react2.default.createElement('circle', { r: '111', cx: '111', cy: '111', style: { strokeDashoffset: this.dash } })
-                    ),
-                    this.props.settings.playing ? _react2.default.createElement(
-                        'div',
-                        { className: 'play-inner playing', onClick: this.props.pauseAudio },
-                        _react2.default.createElement('i', { className: 'fa fa-pause fa-fw', style: { margin: 0 } })
-                    ) : _react2.default.createElement(
-                        'div',
-                        { className: 'play-inner', onClick: this.props.playAudio },
-                        _react2.default.createElement('i', { className: 'fa fa-play fa-fw' })
-                    )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'audio-duration' },
-                    this.seek,
-                    ' left ',
-                    _react2.default.createElement('br', null),
-                    ' (',
-                    this.duration,
-                    ' mins)'
-                )
-            );
-        }
-    }]);
-
-    return Audio;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    return state;
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        hideSession: function hideSession() {
-            return dispatch({ type: ACTIONS.HIDE_AUDIO });
-        },
-        loadAudio: function loadAudio() {
-            return dispatch({ type: ACTIONS.LOAD_AUDIO });
-        },
-        playAudio: function playAudio() {
-            return dispatch({ type: ACTIONS.PLAY_AUDIO });
-        },
-        pauseAudio: function pauseAudio() {
-            return dispatch({ type: ACTIONS.PAUSE_AUDIO });
-        }
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Audio);
 
 /***/ }),
 /* 358 */
@@ -52922,7 +52988,7 @@ var Dashboard = function (_React$Component) {
             var session = this.props.settings.session ? this.props.settings.session : {};
 
             var getSessionName = function getSessionName() {
-                return _this3.props.settings.session ? _this3.props.settings.session.name : "No Session selected";
+                return _this3.props.settings.session ? _this3.props.settings.session.name : "No Player selected";
             };
 
             return _react2.default.createElement(
@@ -53926,6 +53992,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(7);
@@ -53988,9 +54056,16 @@ var Sessions = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var _this3 = this;
+
             var session = _.find(_session.SessionList, { slug: this.props.sessionId });
 
-            var last = { 'z': '' };
+            var isInactive = function isInactive(audio) {
+                return { 'data-inactive': (0, _session.isAudioAvailable)(audio) };
+            };
+            var isLast = function isLast(index) {
+                return { 'data-last': index + 1 === session.audios.length };
+            };
 
             console.log('session props', this.props['sessionId']);
 
@@ -54005,13 +54080,13 @@ var Sessions = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
-                        _react2.default.createElement(_subHeader2.default, { text: 'Sessions \u203A ' + session.name }),
                         _react2.default.createElement(
                             'div',
                             { className: 'content-area', style: { paddingTop: 0 } },
                             _react2.default.createElement(
                                 'div',
                                 { className: 'content-content' },
+                                _react2.default.createElement(_subHeader2.default, { text: 'Sessions \u203A ' + session.name }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'session-header', style: { backgroundImage: 'url(\'' + session.banner + '\')' } },
@@ -54119,32 +54194,38 @@ var Sessions = function (_React$Component) {
                                     session.audios.map(function (audio, index) {
                                         return _react2.default.createElement(
                                             'div',
-                                            { className: 'hori list-row' },
+                                            _extends({ className: 'hori list-row' }, isInactive(audio)),
                                             _react2.default.createElement(
                                                 'div',
                                                 { className: 'col col-70' },
                                                 _react2.default.createElement(
                                                     'div',
-                                                    { className: 'session-number', 'data-last': index + 1 === session.audios.length },
+                                                    _extends({ className: 'session-number' }, isLast(index)),
                                                     index + 1
                                                 )
                                             ),
                                             _react2.default.createElement(
                                                 'div',
                                                 { className: 'col' },
-                                                _react2.default.createElement(
+                                                (0, _session.isAudioAvailable)(audio) ? _react2.default.createElement(
                                                     'div',
                                                     { className: 'next-session' },
                                                     'Next session'
-                                                )
+                                                ) : ''
                                             ),
                                             _react2.default.createElement(
                                                 'div',
                                                 { className: 'col col-70' },
-                                                _react2.default.createElement(
+                                                (0, _session.isAudioAvailable)(audio) ? _react2.default.createElement(
                                                     'div',
-                                                    { className: 'play-button' },
+                                                    { className: 'play-button clickable', onClick: function onClick() {
+                                                            return _this3.props.showAudio(session, audio);
+                                                        } },
                                                     _react2.default.createElement('i', { className: 'flaticon-arrows-1' })
+                                                ) : _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'lock-button' },
+                                                    _react2.default.createElement('i', { className: 'flaticon-lock-2' })
                                                 )
                                             ),
                                             _react2.default.createElement('div', { className: 'col' }),
@@ -54182,12 +54263,15 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
-        showAward: function showAward(awardId) {
+
+        showAudio: function showAudio(session, audio) {
             return dispatch({
-                type: ACTIONS.SHOW_AWARD,
-                awardId: awardId
+                type: ACTIONS.SHOW_AUDIO,
+                session: session,
+                audio: audio
             });
         }
+
     };
 };
 
@@ -54279,69 +54363,73 @@ var Sessions = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
-                        _react2.default.createElement(_subHeader2.default, { text: 'Sessions' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'content-area', style: { paddingTop: 0 } },
-                            Object.keys(seriesList).map(function (category) {
-                                return _react2.default.createElement(
-                                    'div',
-                                    null,
-                                    _react2.default.createElement(
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'content-content' },
+                                _react2.default.createElement(_subHeader2.default, { text: 'Sessions' }),
+                                Object.keys(seriesList).map(function (category) {
+                                    return _react2.default.createElement(
                                         'div',
-                                        { className: 'line-heading' },
-                                        category
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'series-list' },
-                                        seriesList[category].map(function (series, index) {
-                                            return _react2.default.createElement(
-                                                'a',
-                                                { className: 'series', href: '#/sessions/' + series.slug, key: series.slug },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'series-top' },
-                                                    _react2.default.createElement('div', { className: 'series-icon ' + series.icon, style: { color: series.color } })
-                                                ),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'series-time' },
+                                        null,
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'line-heading' },
+                                            category
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'series-list' },
+                                            seriesList[category].map(function (series, index) {
+                                                return _react2.default.createElement(
+                                                    'a',
+                                                    { className: 'series', href: '#/sessions/' + series.slug, key: series.slug },
                                                     _react2.default.createElement(
                                                         'div',
-                                                        { className: 'time-number' },
-                                                        series.audios.length
+                                                        { className: 'series-top' },
+                                                        _react2.default.createElement('div', { className: 'series-icon ' + series.icon, style: { color: series.color } })
                                                     ),
                                                     _react2.default.createElement(
                                                         'div',
-                                                        { className: 'time-text' },
-                                                        'levels'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'series-info' },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'flex' },
+                                                        { className: 'series-time' },
                                                         _react2.default.createElement(
                                                             'div',
-                                                            { className: 'info-title' },
-                                                            series.name
+                                                            { className: 'time-number' },
+                                                            series.audios.length
                                                         ),
                                                         _react2.default.createElement(
                                                             'div',
-                                                            { className: 'info-text' },
-                                                            series.name
+                                                            { className: 'time-text' },
+                                                            'levels'
                                                         )
                                                     ),
-                                                    _react2.default.createElement('i', { className: 'flaticon-right-chevron go-icon' })
-                                                )
-                                            );
-                                        })
-                                    )
-                                );
-                            })
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'series-info' },
+                                                        _react2.default.createElement(
+                                                            'div',
+                                                            { className: 'flex' },
+                                                            _react2.default.createElement(
+                                                                'div',
+                                                                { className: 'info-title' },
+                                                                series.name
+                                                            ),
+                                                            _react2.default.createElement(
+                                                                'div',
+                                                                { className: 'info-text' },
+                                                                series.name
+                                                            )
+                                                        ),
+                                                        _react2.default.createElement('i', { className: 'flaticon-right-chevron go-icon' })
+                                                    )
+                                                );
+                                            })
+                                        )
+                                    );
+                                })
+                            )
                         )
                     )
                 )
@@ -61090,7 +61178,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\nbody .register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  body .register-screen .register-left {\n    background: #eff5f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.2);\n    transition: .6s; }\n  body .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px; }\n  body .register-screen .register-img {\n    flex: 0 1 600px; }\n  body .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    body .register-screen .register-header .header-logo img {\n      height: 15px; }\n    body .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px; }\n    body .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  body .register-screen .register-heading {\n    font-size: 28px;\n    font-weight: 400;\n    color: #666666;\n    margin-top: 80px; }\n  body .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  body .register-screen.active-screen {\n    opacity: 1; }\n    body .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #fff;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent; }\n  .series .series-top {\n    background-color: #eff2f9;\n    position: absolute;\n    z-index: 0;\n    transform: rotate(-9deg);\n    width: 400px;\n    height: 150px;\n    top: -50px;\n    left: -100px; }\n    .series .series-top .series-icon {\n      font-size: 70px;\n      position: absolute;\n      bottom: 10px;\n      left: 163px; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 59px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 10px; }\n    .session-list .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center; }\n  .session-list .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 70px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #979797;\n  margin-top: 50px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  font-size: 15px;\n  color: #263345;\n  margin-top: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n", ""]);
+exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\nbody .register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  body .register-screen .register-left {\n    background: #eff5f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.2);\n    transition: .6s; }\n  body .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px; }\n  body .register-screen .register-img {\n    flex: 0 1 600px; }\n  body .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    body .register-screen .register-header .header-logo img {\n      height: 15px; }\n    body .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px; }\n    body .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  body .register-screen .register-heading {\n    font-size: 28px;\n    font-weight: 400;\n    color: #666666;\n    margin-top: 80px; }\n  body .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  body .register-screen.active-screen {\n    opacity: 1; }\n    body .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #fff;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent; }\n  .series .series-top {\n    background-color: #eff2f9;\n    position: absolute;\n    z-index: 0;\n    transform: rotate(-9deg);\n    width: 400px;\n    height: 150px;\n    top: -50px;\n    left: -100px; }\n    .series .series-top .series-icon {\n      font-size: 70px;\n      position: absolute;\n      bottom: 10px;\n      left: 163px; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 59px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 10px; }\n    .session-list .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center; }\n  .session-list .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row[data-inactive=\"false\"] {\n      background: rgba(255, 255, 255, 0.5); }\n      .session-list .list-row[data-inactive=\"false\"] .session-number {\n        color: rgba(38, 51, 69, 0.5); }\n    .session-list .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 80px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n  .session-list .lock-button {\n    width: 43px;\n    height: 43px;\n    background-color: #cccccc;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .lock-button i {\n      color: white;\n      font-size: 20px; }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #979797;\n  margin-top: 50px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  font-size: 15px;\n  color: #263345;\n  margin-top: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\n[class^=\"emotions-\"]:before, [class*=\" emotions-\"]:before, [class^=\"emotions-\"]:after, [class*=\" emotions-\"]:after {\n  font-family: Emotions;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%;\n  margin-left: 1px;\n  margin-top: 1px; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.clickable {\n  transition: .15s;\n  transform: scale(1);\n  cursor: pointer; }\n  .clickable:hover {\n    transform: scale(1.1); }\n  .clickable:active {\n    transform: scale(0.9);\n    box-shadow: 0 0 transparent; }\n", ""]);
 
 // exports
 
@@ -61174,7 +61262,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".popup-component {\n  z-index: 2000;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.1);\n  background-color: rgba(60, 60, 60, 0.9); }\n  .popup-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .popup-component .popup-box {\n    width: 470px;\n    min-height: 288px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    border-radius: 4px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);\n    border: solid 1px rgba(60, 60, 60, 0.02);\n    color: #666666;\n    font-size: 13px;\n    color: #08182f; }\n    .popup-component .popup-box .popup-title {\n      font-size: 22px;\n      color: #08182f; }\n    .popup-component .popup-box .popup-middle {\n      padding: 30px;\n      flex: 1 0 auto; }\n    .popup-component .popup-box .popup-bottom {\n      padding: 15px 30px;\n      position: relative;\n      display: flex;\n      align-items: center;\n      background-color: #f3f3f3;\n      box-shadow: 0 -1px 1px 0 #e1e1e1; }\n    .popup-component .popup-box .popup-close {\n      position: absolute;\n      top: 0;\n      right: 0;\n      padding: 5px;\n      cursor: pointer;\n      font-size: 22px; }\n  .popup-component.error {\n    background-color: #ff939f; }\n", ""]);
+exports.push([module.i, ".player-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: white;\n  color: #999999;\n  display: flex;\n  flex-direction: row;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .player-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .player-component .player-header {\n    flex: 0 0 41px;\n    border-bottom: solid 1px #f3f3f3;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between; }\n    .player-component .player-header .header-back {\n      flex: 0 auto;\n      height: 40px;\n      width: 40px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: #00a2f2;\n      font-size: 26px;\n      cursor: pointer; }\n    .player-component .player-header .header-right {\n      display: flex;\n      flex-direction: row;\n      align-items: center; }\n      .player-component .player-header .header-right .header-name {\n        font-size: 10px;\n        text-align: center;\n        color: #999999;\n        text-transform: uppercase; }\n      .player-component .player-header .header-right .header-number {\n        font-size: 13px;\n        text-align: center;\n        color: #263345;\n        flex: 0 auto;\n        height: 40px;\n        width: 40px;\n        display: flex;\n        align-items: center;\n        justify-content: center; }\n  .player-component .player-info {\n    flex: 1;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-align: center; }\n    .player-component .player-info .big-text {\n      font-size: 60px;\n      font-weight: 600;\n      text-align: center;\n      color: #00a2f2; }\n  .player-component .player-bar {\n    flex: 0 0 25px;\n    background-color: #e7ebee;\n    position: relative;\n    display: flex;\n    flex-direction: row; }\n    .player-component .player-bar .bar-fill {\n      background: #00a2f2;\n      height: 25px;\n      width: 10%; }\n  .player-component .player-controls {\n    height: 63px;\n    background-color: #fff;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    padding: 20px; }\n    .player-component .player-controls .controls-control {\n      border-radius: 100px;\n      width: 43px;\n      height: 43px;\n      border: solid 1px #00a2f2;\n      color: #00a2f2;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center; }\n      .player-component .player-controls .controls-control i {\n        font-size: 20px; }\n    .player-component .player-controls .controls-time {\n      font-size: 20px;\n      text-align: center;\n      color: #999999;\n      margin-left: 20px; }\n  .player-component .player-main {\n    flex: 1;\n    display: flex;\n    flex-direction: column; }\n  .player-component .player-sidebar {\n    flex: 0 0 200px;\n    background-color: #eef1f4;\n    display: flex;\n    flex-direction: column; }\n    .player-component .player-sidebar .sidebar-header {\n      flex: 0 0 41px;\n      background-color: #e7ebee;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      text-transform: uppercase;\n      font-size: 15px;\n      color: #999999; }\n    .player-component .player-sidebar .sidebar-feed {\n      flex: 1 1 auto;\n      background-color: #e5e8eb;\n      margin: 10px 20px 10px; }\n      .player-component .player-sidebar .sidebar-feed .feed-reaction {\n        height: 30px;\n        border-radius: 3px;\n        background-color: #fff;\n        font-size: 10px;\n        color: #263345;\n        margin: 10px 10px 0;\n        display: flex;\n        flex-direction: row;\n        align-items: center; }\n        .player-component .player-sidebar .sidebar-feed .feed-reaction .reaction-icon {\n          font-size: 20px;\n          margin-left: 10px; }\n    .player-component .player-sidebar .sidebar-reactions {\n      display: flex;\n      flex-direction: column;\n      margin: 22px 0px 0;\n      height: 66px;\n      padding: 0 20px 0;\n      background: #e7ebee; }\n      .player-component .player-sidebar .sidebar-reactions .reactions-faces {\n        display: flex;\n        flex-direction: row;\n        justify-content: space-between;\n        margin-top: -22px; }\n        .player-component .player-sidebar .sidebar-reactions .reactions-faces .face-circle {\n          border-radius: 100px;\n          width: 43px;\n          height: 43px;\n          background-color: #ff939f;\n          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n          display: flex;\n          align-items: center;\n          justify-content: center;\n          text-align: center;\n          color: white; }\n          .player-component .player-sidebar .sidebar-reactions .reactions-faces .face-circle:nth-child(2) {\n            background-color: #9ee1ce; }\n          .player-component .player-sidebar .sidebar-reactions .reactions-faces .face-circle:nth-child(3) {\n            background-color: #b798c3; }\n          .player-component .player-sidebar .sidebar-reactions .reactions-faces .face-circle i {\n            font-size: 22px; }\n      .player-component .player-sidebar .sidebar-reactions .reactions-text {\n        margin: 10px 0px;\n        font-size: 15px;\n        text-align: center;\n        color: #999999; }\n  .player-component .player-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    height: 100px;\n    width: 100px;\n    font-size: 30px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    transition: 0.15s;\n    color: #979797; }\n    .player-component .player-close:hover {\n      transform: scale(1.1); }\n    .player-component .player-close:active {\n      transform: scale(1.3); }\n  .player-component .session-title {\n    text-align: center;\n    font-size: 24px;\n    font-weight: 400;\n    position: absolute;\n    top: 40px;\n    color: #a5cbea;\n    font-size: 19px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .player-component .audio-title {\n    text-align: center;\n    font-size: 30px;\n    position: absolute;\n    top: 80px;\n    color: #263345;\n    font-weight: 100;\n    font-size: 14px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .player-component .audio-duration {\n    text-align: center;\n    font-size: 20px;\n    font-weight: 400;\n    margin-top: 90px;\n    color: #263345;\n    font-size: 19px;\n    font-style: italic;\n    color: #263345; }\n  .player-component .audio-play {\n    cursor: pointer;\n    width: 222px;\n    height: 222px;\n    background-color: #fff;\n    border-radius: 500px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    overflow: hidden; }\n    .player-component .audio-play svg {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 222px;\n      height: 222px;\n      transform: rotateY(-180deg) rotateZ(-90deg);\n      pointer-events: none; }\n      .player-component .audio-play svg circle {\n        fill: none;\n        stroke-width: 70px;\n        stroke: #00a2f2;\n        stroke-dasharray: 700px;\n        stroke-dashoffset: 700px; }\n    .player-component .audio-play .play-inner {\n      width: 161px;\n      height: 161px;\n      background-color: #fff;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n      border: solid 2px #00a2f2;\n      border-radius: 500px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: 0.15s;\n      position: relative;\n      color: #00a2f2; }\n      .player-component .audio-play .play-inner.playing {\n        border-color: #e7ebee;\n        color: #e7ebee;\n        transform: rotate(360deg); }\n      .player-component .audio-play .play-inner:hover {\n        width: 180px;\n        height: 180px;\n        border-color: #00a2f2;\n        color: #00a2f2; }\n      .player-component .audio-play .play-inner:active {\n        width: 200px;\n        height: 200px; }\n    .player-component .audio-play .icon, .player-component .audio-play .fa {\n      font-size: 100px;\n      font-size: 90px;\n      margin-left: 18px; }\n  .player-component .loader-icon {\n    font-weight: bold;\n    font-size: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    animation-name: rotate;\n    animation-duration: 1s;\n    animation-iteration-count: infinite;\n    animation-timing-function: linear; }\n  .player-component .loader-text {\n    font-weight: bold;\n    margin-top: 10px; }\n", ""]);
 
 // exports
 
@@ -61188,7 +61276,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".session-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #00a2f2;\n  background-color: #eff2f9;\n  color: #263345;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .session-component .session-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    height: 100px;\n    width: 100px;\n    font-size: 30px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    transition: 0.15s;\n    color: #979797; }\n    .session-component .session-close:hover {\n      transform: scale(1.1); }\n    .session-component .session-close:active {\n      transform: scale(1.3); }\n  .session-component .session-title {\n    text-align: center;\n    font-size: 24px;\n    font-weight: 400;\n    position: absolute;\n    top: 40px;\n    color: #a5cbea;\n    font-size: 19px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .session-component .audio-title {\n    text-align: center;\n    font-size: 30px;\n    position: absolute;\n    top: 80px;\n    color: #263345;\n    font-weight: 100;\n    font-size: 14px;\n    font-weight: 600;\n    color: #263345;\n    text-transform: uppercase; }\n  .session-component .audio-duration {\n    text-align: center;\n    font-size: 20px;\n    font-weight: 400;\n    margin-top: 90px;\n    color: #263345;\n    font-size: 19px;\n    font-style: italic;\n    color: #263345; }\n  .session-component .audio-play {\n    cursor: pointer;\n    width: 222px;\n    height: 222px;\n    background-color: #fff;\n    border-radius: 500px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    overflow: hidden; }\n    .session-component .audio-play svg {\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 222px;\n      height: 222px;\n      transform: rotateY(-180deg) rotateZ(-90deg);\n      pointer-events: none; }\n      .session-component .audio-play svg circle {\n        fill: none;\n        stroke-width: 70px;\n        stroke: #00a2f2;\n        stroke-dasharray: 700px;\n        stroke-dashoffset: 700px; }\n    .session-component .audio-play .play-inner {\n      width: 161px;\n      height: 161px;\n      background-color: #fff;\n      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n      border: solid 2px #00a2f2;\n      border-radius: 500px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      transition: 0.15s;\n      position: relative;\n      color: #00a2f2; }\n      .session-component .audio-play .play-inner.playing {\n        border-color: #e7ebee;\n        color: #e7ebee;\n        transform: rotate(360deg); }\n      .session-component .audio-play .play-inner:hover {\n        width: 180px;\n        height: 180px;\n        border-color: #00a2f2;\n        color: #00a2f2; }\n      .session-component .audio-play .play-inner:active {\n        width: 200px;\n        height: 200px; }\n    .session-component .audio-play .icon, .session-component .audio-play .fa {\n      font-size: 100px;\n      font-size: 90px;\n      margin-left: 18px; }\n  .session-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .session-component .loader-icon {\n    font-weight: bold;\n    font-size: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    animation-name: rotate;\n    animation-duration: 1s;\n    animation-iteration-count: infinite;\n    animation-timing-function: linear; }\n  .session-component .loader-text {\n    font-weight: bold;\n    margin-top: 10px; }\n", ""]);
+exports.push([module.i, ".popup-component {\n  z-index: 2000;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.1);\n  background-color: rgba(60, 60, 60, 0.9); }\n  .popup-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .popup-component .popup-box {\n    width: 470px;\n    min-height: 288px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    border-radius: 4px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);\n    border: solid 1px rgba(60, 60, 60, 0.02);\n    color: #666666;\n    font-size: 13px;\n    color: #08182f; }\n    .popup-component .popup-box .popup-title {\n      font-size: 22px;\n      color: #08182f; }\n    .popup-component .popup-box .popup-middle {\n      padding: 30px;\n      flex: 1 0 auto; }\n    .popup-component .popup-box .popup-bottom {\n      padding: 15px 30px;\n      position: relative;\n      display: flex;\n      align-items: center;\n      background-color: #f3f3f3;\n      box-shadow: 0 -1px 1px 0 #e1e1e1; }\n    .popup-component .popup-box .popup-close {\n      position: absolute;\n      top: 0;\n      right: 0;\n      padding: 5px;\n      cursor: pointer;\n      font-size: 22px; }\n  .popup-component.error {\n    background-color: #ff939f; }\n", ""]);
 
 // exports
 
@@ -61216,7 +61304,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".sub-header-component {\n  padding: 15px 0px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 70px;\n  border-bottom: 1px solid white;\n  position: relative;\n  z-index: 10;\n  margin-left: 20px;\n  margin-right: 20px; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345;\n    flex: 1;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    justify-content: space-between; }\n    .sub-header-component .sub-heading .small-sub-heading {\n      font-size: 12px;\n      color: #263345;\n      margin-left: 15px;\n      font-weight: normal; }\n  .sub-header-component .user-count {\n    display: flex;\n    width: 100px;\n    height: 35px;\n    border-radius: 3px;\n    background-color: #eff2f9;\n    font-size: 13px;\n    text-align: left;\n    color: #263345;\n    font-weight: normal;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 0 20px;\n    margin-left: auto; }\n    .sub-header-component .user-count i {\n      margin-right: auto;\n      font-size: 17px; }\n", ""]);
+exports.push([module.i, ".sub-header-component {\n  padding: 15px 0px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 70px;\n  min-height: 70px;\n  border-bottom: 1px solid white;\n  position: relative;\n  z-index: 10; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345;\n    flex: 1;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    justify-content: space-between; }\n    .sub-header-component .sub-heading .small-sub-heading {\n      font-size: 12px;\n      color: #263345;\n      margin-left: 15px;\n      font-weight: normal; }\n  .sub-header-component .user-count {\n    display: flex;\n    width: 100px;\n    height: 35px;\n    border-radius: 3px;\n    background-color: #eff2f9;\n    font-size: 13px;\n    text-align: left;\n    color: #263345;\n    font-weight: normal;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 0 20px;\n    margin-left: auto; }\n    .sub-header-component .user-count i {\n      margin-right: auto;\n      font-size: 17px; }\n", ""]);
 
 // exports
 
@@ -79717,8 +79805,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./popup.scss", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./popup.scss");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./player.component.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./player.component.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -79743,8 +79831,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./session.component.scss", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./session.component.scss");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./popup.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./popup.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});

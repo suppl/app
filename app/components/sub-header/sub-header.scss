@@ -8,13 +8,14 @@
   align-items: center;
 
   height: 70px;
+  min-height: 70px;
   //background-color: #ffffff;
   //box-shadow: 0 2px 4px 0 $black-20;
   border-bottom: 1px solid white;
   position: relative;
   z-index: 10;
-  margin-left: 20px;
-  margin-right: 20px;
+  //margin-left: 20px;
+  //margin-right: 20px;
 
   .sub-heading {
     font-size: 18px;

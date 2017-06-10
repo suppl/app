@@ -26,39 +26,39 @@ class Sessions extends React.Component {
                 <div className="flex flex-row">
                     <Sidebar/>
                     <div data-content className="flex flex-max">
-                        <SubHeader text="Sessions"/>
 
                         <div className="content-area" style={{paddingTop: 0}}>
-                            {Object.keys(seriesList).map((category) =>
-                                <div>
-                                    <div className="line-heading">{category}</div>
-                                    <div className="series-list">
-                                        {seriesList[category].map((series, index) =>
-                                            <a className="series" href={`#/sessions/${series.slug}`} key={series.slug}>
-                                                <div className="series-top">
-                                                    <div className={`series-icon ${series.icon}`} style={{color: series.color}}></div>
-                                                </div>
-                                                <div className="series-time">
-                                                    <div className="time-number">{series.audios.length}</div>
-                                                    <div className="time-text">levels</div>
-                                                </div>
-
-                                                <div className="series-info">
-                                                    <div className="flex">
-                                                        <div className="info-title">{series.name}</div>
-                                                        <div className="info-text">{series.name}</div>
+                            <div className="content-content">
+                                <SubHeader text="Sessions"/>
+                                {Object.keys(seriesList).map((category) =>
+                                    <div>
+                                        <div className="line-heading">{category}</div>
+                                        <div className="series-list">
+                                            {seriesList[category].map((series, index) =>
+                                                <a className="series" href={`#/sessions/${series.slug}`} key={series.slug}>
+                                                    <div className="series-top">
+                                                        <div className={`series-icon ${series.icon}`} style={{color: series.color}}/>
+                                                    </div>
+                                                    <div className="series-time">
+                                                        <div className="time-number">{series.audios.length}</div>
+                                                        <div className="time-text">levels</div>
                                                     </div>
 
-                                                    <i className="flaticon-right-chevron go-icon"></i>
-                                                </div>
-                                            </a>
-                                        )}
+                                                    <div className="series-info">
+                                                        <div className="flex">
+                                                            <div className="info-title">{series.name}</div>
+                                                            <div className="info-text">{series.name}</div>
+                                                        </div>
+
+                                                        <i className="flaticon-right-chevron go-icon"/>
+                                                    </div>
+                                                </a>
+                                            )}
+                                        </div>
+
                                     </div>
-
-                                </div>
-                            )}
-
-
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>

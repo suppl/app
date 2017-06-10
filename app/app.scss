@@ -179,6 +179,16 @@ a {
   font-size: 110%;
 }
 
+[class^="emotions-"]:before, [class*=" emotions-"]:before, [class^="emotions-"]:after, [class*=" emotions-"]:after {
+  font-family: Emotions;
+  font-size: inherit;
+  font-style: inherit;
+  margin-left: inherit;
+  font-size: 110%;
+  margin-left: 1px;
+  margin-top: 1px;
+}
+
 i {
   font-style: normal;
 }
@@ -187,6 +197,21 @@ i {
   color: $azure;
   font-weight: bold;
   text-decoration: none;
+}
+
+.clickable {
+  transition: .15s;
+  transform: scale(1.0);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  &:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 rgba(0,0,0,0);
+  }
 }
 
 //.session-banner {

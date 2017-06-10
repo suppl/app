@@ -21,7 +21,7 @@ import AchievementsScreen from './screens/achievements.screen';
 
 import Popup from './components/popup/popup';
 import Notification from './components/notification/notification';
-import Session from './components/session/session.component';
+import Player from './components/player/player.component';
 import Loader from './components/loader/loader';
 import Award from './components/award/award';
 
@@ -52,7 +52,7 @@ ReactDOM.render(
     <Provider store={store}>
         <div className="flex flex-max">
             <Notification/>
-            <Session/>
+            <Player/> 
             <Loader/>
             <Popup/>
             <Award/>

@@ -39,7 +39,7 @@ class Dashboard extends React.Component {
         const session = this.props.settings.session ? this.props.settings.session : {};
 
         const getSessionName = () => {
-            return this.props.settings.session ? this.props.settings.session.name : "No Session selected";
+            return this.props.settings.session ? this.props.settings.session.name : "No Player selected";
         };
 
         return (
