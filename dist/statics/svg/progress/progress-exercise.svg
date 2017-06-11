@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="79px" height="96px" viewBox="0 0 79 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MVP-ONBOARDNG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M41.720793,83.9954698 C39.8311631,83.5587907 37.9415333,83.1221115 36.0519035,82.6854324" id="Path-37" stroke="#FFDA4A"></path>
+        <g id="Group-6">
+            <path d="M45.3238095,8.94915254 L46.9492063,0.813559322" id="Line" stroke="#FFBE57" stroke-linecap="square"></path>
+            <path d="M25.9145306,11.4183089 L20.8473741,4.85287751" id="Line" stroke="#FFBE57" stroke-linecap="square"></path>
+            <rect id="Rectangle-4" fill="#D8D8D8" x="34.7587302" y="73.220339" width="14.6285714" height="22.779661"></rect>
+            <path d="M35.5714286,85.4237288 L43.8593587,85.4237288" id="Line" stroke="#C1C1C1" stroke-linecap="square"></path>
+            <path d="M40.447619,78.9152542 L48.7355492,78.9152542" id="Line" stroke="#C1C1C1" stroke-linecap="square"></path>
+            <path d="M40.447619,91.9322034 L48.7355492,91.9322034" id="Line" stroke="#C1C1C1" stroke-linecap="square"></path>
+            <path d="M42.0730159,76.718064 C55.987085,76.718064 67.2666667,53.7932154 67.2666667,39.8644068 C67.2666667,25.9355982 55.987085,14.6440678 42.0730159,14.6440678 C28.1589467,14.6440678 16.8793651,25.9355982 16.8793651,39.8644068 C16.8793651,53.7932154 28.1589467,76.718064 42.0730159,76.718064 Z" id="Oval" fill="#FFD89A"></path>
+            <path d="M45.4919111,75.7467119 C45.3195726,65.8333129 45.1472341,55.9199139 44.9748956,46.0065149" id="Path-42" stroke="#FFFFFF"></path>
+            <path d="M70.8815765,34.2706222 C73.48982,33.9514007 76.0980636,33.6321791 78.7063071,33.3129576" id="Path-44" stroke="#FFBE57"></path>
+            <path d="M15.9073479,25.3118631 C12.460424,24.8612448 9.01350008,24.4106265 5.56657618,23.9600082" id="Path-45" stroke="#FFBE57"></path>
+            <path d="M11.8518472,41.3207026 C7.91210301,41.6508067 3.97235878,41.9809108 0.0326145596,42.3110149" id="Path-46" stroke="#FFBE57"></path>
+            <path d="M68.0793651,56.1355932 L75.7892992,63.8536946" id="Line" stroke="#FFBE57" stroke-linecap="square"></path>
+            <path d="M38.9903238,75.7467119 C38.8179853,63.6724787 38.6456468,51.5982455 38.4733083,39.5240123" id="Path-42" stroke="#FFFFFF"></path>
+            <path d="M62.0265132,17.1753412 C64.278227,15.0764193 66.5299408,12.9774973 68.7816546,10.8785754" id="Path-43" stroke="#FFBE57"></path>
+        </g>
+    </g>
+</svg>

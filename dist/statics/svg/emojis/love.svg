@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 6</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-19.4%" y="-13.9%" width="138.9%" height="138.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="MVP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-6" transform="translate(4.000000, 2.000000)">
+            <g id="Group" filter="url(#filter-1)" fill="#FF5E70">
+                <circle id="Oval" cx="18" cy="18" r="18"></circle>
+            </g>
+            <path d="M10.8837209,23.4418605 C10.8837209,27.6032618 14.2572033,30.9767442 18.4186047,30.9767442 L18.4186047,30.9767442 C22.580006,30.9767442 25.9534884,27.6032618 25.9534884,23.4418605" id="Oval-11" fill="#FFFFFF"></path>
+            <path d="M11.8928835,17.6502217 C14.39086,11.3101832 14.747968,8.04616578 12.9642076,7.8581693 C11.1804472,7.67017281 10.0568056,8.66244201 9.59328272,10.8349769 C7.44423245,9.44246943 5.89485651,9.44246943 4.94515489,10.8349769 C3.99545328,12.2274843 6.31136283,14.4992326 11.8928835,17.6502217 Z" id="Path-2" fill="#FF939F"></path>
+            <path d="M27.7998603,17.6502217 C30.2978367,11.3101832 30.6549448,8.04616578 28.8711843,7.8581693 C27.0874239,7.67017281 25.9637823,8.66244201 25.5002595,10.8349769 C23.3512092,9.44246943 21.8018333,9.44246943 20.8521316,10.8349769 C19.90243,12.2274843 22.2183396,14.4992326 27.7998603,17.6502217 Z" id="Path-2" fill="#FF939F" transform="translate(25.315419, 12.742966) rotate(-315.000000) translate(-25.315419, -12.742966) "></path>
+        </g>
+    </g>
+</svg>

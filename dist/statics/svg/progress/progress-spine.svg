@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="95px" viewBox="0 0 27 95" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MVP-ONBOARDNG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-14">
+            <rect id="Rectangle-22" fill="#FFFDEE" x="10" y="0" width="8" height="95" rx="4"></rect>
+            <g id="Group-5" transform="translate(0.000000, 4.000000)" fill="#FFFDEE">
+                <rect id="Rectangle-3" x="1" y="0" width="25" height="10" rx="5"></rect>
+                <rect id="Rectangle-3" x="0" y="2" width="6" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" x="21" y="2" width="6" height="6" rx="3"></rect>
+            </g>
+            <g id="Group-5" transform="translate(0.000000, 17.000000)" fill="#FFFDEE">
+                <rect id="Rectangle-3" x="1" y="0" width="25" height="10" rx="5"></rect>
+                <rect id="Rectangle-3" x="0" y="2" width="6" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" x="21" y="2" width="6" height="6" rx="3"></rect>
+            </g>
+            <g id="Group-5" transform="translate(0.000000, 30.000000)" fill="#FFFDEE">
+                <rect id="Rectangle-3" x="1" y="0" width="25" height="10" rx="5"></rect>
+                <rect id="Rectangle-3" x="0" y="2" width="6" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" x="21" y="2" width="6" height="6" rx="3"></rect>
+            </g>
+            <g id="Group-5" transform="translate(0.000000, 43.000000)" fill="#FFFDEE">
+                <rect id="Rectangle-3" x="1" y="0" width="25" height="10" rx="5"></rect>
+                <rect id="Rectangle-3" x="0" y="2" width="6" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" x="21" y="2" width="6" height="6" rx="3"></rect>
+            </g>
+            <g id="Group-5" transform="translate(0.000000, 56.000000)" fill="#FFFDEE">
+                <rect id="Rectangle-3" x="1" y="0" width="25" height="10" rx="5"></rect>
+                <rect id="Rectangle-3" x="0" y="2" width="6" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" x="21" y="2" width="6" height="6" rx="3"></rect>
+            </g>
+            <g id="Group-5" transform="translate(0.000000, 69.000000)" fill="#FFFDEE">
+                <rect id="Rectangle-3" x="1" y="0" width="25" height="10" rx="5"></rect>
+                <rect id="Rectangle-3" x="0" y="2" width="6" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" x="21" y="2" width="6" height="6" rx="3"></rect>
+            </g>
+            <g id="Group-5" transform="translate(0.000000, 82.000000)" fill="#FFFDEE">
+                <rect id="Rectangle-3" x="1" y="0" width="25" height="10" rx="5"></rect>
+                <rect id="Rectangle-3" x="0" y="2" width="6" height="6" rx="3"></rect>
+                <rect id="Rectangle-3" x="21" y="2" width="6" height="6" rx="3"></rect>
+            </g>
+            <path d="M8.5,15.5 L19.5,15.5" id="Line" stroke="#EFF2F9" stroke-linecap="square"></path>
+            <path d="M8.5,28.5 L19.5,28.5" id="Line" stroke="#EFF2F9" stroke-linecap="square"></path>
+            <path d="M8.5,41.5 L19.5,41.5" id="Line" stroke="#EFF2F9" stroke-linecap="square"></path>
+            <path d="M8.5,54.5 L19.5,54.5" id="Line" stroke="#EFF2F9" stroke-linecap="square"></path>
+            <path d="M8.5,67.5 L19.5,67.5" id="Line" stroke="#EFF2F9" stroke-linecap="square"></path>
+            <path d="M8.5,80.5 L19.5,80.5" id="Line" stroke="#EFF2F9" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>

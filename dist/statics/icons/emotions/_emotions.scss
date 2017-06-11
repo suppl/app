@@ -1,0 +1,239 @@
+    /*
+    Emotions icon font: Emotions
+    Creation date: 22/06/2016 15:06
+    */
+
+    @font-face {
+  font-family: "Emotions";
+  src: url("./Emotions.eot");
+  src: url("./Emotions.eot?#iefix") format("embedded-opentype"),
+       url("./Emotions.woff") format("woff"),
+       url("./Emotions.ttf") format("truetype"),
+       url("Emotions.svg#Emotions") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Emotions";
+    src: url("Emotions.svg#Emotions") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Emotions";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .emotions-anger-emoticon-square-face:before { content: "\f100"; }
+.emotions-anger-on-emoticon-face-of-rounded-square-outline:before { content: "\f101"; }
+.emotions-angry-emoticon-face:before { content: "\f102"; }
+.emotions-angry-emoticon-face-with-opened-mouth-in-rounded-square-outline:before { content: "\f103"; }
+.emotions-angry-emoticon-square-face:before { content: "\f104"; }
+.emotions-angry-emoticon-square-face-1:before { content: "\f105"; }
+.emotions-angry-emoticon-square-face-with-closed-eyes:before { content: "\f106"; }
+.emotions-annulled-emoticon-square-face:before { content: "\f107"; }
+.emotions-bad-emoticon-square-face:before { content: "\f108"; }
+.emotions-black-eye-and-opened-mouth-emoticon-square-face:before { content: "\f109"; }
+.emotions-crying-emoticon-rounded-square-face:before { content: "\f10a"; }
+.emotions-disappointed-emoticon-face:before { content: "\f10b"; }
+.emotions-disgusted-emoticon-square-face:before { content: "\f10c"; }
+.emotions-doubt-on-emoticon-square-face:before { content: "\f10d"; }
+.emotions-emoticon-criminal-face-with-eyes-mask:before { content: "\f10e"; }
+.emotions-emoticon-face-of-doubt:before { content: "\f10f"; }
+.emotions-emoticon-face-square-with-tongue-out-of-the-mouth-and-closed-eyes:before { content: "\f110"; }
+.emotions-emoticon-face-with-the-mouth-at-one-side-like-a-small-smile-in-a-rounded-square:before { content: "\f111"; }
+.emotions-emoticon-happy-smiling-square-face-shape:before { content: "\f112"; }
+.emotions-emoticon-in-love-face-in-a-square:before { content: "\f113"; }
+.emotions-emoticon-in-love-face-with-heart-shaped-eyes-in-square-outline:before { content: "\f114"; }
+.emotions-emoticon-rounded-square-criminal-face-with-covered-eyes-with-a-mask:before { content: "\f115"; }
+.emotions-emoticon-smiling-square-face:before { content: "\f116"; }
+.emotions-emoticon-square-face-with-a-smile:before { content: "\f117"; }
+.emotions-emoticon-square-face-with-closed-eyes-and-big-lips:before { content: "\f118"; }
+.emotions-emoticon-square-face-with-closed-eyes-and-mouth-of-straight-lines:before { content: "\f119"; }
+.emotions-emoticon-square-face-with-closed-eyes-and-straight-mouth-line:before { content: "\f11a"; }
+.emotions-emoticon-square-face-with-closed-eyes-and-tongue-out:before { content: "\f11b"; }
+.emotions-emoticon-square-face-with-curved-mouth-expression:before { content: "\f11c"; }
+.emotions-emoticon-square-face-with-straight-mouth:before { content: "\f11d"; }
+.emotions-emoticon-square-face-with-straight-mouth-and-eyes-lines:before { content: "\f11e"; }
+.emotions-emoticon-square-face-with-tongue-out:before { content: "\f11f"; }
+.emotions-emoticon-square-rounded-face-with-tongue-out-of-the-mouth:before { content: "\f120"; }
+.emotions-emoticon-square-smile:before { content: "\f121"; }
+.emotions-emoticon-square-smiling-face-with-closed-eyes:before { content: "\f122"; }
+.emotions-emoticon-square-surprised-face-with-open-circular-mouth:before { content: "\f123"; }
+.emotions-emoticons-face-with-straight-mouth-line-and-closed-eyes:before { content: "\f124"; }
+.emotions-emoticons-square-face-with-closed-eyes-and-opened-mouth:before { content: "\f125"; }
+.emotions-emoticons-square-face-with-sunglasses:before { content: "\f126"; }
+.emotions-evil-smile-square-emoticon-face:before { content: "\f127"; }
+.emotions-furious-emoticon-square-face:before { content: "\f128"; }
+.emotions-happy-emoticon:before { content: "\f129"; }
+.emotions-happy-emoticon-smiling-square:before { content: "\f12a"; }
+.emotions-happy-emoticon-with-one-tooth:before { content: "\f12b"; }
+.emotions-happy-smiling-emoticon-face-with-open-mouth:before { content: "\f12c"; }
+.emotions-happy-smiling-emoticon-square-face:before { content: "\f12d"; }
+.emotions-happy-smiling-emoticon-square-face-1:before { content: "\f12e"; }
+.emotions-happy-smiling-emoticon-square-face-with-sunglasses:before { content: "\f12f"; }
+.emotions-intellectual-emoticon-square-face:before { content: "\f130"; }
+.emotions-male-square-face-with-glasses-and-mustache:before { content: "\f131"; }
+.emotions-mute-emoticon-square-face:before { content: "\f132"; }
+.emotions-mute-emoticon-square-face-1:before { content: "\f133"; }
+.emotions-nerd-emoticon-square-face:before { content: "\f134"; }
+.emotions-nerd-happy-smiling-face-in-rounded-square-face:before { content: "\f135"; }
+.emotions-pirate-emoticon-face-with-one-covered-eye-in-square-outline:before { content: "\f136"; }
+.emotions-resting-emoticon-square-face:before { content: "\f137"; }
+.emotions-sad-emoticon-square-face:before { content: "\f138"; }
+.emotions-sad-emoticon-square-face-with-closed-eyes:before { content: "\f139"; }
+.emotions-sad-face-in-rounded-square:before { content: "\f13a"; }
+.emotions-sad-rounded-square-emoticon:before { content: "\f13b"; }
+.emotions-sad-sleepy-emoticon-face-square:before { content: "\f13c"; }
+.emotions-sad-suffering-crying-emoticon-face:before { content: "\f13d"; }
+.emotions-scared-emoticon-square-face:before { content: "\f13e"; }
+.emotions-singing-emoticon-square-face:before { content: "\f13f"; }
+.emotions-sleeping-face-with-opened-mouth-in-square-outline:before { content: "\f140"; }
+.emotions-sleepy-emoticon-square-face:before { content: "\f141"; }
+.emotions-sleepy-face-square-shape:before { content: "\f142"; }
+.emotions-smiley-of-square-face-shape:before { content: "\f143"; }
+.emotions-smiley-of-square-rounded-face:before { content: "\f144"; }
+.emotions-smiley-square-face:before { content: "\f145"; }
+.emotions-smiley-square-face-1:before { content: "\f146"; }
+.emotions-smiley-square-face-with-broken-teeth:before { content: "\f147"; }
+.emotions-smiley-with-closed-eyes-rounded-square-face:before { content: "\f148"; }
+.emotions-smiley-with-tongue-in-a-square-shape:before { content: "\f149"; }
+.emotions-smiling-emoticon-face-in-a-square:before { content: "\f14a"; }
+.emotions-smiling-emoticon-square-face:before { content: "\f14b"; }
+.emotions-smiling-emoticon-square-face-1:before { content: "\f14c"; }
+.emotions-smiling-emoticon-square-face-with-closed-eyes:before { content: "\f14d"; }
+.emotions-smiling-emoticon-with-raised-eyebrows-and-closed-eyes:before { content: "\f14e"; }
+.emotions-smiling-happy-emoticon-face:before { content: "\f14f"; }
+.emotions-smiling-happy-emoticon-square-face-with-eyes-like-stars:before { content: "\f150"; }
+.emotions-smiling-square-face:before { content: "\f151"; }
+.emotions-square-emoticon-angry-face:before { content: "\f152"; }
+.emotions-student-smiling-emoticon-square-face:before { content: "\f153"; }
+.emotions-surprised-emoticon-square-face:before { content: "\f154"; }
+.emotions-surprised-emoticon-square-face-with-open-eyes-and-mouth:before { content: "\f155"; }
+.emotions-surprised-rounded-square-face:before { content: "\f156"; }
+.emotions-surprised-square-face-with-eyes-and-mouth-opened:before { content: "\f157"; }
+.emotions-sweating-emoticon-square-face:before { content: "\f158"; }
+.emotions-teardrop-falling-on-sad-emoticon-face:before { content: "\f159"; }
+.emotions-tired-emoticon-face-with-open-mouth-and-closed-eyes:before { content: "\f15a"; }
+.emotions-very-angry-emoticon-square-face:before { content: "\f15b"; }
+.emotions-wink-emoticon-of-rounded-square-face:before { content: "\f15c"; }
+.emotions-wink-face-square:before { content: "\f15d"; }
+.emotions-winking-emoticon-smiling-face-with-tongue-out-of-the-mouth-in-square-rounded-outline-shape:before { content: "\f15e"; }
+.emotions-winking-emoticon-with-tongue-out-of-mouth-and-square-face-shape:before { content: "\f15f"; }
+.emotions-wound-cross-on-emoticon-sad-face-of-rounded-square-shape:before { content: "\f160"; }
+.emotions-yawning-emoticon-face-in-rounded-square-with-open-oval-mouth-and-closed-small-eyes:before { content: "\f161"; }
+.emotions-yawning-emoticon-square-face:before { content: "\f162"; }
+.emotions-yawning-emoticon-square-face-1:before { content: "\f163"; }
+    
+    $font-Emotions-anger-emoticon-square-face: "\f100";
+    $font-Emotions-anger-on-emoticon-face-of-rounded-square-outline: "\f101";
+    $font-Emotions-angry-emoticon-face: "\f102";
+    $font-Emotions-angry-emoticon-face-with-opened-mouth-in-rounded-square-outline: "\f103";
+    $font-Emotions-angry-emoticon-square-face: "\f104";
+    $font-Emotions-angry-emoticon-square-face-1: "\f105";
+    $font-Emotions-angry-emoticon-square-face-with-closed-eyes: "\f106";
+    $font-Emotions-annulled-emoticon-square-face: "\f107";
+    $font-Emotions-bad-emoticon-square-face: "\f108";
+    $font-Emotions-black-eye-and-opened-mouth-emoticon-square-face: "\f109";
+    $font-Emotions-crying-emoticon-rounded-square-face: "\f10a";
+    $font-Emotions-disappointed-emoticon-face: "\f10b";
+    $font-Emotions-disgusted-emoticon-square-face: "\f10c";
+    $font-Emotions-doubt-on-emoticon-square-face: "\f10d";
+    $font-Emotions-emoticon-criminal-face-with-eyes-mask: "\f10e";
+    $font-Emotions-emoticon-face-of-doubt: "\f10f";
+    $font-Emotions-emoticon-face-square-with-tongue-out-of-the-mouth-and-closed-eyes: "\f110";
+    $font-Emotions-emoticon-face-with-the-mouth-at-one-side-like-a-small-smile-in-a-rounded-square: "\f111";
+    $font-Emotions-emoticon-happy-smiling-square-face-shape: "\f112";
+    $font-Emotions-emoticon-in-love-face-in-a-square: "\f113";
+    $font-Emotions-emoticon-in-love-face-with-heart-shaped-eyes-in-square-outline: "\f114";
+    $font-Emotions-emoticon-rounded-square-criminal-face-with-covered-eyes-with-a-mask: "\f115";
+    $font-Emotions-emoticon-smiling-square-face: "\f116";
+    $font-Emotions-emoticon-square-face-with-a-smile: "\f117";
+    $font-Emotions-emoticon-square-face-with-closed-eyes-and-big-lips: "\f118";
+    $font-Emotions-emoticon-square-face-with-closed-eyes-and-mouth-of-straight-lines: "\f119";
+    $font-Emotions-emoticon-square-face-with-closed-eyes-and-straight-mouth-line: "\f11a";
+    $font-Emotions-emoticon-square-face-with-closed-eyes-and-tongue-out: "\f11b";
+    $font-Emotions-emoticon-square-face-with-curved-mouth-expression: "\f11c";
+    $font-Emotions-emoticon-square-face-with-straight-mouth: "\f11d";
+    $font-Emotions-emoticon-square-face-with-straight-mouth-and-eyes-lines: "\f11e";
+    $font-Emotions-emoticon-square-face-with-tongue-out: "\f11f";
+    $font-Emotions-emoticon-square-rounded-face-with-tongue-out-of-the-mouth: "\f120";
+    $font-Emotions-emoticon-square-smile: "\f121";
+    $font-Emotions-emoticon-square-smiling-face-with-closed-eyes: "\f122";
+    $font-Emotions-emoticon-square-surprised-face-with-open-circular-mouth: "\f123";
+    $font-Emotions-emoticons-face-with-straight-mouth-line-and-closed-eyes: "\f124";
+    $font-Emotions-emoticons-square-face-with-closed-eyes-and-opened-mouth: "\f125";
+    $font-Emotions-emoticons-square-face-with-sunglasses: "\f126";
+    $font-Emotions-evil-smile-square-emoticon-face: "\f127";
+    $font-Emotions-furious-emoticon-square-face: "\f128";
+    $font-Emotions-happy-emoticon: "\f129";
+    $font-Emotions-happy-emoticon-smiling-square: "\f12a";
+    $font-Emotions-happy-emoticon-with-one-tooth: "\f12b";
+    $font-Emotions-happy-smiling-emoticon-face-with-open-mouth: "\f12c";
+    $font-Emotions-happy-smiling-emoticon-square-face: "\f12d";
+    $font-Emotions-happy-smiling-emoticon-square-face-1: "\f12e";
+    $font-Emotions-happy-smiling-emoticon-square-face-with-sunglasses: "\f12f";
+    $font-Emotions-intellectual-emoticon-square-face: "\f130";
+    $font-Emotions-male-square-face-with-glasses-and-mustache: "\f131";
+    $font-Emotions-mute-emoticon-square-face: "\f132";
+    $font-Emotions-mute-emoticon-square-face-1: "\f133";
+    $font-Emotions-nerd-emoticon-square-face: "\f134";
+    $font-Emotions-nerd-happy-smiling-face-in-rounded-square-face: "\f135";
+    $font-Emotions-pirate-emoticon-face-with-one-covered-eye-in-square-outline: "\f136";
+    $font-Emotions-resting-emoticon-square-face: "\f137";
+    $font-Emotions-sad-emoticon-square-face: "\f138";
+    $font-Emotions-sad-emoticon-square-face-with-closed-eyes: "\f139";
+    $font-Emotions-sad-face-in-rounded-square: "\f13a";
+    $font-Emotions-sad-rounded-square-emoticon: "\f13b";
+    $font-Emotions-sad-sleepy-emoticon-face-square: "\f13c";
+    $font-Emotions-sad-suffering-crying-emoticon-face: "\f13d";
+    $font-Emotions-scared-emoticon-square-face: "\f13e";
+    $font-Emotions-singing-emoticon-square-face: "\f13f";
+    $font-Emotions-sleeping-face-with-opened-mouth-in-square-outline: "\f140";
+    $font-Emotions-sleepy-emoticon-square-face: "\f141";
+    $font-Emotions-sleepy-face-square-shape: "\f142";
+    $font-Emotions-smiley-of-square-face-shape: "\f143";
+    $font-Emotions-smiley-of-square-rounded-face: "\f144";
+    $font-Emotions-smiley-square-face: "\f145";
+    $font-Emotions-smiley-square-face-1: "\f146";
+    $font-Emotions-smiley-square-face-with-broken-teeth: "\f147";
+    $font-Emotions-smiley-with-closed-eyes-rounded-square-face: "\f148";
+    $font-Emotions-smiley-with-tongue-in-a-square-shape: "\f149";
+    $font-Emotions-smiling-emoticon-face-in-a-square: "\f14a";
+    $font-Emotions-smiling-emoticon-square-face: "\f14b";
+    $font-Emotions-smiling-emoticon-square-face-1: "\f14c";
+    $font-Emotions-smiling-emoticon-square-face-with-closed-eyes: "\f14d";
+    $font-Emotions-smiling-emoticon-with-raised-eyebrows-and-closed-eyes: "\f14e";
+    $font-Emotions-smiling-happy-emoticon-face: "\f14f";
+    $font-Emotions-smiling-happy-emoticon-square-face-with-eyes-like-stars: "\f150";
+    $font-Emotions-smiling-square-face: "\f151";
+    $font-Emotions-square-emoticon-angry-face: "\f152";
+    $font-Emotions-student-smiling-emoticon-square-face: "\f153";
+    $font-Emotions-surprised-emoticon-square-face: "\f154";
+    $font-Emotions-surprised-emoticon-square-face-with-open-eyes-and-mouth: "\f155";
+    $font-Emotions-surprised-rounded-square-face: "\f156";
+    $font-Emotions-surprised-square-face-with-eyes-and-mouth-opened: "\f157";
+    $font-Emotions-sweating-emoticon-square-face: "\f158";
+    $font-Emotions-teardrop-falling-on-sad-emoticon-face: "\f159";
+    $font-Emotions-tired-emoticon-face-with-open-mouth-and-closed-eyes: "\f15a";
+    $font-Emotions-very-angry-emoticon-square-face: "\f15b";
+    $font-Emotions-wink-emoticon-of-rounded-square-face: "\f15c";
+    $font-Emotions-wink-face-square: "\f15d";
+    $font-Emotions-winking-emoticon-smiling-face-with-tongue-out-of-the-mouth-in-square-rounded-outline-shape: "\f15e";
+    $font-Emotions-winking-emoticon-with-tongue-out-of-mouth-and-square-face-shape: "\f15f";
+    $font-Emotions-wound-cross-on-emoticon-sad-face-of-rounded-square-shape: "\f160";
+    $font-Emotions-yawning-emoticon-face-in-rounded-square-with-open-oval-mouth-and-closed-small-eyes: "\f161";
+    $font-Emotions-yawning-emoticon-square-face: "\f162";
+    $font-Emotions-yawning-emoticon-square-face-1: "\f163";

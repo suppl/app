@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="106px" height="102px" viewBox="0 0 106 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 16</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MVP-ONBOARDNG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-16">
+            <path d="M79.5,66.5 L85.5,64.5" id="Line" stroke="#FFDA4A" stroke-linecap="square"></path>
+            <path d="M15.5,79.5 L21.5,77.5" id="Line" stroke="#FFDA4A" stroke-linecap="square"></path>
+            <path d="M70.5,91.5 L75.5,95.5" id="Line" stroke="#FFDA4A" stroke-linecap="square"></path>
+            <polygon id="Rectangle-23" fill="#FFFFFF" points="0 0 16.0012649 0 45.0835646 54.139948 35.3683934 66.8637011"></polygon>
+            <polygon id="Rectangle-23" fill="#FFFFFF" transform="translate(82.541782, 33.431851) scale(-1, 1) translate(-82.541782, -33.431851) " points="60 0 76.0012649 0 105.083565 54.139948 95.3683934 66.8637011"></polygon>
+            <circle id="Oval-5" fill="#F2C100" cx="52" cy="70" r="23"></circle>
+            <circle id="Oval-5" stroke="#CDA508" cx="52" cy="70" r="23"></circle>
+            <polygon id="Triangle-2" fill="#FFDB49" transform="translate(54.500000, 70.000000) rotate(91.000000) translate(-54.500000, -70.000000) " points="54.5 62 65 78 44 78"></polygon>
+            <path d="M41.1625481,95.5064822 C39.9254503,97.3439545 38.6883524,99.1814268 37.4512546,101.018899" id="Path-41" stroke="#FFDA4A"></path>
+        </g>
+    </g>
+</svg>

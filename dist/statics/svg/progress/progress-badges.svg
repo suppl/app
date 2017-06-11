@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="177px" height="39px" viewBox="0 0 177 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 17</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MVP-ONBOARDNG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-17">
+            <polygon id="Rectangle-24" fill="#F2C100" points="0 9 57 9 57 33 0 33 9.86863222 21"></polygon>
+            <polygon id="Rectangle-24" fill="#F2C100" points="120 9 177 9 166.717576 21 177 33 120 33"></polygon>
+            <rect id="Rectangle-25" fill="#FFD21D" x="36" y="0" width="102" height="39"></rect>
+            <text id="WINNER" font-family="OpenSans-Semibold, Open Sans" font-size="20" font-weight="500" fill="#FFFFFF">
+                <tspan x="47.5949169" y="28">WINNER</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

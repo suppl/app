@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="98px" viewBox="0 0 68 98" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 8</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Challenges" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-8">
+            <rect id="Rectangle-7" fill="#F6B8A7" x="0.768138112" y="86.3972125" width="67.1892483" height="11.6027875"></rect>
+            <polygon id="Rectangle-7" fill="#FFCCBE" points="0.768138112 86.3972125 67.9573864 86.3972125 0.768138112 98"></polygon>
+            <polygon id="Rectangle-6" fill="#FFCCBE" points="34.7714685 26.0627178 56.3730332 86.3972125 14.6693619 86.3972125"></polygon>
+            <polygon id="Rectangle-6" fill="#F6B9A8" points="34.7714685 26.0627178 45.3819725 55.6985061 33.1741479 86.3972125 14.6693619 86.3972125"></polygon>
+            <circle id="Oval-24" fill="#FFCCBE" cx="34" cy="26" r="26"></circle>
+            <path d="M34.4054544,38.3324634 L23.4974247,44.067154 C22.5244829,44.5786598 21.8871205,44.1108039 22.0722061,43.0316721 L24.1554544,30.8854025 L15.330673,22.2833666 C14.5435465,21.5161079 14.7915481,20.7653649 15.8750581,20.6079217 L28.0706061,18.8358048 L33.5246209,7.78476366 C34.0110918,6.79906591 34.8017276,6.80293708 35.286288,7.78476366 L40.7403028,18.8358048 L52.9358508,20.6079217 C54.0236329,20.7659856 54.264271,21.5191212 53.4802359,22.2833666 L44.6554544,30.8854025 L46.7387027,43.0316721 C46.9245181,44.1150587 46.2826049,44.5766509 45.3134842,44.067154 L34.4054544,38.3324634 Z" id="Star" fill="#EB9D16"></path>
+            <text id="1" font-family="OpenSans-Semibold, Open Sans" font-size="13" font-weight="500" fill="#FFFFFF">
+                <tspan x="31" y="32">1</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

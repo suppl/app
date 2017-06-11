@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="157px" height="79px" viewBox="0 0 157 79" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 22</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MVP-ONBOARDNG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-22">
+            <g id="Group-11">
+                <polygon id="Rectangle-24" fill="#F2C100" points="0 29 57 29 57 53 0 53 9.86863222 41"></polygon>
+                <polygon id="Rectangle-24" fill="#F2C100" points="100 29 157 29 146.717576 41 157 53 100 53"></polygon>
+                <rect id="Rectangle-25" fill="#EFF2F9" x="26" y="0" width="102" height="79"></rect>
+                <rect id="Rectangle-25" fill="#FFD21D" x="26" y="24" width="102" height="35"></rect>
+                <polygon id="Star-3" fill="#CEAC40" points="78 47 70.946577 50.7082039 72.2936609 42.854102 66.5873218 37.2917961 74.4732885 36.145898 78 29 81.5267115 36.145898 89.4126782 37.2917961 83.7063391 42.854102 85.053423 50.7082039"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

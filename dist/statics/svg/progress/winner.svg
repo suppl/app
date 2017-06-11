@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="177px" height="39px" viewBox="0 0 177 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 11</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MVP-ONBOARDNG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-11">
+            <polygon id="Rectangle-24" fill="#F2C100" points="0 9 57 9 57 33 0 33 9.86863222 21"></polygon>
+            <polygon id="Rectangle-24" fill="#F2C100" points="120 9 177 9 166.717576 21 177 33 120 33"></polygon>
+            <rect id="Rectangle-25" fill="#FFD21D" x="36" y="0" width="102" height="39"></rect>
+            <polygon id="Star-3" fill="#FFFFFF" points="88 27 80.946577 30.7082039 82.2936609 22.854102 76.5873218 17.2917961 84.4732885 16.145898 88 9 91.5267115 16.145898 99.4126782 17.2917961 93.7063391 22.854102 95.053423 30.7082039"></polygon>
+        </g>
+    </g>
+</svg>

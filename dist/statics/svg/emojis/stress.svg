@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-19.4%" y="-13.9%" width="138.9%" height="138.9%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FF8181" offset="0%"></stop>
+            <stop stop-color="#FDD089" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="MVP" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(4.000000, 2.000000)">
+            <g id="Group-6" fill="url(#linearGradient-2)">
+                <g id="Group" filter="url(#filter-1)">
+                    <circle id="Oval" cx="18" cy="18" r="18"></circle>
+                </g>
+            </g>
+            <polyline id="Path-54" stroke="#FFFFFF" points="11.8920522 29.5122782 15.0007905 29.5122782 15.3474483 29.5122782 15.4333771 29.5122782 16.8912235 29.5122782 17.7934757 29.5122782 18.5509437 29.5122782 19.0606308 29.5122782 19.2018836 29.5122782 19.3737412 29.5122782 19.4125857 29.5122782 19.9222728 29.5122782 20.0635256 29.5122782 20.2907071 29.5122782 21.2112044 29.5122782 21.3524572 29.5122782 22.3924308 29.5122782 22.5336836 29.5122782 23.0215942 29.5122782 23.107523 29.5122782 23.2876203 29.5122782 23.7255039 29.5122782 23.8502772 29.5122782 24.0527395 29.5122782 24.2163573 29.5122782 24.3328909 29.5122782"></polyline>
+            <path d="M31.1173844,16.0880631 C27.8295539,18.654121 25.0346077,18.8244008 20.9666064,19.5258026" id="Path-55" stroke="#FFFFFF"></path>
+            <path d="M15.1173844,16.0880631 C11.8295539,18.654121 9.03460769,18.8244008 4.96660636,19.5258026" id="Path-55" stroke="#FFFFFF" transform="translate(10.041995, 17.806933) scale(-1, 1) translate(-10.041995, -17.806933) "></path>
+            <circle id="Oval-2" fill="#FFFFFF" cx="9.5" cy="19.5" r="1.5"></circle>
+            <circle id="Oval-2" fill="#FFFFFF" cx="26.5" cy="19.5" r="1.5"></circle>
+        </g>
+    </g>
+</svg>

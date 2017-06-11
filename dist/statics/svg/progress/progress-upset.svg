@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="73px" height="73px" viewBox="0 0 73 73" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 9</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="MVP-ONBOARDNG" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-9">
+            <g id="Group" fill="#B798C3">
+                <circle id="Oval" cx="36.5" cy="36.5" r="36.5"></circle>
+            </g>
+            <path d="M28.8604651,52.627907 C28.8604651,57.3159054 32.6608388,61.1162791 37.3488372,61.1162791 L37.3488372,61.1162791 C42.0368357,61.1162791 45.8372093,57.3159054 45.8372093,52.627907" id="Oval-11" fill="#FFFFFF" transform="translate(37.348837, 56.872093) rotate(-180.000000) translate(-37.348837, -56.872093) "></path>
+            <g id="Group-4" transform="translate(18.674419, 27.162791)" stroke-linecap="square" stroke="#FFFFFF">
+                <polyline id="Line" points="35.0145349 0.636627907 29.9215116 4.45639535 34.7398226 9.27470631"></polyline>
+                <polyline id="Line" transform="translate(3.183140, 4.955667) rotate(-180.000000) translate(-3.183140, -4.955667) " points="5.72965116 0.636627907 0.636627907 4.45639535 5.45493887 9.27470631"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>
