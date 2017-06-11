@@ -35,7 +35,7 @@ class Sessions extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
                                 <SubHeader text={`Sessions › ${session.name}`}/>
-                                <div className="session-header" style={{backgroundImage: `url('${session.banner}')`}}>
+                                <div className="session-header" style={{backgroundImage: `url('${session.svgLarge}')`}}>
                                     <div className="header-overlay"></div>
                                     <div className="session-title">{session.name}</div>
                                     <div className="session-description">{session.description}</div>
@@ -105,31 +105,6 @@ class Sessions extends React.Component {
                                 </div>
                             </div>
 
-                            {/*<div className="session-banner"  style={{background: session.color}}>*/}
-                            {/*<div className={`session-icon ${session.icon}`}/>*/}
-                            {/*<div className="session-content flex flex-justify">*/}
-                            {/*<strong>{session.name}</strong>*/}
-                            {/*<div>{session.description}</div>*/}
-                            {/*</div>*/}
-                            {/*</div>*/}
-
-                            {/*<div className="sub-sub-heading">Select your level</div>*/}
-
-                            {/*<div className="session-levels">*/}
-                            {/*{session.audios.map((audio, index) =>*/}
-                            {/*<a className="session-level" href={`#/dashboard/${session.slug}`} disabled={!isAudioAvailable(audio)}>*/}
-                            {/*<div className="level-top">*/}
-                            {/*<div className="level-icon" style={{background: session.color}}>*/}
-                            {/*<i className="flaticon-star"></i>*/}
-                            {/*</div>*/}
-                            {/*</div>*/}
-                            {/*<div className="level-bottom">*/}
-                            {/*<div>Level {index + 1}</div>*/}
-                            {/*<i className="fa fa-angle-right"></i>*/}
-                            {/*</div>*/}
-                            {/*</a>*/}
-                            {/*)}*/}
-                            {/*</div>*/}
 
                         </div>
                     </div>

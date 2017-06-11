@@ -46,7 +46,6 @@ class Header extends React.Component {
                                 <div className="item-icon icon-exit"></div>
                                 <div className="item-text">Logout</div>
                             </div>
-
                         </div>
                         <i className="flaticon-cog"></i>
                         <i className="icon-chevron-down"></i>

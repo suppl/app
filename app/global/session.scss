@@ -19,6 +19,11 @@
   position: relative;
   z-index: 0;
 
+  &.mini {
+    min-height: 190px;
+    margin-top: 45px;
+  }
+
   .header-overlay {
     position: absolute;
     top: -35px;

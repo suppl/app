@@ -26780,13 +26780,13 @@ var _registerStyle = __webpack_require__(372);
 
 var _registerStyle2 = _interopRequireDefault(_registerStyle);
 
-var _stats = __webpack_require__(377);
+var _progress = __webpack_require__(737);
 
-var _stats2 = _interopRequireDefault(_stats);
+var _progress2 = _interopRequireDefault(_progress);
 
-var _achievements = __webpack_require__(367);
+var _awards = __webpack_require__(736);
 
-var _achievements2 = _interopRequireDefault(_achievements);
+var _awards2 = _interopRequireDefault(_awards);
 
 var _popup = __webpack_require__(357);
 
@@ -26874,8 +26874,8 @@ _reactDom2.default.render(_react2.default.createElement(
             _react2.default.createElement(Location, { path: '/register-password', handler: _registerPassword2.default }),
             _react2.default.createElement(Location, { path: '/register-job', handler: _registerJob2.default }),
             _react2.default.createElement(Location, { path: '/register-style', handler: _registerStyle2.default }),
-            _react2.default.createElement(Location, { path: '/achievements', handler: _achievements2.default }),
-            _react2.default.createElement(Location, { path: '/stats', handler: _stats2.default }),
+            _react2.default.createElement(Location, { path: '/awards', handler: _awards2.default }),
+            _react2.default.createElement(Location, { path: '/progress', handler: _progress2.default }),
             _react2.default.createElement(Location, { path: '/sessions', handler: _sessions2.default }),
             _react2.default.createElement(Location, { path: '/sessions/:sessionId', handler: _session2.default }),
             _react2.default.createElement(Location, { path: '/dashboard(/*)', handler: _dashboard2.default }),
@@ -27083,7 +27083,7 @@ var Sidebar = function Sidebar() {
             _react2.default.createElement(
                 'a',
                 { href: '#/dashboard', className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'flaticon-circular-play-button' }),
+                _react2.default.createElement('i', { className: 'flaticon-dashboard-1' }),
                 _react2.default.createElement(
                     'span',
                     null,
@@ -27107,7 +27107,7 @@ var Sidebar = function Sidebar() {
             ),
             _react2.default.createElement(
                 'a',
-                { href: '#/achievements', className: 'menu-item' },
+                { href: '#/awards', className: 'menu-item' },
                 _react2.default.createElement('i', { className: 'flaticon-trophy' }),
                 _react2.default.createElement(
                     'span',
@@ -51286,16 +51286,17 @@ var SESSIONS = [{
     name: "Take a seat",
     category: "Work Series",
     level: 1,
-    banner: "/statics/images/stand-up-desk.svg",
-    image: "/statics/images/sit-down.svg",
+    svgSmall: "/statics/svg/work series/small/sm-desk-flex.svg",
+    svgLarge: "/statics/svg/work series/large/lg-sat-down.svg",
     icon: "flaticon-desk-chair",
     description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
     caption: "",
-    color: "#70c4ee",
+    color: "#eff2f9",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
         id: 'sat-at-work-01-01',
+        index: 1,
         file: '/statics/audio/take-a-seat-lv01-s01.mp3',
         awardsNeeded: [],
         awardsGiven: ['first-timer'],
@@ -51306,6 +51307,7 @@ var SESSIONS = [{
         alignAce: 100
     }, {
         id: 'sat-at-work-01-02',
+        index: 2,
         file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         awardsGiven: [],
@@ -51316,6 +51318,7 @@ var SESSIONS = [{
         alignAce: 100
     }, {
         id: 'sat-at-work-01-03',
+        index: 3,
         file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         awardsGiven: ['threedom'],
@@ -51326,6 +51329,7 @@ var SESSIONS = [{
         alignAce: 100
     }, {
         id: 'sat-at-work-01-04',
+        index: 4,
         file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         awardsGiven: [],
@@ -51336,6 +51340,7 @@ var SESSIONS = [{
         alignAce: 100
     }, {
         id: 'sat-at-work-01-05',
+        index: 5,
         file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         awardsGiven: ['level-up'],
@@ -51350,10 +51355,11 @@ var SESSIONS = [{
     name: "Stand up desk",
     category: "Work Series",
     level: 1,
-    icon: "flaticon-athlete-5",
+    svgSmall: "/statics/svg/work series/small/sm-stand-up.svg",
+    svgLarge: "/statics/svg/work series/large/stand up desk.svg",
     description: "Get up, stand up. Introduce active movement to boost your balance and blood flow, strengthening your core and improving your awareness and focus.",
     caption: "",
-    color: "#70c4ee",
+    color: "#eff2f9",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
@@ -51412,10 +51418,11 @@ var SESSIONS = [{
     name: "Hot desking",
     category: "Work Series",
     level: 1,
-    icon: "flaticon-desk",
+    svgSmall: "/statics/svg/work series/small/sm-hot-desk.svg",
+    svgLarge: "/statics/svg/work series/large/hot-desking.svg",
     description: "Flexi-desk, flexi-you. Learn how to align yourself whilst working on the fly.",
     caption: "",
-    color: "#70c4ee",
+    color: "#eff2f9",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
@@ -51470,13 +51477,27 @@ var SESSIONS = [{
         alignAce: 100
     }]
 }, {
+    slug: "youre-on-a-stroll",
+    name: "You're on a stroll",
+    category: "Work Series",
+    level: 1,
+    svgSmall: "/statics/svg/work series/small/sm-your-on-a-stroll.svg",
+    svgLarge: "/statics/svg/work series/large/youre-on-a-stroll.svg",
+    description: "Flexi-desk, flexi-you. Learn how to align yourself whilst working on the fly.",
+    caption: "",
+    color: "#eff2f9",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: []
+}, {
     slug: "wake-up-brighter",
     name: "Wake up brighter",
     category: "Sleep Series",
     level: 1,
-    icon: "flaticon-waking-up",
+    svgSmall: "/statics/svg/sleep series/small/wake-up-brighter.svg",
+    svgLarge: "/statics/svg/sleep series/large/wake-up-brighter-lg.svg",
     description: "Rise and shine. Wake up feeling lighter, brighter and full of energy with our morning special.",
-    color: "#ffb6a9",
+    color: "#f7cc8e",
     caption: "",
     awardsNeeded: [],
     audiosNeeded: [],
@@ -51531,46 +51552,52 @@ var SESSIONS = [{
         CalsCrushed: 100,
         alignAce: 100
     }]
-}, {
-    slug: "i-cant-sleep",
-    name: "I can't sleep",
-    category: "Sleep Series",
-    level: 1,
-    icon: "flaticon-emoticon",
-    description: "Don't stress. ease back into a sleep with our calming approach to getting some zzz's.",
-    color: "#ffb6a9",
-    caption: "",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'i-cant-sleep-01-01',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['power-pillow'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'i-cant-sleep-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['power-pillow'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}, {
+},
+// {
+//     slug        : "i-cant-sleep",
+//     name        : "I can't sleep",
+//     category    : "Sleep Series",
+//     level       : 1,
+//     icon        : "flaticon-emoticon",
+//     description : `Don't stress. ease back into a sleep with our calming approach to getting some zzz's.`,
+//     color       : "#ffb6a9",
+//     caption     : "",
+//     awardsNeeded: [],
+//     audiosNeeded: [],
+//     audios      : [
+//         {
+//             id          : 'i-cant-sleep-01-01',
+//             file        : '/statics/audio/jwc-10.mp3',
+//             awardsNeeded: [],
+//             awardsGiven : ['power-pillow'],
+//             audiosNeeded: [],
+//             lungLove    : 100,
+//             brainBoost  : 100,
+//             CalsCrushed : 100,
+//             alignAce    : 100,
+//         },
+//         {
+//             id          : 'i-cant-sleep-01-02',
+//             file        : '/statics/audio/jwc-10.mp3',
+//             awardsNeeded: [],
+//             awardsGiven : ['power-pillow'],
+//             audiosNeeded: [],
+//             lungLove    : 100,
+//             brainBoost  : 100,
+//             CalsCrushed : 100,
+//             alignAce    : 100,
+//         },
+//     ],
+// },
+{
     slug: "fall-asleep",
     name: "Fall asleep",
     category: "Sleep Series",
     level: 1,
-    icon: "flaticon-people-2",
+    svgSmall: "/statics/svg/sleep series/small/fall-asleep-faster-sm.svg",
+    svgLarge: "/statics/svg/sleep series/large/fall-asleep-faster.svg",
     description: "Long day? Get comfortable, align your body and mind to calmly fall asleep earning yourself some crucial zzz's.",
-    color: "#ffb6a9",
+    color: "#f7cc8e",
     caption: "",
     awardsNeeded: [],
     audiosNeeded: [],
@@ -52659,231 +52686,7 @@ var user = function user() {
 exports.default = user;
 
 /***/ }),
-/* 367 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _lodash = __webpack_require__(35);
-
-var _ = _interopRequireWildcard(_lodash);
-
-var _actions = __webpack_require__(12);
-
-var ACTIONS = _interopRequireWildcard(_actions);
-
-var _reactRedux = __webpack_require__(17);
-
-var _dispatch = __webpack_require__(36);
-
-var _subHeader = __webpack_require__(70);
-
-var _subHeader2 = _interopRequireDefault(_subHeader);
-
-var _header = __webpack_require__(68);
-
-var _header2 = _interopRequireDefault(_header);
-
-var _sidebar = __webpack_require__(69);
-
-var _sidebar2 = _interopRequireDefault(_sidebar);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Achievements = function (_React$Component) {
-    _inherits(Achievements, _React$Component);
-
-    function Achievements() {
-        _classCallCheck(this, Achievements);
-
-        return _possibleConstructorReturn(this, (Achievements.__proto__ || Object.getPrototypeOf(Achievements)).apply(this, arguments));
-    }
-
-    _createClass(Achievements, [{
-        key: 'getAwards',
-        value: function getAwards() {
-            var _this2 = this;
-
-            if (!this.props.user.customData.awards) return [];
-
-            return _.values(this.props.user.customData.awards).map(function (award) {
-                return _this2.props.award.awards[award.awardId];
-            });
-        }
-    }, {
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            var _this3 = this;
-
-            setTimeout(function () {
-                _this3.activeClass = 'active-screen';
-                _this3.forceUpdate();
-            }, 1);
-
-            (0, _dispatch.Dispatch)(ACTIONS.HIDE_AUDIO);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { 'data-screen': true, className: '' + this.activeClass },
-                _react2.default.createElement(_header2.default, null),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
-                    _react2.default.createElement(
-                        'div',
-                        { 'data-content': true, className: 'flex flex-max' },
-                        _react2.default.createElement(_subHeader2.default, { text: 'Achievements' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'content-area flex flex-max' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'row' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'col-sm-6' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'sub-sub-heading' },
-                                        'Your run streak'
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stats-streak' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'streak-number' },
-                                            '1'
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'streak-header' },
-                                            'Day streak'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'col-sm-6' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'sub-sub-heading' },
-                                        'Streak stars'
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stats-box' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stats-stat' },
-                                            _react2.default.createElement('div', { className: 'stat-icon icon-heart' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-number' },
-                                                '708'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-desc' },
-                                                'Calories burnt'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stats-stat' },
-                                            _react2.default.createElement('div', { className: 'stat-icon icon-heart' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-number' },
-                                                '708'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-desc' },
-                                                'Calories burnt'
-                                            )
-                                        )
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'sub-sub-heading' },
-                                'Your Awards'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'award-container' },
-                                this.getAwards().map(function (award) {
-                                    return _react2.default.createElement(
-                                        'div',
-                                        { className: 'award-box active' },
-                                        _react2.default.createElement('div', { className: 'award-icon ' + award.icon }),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'award-title' },
-                                            award.name
-                                        ),
-                                        _react2.default.createElement('div', { className: 'award-text', dangerouslySetInnerHTML: { __html: award.description } })
-                                    );
-                                })
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Achievements;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) window.location.hash = '/';
-    });
-
-    return state;
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-
-        giveAward: function giveAward(awardId) {
-            return dispatch({
-                type: ACTIONS.GIVE_AWARD,
-                awardId: awardId
-            });
-        }
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Achievements);
-
-/***/ }),
+/* 367 */,
 /* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -53002,8 +52805,172 @@ var Dashboard = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
-                        _react2.default.createElement(_subHeader2.default, { text: 'Dashboard' }),
-                        _react2.default.createElement(_playerList2.default, null)
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'content-area', style: { paddingTop: 0 } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'content-content' },
+                                _react2.default.createElement(_subHeader2.default, { text: 'Dashboard' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'sub-sub-heading' },
+                                    'Next session'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'session-header mini', style: { backgroundImage: 'url(\'' + session.svgLarge + '\')' } },
+                                    _react2.default.createElement('div', { className: 'header-overlay' }),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'session-title' },
+                                        session.name
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'session-description' },
+                                        'Session ',
+                                        session.index
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'session-stats' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'stats-stat' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-number' },
+                                                session.audios.length
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-label' },
+                                                'sessions'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'stats-stat' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-number' },
+                                                'LOW'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-label' },
+                                                'intensity'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'stats-stat' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-number' },
+                                                '2'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-label' },
+                                                'total mins'
+                                            )
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'thin-row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'sub-sub-heading' },
+                                            'Awards'
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '1'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Day streak'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'sub-sub-heading' },
+                                            'Progress'
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-session.svg\')' } }),
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '30'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Total active minutes'
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-active.svg\')' } }),
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '12'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Total sessions complete'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col flex' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'sub-sub-heading' },
+                                            'Activity'
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/activity-feed.svg\')' } }),
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '330'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Total badges won'
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
                     )
                 )
             );
@@ -54089,7 +54056,7 @@ var Sessions = function (_React$Component) {
                                 _react2.default.createElement(_subHeader2.default, { text: 'Sessions \u203A ' + session.name }),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'session-header', style: { backgroundImage: 'url(\'' + session.banner + '\')' } },
+                                    { className: 'session-header', style: { backgroundImage: 'url(\'' + session.svgLarge + '\')' } },
                                     _react2.default.createElement('div', { className: 'header-overlay' }),
                                     _react2.default.createElement(
                                         'div',
@@ -54385,12 +54352,9 @@ var Sessions = function (_React$Component) {
                                             seriesList[category].map(function (series, index) {
                                                 return _react2.default.createElement(
                                                     'a',
-                                                    { className: 'series', href: '#/sessions/' + series.slug, key: series.slug },
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'series-top' },
-                                                        _react2.default.createElement('div', { className: 'series-icon ' + series.icon, style: { color: series.color } })
-                                                    ),
+                                                    { className: 'series', href: '#/sessions/' + series.slug, key: series.slug, style: { backgroundColor: series.color } },
+                                                    _react2.default.createElement('div', { className: 'series-white' }),
+                                                    _react2.default.createElement('div', { className: 'series-icon', style: { backgroundImage: 'url(\'' + series.svgSmall + '\')' } }),
                                                     _react2.default.createElement(
                                                         'div',
                                                         { className: 'series-time' },
@@ -54661,277 +54625,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Splash);
 
 /***/ }),
-/* 377 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(7);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _actions = __webpack_require__(12);
-
-var ACTIONS = _interopRequireWildcard(_actions);
-
-var _reactRedux = __webpack_require__(17);
-
-var _subHeader = __webpack_require__(70);
-
-var _subHeader2 = _interopRequireDefault(_subHeader);
-
-var _header = __webpack_require__(68);
-
-var _header2 = _interopRequireDefault(_header);
-
-var _sidebar = __webpack_require__(69);
-
-var _sidebar2 = _interopRequireDefault(_sidebar);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Stats = function (_React$Component) {
-    _inherits(Stats, _React$Component);
-
-    function Stats() {
-        _classCallCheck(this, Stats);
-
-        return _possibleConstructorReturn(this, (Stats.__proto__ || Object.getPrototypeOf(Stats)).apply(this, arguments));
-    }
-
-    _createClass(Stats, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            var _this2 = this;
-
-            setTimeout(function () {
-                _this2.activeClass = 'active-screen';
-                _this2.forceUpdate();
-            }, 1);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { 'data-screen': true, className: '' + this.activeClass },
-                _react2.default.createElement(_header2.default, null),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
-                    _react2.default.createElement(
-                        'div',
-                        { 'data-content': true, className: 'flex flex-max' },
-                        _react2.default.createElement(_subHeader2.default, { text: 'Stats' }),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'content-area flex flex-max' },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'sub-sub-heading' },
-                                'Health stats'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'stats-box' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'stats-stat' },
-                                    _react2.default.createElement('div', { className: 'stat-icon icon-heart' }),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-number' },
-                                        '708'
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-desc' },
-                                        'Calories burnt'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'stats-stat' },
-                                    _react2.default.createElement('div', { className: 'stat-icon icon-wind' }),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-number' },
-                                        '92%'
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-desc' },
-                                        'Lung love'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'stats-stat' },
-                                    _react2.default.createElement('div', { className: 'stat-icon icon-brain' }),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-number' },
-                                        '81%'
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-desc' },
-                                        'Brain happiness'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'stats-stat' },
-                                    _react2.default.createElement('div', { className: 'stat-icon icon-compass' }),
-                                    'a',
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-number' },
-                                        '61%'
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stat-desc' },
-                                        'Skeletal alignment'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'sub-sub-heading' },
-                                'Engagement stats'
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'row' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'col-sm-6' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stats-box' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stats-stat' },
-                                            _react2.default.createElement('div', { className: 'stat-icon dark icon-checkmark-circle' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-number' },
-                                                '12'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-desc' },
-                                                'Sessions complete'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stats-stat' },
-                                            _react2.default.createElement('div', { className: 'stat-icon dark icon-check-square' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-number' },
-                                                '3'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-desc' },
-                                                'Series complete'
-                                            )
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'col-sm-6' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'stats-box' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stats-stat' },
-                                            _react2.default.createElement('div', { className: 'stat-icon tealish icon-trophy2' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-number' },
-                                                '34'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-desc' },
-                                                'Badges won'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stats-stat' },
-                                            _react2.default.createElement('div', { className: 'stat-icon tealish icon-focus' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-number' },
-                                                '22'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-desc' },
-                                                'Daily goals reached'
-                                            )
-                                        )
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Stats;
-}(_react2.default.Component);
-
-var mapStateToProps = function mapStateToProps(state) {
-    //console.log('', state);
-
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) window.location.hash = '/';
-    });
-
-    return state;
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-
-        updateName: function updateName(event) {
-            return dispatch({
-                type: ACTIONS.SET_DISPLAY_NAME,
-                displayName: event.target.value
-            });
-        }
-    };
-};
-
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Stats);
-
-/***/ }),
+/* 377 */,
 /* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61178,7 +60872,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\nbody .register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  body .register-screen .register-left {\n    background: #eff5f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.2);\n    transition: .6s; }\n  body .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px; }\n  body .register-screen .register-img {\n    flex: 0 1 600px; }\n  body .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    body .register-screen .register-header .header-logo img {\n      height: 15px; }\n    body .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px; }\n    body .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  body .register-screen .register-heading {\n    font-size: 28px;\n    font-weight: 400;\n    color: #666666;\n    margin-top: 80px; }\n  body .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  body .register-screen.active-screen {\n    opacity: 1; }\n    body .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #fff;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent; }\n  .series .series-top {\n    background-color: #eff2f9;\n    position: absolute;\n    z-index: 0;\n    transform: rotate(-9deg);\n    width: 400px;\n    height: 150px;\n    top: -50px;\n    left: -100px; }\n    .series .series-top .series-icon {\n      font-size: 70px;\n      position: absolute;\n      bottom: 10px;\n      left: 163px; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 59px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 10px; }\n    .session-list .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center; }\n  .session-list .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row[data-inactive=\"false\"] {\n      background: rgba(255, 255, 255, 0.5); }\n      .session-list .list-row[data-inactive=\"false\"] .session-number {\n        color: rgba(38, 51, 69, 0.5); }\n    .session-list .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 80px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n  .session-list .lock-button {\n    width: 43px;\n    height: 43px;\n    background-color: #cccccc;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .lock-button i {\n      color: white;\n      font-size: 20px; }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #979797;\n  margin-top: 50px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  font-size: 15px;\n  color: #263345;\n  margin-top: 20px;\n  font-size: 12px;\n  font-weight: 600;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\n[class^=\"emotions-\"]:before, [class*=\" emotions-\"]:before, [class^=\"emotions-\"]:after, [class*=\" emotions-\"]:after {\n  font-family: Emotions;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%;\n  margin-left: 1px;\n  margin-top: 1px; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.clickable {\n  transition: .15s;\n  transform: scale(1);\n  cursor: pointer; }\n  .clickable:hover {\n    transform: scale(1.1); }\n  .clickable:active {\n    transform: scale(0.9);\n    box-shadow: 0 0 transparent; }\n", ""]);
+exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.info {\n  background-color: #eff2f9;\n  min-height: 174px;\n  border-radius: 3px;\n  margin-top: 10px;\n  position: relative;\n  overflow: hidden;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  line-height: 1;\n  flex: 1 0 auto; }\n  .info .info-white {\n    position: absolute;\n    top: 93px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .info .info-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain;\n    height: 110px;\n    width: calc(100% - 20px);\n    top: 0px;\n    left: 20px; }\n  .info .info-number {\n    font-size: 30px;\n    font-weight: 600;\n    color: #263345;\n    margin-top: 80px;\n    text-align: right; }\n  .info .info-text {\n    font-size: 15px;\n    color: #999999;\n    margin-top: 5px;\n    text-align: right; }\n\n.info-stat {\n  height: 220px;\n  border-radius: 3px;\n  background-color: #fff;\n  position: relative;\n  overflow: hidden;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  line-height: 1;\n  margin-top: 10px;\n  justify-content: center;\n  align-items: center; }\n  .info-stat:first-child {\n    margin-top: 0; }\n  .info-stat .stat-icon {\n    width: 95px;\n    height: 95px;\n    border: 10px solid #eff2f9;\n    background-color: #eff2f9;\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-position: center;\n    border-radius: 200px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .info-stat .stat-number {\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    margin-top: 15px; }\n  .info-stat .stat-text {\n    margin-top: 5px;\n    font-size: 15px;\n    text-align: center;\n    color: #999999; }\n\n.info-emoji {\n  height: 110px;\n  border-radius: 3px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: row;\n  padding: 20px;\n  align-items: center; }\n  .info-emoji .emoji-icon {\n    width: 73px;\n    height: 73px;\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .info-emoji .emoji-number {\n    margin-left: 15px;\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345; }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\nbody .register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  body .register-screen .register-left {\n    background: #eff5f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    box-shadow: 0px 0 10px 0px rgba(0, 0, 0, 0.2);\n    transition: .6s; }\n  body .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px; }\n  body .register-screen .register-img {\n    flex: 0 1 600px; }\n  body .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    body .register-screen .register-header .header-logo img {\n      height: 15px; }\n    body .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px; }\n    body .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  body .register-screen .register-heading {\n    font-size: 28px;\n    font-weight: 400;\n    color: #666666;\n    margin-top: 80px; }\n  body .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  body .register-screen.active-screen {\n    opacity: 1; }\n    body .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #eff2f9;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent;\n  z-index: 1; }\n  .series .series-white {\n    position: absolute;\n    top: 110px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .series .series-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 67px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header.mini {\n    min-height: 190px;\n    margin-top: 45px; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 10px; }\n    .session-list .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center; }\n  .session-list .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row[data-inactive=\"false\"] {\n      background: rgba(255, 255, 255, 0.5); }\n      .session-list .list-row[data-inactive=\"false\"] .session-number {\n        color: rgba(38, 51, 69, 0.5); }\n    .session-list .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 80px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n  .session-list .lock-button {\n    width: 43px;\n    height: 43px;\n    background-color: #cccccc;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .lock-button i {\n      color: white;\n      font-size: 20px; }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #cccccc;\n  margin-top: 20px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  margin-top: 20px;\n  font-size: 13px;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\n[class^=\"emotions-\"]:before, [class*=\" emotions-\"]:before, [class^=\"emotions-\"]:after, [class*=\" emotions-\"]:after {\n  font-family: Emotions;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%;\n  margin-left: 1px;\n  margin-top: 1px; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.clickable {\n  transition: .15s;\n  transform: scale(1);\n  cursor: pointer; }\n  .clickable:hover {\n    transform: scale(1.1); }\n  .clickable:active {\n    transform: scale(0.9);\n    box-shadow: 0 0 transparent; }\n\n.thin-row {\n  display: flex;\n  flex-direction: row;\n  position: relative;\n  margin: 0 -10px;\n  margin-top: 20px; }\n\n.thin-col {\n  flex: 1 1 calc(50%);\n  padding: 0 10px;\n  position: relative; }\n\n.awards-streak {\n  height: 190px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1; }\n  .awards-streak .streak-number {\n    font-size: 50px;\n    font-weight: 600;\n    color: #f6b8a7; }\n  .awards-streak .streak-text {\n    margin-top: 10px;\n    font-size: 15px;\n    font-weight: 600;\n    color: #f6b8a7;\n    text-transform: uppercase; }\n\n.ribbon-title {\n  background-image: url(\"/statics/svg/awards/awards-backdrop.svg\");\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 50px;\n  width: 200px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: 13px;\n  text-align: center;\n  color: #fff;\n  align-self: center;\n  top: -37px;\n  position: relative;\n  margin: 10px auto; }\n\n.streak-icons {\n  display: flex;\n  flex-direction: row;\n  margin: -30px -30px 30px;\n  flex-wrap: wrap;\n  align-self: center; }\n  .streak-icons .streak-icon {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 70px;\n    height: 100px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    margin: 30px;\n    filter: grayscale(100%);\n    opacity: 0.6; }\n    .streak-icons .streak-icon.active {\n      filter: grayscale(0%);\n      opacity: 1; }\n", ""]);
 
 // exports
 
@@ -61290,7 +60984,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".sidebar-component {\n  background: #263345;\n  background: #eef1f4;\n  flex: 0 0 146px;\n  display: flex;\n  flex-direction: column;\n  color: #656f7e; }\n  .sidebar-component .top-menu, .sidebar-component .bottom-menu {\n    display: flex;\n    flex-direction: column;\n    margin: 0 0px auto; }\n    .sidebar-component .top-menu .menu-label, .sidebar-component .bottom-menu .menu-label {\n      margin-left: 15px;\n      margin-top: 20px;\n      font-size: 8px;\n      font-weight: 600;\n      text-align: left;\n      color: #656f7e;\n      text-transform: uppercase;\n      margin-bottom: -5px; }\n    .sidebar-component .top-menu .menu-item, .sidebar-component .bottom-menu .menu-item {\n      display: flex;\n      align-items: center;\n      height: 20px;\n      margin-top: 15px;\n      padding-left: 10px;\n      cursor: pointer;\n      transition: .15s;\n      text-decoration: none;\n      text-align: left;\n      font-size: 13px;\n      color: #656f7e;\n      flex-direction: row;\n      border-left: 5px solid transparent; }\n      .sidebar-component .top-menu .menu-item i, .sidebar-component .bottom-menu .menu-item i {\n        font-size: 18px;\n        margin-right: 10px; }\n      .sidebar-component .top-menu .menu-item span, .sidebar-component .bottom-menu .menu-item span {\n        font-size: 13px;\n        font-weight: normal; }\n      .sidebar-component .top-menu .menu-item:hover, .sidebar-component .bottom-menu .menu-item:hover {\n        color: #00a2f2;\n        border-left: 5px solid #00a2f2; }\n  .sidebar-component .bottom-menu {\n    margin: auto;\n    margin-bottom: 15px; }\n", ""]);
+exports.push([module.i, ".sidebar-component {\n  background: #263345;\n  background: #eef1f4;\n  flex: 0 0 146px;\n  display: flex;\n  flex-direction: column;\n  color: #656f7e; }\n  .sidebar-component .top-menu, .sidebar-component .bottom-menu {\n    display: flex;\n    flex-direction: column;\n    margin: 0 0px auto; }\n    .sidebar-component .top-menu .menu-label, .sidebar-component .bottom-menu .menu-label {\n      margin-left: 15px;\n      margin-top: 20px;\n      font-size: 8px;\n      font-weight: 600;\n      text-align: left;\n      color: #656f7e;\n      text-transform: uppercase;\n      margin-bottom: -5px; }\n    .sidebar-component .top-menu .menu-item, .sidebar-component .bottom-menu .menu-item {\n      display: flex;\n      align-items: center;\n      height: 20px;\n      margin-top: 15px;\n      padding-left: 10px;\n      cursor: pointer;\n      transition: .15s;\n      text-decoration: none;\n      text-align: left;\n      font-size: 13px;\n      color: #656f7e;\n      flex-direction: row;\n      border-left: 5px solid transparent; }\n      .sidebar-component .top-menu .menu-item i, .sidebar-component .bottom-menu .menu-item i {\n        font-size: 18px;\n        margin-right: 10px;\n        font-weight: normal;\n        color: #999999; }\n      .sidebar-component .top-menu .menu-item span, .sidebar-component .bottom-menu .menu-item span {\n        font-size: 13px;\n        font-weight: 600; }\n      .sidebar-component .top-menu .menu-item:hover, .sidebar-component .bottom-menu .menu-item:hover {\n        color: #00a2f2;\n        border-left: 5px solid #00a2f2; }\n  .sidebar-component .bottom-menu {\n    margin: auto;\n    margin-bottom: 15px; }\n", ""]);
 
 // exports
 
@@ -61304,7 +60998,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, ".sub-header-component {\n  padding: 15px 0px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 70px;\n  min-height: 70px;\n  border-bottom: 1px solid white;\n  position: relative;\n  z-index: 10; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345;\n    flex: 1;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    justify-content: space-between; }\n    .sub-header-component .sub-heading .small-sub-heading {\n      font-size: 12px;\n      color: #263345;\n      margin-left: 15px;\n      font-weight: normal; }\n  .sub-header-component .user-count {\n    display: flex;\n    width: 100px;\n    height: 35px;\n    border-radius: 3px;\n    background-color: #eff2f9;\n    font-size: 13px;\n    text-align: left;\n    color: #263345;\n    font-weight: normal;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 0 20px;\n    margin-left: auto; }\n    .sub-header-component .user-count i {\n      margin-right: auto;\n      font-size: 17px; }\n", ""]);
+exports.push([module.i, ".sub-header-component {\n  padding: 10px 0px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 60px;\n  min-height: 60px;\n  border-bottom: 1px solid white;\n  position: relative;\n  z-index: 10; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345;\n    flex: 1;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    justify-content: space-between; }\n    .sub-header-component .sub-heading .small-sub-heading {\n      font-size: 12px;\n      color: #263345;\n      margin-left: 15px;\n      font-weight: normal; }\n  .sub-header-component .user-count {\n    display: flex;\n    width: 100px;\n    height: 35px;\n    border-radius: 3px;\n    background-color: #eff2f9;\n    font-size: 13px;\n    text-align: left;\n    color: #263345;\n    font-weight: normal;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 0 20px;\n    margin-left: auto; }\n    .sub-header-component .user-count i {\n      margin-right: auto;\n      font-size: 17px; }\n", ""]);
 
 // exports
 
@@ -80911,6 +80605,539 @@ module.exports = __webpack_amd_options__;
 __webpack_require__(351);
 module.exports = __webpack_require__(67);
 
+
+/***/ }),
+/* 736 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _lodash = __webpack_require__(35);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions = __webpack_require__(12);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _reactRedux = __webpack_require__(17);
+
+var _dispatch = __webpack_require__(36);
+
+var _subHeader = __webpack_require__(70);
+
+var _subHeader2 = _interopRequireDefault(_subHeader);
+
+var _header = __webpack_require__(68);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _sidebar = __webpack_require__(69);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Awards = function (_React$Component) {
+    _inherits(Awards, _React$Component);
+
+    function Awards() {
+        _classCallCheck(this, Awards);
+
+        return _possibleConstructorReturn(this, (Awards.__proto__ || Object.getPrototypeOf(Awards)).apply(this, arguments));
+    }
+
+    _createClass(Awards, [{
+        key: 'getAwards',
+        value: function getAwards() {
+            var _this2 = this;
+
+            if (!this.props.user.customData.awards) return [];
+
+            return _.values(this.props.user.customData.awards).map(function (award) {
+                return _this2.props.award.awards[award.awardId];
+            });
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this3 = this;
+
+            setTimeout(function () {
+                _this3.activeClass = 'active-screen';
+                _this3.forceUpdate();
+            }, 1);
+
+            (0, _dispatch.Dispatch)(ACTIONS.HIDE_AUDIO);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: '' + this.activeClass },
+                _react2.default.createElement(_header2.default, null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'flex flex-row' },
+                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(
+                        'div',
+                        { 'data-content': true, className: 'flex flex-max' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'content-area', style: { paddingTop: 0 } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'content-content' },
+                                _react2.default.createElement(_subHeader2.default, { text: 'Awards' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'awards-streak' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'streak-number' },
+                                        '1'
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'streak-text' },
+                                        'Daily streak'
+                                    )
+                                ),
+                                _react2.default.createElement('div', { className: 'line' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'ribbon-title' },
+                                    'Daily streak stars'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'streak-icons' },
+                                    _react2.default.createElement('div', { className: 'streak-icon active', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-01.svg\')' } }),
+                                    _react2.default.createElement('div', { className: 'streak-icon', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-02.svg\')' } }),
+                                    _react2.default.createElement('div', { className: 'streak-icon', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-03.svg\')' } }),
+                                    _react2.default.createElement('div', { className: 'streak-icon', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-04.svg\')' } }),
+                                    _react2.default.createElement('div', { className: 'streak-icon', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-05.svg\')' } }),
+                                    _react2.default.createElement('div', { className: 'streak-icon', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-06.svg\')' } }),
+                                    _react2.default.createElement('div', { className: 'streak-icon', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-07.svg\')' } }),
+                                    _react2.default.createElement('div', { className: 'streak-icon', style: { backgroundImage: 'url(\'/statics/svg/awards/awards-08.svg\')' } })
+                                ),
+                                _react2.default.createElement('div', { className: 'line' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'ribbon-title' },
+                                    'Badges won'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Awards;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (!user) window.location.hash = '/';
+    });
+
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+
+        giveAward: function giveAward(awardId) {
+            return dispatch({
+                type: ACTIONS.GIVE_AWARD,
+                awardId: awardId
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Awards);
+
+/***/ }),
+/* 737 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(7);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _actions = __webpack_require__(12);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _reactRedux = __webpack_require__(17);
+
+var _subHeader = __webpack_require__(70);
+
+var _subHeader2 = _interopRequireDefault(_subHeader);
+
+var _header = __webpack_require__(68);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _sidebar = __webpack_require__(69);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Progress = function (_React$Component) {
+    _inherits(Progress, _React$Component);
+
+    function Progress() {
+        _classCallCheck(this, Progress);
+
+        return _possibleConstructorReturn(this, (Progress.__proto__ || Object.getPrototypeOf(Progress)).apply(this, arguments));
+    }
+
+    _createClass(Progress, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active-screen';
+                _this2.forceUpdate();
+            }, 1);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: '' + this.activeClass },
+                _react2.default.createElement(_header2.default, null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'flex flex-row' },
+                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(
+                        'div',
+                        { 'data-content': true, className: 'flex flex-max' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'content-area', style: { paddingTop: 0 } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'content-content' },
+                                _react2.default.createElement(_subHeader2.default, { text: 'Progress' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'sub-sub-heading' },
+                                    'Healthy stats'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'thin-row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-stat' },
+                                            _react2.default.createElement('div', { className: 'stat-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-brain.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-number' },
+                                                '+20'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-text' },
+                                                'Brain boost'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-stat' },
+                                            _react2.default.createElement('div', { className: 'stat-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-lungs.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-number' },
+                                                '+20'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-text' },
+                                                'Lung love'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-stat' },
+                                            _react2.default.createElement('div', { className: 'stat-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-spine.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-number' },
+                                                '+20'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-text' },
+                                                'Spine strength'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-stat' },
+                                            _react2.default.createElement('div', { className: 'stat-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-carbs.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-number' },
+                                                '+20'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-text' },
+                                                'Carbs burnt'
+                                            )
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'thin-row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-active.svg\')' } }),
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '30'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Total active minutes'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-exercise.svg\')' } }),
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '1'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Exercises learnt'
+                                            )
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'sub-sub-heading', style: { marginTop: 20 } },
+                                    'Session stats'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'thin-row', style: { marginTop: 0 } },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-session.svg\')' } }),
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '12'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Total sessions complete'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info' },
+                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/winner (2).svg\')' } }),
+                                            _react2.default.createElement('div', { className: 'info-white' }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-number' },
+                                                '5'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'info-text' },
+                                                'Toital badges won'
+                                            )
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'thin-row' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-emoji' },
+                                            _react2.default.createElement('div', { className: 'emoji-icon', style: { backgroundImage: 'url(\'/statics/svg/emojis/love.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'emoji-number' },
+                                                '9'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-emoji' },
+                                            _react2.default.createElement('div', { className: 'emoji-icon', style: { backgroundImage: 'url(\'/statics/svg/emojis/wow.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'emoji-number' },
+                                                '3'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-emoji' },
+                                            _react2.default.createElement('div', { className: 'emoji-icon', style: { backgroundImage: 'url(\'/statics/svg/emojis/pain.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'emoji-number' },
+                                                '5'
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'thin-col' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'info-emoji' },
+                                            _react2.default.createElement('div', { className: 'emoji-icon', style: { backgroundImage: 'url(\'/statics/svg/emojis/stress.svg\')' } }),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'emoji-number' },
+                                                '2'
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Progress;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    //console.log('', state);
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (!user) window.location.hash = '/';
+    });
+
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+
+        updateName: function updateName(event) {
+            return dispatch({
+                type: ACTIONS.SET_DISPLAY_NAME,
+                displayName: event.target.value
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Progress);
 
 /***/ })
 /******/ ]);

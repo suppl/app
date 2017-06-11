@@ -8,7 +8,7 @@ const Sidebar = () => (
     <div className="sidebar-component">
         <div className="top-menu">
             <a href="#/dashboard" className="menu-item">
-                <i className="flaticon-circular-play-button"/>
+                <i className="flaticon-dashboard-1"/>
                 <span>Dashboard</span>
             </a>
 
@@ -21,7 +21,7 @@ const Sidebar = () => (
                 {/*<i className="flaticon-graphic"/>*/}
                 {/*<span>Stats</span>*/}
             {/*</a>*/}
-            <a href="#/achievements" className="menu-item">
+            <a href="#/awards" className="menu-item">
                 <i className="flaticon-trophy"/>
                 <span>Awards</span>
             </a>

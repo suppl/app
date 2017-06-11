@@ -78,8 +78,8 @@ a {
 
 .line {
   height: 1px;
-  background: $warm-grey;
-  margin-top: 50px;
+  background: $pinkish-grey;
+  margin-top: 20px;
 }
 
 [data-reactroot], [data-screen] {
@@ -130,12 +130,8 @@ a {
 }
 
 .sub-sub-heading {
-  font-size: 15px;
-  color: $dark;
   margin-top: 20px;
-
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 13px;
   text-align: left;
   color: $warm-grey-two;
   text-transform: uppercase;
@@ -146,24 +142,6 @@ a {
 }
 
 .line-heading {
-  //display: flex;
-  //font-size: 12px;
-  //font-weight: 600;
-  //text-align: left;
-  //color: $warm-grey-two;
-  //align-items: center;
-  //flex-direction: row;
-  //margin-top: 30px;
-  //width: 100%;
-
-  //&:after {
-  //  content: "";
-  //  height: 1px;
-  //  background: white;
-  //  margin-left: 20px;
-  //  flex: 1;
-  //}
-
   margin-top: 20px;
   font-size: 15px;
   font-weight: 600;
@@ -214,103 +192,87 @@ i {
   }
 }
 
-//.session-banner {
-//  height: 110px;
-//  background-color: #70c4ee;
-//  padding: 10px 50px;
-//  background: $azure;
-//  color: white;
-//  display: flex;
-//  flex-direction: row;
-//  align-items: center;
-//  margin-top: 10px;
-//
-//  .session-icon {
-//    font-size: 60px;
-//    display: flex;
-//    //flex-direction: row;
-//    align-items: center;
-//    justify-content: center;
-//  }
-//
-//  .session-content {
-//    margin-left: 50px;
-//
-//    div {
-//      margin-top: 5px;
-//      font-size: 12px;
-//    }
-//  }
-//}
+.thin-row {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin: 0 -10px;
+  margin-top: 20px;
+}
 
-//.session-levels {
-//  display: flex;
-//  flex-direction: row;
-//  flex-wrap: wrap;
-//  margin: 10px -10px -10px;
-//  transition: .15s;
-//
-//  .session-level {
-//    width: 150px;
-//    height: 120px;
-//    border-radius: 3px;
-//    display: flex;
-//    flex-direction: column;
-//    margin: 10px;
-//    background: white;
-//    cursor: pointer;
-//    text-decoration: none;
-//
-//    .level-top {
-//      display: flex;
-//      flex: 1;
-//      align-items: center;
-//      justify-content: center;
-//
-//      .level-icon {
-//        flex: 0 0 50px;
-//        background: $azure;
-//        width: 50px;
-//        height: 50px;
-//        border-radius: 100px;
-//        display: flex;
-//        align-items: center;
-//        justify-content: center;
-//        font-size: 20px;
-//        color: white;
-//      }
-//    }
-//
-//    .level-bottom {
-//      height: 39px;
-//      background-color: #f3f3f3;
-//      display: flex;
-//      flex-direction: row;
-//      justify-content: space-between;
-//      align-items: center;
-//      font-size: 13px;
-//      font-weight: 600;
-//      color: $dark;
-//      padding: 0 15px;
-//
-//      i {
-//        color: $azure;
-//        font-size: 18px;
-//      }
-//
-//    }
-//
-//    &[disabled] {
-//      opacity: 0.5;
-//      pointer-events: none;
-//    }
-//
-//    &:hover {
-//      top:-5px;
-//    }
-//
-//    &:active {
-//      transform: scale(0.95);
-//    }
-//  }
-//}
+.thin-col {
+  flex: 1 1 calc(50%);
+  padding: 0 10px;
+  position: relative;
+}
+
+.awards-streak {
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1;
+
+  .streak-number  {
+    font-size: 50px;
+    font-weight: 600;
+    color: #f6b8a7;
+  }
+
+  .streak-text {
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f6b8a7;
+    text-transform: uppercase;
+  }
+}
+
+.ribbon-title {
+  background-image: url('/statics/svg/awards/awards-backdrop.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 200px;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  text-align: center;
+  color: $white;
+  align-self: center;
+  top: -37px;
+  position: relative;
+  margin: 10px auto;
+}
+
+.streak-icons {
+  display: flex;
+  flex-direction: row;
+  margin: -30px -30px 30px;
+  flex-wrap: wrap;
+  align-self: center;
+
+  .streak-icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 100px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+
+    filter: grayscale(100%);
+    opacity: 0.6;
+
+    &.active {
+      filter: grayscale(00%);
+      opacity: 1;
+    }
+  }
+}

@@ -16,8 +16,8 @@ import RegisterScreen from './screens/register.screen';
 import RegisterPasswordScreen from './screens/register-password.screen';
 import RegisterJobScreen from './screens/register-job.screen';
 import RegisterStyleScreen from './screens/register-style.screen';
-import StatsScreen from './screens/stats.screen';
-import AchievementsScreen from './screens/achievements.screen';
+import ProgressScreen from './screens/progress.screen';
+import AwardsScreen from './screens/awards.screen';
 
 import Popup from './components/popup/popup';
 import Notification from './components/notification/notification';
@@ -62,8 +62,8 @@ ReactDOM.render(
                 <Location path="/register-password" handler={RegisterPasswordScreen}/>
                 <Location path="/register-job" handler={RegisterJobScreen}/>
                 <Location path="/register-style" handler={RegisterStyleScreen}/>
-                <Location path="/achievements" handler={AchievementsScreen}/>
-                <Location path="/stats" handler={StatsScreen}/>
+                <Location path="/awards" handler={AwardsScreen}/>
+                <Location path="/progress" handler={ProgressScreen}/>
                 <Location path="/sessions" handler={SessionsScreen}/>
                 <Location path="/sessions/:sessionId" handler={SessionScreen}/>
                 <Location path="/dashboard(/*)" handler={DashboardScreen}/>

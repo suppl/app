@@ -35,10 +35,9 @@ class Sessions extends React.Component {
                                         <div className="line-heading">{category}</div>
                                         <div className="series-list">
                                             {seriesList[category].map((series, index) =>
-                                                <a className="series" href={`#/sessions/${series.slug}`} key={series.slug}>
-                                                    <div className="series-top">
-                                                        <div className={`series-icon ${series.icon}`} style={{color: series.color}}/>
-                                                    </div>
+                                                <a className="series" href={`#/sessions/${series.slug}`} key={series.slug} style={{backgroundColor: series.color}}>
+                                                    <div className="series-white"/>
+                                                    <div className={`series-icon`} style={{backgroundImage: `url('${series.svgSmall}')`}}/>
                                                     <div className="series-time">
                                                         <div className="time-number">{series.audios.length}</div>
                                                         <div className="time-text">levels</div>
@@ -55,7 +54,6 @@ class Sessions extends React.Component {
                                                 </a>
                                             )}
                                         </div>
-
                                     </div>
                                 )}
                             </div>
