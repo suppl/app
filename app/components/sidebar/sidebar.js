@@ -31,7 +31,7 @@ const Sidebar = () => (
             </a>
 
             <div className="menu-label">Community</div>
-            <a className="menu-item">
+            <a href='#/community' className="menu-item">
                 <i className="flaticon-people-5"/>
                 <span>Community</span>
             </a>

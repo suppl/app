@@ -276,3 +276,31 @@ i {
     }
   }
 }
+
+.community-list {
+  .community-dot {
+    width: 13px;
+    height: 13px;
+    background-color: #5dcfa2;
+    border-radius: 100px;
+  }
+  .community-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: $dark;
+  }
+  .community-icons {
+    font-size: 18px;
+    font-weight: 600;
+    color: $dark;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .community-view {
+    color: $azure;
+    font-size: 25px;
+    font-weight: 600;
+  }
+
+}

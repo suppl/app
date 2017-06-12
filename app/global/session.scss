@@ -128,12 +128,13 @@
     flex: 1 0 0;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    //justify-content: center;
     padding: 10px;
 
     &.col-70 {
       flex: 0 0 70px;
       text-align: center;
+      justify-content: center;
 
     }
   }

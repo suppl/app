@@ -18,6 +18,7 @@ import RegisterJobScreen from './screens/register-job.screen';
 import RegisterStyleScreen from './screens/register-style.screen';
 import ProgressScreen from './screens/progress.screen';
 import AwardsScreen from './screens/awards.screen';
+import CommunityScreen from './screens/community.screen';
 
 import Popup from './components/popup/popup';
 import Notification from './components/notification/notification';
@@ -68,6 +69,7 @@ ReactDOM.render(
                 <Location path="/sessions/:sessionId" handler={SessionScreen}/>
                 <Location path="/dashboard(/*)" handler={DashboardScreen}/>
                 <Location path="/profile" handler={ProfileScreen}/>
+                <Location path="/community" handler={CommunityScreen}/>
             </Locations>
         </div>
 
