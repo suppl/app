@@ -21,7 +21,7 @@ class Splash extends React.Component {
             <div className="register-left">
                 <div className="register-header">
                     <div className="header-logo">
-                        <img src="/statics/images/favicon.png" alt="Suppl Logo"/>
+                        <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
                     </div>
                     <div className="header-logo-text">SUPPL</div>
                     <div className="header-page">Get Started</div>
@@ -52,7 +52,7 @@ class Splash extends React.Component {
 
                     <div className="line"/>
 
-                    <Link className="butn mid white pull-right" href="/register">Get started</Link>
+                    <Link className="butn mid white pull-right" href="/waitlist">Get started</Link>
                     <div className="butn mid white transparent">Don't have an account?</div>
 
                 </div>

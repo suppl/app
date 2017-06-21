@@ -19,83 +19,61 @@ class PositionScreen extends React.Component {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
-
-        Dispatch({type: ACTIONS.SET_WAITLIST_EMAIL, email: this.props._query.email});
-        Dispatch({type: ACTIONS.LOAD_WAITLIST_USER});
     }
 
     render() {
-        const firstName = this.props.waitlist.user ? this.props.waitlist.user.name.split(' ')[0] : '';
-        const email = this.props._query.email;
-        console.log('email', email);
-        console.log('this.props.waitlist', this.props.waitlist);
-
         return (
             <div data-screen className={`register-screen ${this.activeClass}`}>
                 <div className="flex flex-row">
                     <div className="register-left">
                         <div className="register-header">
                             <div className="header-logo">
-                                <img src="/statics/images/favicon.png" alt="Suppl Logo"/>
+                                <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
                             </div>
                             <div className="header-logo-text">SUPPL</div>
                             <div className="header-page">Early access</div>
                         </div>
 
                         <div className="register-heading">
-                            Bump the <strong>queue</strong> {firstName}!
-                            <br/>
-                            <strong>Invite your friends</strong> to Suppl and we’ll bump you up the queue by
-                            <strong>20 places</strong> per sign up!
+                            <div style={{fontSize: '30px', marginBottom: '5px'}}>
+                                Check your <strong> Position!</strong>
+                            </div>
+
+                            Find out how you are placed…
                         </div>
 
 
                         <div className="suppl-form" style={{marginTop: '40px'}}>
-                            <div className="suppl-label">Best friend</div>
+                            <div className="suppl-label">Your email</div>
 
                             <div className="suppl-input large">
                                 <div className="input-icon icon-user"/>
-                                <input type="text"
-                                       placeholder="E.g. Barry Johnson"
+                                <input type="email"
+                                       placeholder="E.g. chris@gmail.com"
                                        autoFocus={true}
                                 />
                             </div>
 
-                            <div className="suppl-label">Good friend</div>
-
-                            <div className="suppl-input large">
-                                <div className="input-icon icon-envelope"/>
-                                <input type="email"
-                                       placeholder="E.g. barry@work.com"
-                                />
-                            </div>
-
-                            <div className="suppl-label">Oldest friend</div>
-
-                            <div className="suppl-input large">
-                                <div className="input-icon icon-envelope"/>
-                                <input type="email"
-                                       placeholder="E.g. barry@work.com"
-                                />
-                            </div>
-
-                            {/*<div className="butn large" style={{maxWidth: 'none'}} onClick={this.props.signUp}>Request FREE Early Access!</div>*/}
+                            <div className="butn large" style={{maxWidth: 'none'}} onClick={this.props.invite}>Check my position</div>
 
 
-                            {/*<p className="clearfix">*/}
-                                {/*/!*<Link href="/" className="pull-left">Login</Link>*!/*/}
-                                {/*<Link href="/" style={{*/}
-                                    {/*textAlign: 'center',*/}
-                                    {/*display  : 'block'*/}
-                                {/*}}>Check my place in the queue</Link>*/}
-                            {/*</p>*/}
-                        </div>w
+                            <p className="clearfix">
+                                {/*<Link href="/" className="pull-left">Login</Link>*/}
+                                <Link href="/waitlist" style={{
+                                    textAlign: 'center',
+                                    display  : 'block'
+                                }}>Join our early access community</Link>
+                            </p>
+                        </div>
 
 
                     </div>
 
                     <div className="register-right" style={{backgroundColor: '#f7fafc'}}>
-                        hello
+                        <img className="register-img" src="/statics/svg/waitlist/early-acess-03.svg" style={{
+                            marginTop   : "auto",
+                            marginBottom: "auto"
+                        }}/>
                     </div>
                 </div>
             </div>

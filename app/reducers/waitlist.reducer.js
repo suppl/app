@@ -12,6 +12,7 @@ class Waitlist {
         api  : 'https://suppl.app.waitlisted.co/api/v2/reservations',
         name : '',
         email: '',
+        ref  : '',
         user : undefined,
     };
 
@@ -19,6 +20,7 @@ class Waitlist {
         [ACTIONS.SET_WAITLIST_NAME]     : (data, state) => ({name: data.name}),
         [ACTIONS.SET_WAITLIST_EMAIL]    : (data, state) => ({email: data.email}),
         [ACTIONS.SET_WAITLIST_USER]     : (data, state) => ({user: data.user}),
+        [ACTIONS.SET_WAITLIST_REF]      : (data, state) => ({ref: data.ref}),
         [ACTIONS.SUBMIT_WAITLIST_SIGNUP]: this.signUp,
         [ACTIONS.LOAD_WAITLIST_USER]    : this.loadUser,
     };
@@ -45,9 +47,9 @@ class Waitlist {
 
     async signUp(data, state) {
         let body = {
-            email: state.email,
-            name : state.name,
-            // "affiliate": "ABC12345",
+            email      : state.email,
+            name       : state.name,
+            "affiliate": state.ref,
             // "responses": {}
         };
 
@@ -64,7 +66,7 @@ class Waitlist {
         }
 
         Dispatch({type: ACTIONS.SET_WAITLIST_USER, user: res.body});
-        SetUrl(`/position?email=${state.email}`);
+        SetUrl(`/waitlist/share?email=${state.email}`);
 
         console.info('res', res)
     }

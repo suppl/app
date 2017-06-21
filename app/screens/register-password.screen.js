@@ -22,7 +22,7 @@ class RegisterPassword extends React.Component {
                 <div className="register-left">
                     <div className="register-header">
                         <div className="header-logo">
-                            <img src="/statics/images/favicon.png" alt="Suppl Logo"/>
+                            <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
                         </div>
                         <div className="header-logo-text">SUPPL</div>
                         <div className="header-page">Get Started</div>

@@ -21,7 +21,10 @@ class Waitlist extends React.Component {
             this.forceUpdate();
         }, 1);
 
-        // Dispatch(ACTIONS.HIDE_AUDIO);
+        if (this.props._query.ref) {
+            Dispatch({type: ACTIONS.SET_WAITLIST_REF, ref: this.props._query.ref});
+        }
+
     }
 
     render() {
@@ -31,14 +34,15 @@ class Waitlist extends React.Component {
                     <div className="register-left">
                         <div className="register-header">
                             <div className="header-logo">
-                                <img src="/statics/images/favicon.png" alt="Suppl Logo"/>
+                                <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
                             </div>
                             <div className="header-logo-text">SUPPL</div>
                             <div className="header-page">Early access</div>
                         </div>
 
-                        <div className="register-heading">Hey <strong>Superstar!</strong>
-                            <br/>Join our early access community
+                        <div className="register-heading">
+                            <div style={{fontSize: '30px',marginBottom:'5px'}}>Hey <strong>Superstar!</strong></div>
+                            Join our early access community
                         </div>
 
 
@@ -71,7 +75,7 @@ class Waitlist extends React.Component {
 
                             <p className="clearfix">
                                 {/*<Link href="/" className="pull-left">Login</Link>*/}
-                                <Link href={`/position?email=${this.props.waitlist.email}`} style={{
+                                <Link href={`/waitlist/check`} style={{
                                     textAlign: 'center',
                                     display  : 'block'
                                 }}>Check my place in the queue</Link>

@@ -21,6 +21,7 @@ import AwardsScreen from './screens/awards.screen';
 import CommunityScreen from './screens/community.screen';
 import WaitlistScreen from './screens/waitlist.screen';
 import PositionScreen from './screens/position.screen';
+import ShareScreen from './screens/share.screen';
 
 import Popup from './components/popup/popup';
 import Notification from './components/notification/notification';
@@ -75,7 +76,8 @@ ReactDOM.render(
                 <Location path="/profile" handler={ProfileScreen}/>
                 <Location path="/community" handler={CommunityScreen}/>
                 <Location path="/waitlist" handler={WaitlistScreen}/>
-                <Location path="/position" handler={PositionScreen}/>
+                <Location path="/waitlist/check" handler={PositionScreen}/>
+                <Location path="/waitlist/share" handler={ShareScreen}/>
             </Locations>
         </div>
 
