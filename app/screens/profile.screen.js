@@ -3,6 +3,8 @@ import React from 'react';
 import * as ACTIONS from '../constants/actions.constants';
 
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
+import {SetUrl} from '../services/helper.service';
 
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
@@ -50,7 +52,7 @@ class Profile extends React.Component {
 
                                     <div className="butn" style={{marginLeft: 'auto'}} tabIndex={0} onClick={this.props.saveProfile}>Update</div>
                                     <p className="clearfix">
-                                        <a className="pull-right" onClick={this.props.showResetPassword}>Reset Password</a>
+                                        <Link className="pull-right" onClick={this.props.showResetPassword}>Reset Password</Link>
                                     </p>
                                 </div>
                             </div>
@@ -64,7 +66,7 @@ class Profile extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) window.location.hash = '/';
+        if (!user) SetUrl('/');
     });
 
     return state

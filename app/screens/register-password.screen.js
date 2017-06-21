@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
 import * as ACTIONS from '../constants/actions.constants';
+import {Link} from 'react-router-component';
+import {SetUrl} from '../services/helper.service';
 
 class RegisterPassword extends React.Component {
     componentWillMount() {
@@ -38,11 +40,11 @@ class RegisterPassword extends React.Component {
                         </div>
                         <p>If you forget you can always change this later ;)</p>
 
-                        <a className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href="#/register-job">Next</a>
+                        <Link className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href="/register-job">Next</Link>
 
                         <p className="clearfix">
-                            {/*<a href="#/" className="pull-left">Login</a>*/}
-                            <a href="#/register" className="pull-right">Back</a>
+                            {/*<Link href="/" className="pull-left">Login</Link>*/}
+                            <Link href="/register" className="pull-right">Back</Link>
                         </p>
                     </div>
                 </div>
@@ -58,7 +60,7 @@ class RegisterPassword extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) window.location.hash = '/dashboard';
+        if (user) SetUrl('/dashboard');
     });
 
     return state

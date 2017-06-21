@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
 import * as ACTIONS from '../constants/actions.constants';
+import {SetUrl} from '../services/helper.service';
 import * as _ from 'lodash';
 
 
@@ -57,12 +59,12 @@ class Register extends React.Component {
                             }}/>
                         </div>
 
-                        <a className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href={`#/register-password`}>Let's get started</a>
+                        <Link className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href={`/register-password`}>Let's get started</Link>
 
 
                         <p className="clearfix">
-                            {/*<a href="#/" className="pull-left">Login</a>*/}
-                            <a href="#/" className="pull-right">Back to Login</a>
+                            {/*<Link href="/" className="pull-left">Login</Link>*/}
+                            <Link href="/" className="pull-right">Back to Login</Link>
                         </p>
                     </div>
 
@@ -81,7 +83,7 @@ class Register extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) window.location.hash = '/dashboard';
+        if (user) SetUrl('/dashboard');
     });
 
     return state

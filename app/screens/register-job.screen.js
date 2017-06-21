@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
 import * as ACTIONS from '../constants/actions.constants';
 import {State} from '../services/dispatch.service';
+import {SetUrl} from '../services/helper.service';
 
 class RegisterJob extends React.Component {
     componentWillMount() {
@@ -52,11 +54,11 @@ class RegisterJob extends React.Component {
                             )}
                         </div>
 
-                        <a className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href="#/register-style">Next</a>
+                        <Link className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href="/register-style">Next</Link>
 
                         <p className="clearfix">
-                            {/*<a href="#/" className="pull-left">Login</a>*/}
-                            <a href="#/register-password" className="pull-right">Back</a>
+                            {/*<Link href="/" className="pull-left">Login</Link>*/}
+                            <Link href="/register-password" className="pull-right">Back</Link>
                         </p>
                     </div>
 
@@ -75,7 +77,7 @@ class RegisterJob extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) window.location.hash = '/dashboard';
+        if (user) SetUrl('/dashboard');
     });
 
     return state

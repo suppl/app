@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-component';
 
 import * as ACTIONS from '../../constants/actions.constants';
 
@@ -24,7 +25,7 @@ class Award extends React.Component {
                 <div className="award-title">{this.props.award.award.name}</div>
                 <div className="award-text" dangerouslySetInnerHTML={{__html: this.props.award.award.description}}></div>
 
-                <a href="#/achievements" className="award-band" onClick={this.props.hideAward}>See all awards! &raquo;</a>
+                <Link href="/achievements" className="award-band" onClick={this.props.hideAward}>See all awards! &raquo;</Link>
             </div>
         )
     }

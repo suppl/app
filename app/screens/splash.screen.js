@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
+import {SetUrl} from '../services/helper.service';
 import * as ACTIONS from '../constants/actions.constants';
 
 
@@ -44,13 +46,13 @@ class Splash extends React.Component {
                         <div className="input-icon icon-lock"/>
                         <input type="password" placeholder="Password" value={this.props.user.password} onChange={this.props.updateLoginPassword}/>
                     </div>
-                    <p className="clearfix"><a className="pull-right" onClick={this.props.showResetPassword}>Forgot your password?</a></p>
+                    <p className="clearfix"><Link className="pull-right" onClick={this.props.showResetPassword}>Forgot your password?</Link></p>
 
                     <div className="butn large" style={{marginLeft: 'auto'}} tabIndex={0} onClick={this.props.signIn}>Sign in</div>
 
                     <div className="line"/>
 
-                    <a className="butn mid white pull-right" href="#/register">Get started</a>
+                    <Link className="butn mid white pull-right" href="/register">Get started</Link>
                     <div className="butn mid white transparent">Don't have an account?</div>
 
                 </div>
@@ -67,7 +69,7 @@ class Splash extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) window.location.hash = '/dashboard';
+        if (user) SetUrl('/dashboard');
     });
 
     return state

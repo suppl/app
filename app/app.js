@@ -19,6 +19,8 @@ import RegisterStyleScreen from './screens/register-style.screen';
 import ProgressScreen from './screens/progress.screen';
 import AwardsScreen from './screens/awards.screen';
 import CommunityScreen from './screens/community.screen';
+import WaitlistScreen from './screens/waitlist.screen';
+import PositionScreen from './screens/position.screen';
 
 import Popup from './components/popup/popup';
 import Notification from './components/notification/notification';
@@ -33,6 +35,7 @@ import popupReducer from './reducers/popup.reducer';
 import settingsReducer from './reducers/settings.reducer';
 import awardReducer from './reducers/award.reducer';
 import publicReducer from './reducers/public.reducer';
+import waitlistReducer from './reducers/waitlist.reducer';
 
 
 const reducer = combineReducers({
@@ -42,7 +45,8 @@ const reducer = combineReducers({
     popup       : popupReducer,
     settings    : settingsReducer,
     award       : awardReducer,
-    public      : publicReducer,
+    'public'    : publicReducer,
+    waitlist    : waitlistReducer,
 });
 
 export const store = createStore(reducer);
@@ -53,11 +57,11 @@ ReactDOM.render(
     <Provider store={store}>
         <div className="flex flex-max">
             <Notification/>
-            <Player/> 
+            <Player/>
             <Loader/>
             <Popup/>
             <Award/>
-            <Locations hash>
+            <Locations>
                 <Location path="/" handler={SplashScreen}/>
                 <Location path="/register" handler={RegisterScreen}/>
                 <Location path="/register-password" handler={RegisterPasswordScreen}/>
@@ -70,6 +74,8 @@ ReactDOM.render(
                 <Location path="/dashboard(/*)" handler={DashboardScreen}/>
                 <Location path="/profile" handler={ProfileScreen}/>
                 <Location path="/community" handler={CommunityScreen}/>
+                <Location path="/waitlist" handler={WaitlistScreen}/>
+                <Location path="/position" handler={PositionScreen}/>
             </Locations>
         </div>
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
 import Router from 'react-router-component'
 const Locations = Router.Locations;
 const Location  = Router.Location;
@@ -10,6 +11,7 @@ import Sidebar from '../components/sidebar/sidebar';
 import PlayerList from '../components/player-list/player-list.component';
 import Dispatch from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
+import {SetUrl} from '../services/helper.service';
 
 import _ from 'lodash';
 import {SessionList} from '../services/session.service';
@@ -126,7 +128,7 @@ class Dashboard extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) window.location.hash = '/';
+        if (!user) SetUrl('/');
     });
 
     return state

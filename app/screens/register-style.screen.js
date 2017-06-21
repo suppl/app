@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
 import * as ACTIONS from '../constants/actions.constants';
+import {SetUrl} from '../services/helper.service';
 
 class RegisterStyle extends React.Component {
     componentWillMount() {
@@ -45,11 +47,11 @@ class RegisterStyle extends React.Component {
                             )}
                         </div>
 
-                        <a className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} onClick={this.props.registerUser}>Start using Suppl</a>
+                        <Link className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} onClick={this.props.registerUser}>Start using Suppl</Link>
 
                         <p className="clearfix">
-                            {/*<a href="#/" className="pull-left">Login</a>*/}
-                            <a href="#/register-job" className="pull-right">Back</a>
+                            {/*<Link href="/" className="pull-left">Login</Link>*/}
+                            <Link href="/register-job" className="pull-right">Back</Link>
                         </p>
                     </div>
                 </div>
@@ -66,7 +68,7 @@ class RegisterStyle extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (user) window.location.hash = '/dashboard';
+        if (user) SetUrl('/dashboard');
     });
 
     return state

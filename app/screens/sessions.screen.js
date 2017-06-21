@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
 import * as _ from 'lodash';
 
 import * as ACTIONS from '../constants/actions.constants';
@@ -7,6 +8,7 @@ import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 import {SessionList, getSessionTime} from '../services/session.service';
+import {SetUrl} from '../services/helper.service';
 
 
 class Sessions extends React.Component {
@@ -35,7 +37,7 @@ class Sessions extends React.Component {
                                         <div className="line-heading">{category}</div>
                                         <div className="series-list">
                                             {seriesList[category].map((series, index) =>
-                                                <a className="series" href={`#/sessions/${series.slug}`} key={series.slug} style={{backgroundColor: series.color}}>
+                                                <Link className="series" href={`/sessions/${series.slug}`} key={series.slug} style={{backgroundColor: series.color}}>
                                                     <div className="series-white"/>
                                                     <div className={`series-icon`} style={{backgroundImage: `url('${series.svgSmall}')`}}/>
                                                     <div className="series-time">
@@ -51,7 +53,7 @@ class Sessions extends React.Component {
 
                                                         <i className="flaticon-right-chevron go-icon"/>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             )}
                                         </div>
                                     </div>
@@ -68,7 +70,7 @@ class Sessions extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) window.location.hash = '/';
+        if (!user) SetUrl('/');
     });
 
     return state

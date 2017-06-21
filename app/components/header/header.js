@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-component';
 
 import * as ACTIONS from '../../constants/actions.constants';
 
@@ -27,17 +28,17 @@ class Header extends React.Component {
         return (
             <div className="header-component">
                 <div className="suppl-logo">SUPPL</div>
-                <a className="user-logo" href="#/profile">{this.getUserFirstLetter()}</a>
-                <a className="user-hello" href="#/profile" onClick={this.props.login}>Welcome back {this.getUserFirstName()}!</a>
+                <Link className="user-logo" href="/profile">{this.getUserFirstLetter()}</Link>
+                <Link className="user-hello" href="/profile" onClick={this.props.login}>Welcome back {this.getUserFirstName()}!</Link>
                 <div className="header-menu">
                     <div className="menu-item"><i className="flaticon-bell"></i></div>
                     <div className="menu-item"><i className="flaticon-add-user"></i></div>
                     <div className="menu-item ${settingsClass}" onClick={this.props.toggleSettings}>
                         <div className={`suppl-dropdown ${settingsClass}`}>
-                            <a className="dropdown-item" href="#/profile">
+                            <Link className="dropdown-item" href="/profile">
                                 <div className="item-icon icon-user"></div>
                                 <div className="item-text">Your profile</div>
-                            </a>
+                            </Link>
                             <div className="dropdown-item">
                                 <div className="item-icon icon-cog"></div>
                                 <div className="item-text">Settings</div>

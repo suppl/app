@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-component';
 import * as _ from 'lodash';
 
 import * as ACTIONS from '../constants/actions.constants';
@@ -6,6 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
+import {SetUrl} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -125,7 +127,7 @@ class Awards extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) window.location.hash = '/';
+        if (!user) SetUrl('/');
     });
 
     return state

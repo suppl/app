@@ -21,6 +21,7 @@ const performAction = {
     },
 
     [ACTIONS.SHOW_NOTIFICATION]: (data) => {
+        clearTimeout(timeout);
         timeout = setTimeout(() => {
             store.dispatch({
                 type: ACTIONS.HIDE_NOTIFICATION,

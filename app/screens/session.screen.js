@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
 import * as _ from 'lodash';
 
 import * as ACTIONS from '../constants/actions.constants';
@@ -7,6 +8,7 @@ import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 import {SessionList, isAudioAvailable} from '../services/session.service';
+import {SetUrl} from '../services/helper.service';
 
 
 class Sessions extends React.Component {
@@ -117,7 +119,7 @@ class Sessions extends React.Component {
 
 const mapStateToProps = state => {
     firebase.auth().onAuthStateChanged((user) => {
-        if (!user) window.location.hash = '/';
+        if (!user) SetUrl('/');
     });
 
     return state

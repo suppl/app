@@ -10,7 +10,7 @@ body .register-screen {
 
   .register-left {
 
-    background: $pale-grey-three;
+    background-color: $pale-grey-two;
 
     //align-items: center;
     //justify-content: center;
@@ -21,7 +21,7 @@ body .register-screen {
     display: flex;
     padding: 25px 50px;
     //transform:translateX(-30px);
-    box-shadow: 0px 0 10px 0px $black-20;
+    //box-shadow: 0px 0 10px 0px $black-20;
 
     transition: .6s;
   }
@@ -38,6 +38,7 @@ body .register-screen {
 
   .register-img {
     flex: 0 1 600px;
+    position: absolute;
 
   }
 
@@ -75,10 +76,10 @@ body .register-screen {
   }
 
   .register-heading {
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 400;
     //text-align: center;
-    color: #666666;
+    color: $dark;
     margin-top: 80px;
   }
 
@@ -89,12 +90,11 @@ body .register-screen {
     margin-top: 5px;
   }
 
-
   &.active-screen {
     opacity: 1;
 
     .register-left {
-      transform:translateX(0);
+      transform: translateX(0);
     }
   }
 }

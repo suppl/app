@@ -3,6 +3,8 @@ import React from 'react';
 import * as ACTIONS from '../constants/actions.constants';
 
 import {connect} from "react-redux";
+import {Link} from 'react-router-component';
+import {SetUrl} from '../services/helper.service';
 
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
@@ -75,7 +77,7 @@ const mapStateToProps = state => {
     //console.log('', state);
 
     firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) window.location.hash = '/';
+        if (!user) SetUrl('/');
     });
 
     return state
