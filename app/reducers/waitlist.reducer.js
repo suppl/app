@@ -114,7 +114,7 @@ class Waitlist {
             return;
         }
 
-        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'looking good!'});
+        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Success!'});
     }
 }
 
