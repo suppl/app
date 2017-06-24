@@ -82,6 +82,11 @@ class Waitlist {
 
     async sendReferral(data, state) {
 
+        if (!_.some(state.referralEmails)) {
+            Dispatch(ACTIONS.SHOW_POPUP_NO_FRIENDS);
+            return;
+        }
+
         console.log('REFERRAL_JSON', REFERRAL_JSON, _.clone(REFERRAL_JSON));
         let body = REFERRAL_JSON;
 

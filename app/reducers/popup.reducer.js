@@ -22,6 +22,7 @@ class Popup {
     actions = {
         [ACTIONS.SEND_RESET_PASSWORD_EMAIL]  : this.sendResetPasswordEmail,
         [ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST] : this.notOnTheList,
+        [ACTIONS.SHOW_POPUP_NO_FRIENDS]      : this.noFriends,
         [ACTIONS.UPDATE_RESET_PASSWORD_EMAIL]: (data, state) => ({resetEmail: data.email}),
         [ACTIONS.HIDE_POPUP]                 : (data, state) => ({visible: false}),
         [ACTIONS.SHOW_POPUP]                 : (data, state) => ({visible: true, popupType: data.popupType}),
@@ -46,13 +47,25 @@ class Popup {
     notOnTheList(data, state) {
         state.popupType  = 'standard';
         state.title      = `Sorry buddy, you're not on the list.`;
-        state.content    = <div>It looks like you haven't registered with us just yet. <br/>No problem, <strong>sign up</strong> to our early access programme <strong>right now!</strong></div>;
+        state.content    = <div>It looks like you haven't registered with us just yet. <br/>No problem,
+            <strong>sign up</strong> to our early access programme <strong>right now!</strong></div>;
         state.linkText   = `Get started`;
         state.visible    = true;
+        state.canClose   = false;
         state.linkAction = () => {
             SetUrl('/waitlist');
             Dispatch(ACTIONS.HIDE_POPUP);
         }
+    }
+
+    noFriends(data, state) {
+        state.popupType  = 'standard';
+        state.title      = `Your friends need you right now.`;
+        state.content    = <div><strong>Take your time</strong>, the <strong> gift of great posture </strong> isn't one you should give away too lightly.</div>;
+        state.linkText   = `I'll think on it`;
+        state.visible    = true;
+        state.canClose   = false;
+        state.linkAction = () => Dispatch(ACTIONS.HIDE_POPUP);
     }
 }
 

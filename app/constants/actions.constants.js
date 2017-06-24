@@ -26,6 +26,7 @@ export const RESET_AUDIO = 'RESET_AUDIO';
 export const HIDE_POPUP                 = 'HIDE_POPUP';
 export const SHOW_POPUP                 = 'SHOW_POPUP';
 export const SHOW_POPUP_NOT_ON_THE_LIST = 'SHOW_POPUP_NOT_ON_THE_LIST';
+export const SHOW_POPUP_NO_FRIENDS      = 'SHOW_POPUP_NO_FRIENDS';
 
 export const HIDE_AWARD = 'HIDE_AWARD';
 export const SHOW_AWARD = 'SHOW_AWARD';

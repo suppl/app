@@ -4972,6 +4972,7 @@ var RESET_AUDIO = exports.RESET_AUDIO = 'RESET_AUDIO';
 var HIDE_POPUP = exports.HIDE_POPUP = 'HIDE_POPUP';
 var SHOW_POPUP = exports.SHOW_POPUP = 'SHOW_POPUP';
 var SHOW_POPUP_NOT_ON_THE_LIST = exports.SHOW_POPUP_NOT_ON_THE_LIST = 'SHOW_POPUP_NOT_ON_THE_LIST';
+var SHOW_POPUP_NO_FRIENDS = exports.SHOW_POPUP_NO_FRIENDS = 'SHOW_POPUP_NO_FRIENDS';
 
 var HIDE_AWARD = exports.HIDE_AWARD = 'HIDE_AWARD';
 var SHOW_AWARD = exports.SHOW_AWARD = 'SHOW_AWARD';
@@ -51931,7 +51932,7 @@ var Popup = function () {
             linkText: "",
             canClose: false
         };
-        this.actions = (_actions = {}, _defineProperty(_actions, ACTIONS.SEND_RESET_PASSWORD_EMAIL, this.sendResetPasswordEmail), _defineProperty(_actions, ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST, this.notOnTheList), _defineProperty(_actions, ACTIONS.UPDATE_RESET_PASSWORD_EMAIL, function (data, state) {
+        this.actions = (_actions = {}, _defineProperty(_actions, ACTIONS.SEND_RESET_PASSWORD_EMAIL, this.sendResetPasswordEmail), _defineProperty(_actions, ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST, this.notOnTheList), _defineProperty(_actions, ACTIONS.SHOW_POPUP_NO_FRIENDS, this.noFriends), _defineProperty(_actions, ACTIONS.UPDATE_RESET_PASSWORD_EMAIL, function (data, state) {
             return { resetEmail: data.email };
         }), _defineProperty(_actions, ACTIONS.HIDE_POPUP, function (data, state) {
             return { visible: false };
@@ -51992,7 +51993,7 @@ var Popup = function () {
                 null,
                 'It looks like you haven\'t registered with us just yet. ',
                 _react2.default.createElement('br', null),
-                'No problem, ',
+                'No problem,',
                 _react2.default.createElement(
                     'strong',
                     null,
@@ -52007,9 +52008,38 @@ var Popup = function () {
             );
             state.linkText = 'Get started';
             state.visible = true;
+            state.canClose = false;
             state.linkAction = function () {
                 (0, _helper.SetUrl)('/waitlist');
                 (0, _dispatch.Dispatch)(ACTIONS.HIDE_POPUP);
+            };
+        }
+    }, {
+        key: 'noFriends',
+        value: function noFriends(data, state) {
+            state.popupType = 'standard';
+            state.title = 'Your friends need you right now.';
+            state.content = _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    'strong',
+                    null,
+                    'Take your time'
+                ),
+                ', the ',
+                _react2.default.createElement(
+                    'strong',
+                    null,
+                    ' gift of great posture '
+                ),
+                ' isn\'t one you should give away too lightly.'
+            );
+            state.linkText = 'I\'ll think on it';
+            state.visible = true;
+            state.canClose = false;
+            state.linkAction = function () {
+                return (0, _dispatch.Dispatch)(ACTIONS.HIDE_POPUP);
             };
         }
     }]);
@@ -52897,6 +52927,15 @@ var Waitlist = function () {
                     while (1) {
                         switch (_context3.prev = _context3.next) {
                             case 0:
+                                if (_.some(state.referralEmails)) {
+                                    _context3.next = 3;
+                                    break;
+                                }
+
+                                (0, _dispatch.Dispatch)(ACTIONS.SHOW_POPUP_NO_FRIENDS);
+                                return _context3.abrupt('return');
+
+                            case 3:
 
                                 console.log('REFERRAL_JSON', _mandrill.REFERRAL_JSON, _.clone(_mandrill.REFERRAL_JSON));
                                 body = _mandrill.REFERRAL_JSON;
@@ -52913,27 +52952,27 @@ var Waitlist = function () {
 
                                 body.message.global_merge_vars = [{ name: "fname", content: state.user.name }, { name: "affil", content: state.user.affiliate }];
 
-                                _context3.next = 8;
+                                _context3.next = 11;
                                 return Request.post('https://mandrillapp.com/api/1.0/messages/send-template.json').send(body).ok(function (res) {
                                     return res.status < 501;
                                 });
 
-                            case 8:
+                            case 11:
                                 res = _context3.sent;
 
                                 if (!res.body.errors) {
-                                    _context3.next = 12;
+                                    _context3.next = 15;
                                     break;
                                 }
 
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: res.text, theme: 'error' });
                                 return _context3.abrupt('return');
 
-                            case 12:
+                            case 15:
 
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'looking good!' });
 
-                            case 13:
+                            case 16:
                             case 'end':
                                 return _context3.stop();
                         }
