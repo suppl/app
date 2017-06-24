@@ -21,6 +21,7 @@ const signIn = async () => {
         .signInWithEmailAndPassword(State().user.email, State().user.password)
         .catch(error => standardError(ACTIONS.SIGN_IN, error.message));
 
+    if (!user) return;
     Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
 };
 

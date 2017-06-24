@@ -23,8 +23,9 @@ export const PLAY_AUDIO  = 'PLAY_AUDIO';
 export const PAUSE_AUDIO = 'PAUSE_AUDIO';
 export const RESET_AUDIO = 'RESET_AUDIO';
 
-export const HIDE_POPUP = 'HIDE_POPUP';
-export const SHOW_POPUP = 'SHOW_POPUP';
+export const HIDE_POPUP                 = 'HIDE_POPUP';
+export const SHOW_POPUP                 = 'SHOW_POPUP';
+export const SHOW_POPUP_NOT_ON_THE_LIST = 'SHOW_POPUP_NOT_ON_THE_LIST';
 
 export const HIDE_AWARD = 'HIDE_AWARD';
 export const SHOW_AWARD = 'SHOW_AWARD';
@@ -53,11 +54,13 @@ export const UPDATE_REGISTER_CHECK_EMAIL = 'UPDATE_REGISTER_CHECK_EMAIL';
 export const REGISTER_USER               = 'REGISTER_USER';
 
 
-export const SET_WAITLIST_REF       = 'SET_WAITLIST_REF';
-export const SET_WAITLIST_NAME      = 'SET_WAITLIST_NAME';
-export const SET_WAITLIST_EMAIL     = 'SET_WAITLIST_EMAIL';
-export const LOAD_WAITLIST_USER     = 'LOAD_WAITLIST_USER';
-export const SUBMIT_WAITLIST_SIGNUP = 'SUBMIT_WAITLIST_SIGNUP';
-export const SET_WAITLIST_USER      = 'SET_WAITLIST_USER';
+export const SET_WAITLIST_REF             = 'SET_WAITLIST_REF';
+export const SET_WAITLIST_NAME            = 'SET_WAITLIST_NAME';
+export const SET_WAITLIST_EMAIL           = 'SET_WAITLIST_EMAIL';
+export const LOAD_WAITLIST_USER           = 'LOAD_WAITLIST_USER';
+export const SUBMIT_WAITLIST_SIGNUP       = 'SUBMIT_WAITLIST_SIGNUP';
+export const SET_WAITLIST_USER            = 'SET_WAITLIST_USER';
+export const SET_WAITLIST_REFERRAL_EMAILS = 'SET_WAITLIST_REFERRAL_EMAILS';
+export const SEND_WAITLIST_REFERRAL       = 'SEND_WAITLIST_REFERRAL';
 
 

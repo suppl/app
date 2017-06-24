@@ -21,16 +21,25 @@ class PositionScreen extends React.Component {
         }, 1);
     }
 
+    checkPosition() {
+        if (!this.props.waitlist.email) {
+            Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'email address required', style: 'error'});
+            return;
+        }
+    }
+
     render() {
+        const waitlist = this.props.waitlist;
+
         return (
             <div data-screen className={`register-screen ${this.activeClass}`}>
                 <div className="flex flex-row">
                     <div className="register-left">
                         <div className="register-header">
-                            <div className="header-logo">
+                            <Link href="/" className="header-logo clickable">
                                 <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
-                            </div>
-                            <div className="header-logo-text">SUPPL</div>
+                            </Link>
+                            <Link href="/" className="header-logo-text clickable">SUPPL</Link>
                             <div className="header-page">Early access</div>
                         </div>
 
@@ -51,15 +60,17 @@ class PositionScreen extends React.Component {
                                 <input type="email"
                                        placeholder="E.g. chris@gmail.com"
                                        autoFocus={true}
+                                       value={this.props.waitlist.email}
+                                       onChange={this.props.setEmail}
                                 />
                             </div>
 
-                            <div className="butn large" style={{maxWidth: 'none'}} onClick={this.props.invite}>Check my position</div>
+                            <Link className="butn large" style={{maxWidth: 'none'}} href={`/waitlist/share?email=${this.props.waitlist.email}`}>Check my position</Link>
 
 
                             <p className="clearfix">
                                 {/*<Link href="/" className="pull-left">Login</Link>*/}
-                                <Link href="/waitlist" style={{
+                                <Link href={`/waitlist`} style={{
                                     textAlign: 'center',
                                     display  : 'block'
                                 }}>Join our early access community</Link>

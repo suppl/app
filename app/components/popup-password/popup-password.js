@@ -4,12 +4,12 @@ import {connect} from "react-redux";
 import * as ACTIONS from '../../constants/actions.constants';
 
 
-require('./popup.scss');
+require('./popup-password.scss');
 
-class Popup extends React.Component {
+class PopupPassword extends React.Component {
     render() {
         const getClasses = () => [
-            this.props.popup.visible ? 'active' : ''
+            this.props.popup.visible && this.props.popup.popupType === 'resetPassword' ? 'active' : ''
         ].join(' ');
 
         return (
@@ -65,4 +65,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Popup)
+)(PopupPassword)

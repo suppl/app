@@ -23,7 +23,8 @@ import WaitlistScreen from './screens/waitlist.screen';
 import PositionScreen from './screens/position.screen';
 import ShareScreen from './screens/share.screen';
 
-import Popup from './components/popup/popup';
+import PopupPassword from './components/popup-password/popup-password';
+import PopupStandard from './components/popup-standard/popup-standard';
 import Notification from './components/notification/notification';
 import Player from './components/player/player.component';
 import Loader from './components/loader/loader';
@@ -60,7 +61,8 @@ ReactDOM.render(
             <Notification/>
             <Player/>
             <Loader/>
-            <Popup/>
+            <PopupPassword/>
+            <PopupStandard/>
             <Award/>
             <Locations>
                 <Location path="/" handler={SplashScreen}/>

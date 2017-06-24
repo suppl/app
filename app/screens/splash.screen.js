@@ -6,6 +6,8 @@ import * as ACTIONS from '../constants/actions.constants';
 
 
 class Splash extends React.Component {
+    loginImageIndex = _.random(1, 2);
+
     componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active-screen';
@@ -20,15 +22,18 @@ class Splash extends React.Component {
 
             <div className="register-left">
                 <div className="register-header">
-                    <div className="header-logo">
+                    <Link href="/" className="header-logo clickable">
                         <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
-                    </div>
-                    <div className="header-logo-text">SUPPL</div>
+                    </Link>
+                    <Link href="/" className="header-logo-text clickable">SUPPL</Link>
                     <div className="header-page">Get Started</div>
                 </div>
 
-                <div className="register-heading"><strong>Sign in to Suppl</strong></div>
-                <div className="register-sub-heading">Enter your details below</div>
+
+                <div className="register-heading">
+                    <div style={{fontSize: '30px',marginBottom:'5px'}}>Sign in to  <strong>Suppl </strong> </div>
+                    Enter your details below
+                </div>
 
 
                 <div className="suppl-form" style={{marginTop:'40px'}}>
@@ -46,7 +51,7 @@ class Splash extends React.Component {
                         <div className="input-icon icon-lock"/>
                         <input type="password" placeholder="Password" value={this.props.user.password} onChange={this.props.updateLoginPassword}/>
                     </div>
-                    <p className="clearfix"><Link className="pull-right" onClick={this.props.showResetPassword}>Forgot your password?</Link></p>
+                    <p className="clearfix"><a className="pull-right" onClick={this.props.showResetPassword}>Forgot your password?</a></p>
 
                     <div className="butn large" style={{marginLeft: 'auto'}} tabIndex={0} onClick={this.props.signIn}>Sign in</div>
 
@@ -58,8 +63,11 @@ class Splash extends React.Component {
                 </div>
             </div>
 
-            <div className="register-right" style={{backgroundColor: '#ffefba'}}>
-                <img src="/statics/images/suppl-superstar.png"/>
+            <div className="register-right" style={{backgroundColor: '#f7fafc'}}>
+                    <img className="register-img" src={`/statics/svg/splash/login-0${this.loginImageIndex}.svg`} style={{
+                        top         : "-10px",
+                        marginBottom: "auto"
+                    }}/>
             </div>
 
         </div>
@@ -77,7 +85,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     showResetPassword: () => dispatch({
-        type: ACTIONS.SHOW_POPUP
+        type: ACTIONS.SHOW_POPUP,
+        popupType: 'resetPassword',
     }),
 
     updateLoginEmail: (event) => dispatch({

@@ -1,46 +1,59 @@
+import React from 'react';
 import * as Request from 'superagent';
 
 import * as ACTIONS from '../constants/actions.constants';
 import {store} from './../app';
-import {Dispatch, State} from './../services/dispatch.service';
+import {Dispatch, State, CreateReducer} from './../services/dispatch.service';
+import {SetUrl} from '../services/helper.service';
 
-const initialState = {
-    visible: false,
-    content: "Hello",
-    popupType: 'reset-password',
-    resetEmail: ""
-};
+class Popup {
+    initialState = {
+        visible   : false,
+        content   : "Hello",
+        html      : <div/>,
+        popupType : '',
+        resetEmail: "",
+        title     : "",
+        linkAction: "",
+        linkText  : "",
+        canClose  : false,
+    };
 
-const performAction = {
-    [ACTIONS.UPDATE_RESET_PASSWORD_EMAIL]: (data) => ({resetEmail: data.email}),
+    actions = {
+        [ACTIONS.SEND_RESET_PASSWORD_EMAIL]  : this.sendResetPasswordEmail,
+        [ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST] : this.notOnTheList,
+        [ACTIONS.UPDATE_RESET_PASSWORD_EMAIL]: (data, state) => ({resetEmail: data.email}),
+        [ACTIONS.HIDE_POPUP]                 : (data, state) => ({visible: false}),
+        [ACTIONS.SHOW_POPUP]                 : (data, state) => ({visible: true, popupType: data.popupType}),
+    };
 
-    [ACTIONS.SEND_RESET_PASSWORD_EMAIL]: (data, state) => sendResetPasswordEmail(),
+    constructor() {
 
-    [ACTIONS.HIDE_POPUP]: (data) => ({visible: false}),
-
-    [ACTIONS.SHOW_POPUP]: (data) => ({visible: true,}),
-};
-
-const sendResetPasswordEmail = async () => {
-    try {
-        await firebase.auth().sendPasswordResetEmail(state.resetEmail)
-    } catch (error) {
-        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: error.message, theme: 'error'});
-        return;
     }
 
-    Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Email reset sent.'});
-    Dispatch(ACTIONS.HIDE_POPUP)
+    async sendResetPasswordEmail(data, state) {
+        try {
+            await firebase.auth().sendPasswordResetEmail(state.resetEmail)
+        } catch (error) {
+            Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: error.message, theme: 'error'});
+            return;
+        }
 
-};
+        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Email reset sent.'});
+        Dispatch(ACTIONS.HIDE_POPUP)
+    };
 
-const popup = (state = initialState, action) => {
-    if (!performAction[action.type]) return state;
+    notOnTheList(data, state) {
+        state.popupType  = 'standard';
+        state.title      = `Sorry buddy, you're not on the list.`;
+        state.content    = <div>It looks like you haven't registered with us just yet. <br/>No problem, <strong>sign up</strong> to our early access programme <strong>right now!</strong></div>;
+        state.linkText   = `Get started`;
+        state.visible    = true;
+        state.linkAction = () => {
+            SetUrl('/waitlist');
+            Dispatch(ACTIONS.HIDE_POPUP);
+        }
+    }
+}
 
-    const newState = Object.assign({}, state, performAction[action.type](action, state));
-    console.info('NEW POPUP STATE:', action.type, newState);
-
-    return newState;
-};
-
-export default popup;
+export default CreateReducer('Popup', new Popup());

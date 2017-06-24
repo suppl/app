@@ -33,10 +33,10 @@ class Waitlist extends React.Component {
                 <div className="flex flex-row">
                     <div className="register-left">
                         <div className="register-header">
-                            <div className="header-logo">
+                            <Link href="/" className="header-logo clickable">
                                 <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
-                            </div>
-                            <div className="header-logo-text">SUPPL</div>
+                            </Link>
+                            <Link href="/" className="header-logo-text clickable">SUPPL</Link>
                             <div className="header-page">Early access</div>
                         </div>
 
