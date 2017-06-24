@@ -52970,7 +52970,7 @@ var Waitlist = function () {
 
                             case 15:
 
-                                (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'looking good!' });
+                                (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'Success!' });
 
                             case 16:
                             case 'end':
