@@ -25,6 +25,12 @@ class ShareScreen extends React.Component {
     }
 
     referralEmails = ['', '', ''];
+    user           = this.props.waitlist.user ? this.props.waitlist.user : {};
+
+    tweet         = () => this.openLink(`https://twitter.com/home?status=I%20just%20signed%20up%20to%20Suppl!%20Correct%20posture,%20pronto%20http%3A//suppl.co/?refcode=${this.props.waitlist.user.affiliate}`);
+    shareFacebook = () => this.openLink(`https://www.facebook.com/sharer/sharer.php?u=http%3A//suppl.co/?refcode=${this.user.affiliate}`);
+    shareLinkedIn = () => this.openLink(`https://www.linkedin.com/shareArticle?mini=true&url=http%3A//www.suppl.co/?refcode=${this.user.affiliate}&title=I%20just%20signed%20up%20to%20Suppl!&summary=&source=www.suppl.co`);
+    openLink      = (link) => window.open(link, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 
     updateReferralEmails = (e, index) => {
         this.referralEmails[index] = e.target.value;
@@ -33,6 +39,7 @@ class ShareScreen extends React.Component {
             referralEmails: this.referralEmails,
         });
     };
+
 
     render() {
         const firstName = this.props.waitlist.user ? this.props.waitlist.user.name.split(' ')[0] : '';
@@ -65,7 +72,7 @@ class ShareScreen extends React.Component {
                             <div className="suppl-label">Best friend</div>
 
                             <div className="suppl-input">
-                                <div className="input-icon icon-user"/>
+                                <div className="input-icon icon-envelope"/>
                                 <input type="email"
                                        placeholder="E.g. harry@myfriend.com"
                                        autoFocus={true}
@@ -121,14 +128,20 @@ class ShareScreen extends React.Component {
                                 <strong>Bump the queue</strong> by inviting your friends with your uniqe invitation code
                             </div>
 
-                            <div className="position-code">
-                                http://suppl.co/?refcode={user.affiliate}
-                            </div>
+                            <input className="position-code" readOnly={true} value={`http://www.suppl.co/?refcode=${user.affiliate}`}>
+
+                            </input>
 
                             <div className="position-buttons">
-                                <div className="position-button clickable"><i className="fa fa-twitter"/> Tweet</div>
-                                <div className="position-button clickable"><i className="fa fa-facebook"/> Share</div>
-                                <div className="position-button clickable"><i className="fa fa-linkedin"/> Share</div>
+                                <div className="position-button clickable" onClick={this.tweet}>
+                                    <i className="fa fa-twitter"/> Tweet
+                                </div>
+                                <div className="position-button clickable" onClick={this.shareFacebook}>
+                                    <i className="fa fa-facebook"/> Share
+                                </div>
+                                <div className="position-button clickable" onClick={this.shareLinkedIn}>
+                                    <i className="fa fa-linkedin"/> Share
+                                </div>
                             </div>
 
                             <div className="position-line"/>

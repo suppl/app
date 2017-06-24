@@ -43,9 +43,12 @@
   .position-code {
     width: 390px;
     height: 109px;
+    background: none;
     background-image: url('/statics/svg/waitlist/golden-ticket.svg');
     background-position: center;
     background-repeat: no-repeat;
+
+    border: none;
 
     display: flex;
     flex-direction: column;
