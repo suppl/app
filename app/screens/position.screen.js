@@ -65,7 +65,7 @@ class PositionScreen extends React.Component {
                                 />
                             </div>
 
-                            <Link className="butn large" style={{maxWidth: 'none'}} href={`/waitlist/share?email=${this.props.waitlist.email}`}>Check my position</Link>
+                            <Link className="butn large" style={{maxWidth: 'none'}} href={`/waitlist/bump?email=${this.props.waitlist.email}`}>Check my position</Link>
 
 
                             <p className="clearfix">

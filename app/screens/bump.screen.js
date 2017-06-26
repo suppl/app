@@ -12,7 +12,7 @@ import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 
-class ShareScreen extends React.Component {
+class BumpScreen extends React.Component {
 
     componentWillMount() {
         setTimeout(() => {
@@ -26,11 +26,6 @@ class ShareScreen extends React.Component {
 
     referralEmails = ['', '', ''];
     user           = this.props.waitlist.user ? this.props.waitlist.user : {};
-
-    tweet         = () => this.openLink(`https://twitter.com/home?status=I%20just%20signed%20up%20to%20Suppl!%20Correct%20posture,%20pronto%20http%3A//suppl.co/?refcode=${this.props.waitlist.user.affiliate}`);
-    shareFacebook = () => this.openLink(`https://www.facebook.com/sharer/sharer.php?u=http%3A//suppl.co/?refcode=${this.user.affiliate}`);
-    shareLinkedIn = () => this.openLink(`https://www.linkedin.com/shareArticle?mini=true&url=http%3A//www.suppl.co/?refcode=${this.user.affiliate}&title=I%20just%20signed%20up%20to%20Suppl!&summary=&source=www.suppl.co`);
-    openLink      = (link) => window.open(link, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
 
     updateReferralEmails = (e, index) => {
         this.referralEmails[index] = e.target.value;
@@ -104,58 +99,30 @@ class ShareScreen extends React.Component {
                             </div>
 
                             <div className="butn large pull-right" onClick={this.props.sendReferral}>Invite my friends!</div>
-
-
-                            {/*<p className="clearfix">*/}
-                            {/*/!*<Link href="/" className="pull-left">Login</Link>*!/*/}
-                            {/*<Link href="/" style={{*/}
-                            {/*textAlign: 'center',*/}
-                            {/*display  : 'block'*/}
-                            {/*}}>Check my place in the queue</Link>*/}
-                            {/*</p>*/}
                         </div>
 
 
                     </div>
 
-                    <div className="register-right" style={{backgroundColor: '#4F617B'}}>
-                        <img className="register-img" src="/statics/svg/waitlist/position-invitation-banner.svg" style={{
-                            top         : "0",
-                            marginBottom: "auto"
+                    <div className="register-right" style={{backgroundColor: '#f7fafc'}}>
+                        <img className="register-img" src="/statics/svg/bump/position-backdrop.svg" style={{
+                            marginTop : "auto",
+                            marginLeft: '47px',
+                            bottom    : "-150px"
                         }}/>
 
-                        <div className="position-info">
-                            <div className="position-18" style={{marginTop: '80px'}}>
-                                For every friend you invite who joins Suppl we will bump you up the queue by 100 places!
+                        <div className="bump-info">
+                            <div className="bump-number">{user.position - 1}</div>
+                            <div className="bump-text">People ahead of you</div>
+                            <div className="bump-text" style={{
+                                marginTop : '230px',
+                                fontWeight: 600
+                            }}>Move up the queue to get early access to Suppl as soon as the app is ready.
                             </div>
-
-                            <div className="position-line"/>
-                            <div className="position-text">
-                                <strong>Bump the queue</strong> by inviting your friends with your uniqe invitation code
-                            </div>
-
-                            <input className="position-code" readOnly={true} value={`http://www.suppl.co/?refcode=${user.affiliate}`}>
-
-                            </input>
-
-                            <div className="position-buttons">
-                                <div className="position-button clickable" onClick={this.tweet}>
-                                    <i className="fa fa-twitter"/> Tweet
-                                </div>
-                                <div className="position-button clickable" onClick={this.shareFacebook}>
-                                    <i className="fa fa-facebook"/> Share
-                                </div>
-                                <div className="position-button clickable" onClick={this.shareLinkedIn}>
-                                    <i className="fa fa-linkedin"/> Share
-                                </div>
-                            </div>
-
-                            <div className="position-line"/>
-
-                            <div className="position-18" style={{marginTop: '20px'}}>
-                                Share your unique invitation link with friends directly or on social media.
-                            </div>
+                            <Link href={`/waitlist/share?email=${this.props._query.email}`} className="bump-button clickable">Bump the queue NOW</Link>
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -182,4 +149,4 @@ const mapDispatchToProps = dispatch => ({
     }),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShareScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(BumpScreen)

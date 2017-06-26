@@ -137,6 +137,21 @@
       line-height: 58px;
     }
 
+    .not-desktop & {
+      height: 50px;
+      line-height: 48px;
+      font-size: 14px;
+
+      .input-icon {
+        height: 48px;
+        width: 48px;
+      }
+
+      input {
+        height: 48px;
+        line-height: 48px;
+      }
+    }
   }
 }
 

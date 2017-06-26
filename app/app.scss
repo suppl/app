@@ -9,6 +9,7 @@
 @import "global/series";
 @import "global/session";
 @import "global/position";
+@import "global/bump";
 
 html, body {
   width: 100%;
@@ -88,6 +89,8 @@ a {
   display: flex;
   flex: 1 0 0;
   flex-direction: column;
+
+
 }
 
 [data-content] {
@@ -100,12 +103,23 @@ a {
 }
 
 [data-screen] {
-
   &.active, &.active-screen {
     [data-content] {
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+[data-mobile-screen] {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 320px;
+  max-height: 100vh;
+  background-color: $pale-grey-five;
+
+  [data-content] {
+
   }
 }
 
