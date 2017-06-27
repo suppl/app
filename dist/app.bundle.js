@@ -62623,17 +62623,16 @@ var Popup = function () {
                 null,
                 'It looks like you haven\'t registered with us just yet. ',
                 _react2.default.createElement('br', null),
-                'No problem,',
                 _react2.default.createElement(
                     'strong',
                     null,
-                    'sign up'
+                    ' Sign up '
                 ),
                 ' to our early access programme ',
                 _react2.default.createElement(
                     'strong',
                     null,
-                    'right now!'
+                    ' right now! '
                 )
             );
             state.linkText = 'Get started';
@@ -63460,17 +63459,21 @@ var Waitlist = function () {
                     while (1) {
                         switch (_context.prev = _context.next) {
                             case 0:
+                                (0, _dispatch.Dispatch)(ACTIONS.START_LOADING);
                                 body = { email: state.email };
-                                _context.next = 3;
+                                _context.next = 4;
                                 return Request.get(state.api).query(body).set('Content-Type', 'application/json').set('X-API-Key', '623ebd98943530c3c95a33d0d5607bf4').ok(function (res) {
                                     return res.status < 501;
                                 });
 
-                            case 3:
+                            case 4:
                                 res = _context.sent;
 
+
+                                (0, _dispatch.Dispatch)(ACTIONS.DONE_LOADING);
+
                                 if (!res.body.errors) {
-                                    _context.next = 7;
+                                    _context.next = 9;
                                     break;
                                 }
 
@@ -63478,12 +63481,12 @@ var Waitlist = function () {
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST });
                                 return _context.abrupt('return');
 
-                            case 7:
+                            case 9:
 
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SET_WAITLIST_USER, user: res.body });
                                 console.info('loadUser', res);
 
-                            case 9:
+                            case 11:
                             case 'end':
                                 return _context.stop();
                         }

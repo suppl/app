@@ -34,6 +34,7 @@ class Waitlist {
     }
 
     async loadUser(data, state) {
+        Dispatch(ACTIONS.START_LOADING);
         let body = {email: state.email};
 
         let res = await Request
@@ -42,6 +43,8 @@ class Waitlist {
             .set('Content-Type', 'application/json')
             .set('X-API-Key', '623ebd98943530c3c95a33d0d5607bf4')
             .ok(res => res.status < 501);
+
+        Dispatch(ACTIONS.DONE_LOADING);
 
         if (res.body.errors) {
             // Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: res.text, theme: 'error'});
