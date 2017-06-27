@@ -52,7 +52,6 @@ class WaitlistScreenMobile extends React.Component {
                                 <div className="input-icon icon-user"/>
                                 <input type="text"
                                        placeholder="E.g. Barry Johnson"
-                                       autoFocus={true}
                                        value={this.props.waitlist.name}
                                        onChange={this.props.setName}
                                 />

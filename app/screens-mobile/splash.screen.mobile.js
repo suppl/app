@@ -43,7 +43,7 @@ class SplashScreenMobile extends React.Component {
 
                             <div className="suppl-input large">
                                 <div className="input-icon icon-envelope"/>
-                                <input type="email" autoFocus={true} placeholder="E.g. barry@work.com" value={this.props.user.email} onChange={this.props.updateLoginEmail}/>
+                                <input type="email" placeholder="E.g. barry@work.com" value={this.props.user.email} onChange={this.props.updateLoginEmail}/>
                             </div>
 
 

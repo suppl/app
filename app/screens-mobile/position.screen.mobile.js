@@ -59,7 +59,6 @@ class PositionScreenMobile extends React.Component {
                                 <div className="input-icon icon-user"/>
                                 <input type="email"
                                        placeholder="E.g. chris@gmail.com"
-                                       autoFocus={true}
                                        value={this.props.waitlist.email}
                                        onChange={this.props.setEmail}
                                 />

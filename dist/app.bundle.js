@@ -63957,7 +63957,6 @@ var PositionScreenMobile = function (_React$Component) {
                                 _react2.default.createElement('div', { className: 'input-icon icon-user' }),
                                 _react2.default.createElement('input', { type: 'email',
                                     placeholder: 'E.g. chris@gmail.com',
-                                    autoFocus: true,
                                     value: this.props.waitlist.email,
                                     onChange: this.props.setEmail
                                 })
@@ -64601,7 +64600,7 @@ var SplashScreenMobile = function (_React$Component) {
                                 'div',
                                 { className: 'suppl-input large' },
                                 _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
-                                _react2.default.createElement('input', { type: 'email', autoFocus: true, placeholder: 'E.g. barry@work.com', value: this.props.user.email, onChange: this.props.updateLoginEmail })
+                                _react2.default.createElement('input', { type: 'email', placeholder: 'E.g. barry@work.com', value: this.props.user.email, onChange: this.props.updateLoginEmail })
                             ),
                             _react2.default.createElement(
                                 'div',
@@ -64829,7 +64828,6 @@ var WaitlistScreenMobile = function (_React$Component) {
                                 _react2.default.createElement('div', { className: 'input-icon icon-user' }),
                                 _react2.default.createElement('input', { type: 'text',
                                     placeholder: 'E.g. Barry Johnson',
-                                    autoFocus: true,
                                     value: this.props.waitlist.name,
                                     onChange: this.props.setName
                                 })
