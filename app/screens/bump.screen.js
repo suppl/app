@@ -37,9 +37,10 @@ class BumpScreen extends React.Component {
 
 
     render() {
-        const firstName = this.props.waitlist.user ? this.props.waitlist.user.name.split(' ')[0] : '';
+        const firstName = this.props.waitlist.user ? this.props.waitlist.user.name.split(' ')[0] : ' ';
         const email     = this.props._query.email;
         const user      = this.props.waitlist.user ? this.props.waitlist.user : {};
+        const position  = this.props.waitlist.user ? this.props.waitlist.user.position - 1 : ' ';
 
         return (
             <div data-screen className={`register-screen ${this.activeClass}`}>
@@ -109,9 +110,9 @@ class BumpScreen extends React.Component {
                     <div className="bump-register">
 
                         <div className="bump-info">
-                            <div className="bump-number">{user.position - 1}</div>
-                            <div className="bump-text">People ahead of you</div>
-                            <div className="bump-text" style={{marginTop: '20px'}}>
+                            <div className="bump-number">{position}</div>
+                            <div className="bump-text">People are ahead of you</div>
+                            <div className="bump-text">
                                 <strong>Move up the queue to get early access to Suppl as soon as the app is ready.</strong>
                             </div>
                             <Link href={`/waitlist/share?email=${this.props._query.email}`} className="bump-button clickable">Bump the queue NOW</Link>
