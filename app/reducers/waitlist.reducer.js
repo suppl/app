@@ -119,7 +119,10 @@ class Waitlist {
             return;
         }
 
-        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Success!'});
+        state.referralEmails = ['','',''];
+        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Nice one!'});
+        Dispatch({type: ACTIONS.SHOW_POPUP_INVITE_THANKS});
+
     }
 }
 

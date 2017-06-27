@@ -4954,6 +4954,7 @@ var HIDE_POPUP = exports.HIDE_POPUP = 'HIDE_POPUP';
 var SHOW_POPUP = exports.SHOW_POPUP = 'SHOW_POPUP';
 var SHOW_POPUP_NOT_ON_THE_LIST = exports.SHOW_POPUP_NOT_ON_THE_LIST = 'SHOW_POPUP_NOT_ON_THE_LIST';
 var SHOW_POPUP_NO_FRIENDS = exports.SHOW_POPUP_NO_FRIENDS = 'SHOW_POPUP_NO_FRIENDS';
+var SHOW_POPUP_INVITE_THANKS = exports.SHOW_POPUP_INVITE_THANKS = 'SHOW_POPUP_INVITE_THANKS';
 
 var HIDE_AWARD = exports.HIDE_AWARD = 'HIDE_AWARD';
 var SHOW_AWARD = exports.SHOW_AWARD = 'SHOW_AWARD';
@@ -62562,7 +62563,7 @@ var Popup = function () {
             linkText: "",
             canClose: false
         };
-        this.actions = (_actions = {}, _defineProperty(_actions, ACTIONS.SEND_RESET_PASSWORD_EMAIL, this.sendResetPasswordEmail), _defineProperty(_actions, ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST, this.notOnTheList), _defineProperty(_actions, ACTIONS.SHOW_POPUP_NO_FRIENDS, this.noFriends), _defineProperty(_actions, ACTIONS.UPDATE_RESET_PASSWORD_EMAIL, function (data, state) {
+        this.actions = (_actions = {}, _defineProperty(_actions, ACTIONS.SEND_RESET_PASSWORD_EMAIL, this.sendResetPasswordEmail), _defineProperty(_actions, ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST, this.notOnTheList), _defineProperty(_actions, ACTIONS.SHOW_POPUP_NO_FRIENDS, this.noFriends), _defineProperty(_actions, ACTIONS.SHOW_POPUP_INVITE_THANKS, this.inviteThanks), _defineProperty(_actions, ACTIONS.UPDATE_RESET_PASSWORD_EMAIL, function (data, state) {
             return { resetEmail: data.email };
         }), _defineProperty(_actions, ACTIONS.HIDE_POPUP, function (data, state) {
             return { visible: false };
@@ -62665,6 +62666,33 @@ var Popup = function () {
                 ' isn\'t one you should give away too lightly.'
             );
             state.linkText = 'I\'ll think on it';
+            state.visible = true;
+            state.canClose = false;
+            state.linkAction = function () {
+                return (0, _dispatch.Dispatch)(ACTIONS.HIDE_POPUP);
+            };
+        }
+    }, {
+        key: 'inviteThanks',
+        value: function inviteThanks(data, state) {
+            state.popupType = 'standard';
+            state.title = 'A big thank you!';
+            state.content = _react2.default.createElement(
+                'div',
+                null,
+                'Thanks for sharing Suppl. ',
+                _react2.default.createElement('br', null),
+                ' ',
+                _react2.default.createElement(
+                    'strong',
+                    null,
+                    ' You will move up the waitlist as soon as these invites are accepted'
+                ),
+                '.',
+                _react2.default.createElement('br', null),
+                ' In the meantime we will keep you up to date on everything Suppl related!'
+            );
+            state.linkText = 'Got it!';
             state.visible = true;
             state.canClose = false;
             state.linkAction = function () {
@@ -63608,9 +63636,11 @@ var Waitlist = function () {
 
                             case 15:
 
-                                (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'Success!' });
+                                state.referralEmails = ['', '', ''];
+                                (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'Nice one!' });
+                                (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_POPUP_INVITE_THANKS });
 
-                            case 16:
+                            case 18:
                             case 'end':
                                 return _context3.stop();
                         }

@@ -23,6 +23,7 @@ class Popup {
         [ACTIONS.SEND_RESET_PASSWORD_EMAIL]  : this.sendResetPasswordEmail,
         [ACTIONS.SHOW_POPUP_NOT_ON_THE_LIST] : this.notOnTheList,
         [ACTIONS.SHOW_POPUP_NO_FRIENDS]      : this.noFriends,
+        [ACTIONS.SHOW_POPUP_INVITE_THANKS]      : this.inviteThanks,
         [ACTIONS.UPDATE_RESET_PASSWORD_EMAIL]: (data, state) => ({resetEmail: data.email}),
         [ACTIONS.HIDE_POPUP]                 : (data, state) => ({visible: false}),
         [ACTIONS.SHOW_POPUP]                 : (data, state) => ({visible: true, popupType: data.popupType}),
@@ -63,6 +64,17 @@ class Popup {
         state.title      = `Your friends need you right now.`;
         state.content    = <div><strong>Take your time</strong>, the <strong> gift of great posture </strong> isn't one you should give away too lightly.</div>;
         state.linkText   = `I'll think on it`;
+        state.visible    = true;
+        state.canClose   = false;
+        state.linkAction = () => Dispatch(ACTIONS.HIDE_POPUP);
+    }
+
+    inviteThanks(data, state) {
+        state.popupType  = 'standard';
+        state.title      = `A big thank you!`;
+        state.content    = <div>Thanks for sharing Suppl. <br/> <strong> You will move up the waitlist as soon as these invites are accepted</strong>.
+            <br/> In the meantime we will keep you up to date on everything Suppl related!</div>;
+        state.linkText   = `Got it!`;
         state.visible    = true;
         state.canClose   = false;
         state.linkAction = () => Dispatch(ACTIONS.HIDE_POPUP);
