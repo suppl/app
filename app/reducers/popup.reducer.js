@@ -47,8 +47,8 @@ class Popup {
     notOnTheList(data, state) {
         state.popupType  = 'standard';
         state.title      = `Sorry buddy, you're not on the list.`;
-        state.content    = <div>It looks like you haven't registered with us just yet. <br/>No problem,
-            <strong>sign up</strong> to our early access programme <strong>right now!</strong></div>;
+        state.content    = <div>It looks like you haven't registered with us just yet. <br/>
+            <strong> Sign up </strong> to our early access programme <strong> right now! </strong></div>;
         state.linkText   = `Get started`;
         state.visible    = true;
         state.canClose   = false;
