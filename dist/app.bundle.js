@@ -62696,7 +62696,8 @@ var Popup = function () {
             state.visible = true;
             state.canClose = false;
             state.linkAction = function () {
-                return (0, _dispatch.Dispatch)(ACTIONS.HIDE_POPUP);
+                (0, _dispatch.Dispatch)(ACTIONS.HIDE_POPUP);
+                (0, _helper.SetUrl)('http://www.suppl.co');
             };
         }
     }]);

@@ -77,7 +77,10 @@ class Popup {
         state.linkText   = `Got it!`;
         state.visible    = true;
         state.canClose   = false;
-        state.linkAction = () => Dispatch(ACTIONS.HIDE_POPUP);
+        state.linkAction = () => {
+            Dispatch(ACTIONS.HIDE_POPUP);
+            SetUrl(`http://www.suppl.co`);
+        }
     }
 }
 
