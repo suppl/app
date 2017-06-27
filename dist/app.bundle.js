@@ -63514,30 +63514,35 @@ var Waitlist = function () {
                                     name: state.name,
                                     "affiliate": state.ref
                                 };
-                                _context2.next = 3;
+
+
+                                (0, _dispatch.Dispatch)(ACTIONS.START_LOADING);
+                                _context2.next = 4;
                                 return Request.post(state.api).send(body).set('Content-Type', 'application/json').set('X-API-Key', '623ebd98943530c3c95a33d0d5607bf4').ok(function (res) {
                                     return res.status < 501;
                                 });
 
-                            case 3:
+                            case 4:
                                 res = _context2.sent;
 
+                                (0, _dispatch.Dispatch)(ACTIONS.DONE_LOADING);
+
                                 if (!res.body.errors) {
-                                    _context2.next = 7;
+                                    _context2.next = 9;
                                     break;
                                 }
 
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: res.text, theme: 'error' });
                                 return _context2.abrupt('return');
 
-                            case 7:
+                            case 9:
 
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SET_WAITLIST_USER, user: res.body });
                                 (0, _helper.SetUrl)('/waitlist/bump?email=' + state.email);
 
                                 console.info('res', res);
 
-                            case 10:
+                            case 12:
                             case 'end':
                                 return _context2.stop();
                         }

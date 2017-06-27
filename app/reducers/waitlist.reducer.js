@@ -65,12 +65,14 @@ class Waitlist {
             // "responses": {}
         };
 
+        Dispatch(ACTIONS.START_LOADING);
         let res = await Request
             .post(state.api)
             .send(body)
             .set('Content-Type', 'application/json')
             .set('X-API-Key', '623ebd98943530c3c95a33d0d5607bf4')
             .ok(res => res.status < 501);
+        Dispatch(ACTIONS.DONE_LOADING);
 
         if (res.body.errors) {
             Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: res.text, theme: 'error'});
