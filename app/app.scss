@@ -12,15 +12,11 @@
 @import "global/bump";
 
 html, body {
-  width: 100%;
   overflow: hidden;
-  min-width: 600px;
 
-  .not-desktop & {
-    min-width: 320px;
-    width: 100vw;
-    overflow-x: hidden;
-  }
+  min-width: 320px;
+  width: 100%;
+
 }
 
 body {
@@ -37,12 +33,6 @@ body {
   color: $brownish-grey;
 
   //min-width: 600px;
-
-  .not-desktop & {
-    min-width: 320px;
-    width: 100vw;
-    overflow-x: hidden;
-  }
 }
 
 input, textarea, select {
