@@ -1,6 +1,6 @@
 @import "colors";
 
-body .register-screen {
+.register-screen {
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -56,7 +56,14 @@ body .register-screen {
     display: flex;
     flex-direction: row;
 
-
+    .not-desktop & {
+      height: 60px;
+      align-items: center;
+      padding: 0 20px;
+      background: white;
+      width: 100%;
+      flex: 0 0 60px;
+    }
 
     .header-logo {
       img {
@@ -86,6 +93,12 @@ body .register-screen {
     //text-align: center;
     color: $dark;
     margin-top: 80px;
+
+
+    .not-desktop & {
+      font-size: 18px;
+      margin-top: 30px;
+    }
   }
 
   .register-sub-heading {

@@ -17,6 +17,11 @@
     color: white;
     margin-top: 5px;
     max-width: 430px;
+
+    .not-desktop & {
+      max-width: 280px;
+      font-size: 14px;
+    }
   }
 
   .position-number {
@@ -39,6 +44,10 @@
     font-size: 15px;
     text-align: center;
     color: white;
+
+    .not-desktop & {
+      max-width: 280px;
+    }
   }
 
   .position-code {
@@ -62,6 +71,14 @@
     color: #967b26;
     padding-top: 35px;
     //margin-top: 30px;
+
+    .not-desktop & {
+      max-width: 300px;
+      background-size: contain;
+      height: 110px;
+      padding-top: 27px;
+      font-size: 11px;
+    }
   }
 
   .position-buttons {
@@ -71,6 +88,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    .not-desktop & {
+      max-width: 280px;
+    }
 
     .position-button {
       width: 93px;
@@ -91,6 +112,11 @@
       i {
         margin-right: 10px;
         font-size: 18px;
+      }
+
+      .not-desktop & {
+        font-size: 13px;
+        width: 85px;
       }
 
     }

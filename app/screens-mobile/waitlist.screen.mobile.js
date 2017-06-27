@@ -38,46 +38,48 @@ class WaitlistScreenMobile extends React.Component {
                         <div className="header-page">Early access</div>
                     </div>
 
-                    <div className="register-heading">
-                        <div style={{fontSize: '30px', marginBottom: '5px'}}>Hey <strong>Superstar!</strong></div>
-                        Join our early access community
-                    </div>
-
-
-                    <div className="suppl-form" style={{marginTop: '40px'}}>
-                        <div className="suppl-label">Your name</div>
-
-                        <div className="suppl-input large">
-                            <div className="input-icon icon-user"/>
-                            <input type="text"
-                                   placeholder="E.g. Barry Johnson"
-                                   autoFocus={true}
-                                   value={this.props.waitlist.name}
-                                   onChange={this.props.setName}
-                            />
+                    <div data-mobile-content>
+                        <div className="register-heading">
+                            <div style={{fontSize: '30px', marginBottom: '5px'}}>Hey <strong>Superstar!</strong></div>
+                            Join our early access community
                         </div>
 
-                        <div className="suppl-label">Your email</div>
 
-                        <div className="suppl-input large">
-                            <div className="input-icon icon-envelope"/>
-                            <input type="email"
-                                   placeholder="E.g. barry@work.com"
-                                   value={this.props.waitlist.email}
-                                   onChange={this.props.setEmail}
-                            />
+                        <div className="suppl-form" style={{marginTop: '10px'}}>
+                            <div className="suppl-label">Your name</div>
+
+                            <div className="suppl-input large">
+                                <div className="input-icon icon-user"/>
+                                <input type="text"
+                                       placeholder="E.g. Barry Johnson"
+                                       autoFocus={true}
+                                       value={this.props.waitlist.name}
+                                       onChange={this.props.setName}
+                                />
+                            </div>
+
+                            <div className="suppl-label">Your email</div>
+
+                            <div className="suppl-input large">
+                                <div className="input-icon icon-envelope"/>
+                                <input type="email"
+                                       placeholder="E.g. barry@work.com"
+                                       value={this.props.waitlist.email}
+                                       onChange={this.props.setEmail}
+                                />
+                            </div>
+
+                            <div className="butn large" style={{maxWidth: 'none'}} onClick={this.props.signUp}>Request FREE Early Access!</div>
+
+
+                            <p className="clearfix">
+                                {/*<Link href="/" className="pull-left">Login</Link>*/}
+                                <Link href={`/waitlist/check`} style={{
+                                    textAlign: 'center',
+                                    display  : 'block'
+                                }}>Check my place in the queue</Link>
+                            </p>
                         </div>
-
-                        <div className="butn large" style={{maxWidth: 'none'}} onClick={this.props.signUp}>Request FREE Early Access!</div>
-
-
-                        <p className="clearfix">
-                            {/*<Link href="/" className="pull-left">Login</Link>*/}
-                            <Link href={`/waitlist/check`} style={{
-                                textAlign: 'center',
-                                display  : 'block'
-                            }}>Check my place in the queue</Link>
-                        </p>
                     </div>
                 </div>
 

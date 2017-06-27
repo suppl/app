@@ -75,7 +75,7 @@ class Waitlist {
         }
 
         Dispatch({type: ACTIONS.SET_WAITLIST_USER, user: res.body});
-        SetUrl(`/waitlist/share?email=${state.email}`);
+        SetUrl(`/waitlist/bump?email=${state.email}`);
 
         console.info('res', res)
     }

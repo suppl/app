@@ -119,10 +119,10 @@ class ShareScreen extends React.Component {
                     </div>
 
                     <div className="register-right" style={{backgroundColor: '#4F617B'}}>
-                        <img className="register-img" src="/statics/svg/waitlist/position-invitation-banner.svg" style={{
-                            top         : "0",
-                            marginBottom: "auto"
-                        }}/>
+                        {/*<img className="register-img" src="/statics/svg/waitlist/position-invitation-banner.svg" style={{*/}
+                            {/*top         : "0",*/}
+                            {/*marginBottom: "auto"*/}
+                        {/*}}/>*/}
 
                         <div className="position-info">
                             <div className="position-18" style={{marginTop: '80px'}}>

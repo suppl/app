@@ -28,7 +28,7 @@ class PopupStandard extends React.Component {
                         {this.props.popup.canClose ?
                             <div className="butn transparent no-margin" style={{cursor: 'pointer'}} onClick={this.props.hidePopup}>Cancel</div> : ''
                         }
-                        <div className="butn no-margin" style={{marginLeft: 'auto'}} onClick={this.props.popup.linkAction}>{this.props.popup.linkText}</div>
+                        <div className="butn no-margin" style={{marginLeft: 'auto', 'minWidth': 'auto'}} onClick={this.props.popup.linkAction}>{this.props.popup.linkText}</div>
                     </div>
                 </div>
             </div>

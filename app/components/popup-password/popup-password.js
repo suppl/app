@@ -36,7 +36,7 @@ class PopupPassword extends React.Component {
                     </div>
                     <div className="popup-bottom">
                         <div className="butn transparent no-margin" style={{cursor: 'pointer'}} onClick={this.props.hidePopup}>Cancel</div>
-                        <div className="butn no-margin" style={{marginLeft: 'auto'}} onClick={this.props.sendResetPasswordEmail}>Reset Password</div>
+                        <div className="butn no-margin" style={{marginLeft: 'auto', 'minWidth': 'auto'}} onClick={this.props.sendResetPasswordEmail}>Reset Password</div>
                     </div>
                 </div>
             </div>

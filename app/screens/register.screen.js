@@ -27,55 +27,58 @@ class Register extends React.Component {
         return (
             <div data-screen className={`register-screen ${this.activeClass}`}>
 
-                <div className="register-left">
-                    <div className="register-header">
-                        <div className="header-logo">
-                            <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
-                        </div>
-                        <div className="header-logo-text">SUPPL</div>
-                        <div className="header-page">Get Started</div>
-                    </div>
-
-                    <div className="register-heading"><strong>Howdy</strong>! Get your <strong>FREE</strong>
-                        <br/>Suppl account now!
-                    </div>
-
-
-                    <div className="suppl-form" style={{marginTop: '40px'}}>
-                        <div className="suppl-label">Your name</div>
-
-                        <div className="suppl-input large">
-                            <div className="input-icon icon-user"/>
-                            <input type="text" placeholder="E.g. Barry Johnson" autoFocus={true}  value={this.props.user.register.name} onChange={this.props.updateRegisterName}/>
+                <div className="flex flex-row">
+                    <div className="register-left">
+                        <div className="register-header">
+                            <div className="header-logo">
+                                <img src="/statics/images/suppl-favicon.png" alt="Suppl Logo"/>
+                            </div>
+                            <div className="header-logo-text">SUPPL</div>
+                            <div className="header-page">Get Started</div>
                         </div>
 
-                        <div className="suppl-label">Your email</div>
-
-                        <div className="suppl-input large">
-                            <div className="input-icon icon-envelope"/>
-                            <input type="email" placeholder="E.g. barry@work.com" value={this.props.user.register.email} onChange={(event) => {
-                                this.props.updateRegisterEmail(event);
-                                this.props.updateRegisterCheckEmail(event)
-                            }}/>
+                        <div className="register-heading"><strong>Howdy</strong>! Get your <strong>FREE</strong>
+                            <br/>Suppl account now!
                         </div>
 
-                        <Link className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href={`/register-password`}>Let's get started</Link>
+
+                        <div className="suppl-form" style={{marginTop: '40px'}}>
+                            <div className="suppl-label">Your name</div>
+
+                            <div className="suppl-input large">
+                                <div className="input-icon icon-user"/>
+                                <input type="text" placeholder="E.g. Barry Johnson" autoFocus={true} value={this.props.user.register.name} onChange={this.props.updateRegisterName}/>
+                            </div>
+
+                            <div className="suppl-label">Your email</div>
+
+                            <div className="suppl-input large">
+                                <div className="input-icon icon-envelope"/>
+                                <input type="email" placeholder="E.g. barry@work.com" value={this.props.user.register.email} onChange={(event) => {
+                                    this.props.updateRegisterEmail(event);
+                                    this.props.updateRegisterCheckEmail(event)
+                                }}/>
+                            </div>
+
+                            <Link className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} href={`/register-password`}>Let's get started</Link>
 
 
-                        <p className="clearfix">
-                            {/*<Link href="/" className="pull-left">Login</Link>*/}
-                            <Link href="/" className="pull-right">Back to Login</Link>
-                        </p>
+                            <p className="clearfix">
+                                {/*<Link href="/" className="pull-left">Login</Link>*/}
+                                <Link href="/" className="pull-right">Back to Login</Link>
+                            </p>
+                        </div>
+
+
                     </div>
 
-
+                    <div className="register-right">
+                        <img className="register-img" src="/statics/images/login-one.svg" style={{
+                            marginTop   : "auto",
+                            marginBottom: "-50px"
+                        }}/>
+                    </div>
                 </div>
-
-                <div className="register-right">
-                    <img className="register-img" src="/statics/images/login-one.svg" style={{marginTop:"auto",marginBottom:"-50px"}}/>
-                </div>
-
-
             </div>
         )
     }
@@ -97,12 +100,12 @@ const mapDispatchToProps = dispatch => ({
     }),
 
     updateRegisterEmail: (event) => dispatch({
-        type: ACTIONS.UPDATE_REGISTER_EMAIL,
+        type : ACTIONS.UPDATE_REGISTER_EMAIL,
         email: event.target.value,
     }),
 
     updateRegisterCheckEmail: (event) => dispatch({
-        type: ACTIONS.UPDATE_REGISTER_CHECK_EMAIL,
+        type : ACTIONS.UPDATE_REGISTER_CHECK_EMAIL,
         email: event.target.value,
     }),
 
@@ -116,7 +119,7 @@ const mapDispatchToProps = dispatch => ({
     }),
 
     showNotification: (message) => dispatch({
-        type: ACTIONS.SHOW_NOTIFICATION,
+        type : ACTIONS.SHOW_NOTIFICATION,
         theme: 'error',
         message,
     }),

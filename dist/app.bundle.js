@@ -26630,6 +26630,26 @@ var _waitlistScreen = __webpack_require__(750);
 
 var _waitlistScreen2 = _interopRequireDefault(_waitlistScreen);
 
+var _positionScreen = __webpack_require__(751);
+
+var _positionScreen2 = _interopRequireDefault(_positionScreen);
+
+var _bumpScreen = __webpack_require__(752);
+
+var _bumpScreen2 = _interopRequireDefault(_bumpScreen);
+
+var _shareScreen = __webpack_require__(753);
+
+var _shareScreen2 = _interopRequireDefault(_shareScreen);
+
+var _registerScreen = __webpack_require__(754);
+
+var _registerScreen2 = _interopRequireDefault(_registerScreen);
+
+var _splashScreen = __webpack_require__(755);
+
+var _splashScreen2 = _interopRequireDefault(_splashScreen);
+
 var _popupPassword = __webpack_require__(743);
 
 var _popupPassword2 = _interopRequireDefault(_popupPassword);
@@ -26742,11 +26762,11 @@ _reactDom2.default.render(_react2.default.createElement(
             _react2.default.createElement(Location, { path: '/waitlist/share', handler: _share2.default }),
             _react2.default.createElement(Location, { path: '/waitlist/bump', handler: _bump2.default })
         ) : '',
-        (0, _helper.IsTablet)() ? _react2.default.createElement(
+        (0, _helper.IsTablet)() || (0, _helper.IsMobile)() ? _react2.default.createElement(
             Locations,
             null,
-            _react2.default.createElement(Location, { path: '/', handler: _splash2.default }),
-            _react2.default.createElement(Location, { path: '/register', handler: _register2.default }),
+            _react2.default.createElement(Location, { path: '/', handler: _splashScreen2.default }),
+            _react2.default.createElement(Location, { path: '/register', handler: _registerScreen2.default }),
             _react2.default.createElement(Location, { path: '/register-password', handler: _registerPassword2.default }),
             _react2.default.createElement(Location, { path: '/register-job', handler: _registerJob2.default }),
             _react2.default.createElement(Location, { path: '/register-style', handler: _registerStyle2.default }),
@@ -26758,29 +26778,9 @@ _reactDom2.default.render(_react2.default.createElement(
             _react2.default.createElement(Location, { path: '/profile', handler: _profile2.default }),
             _react2.default.createElement(Location, { path: '/community', handler: _community2.default }),
             _react2.default.createElement(Location, { path: '/waitlist', handler: _waitlistScreen2.default }),
-            _react2.default.createElement(Location, { path: '/waitlist/check', handler: _position2.default }),
-            _react2.default.createElement(Location, { path: '/waitlist/share', handler: _share2.default }),
-            _react2.default.createElement(Location, { path: '/waitlist/bump', handler: _bump2.default })
-        ) : '',
-        (0, _helper.IsMobile)() ? _react2.default.createElement(
-            Locations,
-            null,
-            _react2.default.createElement(Location, { path: '/', handler: _splash2.default }),
-            _react2.default.createElement(Location, { path: '/register', handler: _register2.default }),
-            _react2.default.createElement(Location, { path: '/register-password', handler: _registerPassword2.default }),
-            _react2.default.createElement(Location, { path: '/register-job', handler: _registerJob2.default }),
-            _react2.default.createElement(Location, { path: '/register-style', handler: _registerStyle2.default }),
-            _react2.default.createElement(Location, { path: '/awards', handler: _awards2.default }),
-            _react2.default.createElement(Location, { path: '/progress', handler: _progress2.default }),
-            _react2.default.createElement(Location, { path: '/sessions', handler: _sessions2.default }),
-            _react2.default.createElement(Location, { path: '/sessions/:sessionId', handler: _session2.default }),
-            _react2.default.createElement(Location, { path: '/dashboard(/*)', handler: _dashboard2.default }),
-            _react2.default.createElement(Location, { path: '/profile', handler: _profile2.default }),
-            _react2.default.createElement(Location, { path: '/community', handler: _community2.default }),
-            _react2.default.createElement(Location, { path: '/waitlist', handler: _waitlistScreen2.default }),
-            _react2.default.createElement(Location, { path: '/waitlist/check', handler: _position2.default }),
-            _react2.default.createElement(Location, { path: '/waitlist/share', handler: _share2.default }),
-            _react2.default.createElement(Location, { path: '/waitlist/bump', handler: _bump2.default })
+            _react2.default.createElement(Location, { path: '/waitlist/check', handler: _positionScreen2.default }),
+            _react2.default.createElement(Location, { path: '/waitlist/share', handler: _shareScreen2.default }),
+            _react2.default.createElement(Location, { path: '/waitlist/bump', handler: _bumpScreen2.default })
         ) : ''
     )
 ), document.getElementById('app'));
@@ -52971,7 +52971,7 @@ var Waitlist = function () {
                             case 7:
 
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SET_WAITLIST_USER, user: res.body });
-                                (0, _helper.SetUrl)('/waitlist/share?email=' + state.email);
+                                (0, _helper.SetUrl)('/waitlist/bump?email=' + state.email);
 
                                 console.info('res', res);
 
@@ -55168,91 +55168,98 @@ var Register = function (_React$Component) {
                 { 'data-screen': true, className: 'register-screen ' + this.activeClass },
                 _react2.default.createElement(
                     'div',
-                    { className: 'register-left' },
+                    { className: 'flex flex-row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'register-header' },
+                        { className: 'register-left' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'header-logo' },
-                            _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'header-logo-text' },
-                            'SUPPL'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'header-page' },
-                            'Get Started'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'register-heading' },
-                        _react2.default.createElement(
-                            'strong',
-                            null,
-                            'Howdy'
-                        ),
-                        '! Get your ',
-                        _react2.default.createElement(
-                            'strong',
-                            null,
-                            'FREE'
-                        ),
-                        _react2.default.createElement('br', null),
-                        'Suppl account now!'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'suppl-form', style: { marginTop: '40px' } },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-label' },
-                            'Your name'
+                            { className: 'register-header' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'header-logo' },
+                                _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'header-logo-text' },
+                                'SUPPL'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'header-page' },
+                                'Get Started'
+                            )
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'suppl-input large' },
-                            _react2.default.createElement('div', { className: 'input-icon icon-user' }),
-                            _react2.default.createElement('input', { type: 'text', placeholder: 'E.g. Barry Johnson', autoFocus: true, value: this.props.user.register.name, onChange: this.props.updateRegisterName })
+                            { className: 'register-heading' },
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                'Howdy'
+                            ),
+                            '! Get your ',
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                'FREE'
+                            ),
+                            _react2.default.createElement('br', null),
+                            'Suppl account now!'
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'suppl-label' },
-                            'Your email'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-input large' },
-                            _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
-                            _react2.default.createElement('input', { type: 'email', placeholder: 'E.g. barry@work.com', value: this.props.user.register.email, onChange: function onChange(event) {
-                                    _this3.props.updateRegisterEmail(event);
-                                    _this3.props.updateRegisterCheckEmail(event);
-                                } })
-                        ),
-                        _react2.default.createElement(
-                            _reactRouterComponent.Link,
-                            { className: 'butn large', style: { marginLeft: 'auto' }, disabled: !isValid(), tabIndex: 0, href: '/register-password' },
-                            'Let\'s get started'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'clearfix' },
+                            { className: 'suppl-form', style: { marginTop: '40px' } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your name'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-user' }),
+                                _react2.default.createElement('input', { type: 'text', placeholder: 'E.g. Barry Johnson', autoFocus: true, value: this.props.user.register.name, onChange: this.props.updateRegisterName })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your email'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
+                                _react2.default.createElement('input', { type: 'email', placeholder: 'E.g. barry@work.com', value: this.props.user.register.email, onChange: function onChange(event) {
+                                        _this3.props.updateRegisterEmail(event);
+                                        _this3.props.updateRegisterCheckEmail(event);
+                                    } })
+                            ),
                             _react2.default.createElement(
                                 _reactRouterComponent.Link,
-                                { href: '/', className: 'pull-right' },
-                                'Back to Login'
+                                { className: 'butn large', style: { marginLeft: 'auto' }, disabled: !isValid(), tabIndex: 0, href: '/register-password' },
+                                'Let\'s get started'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    _reactRouterComponent.Link,
+                                    { href: '/', className: 'pull-right' },
+                                    'Back to Login'
+                                )
                             )
                         )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-right' },
+                        _react2.default.createElement('img', { className: 'register-img', src: '/statics/images/login-one.svg', style: {
+                                marginTop: "auto",
+                                marginBottom: "-50px"
+                            } })
                     )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'register-right' },
-                    _react2.default.createElement('img', { className: 'register-img', src: '/statics/images/login-one.svg', style: { marginTop: "auto", marginBottom: "-50px" } })
                 )
             );
         }
@@ -56033,10 +56040,6 @@ var ShareScreen = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'register-right', style: { backgroundColor: '#4F617B' } },
-                        _react2.default.createElement('img', { className: 'register-img', src: '/statics/svg/waitlist/position-invitation-banner.svg', style: {
-                                top: "0",
-                                marginBottom: "auto"
-                            } }),
                         _react2.default.createElement(
                             'div',
                             { className: 'position-info' },
@@ -56195,101 +56198,104 @@ var Splash = function (_React$Component) {
                 { 'data-screen': true, className: 'register-screen ' + this.activeClass },
                 _react2.default.createElement(
                     'div',
-                    { className: 'register-left' },
+                    { className: 'flex flex-row' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'register-header' },
-                        _react2.default.createElement(
-                            _reactRouterComponent.Link,
-                            { href: '/', className: 'header-logo clickable' },
-                            _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
-                        ),
-                        _react2.default.createElement(
-                            _reactRouterComponent.Link,
-                            { href: '/', className: 'header-logo-text clickable' },
-                            'SUPPL'
-                        ),
+                        { className: 'register-left' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'header-page' },
-                            'Get Started'
-                        )
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'register-heading' },
-                        _react2.default.createElement(
-                            'div',
-                            { style: { fontSize: '30px', marginBottom: '5px' } },
-                            'Sign in to  ',
+                            { className: 'register-header' },
                             _react2.default.createElement(
-                                'strong',
-                                null,
-                                'Suppl '
+                                _reactRouterComponent.Link,
+                                { href: '/', className: 'header-logo clickable' },
+                                _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
                             ),
-                            ' '
-                        ),
-                        'Enter your details below'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'suppl-form', style: { marginTop: '40px' } },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-label' },
-                            'Your email'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-input large' },
-                            _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
-                            _react2.default.createElement('input', { type: 'email', autoFocus: true, placeholder: 'E.g. barry@work.com', value: this.props.user.email, onChange: this.props.updateLoginEmail })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-label' },
-                            'Your email'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-input large' },
-                            _react2.default.createElement('div', { className: 'input-icon icon-lock' }),
-                            _react2.default.createElement('input', { type: 'password', placeholder: 'Password', value: this.props.user.password, onChange: this.props.updateLoginPassword })
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'clearfix' },
                             _react2.default.createElement(
-                                'a',
-                                { className: 'pull-right', onClick: this.props.showResetPassword },
-                                'Forgot your password?'
+                                _reactRouterComponent.Link,
+                                { href: '/', className: 'header-logo-text clickable' },
+                                'SUPPL'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'header-page' },
+                                'Get Started'
                             )
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'butn large', style: { marginLeft: 'auto' }, tabIndex: 0, onClick: this.props.signIn },
-                            'Sign in'
-                        ),
-                        _react2.default.createElement('div', { className: 'line' }),
-                        _react2.default.createElement(
-                            _reactRouterComponent.Link,
-                            { className: 'butn mid white pull-right', href: '/waitlist' },
-                            'Get started'
+                            { className: 'register-heading' },
+                            _react2.default.createElement(
+                                'div',
+                                { style: { fontSize: '30px', marginBottom: '5px' } },
+                                'Sign in to ',
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    'Suppl '
+                                )
+                            ),
+                            'Enter your details below'
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'butn mid white transparent' },
-                            'Don\'t have an account?'
+                            { className: 'suppl-form', style: { marginTop: '40px' } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your email'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
+                                _react2.default.createElement('input', { type: 'email', autoFocus: true, placeholder: 'E.g. barry@work.com', value: this.props.user.email, onChange: this.props.updateLoginEmail })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your password'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-lock' }),
+                                _react2.default.createElement('input', { type: 'password', placeholder: 'Password', value: this.props.user.password, onChange: this.props.updateLoginPassword })
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { className: 'pull-right', onClick: this.props.showResetPassword },
+                                    'Forgot your password?'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'butn large', style: { marginLeft: 'auto' }, tabIndex: 0, onClick: this.props.signIn },
+                                'Sign in'
+                            ),
+                            _react2.default.createElement('div', { className: 'line' }),
+                            _react2.default.createElement(
+                                _reactRouterComponent.Link,
+                                { className: 'butn mid white pull-right', href: '/waitlist' },
+                                'Get started'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'butn mid white transparent' },
+                                'Don\'t have an account?'
+                            )
                         )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-right', style: { backgroundColor: '#f7fafc' } },
+                        _react2.default.createElement('img', { className: 'register-img', src: '/statics/svg/splash/login-0' + this.loginImageIndex + '.svg', style: {
+                                top: "-10px",
+                                marginBottom: "auto"
+                            } })
                     )
-                ),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'register-right', style: { backgroundColor: '#f7fafc' } },
-                    _react2.default.createElement('img', { className: 'register-img', src: '/statics/svg/splash/login-0' + this.loginImageIndex + '.svg', style: {
-                            top: "-10px",
-                            marginBottom: "auto"
-                        } })
                 )
             );
         }
@@ -62818,7 +62824,7 @@ exports = module.exports = __webpack_require__(45)(undefined);
 
 
 // module
-exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.info {\n  background-color: #eff2f9;\n  min-height: 174px;\n  border-radius: 3px;\n  margin-top: 10px;\n  position: relative;\n  overflow: hidden;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  line-height: 1;\n  flex: 1 0 auto; }\n  .info .info-white {\n    position: absolute;\n    top: 93px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .info .info-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain;\n    height: 110px;\n    width: calc(100% - 20px);\n    top: 0px;\n    left: 20px; }\n  .info .info-number {\n    font-size: 30px;\n    font-weight: 600;\n    color: #263345;\n    margin-top: 80px;\n    text-align: right; }\n  .info .info-text {\n    font-size: 15px;\n    color: #999999;\n    margin-top: 5px;\n    text-align: right; }\n\n.info-stat {\n  height: 220px;\n  border-radius: 3px;\n  background-color: #fff;\n  position: relative;\n  overflow: hidden;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  line-height: 1;\n  margin-top: 10px;\n  justify-content: center;\n  align-items: center; }\n  .info-stat:first-child {\n    margin-top: 0; }\n  .info-stat .stat-icon {\n    width: 95px;\n    height: 95px;\n    border: 10px solid #eff2f9;\n    background-color: #eff2f9;\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-position: center;\n    border-radius: 200px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .info-stat .stat-number {\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    margin-top: 15px; }\n  .info-stat .stat-text {\n    margin-top: 5px;\n    font-size: 15px;\n    text-align: center;\n    color: #999999; }\n\n.info-emoji {\n  height: 110px;\n  border-radius: 3px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: row;\n  padding: 20px;\n  align-items: center; }\n  .info-emoji .emoji-icon {\n    width: 73px;\n    height: 73px;\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .info-emoji .emoji-number {\n    margin-left: 15px;\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345; }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n    .not-desktop .suppl-input.large {\n      height: 50px;\n      line-height: 48px;\n      font-size: 14px; }\n      .not-desktop .suppl-input.large .input-icon {\n        height: 48px;\n        width: 48px; }\n      .not-desktop .suppl-input.large input {\n        height: 48px;\n        line-height: 48px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px;\n    text-decoration: none; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\nbody .register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  body .register-screen .register-left {\n    background-color: #eff2f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    transition: .6s; }\n  body .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px;\n    position: relative;\n    overflow: hidden; }\n  body .register-screen .register-img {\n    flex: 0 1 600px;\n    position: absolute; }\n  body .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    body .register-screen .register-header .header-logo img {\n      height: 15px; }\n    body .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px;\n      text-decoration: none; }\n    body .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  body .register-screen .register-heading {\n    font-size: 22px;\n    font-weight: 400;\n    color: #263345;\n    margin-top: 80px; }\n  body .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  body .register-screen.active-screen {\n    opacity: 1; }\n    body .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #eff2f9;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent;\n  z-index: 1; }\n  .series .series-white {\n    position: absolute;\n    top: 110px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .series .series-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 67px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header.mini {\n    min-height: 190px;\n    margin-top: 45px; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px; }\n    .session-list .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center;\n      justify-content: center; }\n  .session-list .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row[data-inactive=\"false\"] {\n      background: rgba(255, 255, 255, 0.5); }\n      .session-list .list-row[data-inactive=\"false\"] .session-number {\n        color: rgba(38, 51, 69, 0.5); }\n    .session-list .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 80px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n  .session-list .lock-button {\n    width: 43px;\n    height: 43px;\n    background-color: #cccccc;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .lock-button i {\n      color: white;\n      font-size: 20px; }\n\n.position-info {\n  display: flex;\n  flex: 1 0 0px;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1.5; }\n  .position-info .position-18 {\n    font-size: 18px;\n    color: white;\n    margin-top: 5px;\n    max-width: 430px; }\n  .position-info .position-number {\n    font-size: 40px;\n    font-weight: 600;\n    margin-top: 5px; }\n  .position-info .position-line {\n    height: 1px;\n    background: rgba(255, 255, 255, 0.2);\n    margin-top: 30px;\n    width: 430px; }\n  .position-info .position-text {\n    margin-top: 20px;\n    width: 300px;\n    height: 40px;\n    font-size: 15px;\n    text-align: center;\n    color: white; }\n  .position-info .position-code {\n    width: 410px;\n    height: 160px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/position-invitation.svg\");\n    background-position: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    padding-top: 35px; }\n  .position-info .position-buttons {\n    margin-top: 30px;\n    width: 390px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .position-info .position-buttons .position-button {\n      width: 93px;\n      height: 40px;\n      border-radius: 4px;\n      border: solid 1px #00a2f2;\n      display: flex;\n      flex-direction: row;\n      justify-content: center;\n      align-items: center;\n      color: #00a2f2;\n      font-size: 15px;\n      font-weight: 600;\n      text-align: center;\n      user-select: none; }\n      .position-info .position-buttons .position-button i {\n        margin-right: 10px;\n        font-size: 18px; }\n  .position-info .position-reward {\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    margin-top: 30px;\n    width: 430px; }\n    .position-info .position-reward .reward-star {\n      margin-right: 20px;\n      display: flex;\n      flex-direction: column;\n      flex: 1;\n      line-height: 1; }\n      .position-info .position-reward .reward-star i {\n        font-size: 50px; }\n    .position-info .position-reward .reward-top {\n      font-size: 15px;\n      font-weight: 600; }\n    .position-info .position-reward .reward-bottom {\n      font-size: 13px;\n      color: #263345; }\n\n.bump-info {\n  display: flex;\n  flex: 1 0 0px;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  color: #263345;\n  line-height: 1.5;\n  z-index: 1;\n  bottom: 40px;\n  position: absolute;\n  height: 420px; }\n  .bump-info .bump-18 {\n    font-size: 18px;\n    color: #263345;\n    margin-top: 5px; }\n  .bump-info .bump-number {\n    font-size: 40px;\n    font-weight: 600;\n    position: absolute;\n    margin-top: 130px;\n    color: #263345; }\n  .bump-info .bump-line {\n    height: 1px;\n    background: #cccccc;\n    margin-top: 30px;\n    width: 430px; }\n  .bump-info .bump-text {\n    margin-top: 190px;\n    width: 300px;\n    height: 40px;\n    font-size: 15px;\n    text-align: center;\n    color: #263345;\n    position: absolute; }\n  .bump-info .bump-code {\n    width: 390px;\n    height: 109px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/golden-ticket.svg\");\n    background-bump: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    margin-top: 30px; }\n  .bump-info .bump-button {\n    width: 200px;\n    height: 50px;\n    border-radius: 4px;\n    border: solid 1px #00a2f2;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    color: #00a2f2;\n    font-size: 15px;\n    font-weight: 600;\n    text-align: center;\n    user-select: none;\n    position: absolute;\n    margin-top: 310px;\n    text-decoration: none; }\n    .bump-info .bump-button i {\n      margin-right: 10px;\n      font-size: 18px; }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #cccccc;\n  margin-top: 20px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n[data-mobile-screen] {\n  display: flex;\n  flex-direction: column;\n  flex: 1 0 320px;\n  max-height: 100vh;\n  background-color: #f7f9fb; }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  margin-top: 20px;\n  font-size: 13px;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\n[class^=\"emotions-\"]:before, [class*=\" emotions-\"]:before, [class^=\"emotions-\"]:after, [class*=\" emotions-\"]:after {\n  font-family: Emotions;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%;\n  margin-left: 1px;\n  margin-top: 1px; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.clickable {\n  transition: .15s;\n  transform: scale(1);\n  cursor: pointer; }\n  .clickable:hover {\n    transform: scale(1.1); }\n  .clickable:active {\n    transform: scale(0.9);\n    box-shadow: 0 0 transparent; }\n\n.thin-row {\n  display: flex;\n  flex-direction: row;\n  position: relative;\n  margin: 0 -10px;\n  margin-top: 20px; }\n\n.thin-col {\n  flex: 1 1 calc(50%);\n  padding: 0 10px;\n  position: relative; }\n\n.awards-streak {\n  height: 190px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1; }\n  .awards-streak .streak-number {\n    font-size: 50px;\n    font-weight: 600;\n    color: #f6b8a7; }\n  .awards-streak .streak-text {\n    margin-top: 10px;\n    font-size: 15px;\n    font-weight: 600;\n    color: #f6b8a7;\n    text-transform: uppercase; }\n\n.ribbon-title {\n  background-image: url(\"/statics/svg/awards/awards-backdrop.svg\");\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 50px;\n  width: 200px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: 13px;\n  text-align: center;\n  color: #fff;\n  align-self: center;\n  top: -37px;\n  position: relative;\n  margin: 10px auto; }\n\n.streak-icons {\n  display: flex;\n  flex-direction: row;\n  margin: -30px -30px 30px;\n  flex-wrap: wrap;\n  align-self: center; }\n  .streak-icons .streak-icon {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 70px;\n    height: 100px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    margin: 30px;\n    filter: grayscale(100%);\n    opacity: 0.6; }\n    .streak-icons .streak-icon.active {\n      filter: grayscale(0%);\n      opacity: 1; }\n\n.community-list .community-dot {\n  width: 13px;\n  height: 13px;\n  background-color: #5dcfa2;\n  border-radius: 100px; }\n\n.community-list .community-name {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345; }\n\n.community-list .community-icons {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345;\n  display: flex;\n  flex-direction: row; }\n\n.community-list .community-view {\n  color: #00a2f2;\n  font-size: 25px;\n  font-weight: 600; }\n", ""]);
+exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.info {\n  background-color: #eff2f9;\n  min-height: 174px;\n  border-radius: 3px;\n  margin-top: 10px;\n  position: relative;\n  overflow: hidden;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  line-height: 1;\n  flex: 1 0 auto; }\n  .info .info-white {\n    position: absolute;\n    top: 93px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .info .info-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain;\n    height: 110px;\n    width: calc(100% - 20px);\n    top: 0px;\n    left: 20px; }\n  .info .info-number {\n    font-size: 30px;\n    font-weight: 600;\n    color: #263345;\n    margin-top: 80px;\n    text-align: right; }\n  .info .info-text {\n    font-size: 15px;\n    color: #999999;\n    margin-top: 5px;\n    text-align: right; }\n\n.info-stat {\n  height: 220px;\n  border-radius: 3px;\n  background-color: #fff;\n  position: relative;\n  overflow: hidden;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  line-height: 1;\n  margin-top: 10px;\n  justify-content: center;\n  align-items: center; }\n  .info-stat:first-child {\n    margin-top: 0; }\n  .info-stat .stat-icon {\n    width: 95px;\n    height: 95px;\n    border: 10px solid #eff2f9;\n    background-color: #eff2f9;\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-position: center;\n    border-radius: 200px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .info-stat .stat-number {\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    margin-top: 15px; }\n  .info-stat .stat-text {\n    margin-top: 5px;\n    font-size: 15px;\n    text-align: center;\n    color: #999999; }\n\n.info-emoji {\n  height: 110px;\n  border-radius: 3px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: row;\n  padding: 20px;\n  align-items: center; }\n  .info-emoji .emoji-icon {\n    width: 73px;\n    height: 73px;\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .info-emoji .emoji-number {\n    margin-left: 15px;\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345; }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n  .not-desktop .suppl-label {\n    font-size: 10px;\n    font-weight: 600; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n    .not-desktop .suppl-input.large {\n      height: 50px;\n      line-height: 48px;\n      font-size: 14px; }\n      .not-desktop .suppl-input.large .input-icon {\n        height: 48px;\n        width: 48px; }\n      .not-desktop .suppl-input.large input {\n        height: 48px;\n        line-height: 48px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px;\n    text-decoration: none; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\n.register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  .register-screen .register-left {\n    background-color: #eff2f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    transition: .6s; }\n  .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px;\n    position: relative;\n    overflow: hidden; }\n  .register-screen .register-img {\n    flex: 0 1 600px;\n    position: absolute; }\n  .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    .not-desktop .register-screen .register-header {\n      height: 60px;\n      align-items: center;\n      padding: 0 20px;\n      background: white;\n      width: 100%;\n      flex: 0 0 60px; }\n    .register-screen .register-header .header-logo img {\n      height: 15px; }\n    .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px;\n      text-decoration: none; }\n    .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  .register-screen .register-heading {\n    font-size: 22px;\n    font-weight: 400;\n    color: #263345;\n    margin-top: 80px; }\n    .not-desktop .register-screen .register-heading {\n      font-size: 18px;\n      margin-top: 30px; }\n  .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  .register-screen.active-screen {\n    opacity: 1; }\n    .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n    .not-desktop .butn.large {\n      font-size: 18px;\n      height: 60px; }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #eff2f9;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent;\n  z-index: 1; }\n  .series .series-white {\n    position: absolute;\n    top: 110px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .series .series-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 67px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header.mini {\n    min-height: 190px;\n    margin-top: 45px; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px; }\n    .session-list .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center;\n      justify-content: center; }\n  .session-list .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row[data-inactive=\"false\"] {\n      background: rgba(255, 255, 255, 0.5); }\n      .session-list .list-row[data-inactive=\"false\"] .session-number {\n        color: rgba(38, 51, 69, 0.5); }\n    .session-list .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 80px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n  .session-list .lock-button {\n    width: 43px;\n    height: 43px;\n    background-color: #cccccc;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .lock-button i {\n      color: white;\n      font-size: 20px; }\n\n.position-info {\n  display: flex;\n  flex: 1 0 0px;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1.5; }\n  .position-info .position-18 {\n    font-size: 18px;\n    color: white;\n    margin-top: 5px;\n    max-width: 430px; }\n    .not-desktop .position-info .position-18 {\n      max-width: 280px;\n      font-size: 14px; }\n  .position-info .position-number {\n    font-size: 40px;\n    font-weight: 600;\n    margin-top: 5px; }\n  .position-info .position-line {\n    height: 1px;\n    background: rgba(255, 255, 255, 0.2);\n    margin-top: 30px;\n    width: 430px; }\n  .position-info .position-text {\n    margin-top: 20px;\n    width: 300px;\n    height: 40px;\n    font-size: 15px;\n    text-align: center;\n    color: white; }\n    .not-desktop .position-info .position-text {\n      max-width: 280px; }\n  .position-info .position-code {\n    width: 410px;\n    height: 160px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/position-invitation.svg\");\n    background-position: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    padding-top: 35px; }\n    .not-desktop .position-info .position-code {\n      max-width: 300px;\n      background-size: contain;\n      height: 110px;\n      padding-top: 27px;\n      font-size: 11px; }\n  .position-info .position-buttons {\n    margin-top: 30px;\n    width: 390px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .not-desktop .position-info .position-buttons {\n      max-width: 280px; }\n    .position-info .position-buttons .position-button {\n      width: 93px;\n      height: 40px;\n      border-radius: 4px;\n      border: solid 1px #00a2f2;\n      display: flex;\n      flex-direction: row;\n      justify-content: center;\n      align-items: center;\n      color: #00a2f2;\n      font-size: 15px;\n      font-weight: 600;\n      text-align: center;\n      user-select: none; }\n      .position-info .position-buttons .position-button i {\n        margin-right: 10px;\n        font-size: 18px; }\n      .not-desktop .position-info .position-buttons .position-button {\n        font-size: 13px;\n        width: 85px; }\n  .position-info .position-reward {\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    margin-top: 30px;\n    width: 430px; }\n    .position-info .position-reward .reward-star {\n      margin-right: 20px;\n      display: flex;\n      flex-direction: column;\n      flex: 1;\n      line-height: 1; }\n      .position-info .position-reward .reward-star i {\n        font-size: 50px; }\n    .position-info .position-reward .reward-top {\n      font-size: 15px;\n      font-weight: 600; }\n    .position-info .position-reward .reward-bottom {\n      font-size: 13px;\n      color: #263345; }\n\n.bump-info {\n  display: flex;\n  flex: 1 0 0px;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  color: #263345;\n  line-height: 1.5;\n  z-index: 1;\n  bottom: 40px;\n  position: absolute;\n  height: 420px; }\n  .bump-info .bump-18 {\n    font-size: 18px;\n    color: #263345;\n    margin-top: 5px; }\n  .bump-info .bump-number {\n    font-size: 40px;\n    font-weight: 600;\n    position: absolute;\n    margin-top: 130px;\n    color: #263345; }\n  .bump-info .bump-line {\n    height: 1px;\n    background: #cccccc;\n    margin-top: 30px;\n    width: 430px; }\n  .bump-info .bump-text {\n    margin-top: 190px;\n    width: 300px;\n    height: 40px;\n    font-size: 15px;\n    text-align: center;\n    color: #263345;\n    position: absolute; }\n  .bump-info .bump-code {\n    width: 390px;\n    height: 109px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/golden-ticket.svg\");\n    background-bump: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    margin-top: 30px; }\n  .bump-info .bump-button {\n    width: 200px;\n    height: 50px;\n    border-radius: 4px;\n    border: solid 1px #00a2f2;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    color: #00a2f2;\n    font-size: 15px;\n    font-weight: 600;\n    text-align: center;\n    user-select: none;\n    position: absolute;\n    margin-top: 310px;\n    text-decoration: none; }\n    .bump-info .bump-button i {\n      margin-right: 10px;\n      font-size: 18px; }\n\nhtml, body {\n  width: 100%;\n  overflow: hidden;\n  min-width: 600px; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 13px;\n  color: #08182f;\n  font-size: 13px;\n  font-weight: 400;\n  color: #666666;\n  min-width: 600px; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #cccccc;\n  margin-top: 20px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n[data-mobile-screen] {\n  display: flex;\n  flex-direction: column;\n  flex: 1 0 320px;\n  max-width: 100vw;\n  height: 100vh;\n  overflow-y: auto;\n  background-color: #f7f9fb; }\n  [data-mobile-screen] [data-mobile-content] {\n    display: flex;\n    flex-direction: column;\n    padding: 0 20px; }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  margin-top: 20px;\n  font-size: 13px;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\n[class^=\"emotions-\"]:before, [class*=\" emotions-\"]:before, [class^=\"emotions-\"]:after, [class*=\" emotions-\"]:after {\n  font-family: Emotions;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%;\n  margin-left: 1px;\n  margin-top: 1px; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.clickable {\n  transition: .15s;\n  transform: scale(1);\n  cursor: pointer; }\n  .clickable:hover {\n    transform: scale(1.1); }\n  .clickable:active {\n    transform: scale(0.9);\n    box-shadow: 0 0 transparent; }\n\n.thin-row {\n  display: flex;\n  flex-direction: row;\n  position: relative;\n  margin: 0 -10px;\n  margin-top: 20px; }\n\n.thin-col {\n  flex: 1 1 calc(50%);\n  padding: 0 10px;\n  position: relative; }\n\n.awards-streak {\n  height: 190px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1; }\n  .awards-streak .streak-number {\n    font-size: 50px;\n    font-weight: 600;\n    color: #f6b8a7; }\n  .awards-streak .streak-text {\n    margin-top: 10px;\n    font-size: 15px;\n    font-weight: 600;\n    color: #f6b8a7;\n    text-transform: uppercase; }\n\n.ribbon-title {\n  background-image: url(\"/statics/svg/awards/awards-backdrop.svg\");\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 50px;\n  width: 200px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: 13px;\n  text-align: center;\n  color: #fff;\n  align-self: center;\n  top: -37px;\n  position: relative;\n  margin: 10px auto; }\n\n.streak-icons {\n  display: flex;\n  flex-direction: row;\n  margin: -30px -30px 30px;\n  flex-wrap: wrap;\n  align-self: center; }\n  .streak-icons .streak-icon {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 70px;\n    height: 100px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    margin: 30px;\n    filter: grayscale(100%);\n    opacity: 0.6; }\n    .streak-icons .streak-icon.active {\n      filter: grayscale(0%);\n      opacity: 1; }\n\n.community-list .community-dot {\n  width: 13px;\n  height: 13px;\n  background-color: #5dcfa2;\n  border-radius: 100px; }\n\n.community-list .community-name {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345; }\n\n.community-list .community-icons {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345;\n  display: flex;\n  flex-direction: row; }\n\n.community-list .community-view {\n  color: #00a2f2;\n  font-size: 25px;\n  font-weight: 600; }\n", ""]);
 
 // exports
 
@@ -82618,7 +82624,7 @@ var PopupPassword = function (_React$Component) {
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'butn no-margin', style: { marginLeft: 'auto' }, onClick: this.props.sendResetPasswordEmail },
+                            { className: 'butn no-margin', style: { marginLeft: 'auto', 'minWidth': 'auto' }, onClick: this.props.sendResetPasswordEmail },
                             'Reset Password'
                         )
                     )
@@ -82668,7 +82674,7 @@ exports = module.exports = __webpack_require__(45)(undefined);
 
 
 // module
-exports.push([module.i, ".popup-component {\n  z-index: 2000;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.1);\n  background-color: rgba(60, 60, 60, 0.9); }\n  .popup-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .popup-component .popup-box {\n    width: 470px;\n    min-height: 150px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    border-radius: 4px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);\n    border: solid 1px rgba(60, 60, 60, 0.02);\n    font-size: 13px;\n    color: #08182f; }\n    .popup-component .popup-box .popup-title {\n      font-size: 22px;\n      color: #08182f; }\n    .popup-component .popup-box .popup-middle {\n      padding: 30px;\n      flex: 1 0 auto; }\n    .popup-component .popup-box .popup-bottom {\n      padding: 15px 30px;\n      position: relative;\n      display: flex;\n      align-items: center;\n      background-color: #f3f3f3;\n      box-shadow: 0 -1px 1px 0 #e1e1e1; }\n    .popup-component .popup-box .popup-close {\n      position: absolute;\n      top: 0;\n      right: 0;\n      padding: 5px;\n      cursor: pointer;\n      font-size: 22px; }\n  .popup-component.error {\n    background-color: #ff939f; }\n", ""]);
+exports.push([module.i, ".popup-component {\n  z-index: 2000;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.1);\n  background-color: rgba(60, 60, 60, 0.9); }\n  .popup-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .popup-component .popup-box {\n    width: 470px;\n    min-height: 150px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    border-radius: 4px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);\n    border: solid 1px rgba(60, 60, 60, 0.02);\n    font-size: 13px;\n    color: #08182f; }\n    .popup-component .popup-box .popup-title {\n      font-size: 22px;\n      color: #08182f; }\n      .not-desktop .popup-component .popup-box .popup-title {\n        font-size: 18px; }\n    .popup-component .popup-box .popup-middle {\n      padding: 30px;\n      flex: 1 0 auto; }\n      .not-desktop .popup-component .popup-box .popup-middle {\n        padding: 30px 20px; }\n    .popup-component .popup-box .popup-bottom {\n      padding: 15px 30px;\n      position: relative;\n      display: flex;\n      align-items: center;\n      background-color: #f3f3f3;\n      box-shadow: 0 -1px 1px 0 #e1e1e1; }\n      .not-desktop .popup-component .popup-box .popup-bottom {\n        padding: 15px 20px; }\n    .popup-component .popup-box .popup-close {\n      position: absolute;\n      top: 0;\n      right: 0;\n      padding: 5px;\n      cursor: pointer;\n      font-size: 22px; }\n    .not-desktop .popup-component .popup-box {\n      width: calc(100vw - 40px); }\n  .popup-component.error {\n    background-color: #ff939f; }\n", ""]);
 
 // exports
 
@@ -82784,7 +82790,7 @@ var PopupStandard = function (_React$Component) {
                         ) : '',
                         _react2.default.createElement(
                             'div',
-                            { className: 'butn no-margin', style: { marginLeft: 'auto' }, onClick: this.props.popup.linkAction },
+                            { className: 'butn no-margin', style: { marginLeft: 'auto', 'minWidth': 'auto' }, onClick: this.props.popup.linkAction },
                             this.props.popup.linkText
                         )
                     )
@@ -82821,7 +82827,7 @@ exports = module.exports = __webpack_require__(45)(undefined);
 
 
 // module
-exports.push([module.i, ".popup-component {\n  z-index: 2000;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.1);\n  background-color: rgba(60, 60, 60, 0.9); }\n  .popup-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .popup-component .popup-box {\n    width: 470px;\n    min-height: 150px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    border-radius: 4px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);\n    border: solid 1px rgba(60, 60, 60, 0.02);\n    font-size: 13px;\n    color: #08182f; }\n    .popup-component .popup-box .popup-title {\n      font-size: 22px;\n      color: #08182f; }\n    .popup-component .popup-box .popup-middle {\n      padding: 30px;\n      flex: 1 0 auto; }\n    .popup-component .popup-box .popup-bottom {\n      padding: 15px 30px;\n      position: relative;\n      display: flex;\n      align-items: center;\n      background-color: #f3f3f3;\n      box-shadow: 0 -1px 1px 0 #e1e1e1; }\n    .popup-component .popup-box .popup-close {\n      position: absolute;\n      top: 0;\n      right: 0;\n      padding: 5px;\n      cursor: pointer;\n      font-size: 22px; }\n  .popup-component.error {\n    background-color: #ff939f; }\n", ""]);
+exports.push([module.i, ".popup-component {\n  z-index: 2000;\n  position: fixed;\n  bottom: 0;\n  right: 0;\n  top: 0;\n  left: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.1);\n  background-color: rgba(60, 60, 60, 0.9); }\n  .popup-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .popup-component .popup-box {\n    width: 470px;\n    min-height: 150px;\n    display: flex;\n    flex-direction: column;\n    position: relative;\n    border-radius: 4px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.22);\n    border: solid 1px rgba(60, 60, 60, 0.02);\n    font-size: 13px;\n    color: #08182f; }\n    .popup-component .popup-box .popup-title {\n      font-size: 22px;\n      color: #08182f; }\n      .not-desktop .popup-component .popup-box .popup-title {\n        font-size: 18px; }\n    .popup-component .popup-box .popup-middle {\n      padding: 30px;\n      flex: 1 0 auto; }\n      .not-desktop .popup-component .popup-box .popup-middle {\n        padding: 30px 20px; }\n    .popup-component .popup-box .popup-bottom {\n      padding: 15px 30px;\n      position: relative;\n      display: flex;\n      align-items: center;\n      background-color: #f3f3f3;\n      box-shadow: 0 -1px 1px 0 #e1e1e1; }\n      .not-desktop .popup-component .popup-box .popup-bottom {\n        padding: 15px 20px; }\n    .popup-component .popup-box .popup-close {\n      position: absolute;\n      top: 0;\n      right: 0;\n      padding: 5px;\n      cursor: pointer;\n      font-size: 22px; }\n    .not-desktop .popup-component .popup-box {\n      width: calc(100vw - 40px); }\n  .popup-component.error {\n    background-color: #ff939f; }\n", ""]);
 
 // exports
 
@@ -83250,68 +83256,72 @@ var WaitlistScreenMobile = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'register-heading' },
+                        { 'data-mobile-content': true },
                         _react2.default.createElement(
                             'div',
-                            { style: { fontSize: '30px', marginBottom: '5px' } },
-                            'Hey ',
+                            { className: 'register-heading' },
                             _react2.default.createElement(
-                                'strong',
-                                null,
-                                'Superstar!'
-                            )
-                        ),
-                        'Join our early access community'
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'suppl-form', style: { marginTop: '40px' } },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-label' },
-                            'Your name'
+                                'div',
+                                { style: { fontSize: '30px', marginBottom: '5px' } },
+                                'Hey ',
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    'Superstar!'
+                                )
+                            ),
+                            'Join our early access community'
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'suppl-input large' },
-                            _react2.default.createElement('div', { className: 'input-icon icon-user' }),
-                            _react2.default.createElement('input', { type: 'text',
-                                placeholder: 'E.g. Barry Johnson',
-                                autoFocus: true,
-                                value: this.props.waitlist.name,
-                                onChange: this.props.setName
-                            })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-label' },
-                            'Your email'
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-input large' },
-                            _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
-                            _react2.default.createElement('input', { type: 'email',
-                                placeholder: 'E.g. barry@work.com',
-                                value: this.props.waitlist.email,
-                                onChange: this.props.setEmail
-                            })
-                        ),
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'butn large', style: { maxWidth: 'none' }, onClick: this.props.signUp },
-                            'Request FREE Early Access!'
-                        ),
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'clearfix' },
+                            { className: 'suppl-form', style: { marginTop: '10px' } },
                             _react2.default.createElement(
-                                _reactRouterComponent.Link,
-                                { href: '/waitlist/check', style: {
-                                        textAlign: 'center',
-                                        display: 'block'
-                                    } },
-                                'Check my place in the queue'
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your name'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-user' }),
+                                _react2.default.createElement('input', { type: 'text',
+                                    placeholder: 'E.g. Barry Johnson',
+                                    autoFocus: true,
+                                    value: this.props.waitlist.name,
+                                    onChange: this.props.setName
+                                })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your email'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
+                                _react2.default.createElement('input', { type: 'email',
+                                    placeholder: 'E.g. barry@work.com',
+                                    value: this.props.waitlist.email,
+                                    onChange: this.props.setEmail
+                                })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'butn large', style: { maxWidth: 'none' }, onClick: this.props.signUp },
+                                'Request FREE Early Access!'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    _reactRouterComponent.Link,
+                                    { href: '/waitlist/check', style: {
+                                            textAlign: 'center',
+                                            display: 'block'
+                                        } },
+                                    'Check my place in the queue'
+                                )
                             )
                         )
                     )
@@ -83357,6 +83367,1078 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(WaitlistScreenMobile);
+
+/***/ }),
+/* 751 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterComponent = __webpack_require__(18);
+
+var _lodash = __webpack_require__(23);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions = __webpack_require__(8);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _reactRedux = __webpack_require__(14);
+
+var _dispatch = __webpack_require__(24);
+
+var _helper = __webpack_require__(21);
+
+var _subHeader = __webpack_require__(41);
+
+var _subHeader2 = _interopRequireDefault(_subHeader);
+
+var _header = __webpack_require__(39);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _sidebar = __webpack_require__(40);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var PositionScreenMobile = function (_React$Component) {
+    _inherits(PositionScreenMobile, _React$Component);
+
+    function PositionScreenMobile() {
+        _classCallCheck(this, PositionScreenMobile);
+
+        return _possibleConstructorReturn(this, (PositionScreenMobile.__proto__ || Object.getPrototypeOf(PositionScreenMobile)).apply(this, arguments));
+    }
+
+    _createClass(PositionScreenMobile, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active-screen';
+                _this2.forceUpdate();
+            }, 1);
+        }
+    }, {
+        key: 'checkPosition',
+        value: function checkPosition() {
+            if (!this.props.waitlist.email) {
+                (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'email address required', style: 'error' });
+                return;
+            }
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var waitlist = this.props.waitlist;
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: 'register-screen ' + this.activeClass },
+                _react2.default.createElement(
+                    'div',
+                    { 'data-mobile-screen': true },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-header' },
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo clickable' },
+                            _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
+                        ),
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo-text clickable' },
+                            'SUPPL'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-page' },
+                            'Early access'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { 'data-mobile-content': true },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'register-heading' },
+                            _react2.default.createElement(
+                                'div',
+                                { style: { fontSize: '30px', marginBottom: '5px' } },
+                                'Check your ',
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    ' Position!'
+                                )
+                            ),
+                            'Find out how you are placed\u2026'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'suppl-form', style: { marginTop: '10px' } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your email'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-user' }),
+                                _react2.default.createElement('input', { type: 'email',
+                                    placeholder: 'E.g. chris@gmail.com',
+                                    autoFocus: true,
+                                    value: this.props.waitlist.email,
+                                    onChange: this.props.setEmail
+                                })
+                            ),
+                            _react2.default.createElement(
+                                _reactRouterComponent.Link,
+                                { className: 'butn large', style: { maxWidth: 'none' }, href: '/waitlist/bump?email=' + this.props.waitlist.email },
+                                'Check my position'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    _reactRouterComponent.Link,
+                                    { href: '/waitlist', style: {
+                                            textAlign: 'center',
+                                            display: 'block'
+                                        } },
+                                    'Join our early access community'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return PositionScreenMobile;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    // firebase.auth().onAuthStateChanged(function (user) {
+    //     if (!user) SetUrl('/');
+    // });
+    //
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+
+        setName: function setName(event) {
+            return dispatch({
+                type: ACTIONS.SET_WAITLIST_NAME,
+                name: event.target.value
+            });
+        },
+
+        setEmail: function setEmail(event) {
+            return dispatch({
+                type: ACTIONS.SET_WAITLIST_EMAIL,
+                email: event.target.value
+            });
+        },
+
+        signUp: function signUp() {
+            return dispatch({
+                type: ACTIONS.SUBMIT_WAITLIST_SIGNUP
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(PositionScreenMobile);
+
+/***/ }),
+/* 752 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterComponent = __webpack_require__(18);
+
+var _lodash = __webpack_require__(23);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions = __webpack_require__(8);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _reactRedux = __webpack_require__(14);
+
+var _dispatch = __webpack_require__(24);
+
+var _helper = __webpack_require__(21);
+
+var _subHeader = __webpack_require__(41);
+
+var _subHeader2 = _interopRequireDefault(_subHeader);
+
+var _header = __webpack_require__(39);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _sidebar = __webpack_require__(40);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var BumpScreenMobile = function (_React$Component) {
+    _inherits(BumpScreenMobile, _React$Component);
+
+    function BumpScreenMobile() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, BumpScreenMobile);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = BumpScreenMobile.__proto__ || Object.getPrototypeOf(BumpScreenMobile)).call.apply(_ref, [this].concat(args))), _this), _this.referralEmails = ['', '', ''], _this.user = _this.props.waitlist.user ? _this.props.waitlist.user : {}, _this.updateReferralEmails = function (e, index) {
+            _this.referralEmails[index] = e.target.value;
+            (0, _dispatch.Dispatch)({
+                type: ACTIONS.SET_WAITLIST_REFERRAL_EMAILS,
+                referralEmails: _this.referralEmails
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(BumpScreenMobile, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active-screen';
+                _this2.forceUpdate();
+            }, 1);
+
+            (0, _dispatch.Dispatch)({ type: ACTIONS.SET_WAITLIST_EMAIL, email: this.props._query.email });
+            (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_WAITLIST_USER });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var firstName = this.props.waitlist.user ? this.props.waitlist.user.name.split(' ')[0] : '';
+            var email = this.props._query.email;
+            var user = this.props.waitlist.user ? this.props.waitlist.user : {};
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: 'register-screen ' + this.activeClass },
+                _react2.default.createElement(
+                    'div',
+                    { 'data-mobile-screen': true },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-header' },
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo clickable' },
+                            _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
+                        ),
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo-text clickable' },
+                            'SUPPL'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-page' },
+                            'Early access'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-right', style: { backgroundColor: '#f7fafc', marginBottom: '-50px' } },
+                        _react2.default.createElement('img', { className: 'register-img', src: '/statics/svg/bump/position-backdrop.svg', style: {
+                                marginTop: "auto",
+                                marginLeft: '47px',
+                                bottom: "-160px"
+                            } }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'bump-info' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'bump-number' },
+                                user.position - 1
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'bump-text' },
+                                'People ahead of you'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'bump-text', style: {
+                                        marginTop: '230px',
+                                        fontWeight: 600
+                                    } },
+                                'Move up the queue to get early access to Suppl as soon as the app is ready.'
+                            ),
+                            _react2.default.createElement(
+                                _reactRouterComponent.Link,
+                                { href: '/waitlist/share?email=' + this.props._query.email, className: 'bump-button clickable' },
+                                'Bump the queue NOW'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return BumpScreenMobile;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    // firebase.auth().onAuthStateChanged(function (user) {
+    //     if (!user) SetUrl('/');
+    // });
+    //
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+
+        sendReferral: function sendReferral(event) {
+            return dispatch({
+                type: ACTIONS.SEND_WAITLIST_REFERRAL
+            });
+        },
+
+        signUp: function signUp() {
+            return dispatch({
+                type: ACTIONS.SUBMIT_WAITLIST_SIGNUP
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BumpScreenMobile);
+
+/***/ }),
+/* 753 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterComponent = __webpack_require__(18);
+
+var _lodash = __webpack_require__(23);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions = __webpack_require__(8);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _reactRedux = __webpack_require__(14);
+
+var _dispatch = __webpack_require__(24);
+
+var _helper = __webpack_require__(21);
+
+var _subHeader = __webpack_require__(41);
+
+var _subHeader2 = _interopRequireDefault(_subHeader);
+
+var _header = __webpack_require__(39);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _sidebar = __webpack_require__(40);
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ShareScreenMobile = function (_React$Component) {
+    _inherits(ShareScreenMobile, _React$Component);
+
+    function ShareScreenMobile() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, ShareScreenMobile);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = ShareScreenMobile.__proto__ || Object.getPrototypeOf(ShareScreenMobile)).call.apply(_ref, [this].concat(args))), _this), _this.referralEmails = ['', '', ''], _this.user = _this.props.waitlist.user ? _this.props.waitlist.user : {}, _this.tweet = function () {
+            return _this.openLink('https://twitter.com/home?status=I%20just%20signed%20up%20to%20Suppl!%20Correct%20posture,%20pronto%20http%3A//suppl.co/?refcode=' + _this.props.waitlist.user.affiliate);
+        }, _this.shareFacebook = function () {
+            return _this.openLink('https://www.facebook.com/sharer/sharer.php?u=http%3A//suppl.co/?refcode=' + _this.user.affiliate);
+        }, _this.shareLinkedIn = function () {
+            return _this.openLink('https://www.linkedin.com/shareArticle?mini=true&url=http%3A//www.suppl.co/?refcode=' + _this.user.affiliate + '&title=I%20just%20signed%20up%20to%20Suppl!&summary=&source=www.suppl.co');
+        }, _this.openLink = function (link) {
+            return window.open(link, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');
+        }, _this.updateReferralEmails = function (e, index) {
+            _this.referralEmails[index] = e.target.value;
+            (0, _dispatch.Dispatch)({
+                type: ACTIONS.SET_WAITLIST_REFERRAL_EMAILS,
+                referralEmails: _this.referralEmails
+            });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(ShareScreenMobile, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active-screen';
+                _this2.forceUpdate();
+            }, 1);
+
+            (0, _dispatch.Dispatch)({ type: ACTIONS.SET_WAITLIST_EMAIL, email: this.props._query.email });
+            (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_WAITLIST_USER });
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var firstName = this.props.waitlist.user ? this.props.waitlist.user.name.split(' ')[0] : '';
+            var email = this.props._query.email;
+            var user = this.props.waitlist.user ? this.props.waitlist.user : {};
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: 'register-screen ' + this.activeClass },
+                _react2.default.createElement(
+                    'div',
+                    { 'data-mobile-screen': true },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-header' },
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo clickable' },
+                            _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
+                        ),
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo-text clickable' },
+                            'SUPPL'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-page' },
+                            'Early access'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-right', style: {
+                                backgroundColor: '#4F617B',
+                                overflowY: 'auto',
+                                padding: '20px'
+                            } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'position-info' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'position-18', style: { marginTop: '20px' } },
+                                'For every friend you invite who joins Suppl we will bump you up the queue by 100 places!'
+                            ),
+                            _react2.default.createElement('div', { className: 'position-line' }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'position-text' },
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    'Bump the queue'
+                                ),
+                                ' by inviting your friends with your uniqe invitation code'
+                            ),
+                            _react2.default.createElement('input', { className: 'position-code', readOnly: true, value: 'http://www.suppl.co/?refcode=' + user.affiliate }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'position-buttons' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'position-button clickable', onClick: this.tweet },
+                                    _react2.default.createElement('i', { className: 'fa fa-twitter' }),
+                                    ' Tweet'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'position-button clickable', onClick: this.shareFacebook },
+                                    _react2.default.createElement('i', { className: 'fa fa-facebook' }),
+                                    ' Share'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'position-button clickable', onClick: this.shareLinkedIn },
+                                    _react2.default.createElement('i', { className: 'fa fa-linkedin' }),
+                                    ' Share'
+                                )
+                            ),
+                            _react2.default.createElement('div', { className: 'position-line' }),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'position-18', style: { marginTop: '20px' } },
+                                'Share your unique invitation link with friends directly or on social media.'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return ShareScreenMobile;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    // firebase.auth().onAuthStateChanged(function (user) {
+    //     if (!user) SetUrl('/');
+    // });
+    //
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+
+        sendReferral: function sendReferral(event) {
+            return dispatch({
+                type: ACTIONS.SEND_WAITLIST_REFERRAL
+            });
+        },
+
+        signUp: function signUp() {
+            return dispatch({
+                type: ACTIONS.SUBMIT_WAITLIST_SIGNUP
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(ShareScreenMobile);
+
+/***/ }),
+/* 754 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(14);
+
+var _reactRouterComponent = __webpack_require__(18);
+
+var _actions = __webpack_require__(8);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _helper = __webpack_require__(21);
+
+var _lodash = __webpack_require__(23);
+
+var _ = _interopRequireWildcard(_lodash);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var RegisterScreenMobile = function (_React$Component) {
+    _inherits(RegisterScreenMobile, _React$Component);
+
+    function RegisterScreenMobile() {
+        _classCallCheck(this, RegisterScreenMobile);
+
+        return _possibleConstructorReturn(this, (RegisterScreenMobile.__proto__ || Object.getPrototypeOf(RegisterScreenMobile)).apply(this, arguments));
+    }
+
+    _createClass(RegisterScreenMobile, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active-screen';
+                _this2.forceUpdate();
+            }, 1);
+        }
+    }, {
+        key: 'onEmailChange',
+        value: function onEmailChange(event) {
+            console.log('this', this);
+            event.persist();
+            this.props.updateRegisterEmail(event);
+            this.checkEmail(event);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _this3 = this;
+
+            var isValid = function isValid() {
+                return _this3.props.user.register.name && _this3.props.user.register.email && _this3.props.user.register.emailIsOk;
+            };
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: 'register-screen ' + this.activeClass },
+                _react2.default.createElement(
+                    'div',
+                    { 'data-mobile-screen': true },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-header' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-logo' },
+                            _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-logo-text' },
+                            'SUPPL'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-page' },
+                            'Get Started'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { 'data-mobile-content': true },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'register-heading' },
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                'Howdy'
+                            ),
+                            '! Get your ',
+                            _react2.default.createElement(
+                                'strong',
+                                null,
+                                'FREE'
+                            ),
+                            _react2.default.createElement('br', null),
+                            'Suppl account now!'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'suppl-form', style: { marginTop: '40px' } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your name'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-user' }),
+                                _react2.default.createElement('input', { type: 'text', placeholder: 'E.g. Barry Johnson', autoFocus: true, value: this.props.user.register.name, onChange: this.props.updateRegisterName })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your email'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
+                                _react2.default.createElement('input', { type: 'email', placeholder: 'E.g. barry@work.com', value: this.props.user.register.email, onChange: function onChange(event) {
+                                        _this3.props.updateRegisterEmail(event);
+                                        _this3.props.updateRegisterCheckEmail(event);
+                                    } })
+                            ),
+                            _react2.default.createElement(
+                                _reactRouterComponent.Link,
+                                { className: 'butn large', style: { marginLeft: 'auto' }, disabled: !isValid(), tabIndex: 0, href: '/register-password' },
+                                'Let\'s get started'
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    _reactRouterComponent.Link,
+                                    { href: '/', className: 'pull-right' },
+                                    'Back to Login'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return RegisterScreenMobile;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) (0, _helper.SetUrl)('/dashboard');
+    });
+
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+
+        updateRegisterName: function updateRegisterName(event) {
+            return dispatch({
+                type: ACTIONS.UPDATE_REGISTER_NAME,
+                name: event.target.value
+            });
+        },
+
+        updateRegisterEmail: function updateRegisterEmail(event) {
+            return dispatch({
+                type: ACTIONS.UPDATE_REGISTER_EMAIL,
+                email: event.target.value
+            });
+        },
+
+        updateRegisterCheckEmail: function updateRegisterCheckEmail(event) {
+            return dispatch({
+                type: ACTIONS.UPDATE_REGISTER_CHECK_EMAIL,
+                email: event.target.value
+            });
+        },
+
+        updateRegisterEmailIsOk: function updateRegisterEmailIsOk(emailIsOk) {
+            return dispatch({
+                type: ACTIONS.UPDATE_REGISTER_EMAIL_IS_OK,
+                emailIsOk: emailIsOk
+            });
+        },
+
+        hideNotification: function hideNotification(message) {
+            return dispatch({
+                type: ACTIONS.HIDE_NOTIFICATION
+            });
+        },
+
+        showNotification: function showNotification(message) {
+            return dispatch({
+                type: ACTIONS.SHOW_NOTIFICATION,
+                theme: 'error',
+                message: message
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(RegisterScreenMobile);
+
+/***/ }),
+/* 755 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(5);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(14);
+
+var _reactRouterComponent = __webpack_require__(18);
+
+var _helper = __webpack_require__(21);
+
+var _actions = __webpack_require__(8);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SplashScreenMobile = function (_React$Component) {
+    _inherits(SplashScreenMobile, _React$Component);
+
+    function SplashScreenMobile() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
+        _classCallCheck(this, SplashScreenMobile);
+
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = SplashScreenMobile.__proto__ || Object.getPrototypeOf(SplashScreenMobile)).call.apply(_ref, [this].concat(args))), _this), _this.loginImageIndex = _.random(1, 2), _temp), _possibleConstructorReturn(_this, _ret);
+    }
+
+    _createClass(SplashScreenMobile, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active-screen';
+                _this2.forceUpdate();
+            }, 1);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: 'register-screen ' + this.activeClass },
+                _react2.default.createElement(
+                    'div',
+                    { 'data-mobile-screen': true },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'register-header' },
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo clickable' },
+                            _react2.default.createElement('img', { src: '/statics/images/suppl-favicon.png', alt: 'Suppl Logo' })
+                        ),
+                        _react2.default.createElement(
+                            _reactRouterComponent.Link,
+                            { href: '/', className: 'header-logo-text clickable' },
+                            'SUPPL'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'header-page' },
+                            'Get Started'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { 'data-mobile-content': true },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'register-heading' },
+                            _react2.default.createElement(
+                                'div',
+                                { style: { fontSize: '30px', marginBottom: '5px' } },
+                                'Sign in to ',
+                                _react2.default.createElement(
+                                    'strong',
+                                    null,
+                                    'Suppl '
+                                )
+                            ),
+                            'Enter your details below'
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'suppl-form', style: { marginTop: '10px' } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your email'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
+                                _react2.default.createElement('input', { type: 'email', autoFocus: true, placeholder: 'E.g. barry@work.com', value: this.props.user.email, onChange: this.props.updateLoginEmail })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-label' },
+                                'Your password'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'suppl-input large' },
+                                _react2.default.createElement('div', { className: 'input-icon icon-lock' }),
+                                _react2.default.createElement('input', { type: 'password', placeholder: 'Password', value: this.props.user.password, onChange: this.props.updateLoginPassword })
+                            ),
+                            _react2.default.createElement(
+                                'p',
+                                { className: 'clearfix' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { className: 'pull-right', onClick: this.props.showResetPassword },
+                                    'Forgot your password?'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'butn large', style: { marginLeft: 'auto' }, tabIndex: 0, onClick: this.props.signIn },
+                                'Sign in'
+                            ),
+                            _react2.default.createElement('div', { className: 'line' }),
+                            _react2.default.createElement(
+                                _reactRouterComponent.Link,
+                                { className: 'butn mid white pull-right', href: '/waitlist' },
+                                'Get started'
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'butn mid white transparent' },
+                                'Don\'t have an account?'
+                            ),
+                            _react2.default.createElement('div', { style: { height: '30px' } })
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SplashScreenMobile;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) (0, _helper.SetUrl)('/dashboard');
+    });
+
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        showResetPassword: function showResetPassword() {
+            return dispatch({
+                type: ACTIONS.SHOW_POPUP,
+                popupType: 'resetPassword'
+            });
+        },
+
+        updateLoginEmail: function updateLoginEmail(event) {
+            return dispatch({
+                type: ACTIONS.UPDATE_LOGIN_EMAIL,
+                email: event.target.value
+            });
+        },
+
+        updateLoginPassword: function updateLoginPassword(event) {
+            return dispatch({
+                type: ACTIONS.UPDATE_LOGIN_PASSWORD,
+                password: event.target.value
+            });
+        },
+
+        signIn: function signIn() {
+            return dispatch({
+                type: ACTIONS.SIGN_IN
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SplashScreenMobile);
 
 /***/ })
 /******/ ]);

@@ -28,6 +28,11 @@ import BumpScreen from './screens/bump.screen';
 
 
 import WaitlistScreenMobile from './screens-mobile/waitlist.screen.mobile';
+import PositionScreenMobile from './screens-mobile/position.screen.mobile';
+import BumpScreenMobile from './screens-mobile/bump.screen.mobile';
+import ShareScreenMobile from './screens-mobile/share.screen.mobile';
+import RegisterScreenMobile from './screens-mobile/register.screen.mobile';
+import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
 
 import PopupPassword from './components/popup-password/popup-password';
 import PopupStandard from './components/popup-standard/popup-standard';
@@ -101,10 +106,10 @@ ReactDOM.render(
                 </Locations> : ''
             }
 
-            {IsTablet() ?
+            {IsTablet() || IsMobile() ?
                 <Locations>
-                    <Location path="/" handler={SplashScreen}/>
-                    <Location path="/register" handler={RegisterScreen}/>
+                    <Location path="/" handler={SplashScreenMobile}/>
+                    <Location path="/register" handler={RegisterScreenMobile}/>
                     <Location path="/register-password" handler={RegisterPasswordScreen}/>
                     <Location path="/register-job" handler={RegisterJobScreen}/>
                     <Location path="/register-style" handler={RegisterStyleScreen}/>
@@ -116,30 +121,9 @@ ReactDOM.render(
                     <Location path="/profile" handler={ProfileScreen}/>
                     <Location path="/community" handler={CommunityScreen}/>
                     <Location path="/waitlist" handler={WaitlistScreenMobile}/>
-                    <Location path="/waitlist/check" handler={PositionScreen}/>
-                    <Location path="/waitlist/share" handler={ShareScreen}/>
-                    <Location path="/waitlist/bump" handler={BumpScreen}/>
-                </Locations> : ''
-            }
-
-            {IsMobile() ?
-                <Locations>
-                    <Location path="/" handler={SplashScreen}/>
-                    <Location path="/register" handler={RegisterScreen}/>
-                    <Location path="/register-password" handler={RegisterPasswordScreen}/>
-                    <Location path="/register-job" handler={RegisterJobScreen}/>
-                    <Location path="/register-style" handler={RegisterStyleScreen}/>
-                    <Location path="/awards" handler={AwardsScreen}/>
-                    <Location path="/progress" handler={ProgressScreen}/>
-                    <Location path="/sessions" handler={SessionsScreen}/>
-                    <Location path="/sessions/:sessionId" handler={SessionScreen}/>
-                    <Location path="/dashboard(/*)" handler={DashboardScreen}/>
-                    <Location path="/profile" handler={ProfileScreen}/>
-                    <Location path="/community" handler={CommunityScreen}/>
-                    <Location path="/waitlist" handler={WaitlistScreenMobile}/>
-                    <Location path="/waitlist/check" handler={PositionScreen}/>
-                    <Location path="/waitlist/share" handler={ShareScreen}/>
-                    <Location path="/waitlist/bump" handler={BumpScreen}/>
+                    <Location path="/waitlist/check" handler={PositionScreenMobile}/>
+                    <Location path="/waitlist/share" handler={ShareScreenMobile}/>
+                    <Location path="/waitlist/bump" handler={BumpScreenMobile}/>
                 </Locations> : ''
             }
 
