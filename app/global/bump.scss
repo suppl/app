@@ -1,10 +1,26 @@
 @import "colors";
 
+.bump-register {
+  background-color: #f7fafc;
+
+  background-image: url('/statics/svg/bump/position-backdrop.svg');
+  background-size: cover;
+  background-position: calc(50% + 33px) 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  //margin-right: -47px;
+}
+
 .bump-info {
   display: flex;
-  flex: 1 0 0px;
+  flex: 0 0 350px;
   flex-direction: column;
+  width: 100%;
 
+  align-self: center;
   align-items: center;
   //justify-content: center;
   text-align: center;
@@ -13,10 +29,9 @@
   line-height: 1.5;
   //position: relative;
   z-index: 1;
+  margin-top: 260px;
 
-  bottom: 40px;
-  position: absolute;
-  height: 420px;
+  //height: 420px;
 
   .bump-18 {
     font-size: 18px;
@@ -28,8 +43,7 @@
     font-size: 40px;
     font-weight: 600;
     //margin-top: 5px;
-    position: absolute;
-    margin-top: 130px;
+    margin-top: 30px;
     color: $dark;
   }
 
@@ -41,13 +55,12 @@
   }
 
   .bump-text {
-    margin-top: 190px;
+    margin-top: 20px;
     width: 300px;
     height: 40px;
     font-size: 15px;
     text-align: center;
     color: $dark;
-    position: absolute;
   }
 
   .bump-code {
@@ -87,8 +100,7 @@
     font-weight: 600;
     text-align: center;
     user-select: none;
-    position: absolute;
-    margin-top: 310px;
+    margin-top: 20px;
     text-decoration: none;
 
     i {

@@ -104,20 +104,15 @@ class BumpScreen extends React.Component {
 
                     </div>
 
-                    <div className="register-right" style={{backgroundColor: '#f7fafc'}}>
-                        <img className="register-img" src="/statics/svg/bump/position-backdrop.svg" style={{
-                            marginTop : "auto",
-                            marginLeft: '47px',
-                            bottom    : "-150px"
-                        }}/>
+
+
+                    <div className="bump-register">
 
                         <div className="bump-info">
                             <div className="bump-number">{user.position - 1}</div>
                             <div className="bump-text">People ahead of you</div>
-                            <div className="bump-text" style={{
-                                marginTop : '230px',
-                                fontWeight: 600
-                            }}>Move up the queue to get early access to Suppl as soon as the app is ready.
+                            <div className="bump-text" style={{marginTop: '20px'}}>
+                                <strong>Move up the queue to get early access to Suppl as soon as the app is ready.</strong>
                             </div>
                             <Link href={`/waitlist/share?email=${this.props._query.email}`} className="bump-button clickable">Bump the queue NOW</Link>
                         </div>

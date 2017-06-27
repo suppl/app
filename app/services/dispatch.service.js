@@ -1,3 +1,4 @@
+// import * as $ from 'jQuery';
 import {store} from './../app';
 
 export const Dispatch = (data, delay = 1) => {

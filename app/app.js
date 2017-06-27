@@ -66,69 +66,84 @@ export const store = createStore(reducer);
 
 require('./app.scss');
 
-const styleClasses = () => {
-    return [
+class App extends React.Component {
+
+    componentWillMount() {
+        $(window).resize(() => {
+            console.log('resize');
+            this.forceUpdate();
+        });
+    }
+
+    styleClasses = () => [
         IsDesktop() ? 'desktop' : 'not-desktop',
         IsMobile() ? 'mobile' : 'not-mobile',
         IsTablet() ? 'tablet' : 'not-tablet',
     ].join(' ');
-};
+
+    render() {
+        return (
+            <Provider store={store}>
+                <div className={`flex flex-max ${this.styleClasses()}`}>
+
+                    <Notification/>
+                    <Player/>
+                    <Loader/>
+                    <PopupPassword/>
+                    <PopupStandard/>
+                    <Award/>
+
+                    {IsDesktop() ?
+                        <Locations>
+                            <Location path="/" handler={SplashScreen}/>
+                            <Location path="/register" handler={RegisterScreen}/>
+                            <Location path="/register-password" handler={RegisterPasswordScreen}/>
+                            <Location path="/register-job" handler={RegisterJobScreen}/>
+                            <Location path="/register-style" handler={RegisterStyleScreen}/>
+                            <Location path="/awards" handler={AwardsScreen}/>
+                            <Location path="/progress" handler={ProgressScreen}/>
+                            <Location path="/sessions" handler={SessionsScreen}/>
+                            <Location path="/sessions/:sessionId" handler={SessionScreen}/>
+                            <Location path="/dashboard(/*)" handler={DashboardScreen}/>
+                            <Location path="/profile" handler={ProfileScreen}/>
+                            <Location path="/community" handler={CommunityScreen}/>
+                            <Location path="/waitlist" handler={WaitlistScreen}/>
+                            <Location path="/waitlist/check" handler={PositionScreen}/>
+                            <Location path="/waitlist/share" handler={ShareScreen}/>
+                            <Location path="/waitlist/bump" handler={BumpScreen}/>
+                        </Locations> : ''
+                    }
+
+                    {IsTablet() || IsMobile() ?
+                        <Locations>
+                            <Location path="/" handler={SplashScreenMobile}/>
+                            <Location path="/register" handler={RegisterScreenMobile}/>
+                            <Location path="/register-password" handler={RegisterPasswordScreen}/>
+                            <Location path="/register-job" handler={RegisterJobScreen}/>
+                            <Location path="/register-style" handler={RegisterStyleScreen}/>
+                            <Location path="/awards" handler={AwardsScreen}/>
+                            <Location path="/progress" handler={ProgressScreen}/>
+                            <Location path="/sessions" handler={SessionsScreen}/>
+                            <Location path="/sessions/:sessionId" handler={SessionScreen}/>
+                            <Location path="/dashboard(/*)" handler={DashboardScreen}/>
+                            <Location path="/profile" handler={ProfileScreen}/>
+                            <Location path="/community" handler={CommunityScreen}/>
+                            <Location path="/waitlist" handler={WaitlistScreenMobile}/>
+                            <Location path="/waitlist/check" handler={PositionScreenMobile}/>
+                            <Location path="/waitlist/share" handler={ShareScreenMobile}/>
+                            <Location path="/waitlist/bump" handler={BumpScreenMobile}/>
+                        </Locations> : ''
+                    }
+
+                </div>
+
+            </Provider>
+        )
+    }
+}
 
 ReactDOM.render(
-    <Provider store={store}>
-        <div className={`flex flex-max ${styleClasses()}`}>
-
-            <Notification/>
-            <Player/>
-            <Loader/>
-            <PopupPassword/>
-            <PopupStandard/>
-            <Award/>
-
-            {IsDesktop() ?
-                <Locations>
-                    <Location path="/" handler={SplashScreen}/>
-                    <Location path="/register" handler={RegisterScreen}/>
-                    <Location path="/register-password" handler={RegisterPasswordScreen}/>
-                    <Location path="/register-job" handler={RegisterJobScreen}/>
-                    <Location path="/register-style" handler={RegisterStyleScreen}/>
-                    <Location path="/awards" handler={AwardsScreen}/>
-                    <Location path="/progress" handler={ProgressScreen}/>
-                    <Location path="/sessions" handler={SessionsScreen}/>
-                    <Location path="/sessions/:sessionId" handler={SessionScreen}/>
-                    <Location path="/dashboard(/*)" handler={DashboardScreen}/>
-                    <Location path="/profile" handler={ProfileScreen}/>
-                    <Location path="/community" handler={CommunityScreen}/>
-                    <Location path="/waitlist" handler={WaitlistScreen}/>
-                    <Location path="/waitlist/check" handler={PositionScreen}/>
-                    <Location path="/waitlist/share" handler={ShareScreen}/>
-                    <Location path="/waitlist/bump" handler={BumpScreen}/>
-                </Locations> : ''
-            }
-
-            {IsTablet() || IsMobile() ?
-                <Locations>
-                    <Location path="/" handler={SplashScreenMobile}/>
-                    <Location path="/register" handler={RegisterScreenMobile}/>
-                    <Location path="/register-password" handler={RegisterPasswordScreen}/>
-                    <Location path="/register-job" handler={RegisterJobScreen}/>
-                    <Location path="/register-style" handler={RegisterStyleScreen}/>
-                    <Location path="/awards" handler={AwardsScreen}/>
-                    <Location path="/progress" handler={ProgressScreen}/>
-                    <Location path="/sessions" handler={SessionsScreen}/>
-                    <Location path="/sessions/:sessionId" handler={SessionScreen}/>
-                    <Location path="/dashboard(/*)" handler={DashboardScreen}/>
-                    <Location path="/profile" handler={ProfileScreen}/>
-                    <Location path="/community" handler={CommunityScreen}/>
-                    <Location path="/waitlist" handler={WaitlistScreenMobile}/>
-                    <Location path="/waitlist/check" handler={PositionScreenMobile}/>
-                    <Location path="/waitlist/share" handler={ShareScreenMobile}/>
-                    <Location path="/waitlist/bump" handler={BumpScreenMobile}/>
-                </Locations> : ''
-            }
-
-        </div>
-
-    </Provider>,
+    React.createElement(App),
     document.getElementById('app')
 );
+
