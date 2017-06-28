@@ -81,7 +81,7 @@ class PositionScreen extends React.Component {
                     </div>
 
                     <div className="register-right" style={{backgroundColor: '#f7fafc'}}>
-                        <img className="register-img" src="/statics/svg/waitlist/early-acess-03.svg" style={{
+                        <img className="register-img" src="/statics/svg/waitlist/check-position.svg" style={{
                             marginTop   : "auto",
                             marginBottom: "auto"
                         }}/>

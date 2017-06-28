@@ -66106,7 +66106,7 @@ var PositionScreen = function (_React$Component) {
                     _react2.default.createElement(
                         'div',
                         { className: 'register-right', style: { backgroundColor: '#f7fafc' } },
-                        _react2.default.createElement('img', { className: 'register-img', src: '/statics/svg/waitlist/early-acess-03.svg', style: {
+                        _react2.default.createElement('img', { className: 'register-img', src: '/statics/svg/waitlist/check-position.svg', style: {
                                 marginTop: "auto",
                                 marginBottom: "auto"
                             } })
