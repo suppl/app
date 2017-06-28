@@ -42,7 +42,7 @@ class Waitlist extends React.Component {
 
                         <div className="register-heading">
                             <div style={{fontSize: '30px',marginBottom:'5px'}}>Hey <strong>Superstar!</strong></div>
-                            Join our early access community
+                            Join our early access community and become one of the first to use Suppl!
                         </div>
 
 
@@ -86,14 +86,14 @@ class Waitlist extends React.Component {
                     </div>
 
                     <div className="register-right" style={{backgroundColor: '#f7fafc'}}>
-                        <img className="register-img" src="/statics/svg/waitlist/early-access.01.svg" style={{
+                        <img className="register-img" src="/statics/svg/waitlist/early-access.svg" style={{
                             marginTop   : "auto",
                             marginBottom: "auto"
                         }}/>
-                        <img className="register-img" src="/statics/svg/waitlist/early-access-02.svg" style={{
-                            top   : "0px",
-                            marginBottom: "auto"
-                        }}/>
+                        {/*<img className="register-img" src="/statics/svg/waitlist/early-access-02.svg" style={{*/}
+                            {/*top   : "0px",*/}
+                            {/*marginBottom: "auto"*/}
+                        {/*}}/>*/}
                     </div>
                 </div>
             </div>

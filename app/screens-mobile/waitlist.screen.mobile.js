@@ -41,7 +41,7 @@ class WaitlistScreenMobile extends React.Component {
                     <div data-mobile-content>
                         <div className="register-heading">
                             <div style={{fontSize: '30px', marginBottom: '5px'}}>Hey <strong>Superstar!</strong></div>
-                            Join our early access community
+                            Join our early access community and become one of the first to use Suppl!
                         </div>
 
 
