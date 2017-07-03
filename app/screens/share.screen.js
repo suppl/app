@@ -59,60 +59,40 @@ class ShareScreen extends React.Component {
                         </div>
 
                         <div className="register-heading">
-                            <div style={{fontSize: '30px', marginBottom: '15px'}}>Bump the
-                                <strong> queue</strong> {firstName}!
+                            <div style={{fontSize: '30px', marginBottom: '15px'}}>
+                                <strong>Invite friends</strong> and <br/>get <strong> gifts!</strong>
                             </div>
-
-                            <strong>Invite your friends</strong> to Suppl and we’ll bump you up the queue by
-                            <strong> 100 places</strong> per sign up!
                         </div>
 
-
-                        <div className="suppl-form" style={{marginTop: '40px'}}>
-                            <div className="suppl-label">Best friend</div>
-
-                            <div className="suppl-input">
-                                <div className="input-icon icon-envelope"/>
-                                <input type="email"
-                                       placeholder="E.g. harry@myfriend.com"
-                                       autoFocus={true}
-                                       value={this.referralEmails[0]}
-                                       onChange={(e) => this.updateReferralEmails(e, 0)}
-                                />
+                        <div className="register-top flex flex-min">
+                            <div className="flex flex-row flex-align">
+                                <i className="top-star flaticon-star"/>
+                                <div className="top-title">Top 20</div>
                             </div>
-
-                            <div className="suppl-label">Good friend</div>
-
-                            <div className="suppl-input">
-                                <div className="input-icon icon-envelope"/>
-                                <input type="email"
-                                       placeholder="E.g. sally@myfriend.com"
-                                       value={this.referralEmails[1]}
-                                       onChange={(e) => this.updateReferralEmails(e, 1)}
-                                />
+                            <div className="top-text">
+                                Get a <strong> Lifetime FREE Subscription to Suppl</strong> & <br/>a
+                                <strong> Suppl t-shirt</strong> delivered to your doorstep
                             </div>
+                        </div>
 
-                            <div className="suppl-label">Oldest friend</div>
-
-                            <div className="suppl-input">
-                                <div className="input-icon icon-envelope"/>
-                                <input type="email"
-                                       placeholder="E.g. jerry@myfriend.com"
-                                       value={this.referralEmails[2]}
-                                       onChange={(e) => this.updateReferralEmails(e, 2)}
-                                />
+                        <div className="register-top flex flex-min">
+                            <div className="flex flex-row flex-align">
+                                <i className="top-star flaticon-star" style={{color:'#bfbfbf'}}/>
+                                <div className="top-title">Top 50</div>
                             </div>
+                            <div className="top-text">
+                                Get <strong>6 months FREE Subscription to Suppl</strong>  <br/>& <strong>Suppl laptop stickers</strong> through the post
+                            </div>
+                        </div>
 
-                            <div className="butn large pull-right" onClick={this.props.sendReferral}>Invite my friends!</div>
-
-
-                            {/*<p className="clearfix">*/}
-                            {/*/!*<Link href="/" className="pull-left">Login</Link>*!/*/}
-                            {/*<Link href="/" style={{*/}
-                            {/*textAlign: 'center',*/}
-                            {/*display  : 'block'*/}
-                            {/*}}>Check my place in the queue</Link>*/}
-                            {/*</p>*/}
+                        <div className="register-top flex flex-min">
+                            <div className="flex flex-row flex-align">
+                                <i className="top-star flaticon-star" style={{color:'#e6b05b'}}/>
+                                <div className="top-title">Top 100</div>
+                            </div>
+                            <div className="top-text">
+                                Get <strong>3 months FREE subscription to Suppl</strong>  <br/>& a whole lot of <strong>love</strong> from us!
+                            </div>
                         </div>
 
 
@@ -120,8 +100,8 @@ class ShareScreen extends React.Component {
 
                     <div className="register-right" style={{backgroundColor: '#4F617B'}}>
                         {/*<img className="register-img" src="/statics/svg/waitlist/position-invitation-banner.svg" style={{*/}
-                            {/*top         : "0",*/}
-                            {/*marginBottom: "auto"*/}
+                        {/*top         : "0",*/}
+                        {/*marginBottom: "auto"*/}
                         {/*}}/>*/}
 
                         <div className="position-info">
