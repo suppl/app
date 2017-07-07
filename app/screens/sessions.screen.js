@@ -35,7 +35,15 @@ class Sessions extends React.Component {
                                 <SubHeader text="Sessions"/>
                                 {Object.keys(seriesList).map((category) =>
                                     <div>
-                                        <div className="line-heading">{category}</div>
+                                        <div className="series-heading">
+                                            <div className="series-icon" style={{backgroundColor: seriesList[category][0].color}}>
+                                                <div className="icon-image"></div>
+                                            </div>
+                                            <div className="flex">
+                                                <div className="series-title">{category}</div>
+                                                <div className="series-text">{seriesList[category][0].description}</div>
+                                            </div>
+                                        </div>
                                         <div className="flex flex-cols">
                                             {seriesList[category].map((series, seriesIndex) => (
                                                 <div className="flex-col">

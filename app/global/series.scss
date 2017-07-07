@@ -5,7 +5,33 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin: 12px -12px 12px;
+}
 
+.series-heading {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.series-icon {
+  width: 33px;
+  height: 33px;
+  flex: 0 0 33px;
+  background-color: #a2e4eb;
+  border-radius: 100px;
+  margin-right: 15px;
+}
+
+.series-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #4f617b;
+}
+
+.series-text {
+  font-size: 13px;
+  color: $warm-grey-two;
 }
 
 .series {
@@ -29,7 +55,7 @@
     top: 110px;
     transform: rotate(-9deg);
     left: -1000px;
-    right:-1000px;
+    right: -1000px;
     bottom: -1000px;
     z-index: -1;
     background: white;
