@@ -1,4 +1,4 @@
-
+import * as React from "react";
 
 export const SetUrl = (url) => {
     console.log('SetUrl', url);
@@ -13,3 +13,14 @@ export const IsDesktop = () => getWidth() > 900;
 export const IsMobile = () => getWidth() < 600;
 
 export const IsTablet = () => !IsMobile() && !IsDesktop();
+
+export const If = React.createClass({
+    displayName: 'If',
+
+    render: function()
+    {
+        if (this.props.condition)
+            return (this.props.children);
+        return null;
+    }
+});

@@ -5243,6 +5243,14 @@ module.exports = exportsObject;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.If = exports.IsTablet = exports.IsMobile = exports.IsDesktop = exports.SetUrl = undefined;
+
+var _react = __webpack_require__(3);
+
+var React = _interopRequireWildcard(_react);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
 var SetUrl = exports.SetUrl = function SetUrl(url) {
     console.log('SetUrl', url);
     window.history.pushState({}, "", url);
@@ -5264,6 +5272,15 @@ var IsMobile = exports.IsMobile = function IsMobile() {
 var IsTablet = exports.IsTablet = function IsTablet() {
     return !IsMobile() && !IsDesktop();
 };
+
+var If = exports.If = React.createClass({
+    displayName: 'If',
+
+    render: function render() {
+        if (this.props.condition) return this.props.children;
+        return null;
+    }
+});
 
 /***/ }),
 /* 16 */
@@ -22903,98 +22920,142 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(3);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = __webpack_require__(9);
+
 var _reactRouterComponent = __webpack_require__(14);
+
+var _reactRouterComponent2 = _interopRequireDefault(_reactRouterComponent);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 __webpack_require__(740);
 
-var Sidebar = function Sidebar() {
-    return _react2.default.createElement(
-        'div',
-        { className: 'sidebar-component' },
-        _react2.default.createElement(
-            'div',
-            { className: 'top-menu' },
-            _react2.default.createElement(
-                _reactRouterComponent.Link,
-                { href: '/dashboard', className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'flaticon-dashboard-1' }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Dashboard'
-                )
-            ),
-            _react2.default.createElement(
+var Sidebar = function (_React$Component) {
+    _inherits(Sidebar, _React$Component);
+
+    function Sidebar() {
+        _classCallCheck(this, Sidebar);
+
+        return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
+    }
+
+    _createClass(Sidebar, [{
+        key: 'render',
+
+        // const screen = this.props.screen;
+
+        value: function render() {
+            var _this2 = this;
+
+            var isScreenClass = function isScreenClass(screen) {
+                return _this2.props.screen == screen ? 'active' : '';
+            };
+
+            return _react2.default.createElement(
                 'div',
-                { className: 'menu-label' },
-                'All yours'
-            ),
-            _react2.default.createElement(
-                _reactRouterComponent.Link,
-                { href: '/sessions', className: 'menu-item active' },
-                _react2.default.createElement('i', { className: 'flaticon-layers' }),
+                { className: 'sidebar-component' },
                 _react2.default.createElement(
-                    'span',
-                    null,
-                    'Sessions'
+                    'div',
+                    { className: 'top-menu' },
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { href: '/dashboard', className: 'menu-item ' + isScreenClass('dashboard') },
+                        _react2.default.createElement('i', { className: 'flaticon-dashboard-1' }),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Dashboard'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'menu-label' },
+                        'All yours'
+                    ),
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { href: '/sessions', className: 'menu-item ' + isScreenClass('sessions') },
+                        _react2.default.createElement('i', { className: 'flaticon-layers' }),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Sessions'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { href: '/awards', className: 'menu-item ' + isScreenClass('awards') },
+                        _react2.default.createElement('i', { className: 'flaticon-trophy' }),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Awards'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { href: '/progress', className: 'menu-item ' + isScreenClass('progress') },
+                        _react2.default.createElement('i', { className: 'flaticon-cardiogram' }),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Progress'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'menu-label' },
+                        'Community'
+                    ),
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { href: '/community', className: 'menu-item ' + isScreenClass('community') },
+                        _react2.default.createElement('i', { className: 'flaticon-people-5' }),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Community'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { className: 'menu-item ' + isScreenClass('activity') },
+                        _react2.default.createElement('i', { className: 'flaticon-technology' }),
+                        _react2.default.createElement(
+                            'span',
+                            null,
+                            'Activity'
+                        )
+                    )
                 )
-            ),
-            _react2.default.createElement(
-                _reactRouterComponent.Link,
-                { href: '/awards', className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'flaticon-trophy' }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Awards'
-                )
-            ),
-            _react2.default.createElement(
-                _reactRouterComponent.Link,
-                { href: '/progress', className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'flaticon-cardiogram' }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Progress'
-                )
-            ),
-            _react2.default.createElement(
-                'div',
-                { className: 'menu-label' },
-                'Community'
-            ),
-            _react2.default.createElement(
-                _reactRouterComponent.Link,
-                { href: '/community', className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'flaticon-people-5' }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Community'
-                )
-            ),
-            _react2.default.createElement(
-                _reactRouterComponent.Link,
-                { className: 'menu-item' },
-                _react2.default.createElement('i', { className: 'flaticon-technology' }),
-                _react2.default.createElement(
-                    'span',
-                    null,
-                    'Activity'
-                )
-            )
-        )
-    );
+            );
+        }
+    }]);
+
+    return Sidebar;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return state;
 };
 
-exports.default = Sidebar;
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Sidebar);
 
 /***/ }),
 /* 27 */
@@ -61893,8 +61954,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 var SESSIONS = [{
-    slug: "seated-at-work",
-    name: "Take a seat",
+    slug: "desk-flex",
+    name: "Desk Flex",
     category: "Work Series",
     level: 1,
     svgSmall: "/statics/svg/work series/small/sm-desk-flex.svg",
@@ -61902,7 +61963,8 @@ var SESSIONS = [{
     icon: "flaticon-desk-chair",
     description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
     caption: "",
-    color: "#eff2f9",
+    color: "#95d1ff",
+    pattern: "/statics/svg/patterns/wiggle.svg",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
@@ -61962,82 +62024,22 @@ var SESSIONS = [{
         alignAce: 100
     }]
 }, {
-    slug: "stand-up-desk",
-    name: "Stand up desk",
-    category: "Work Series",
+    slug: "standing",
+    name: "Standing",
+    category: "Basics Series",
     level: 1,
-    svgSmall: "/statics/svg/work series/small/sm-stand-up.svg",
-    svgLarge: "/statics/svg/work series/large/stand up desk.svg",
-    description: "Get up, stand up. Introduce active movement to boost your balance and blood flow, strengthening your core and improving your awareness and focus.",
+    svgSmall: "/statics/svg/work series/small/sm-desk-flex.svg",
+    svgLarge: "/statics/svg/work series/large/lg-sat-down.svg",
+    icon: "flaticon-desk-chair",
+    description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
     caption: "",
-    color: "#eff2f9",
+    color: "#a2e4eb",
+    pattern: "/statics/svg/patterns/bubbles.svg",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
-        id: 'stand-at-work-01-01',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['first-timer'],
-        audiosNeeded: [],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-02',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['stand-at-work-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-03',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['stand-at-work-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-04',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['stand-at-work-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'stand-at-work-01-05',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['stand-at-work-01-04'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }]
-}, {
-    slug: "hot-desking",
-    name: "Hot desking",
-    category: "Work Series",
-    level: 1,
-    svgSmall: "/statics/svg/work series/small/sm-hot-desk.svg",
-    svgLarge: "/statics/svg/work series/large/hot-desking.svg",
-    description: "Flexi-desk, flexi-you. Learn how to align yourself whilst working on the fly.",
-    caption: "",
-    color: "#eff2f9",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: [{
-        id: 'hot-desking-01-01',
+        id: 'sat-at-work-01-01',
+        index: 1,
         file: '/statics/audio/take-a-seat-lv01-s01.mp3',
         awardsNeeded: [],
         awardsGiven: ['first-timer'],
@@ -62047,74 +62049,35 @@ var SESSIONS = [{
         CalsCrushed: 100,
         alignAce: 100
     }, {
-        id: 'hot-desking-01-02',
+        id: 'sat-at-work-01-02',
+        index: 2,
         file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         awardsGiven: [],
-        audiosNeeded: ['hot-desking-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'hot-desking-01-03',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['hot-desking-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'hot-desking-01-04',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['hot-desking-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'hot-desking-01-05',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['hot-desking-01-04'],
+        audiosNeeded: ['sat-at-work-01-01'],
         lungLove: 100,
         brainBoost: 100,
         CalsCrushed: 100,
         alignAce: 100
     }]
 }, {
-    slug: "youre-on-a-stroll",
-    name: "You're on a stroll",
-    category: "Work Series",
+    slug: "sitting",
+    name: "Sitting",
+    category: "Basics Series",
     level: 1,
-    svgSmall: "/statics/svg/work series/small/sm-your-on-a-stroll.svg",
-    svgLarge: "/statics/svg/work series/large/youre-on-a-stroll.svg",
-    description: "Flexi-desk, flexi-you. Learn how to align yourself whilst working on the fly.",
+    svgSmall: "/statics/svg/work series/small/sm-desk-flex.svg",
+    svgLarge: "/statics/svg/work series/large/lg-sat-down.svg",
+    icon: "flaticon-desk-chair",
+    description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
     caption: "",
-    color: "#eff2f9",
-    awardsNeeded: [],
-    audiosNeeded: [],
-    audios: []
-}, {
-    slug: "wake-up-brighter",
-    name: "Wake up brighter",
-    category: "Sleep Series",
-    level: 1,
-    svgSmall: "/statics/svg/sleep series/small/wake-up-brighter.svg",
-    svgLarge: "/statics/svg/sleep series/large/wake-up-brighter-lg.svg",
-    description: "Rise and shine. Wake up feeling lighter, brighter and full of energy with our morning special.",
-    color: "#f7cc8e",
-    caption: "",
+    color: "#a2e4eb",
+    pattern: "/statics/svg/patterns/bubbles.svg",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
-        id: 'wake-up-brighter-01-01',
-        file: '/statics/audio/jwc-10.mp3',
+        id: 'sat-at-work-01-01',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
         awardsNeeded: [],
         awardsGiven: ['first-timer'],
         audiosNeeded: [],
@@ -62123,111 +62086,123 @@ var SESSIONS = [{
         CalsCrushed: 100,
         alignAce: 100
     }, {
-        id: 'wake-up-brighter-01-02',
+        id: 'sat-at-work-01-02',
+        index: 2,
         file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
         awardsGiven: [],
-        audiosNeeded: ['wake-up-brighter-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'wake-up-brighter-01-03',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['wake-up-brighter-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'wake-up-brighter-01-04',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['wake-up-brighter-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'wake-up-brighter-01-05',
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['wake-up-brighter-01-04'],
+        audiosNeeded: ['sat-at-work-01-01'],
         lungLove: 100,
         brainBoost: 100,
         CalsCrushed: 100,
         alignAce: 100
     }]
-},
-// {
-//     slug        : "i-cant-sleep",
-//     name        : "I can't sleep",
-//     category    : "Sleep Series",
-//     level       : 1,
-//     icon        : "flaticon-emoticon",
-//     description : `Don't stress. ease back into a sleep with our calming approach to getting some zzz's.`,
-//     color       : "#ffb6a9",
-//     caption     : "",
-//     awardsNeeded: [],
-//     audiosNeeded: [],
-//     audios      : [
-//         {
-//             id          : 'i-cant-sleep-01-01',
-//             file        : '/statics/audio/jwc-10.mp3',
-//             awardsNeeded: [],
-//             awardsGiven : ['power-pillow'],
-//             audiosNeeded: [],
-//             lungLove    : 100,
-//             brainBoost  : 100,
-//             CalsCrushed : 100,
-//             alignAce    : 100,
-//         },
-//         {
-//             id          : 'i-cant-sleep-01-02',
-//             file        : '/statics/audio/jwc-10.mp3',
-//             awardsNeeded: [],
-//             awardsGiven : ['power-pillow'],
-//             audiosNeeded: [],
-//             lungLove    : 100,
-//             brainBoost  : 100,
-//             CalsCrushed : 100,
-//             alignAce    : 100,
-//         },
-//     ],
-// },
-{
-    slug: "fall-asleep",
-    name: "Fall asleep",
-    category: "Sleep Series",
+}, {
+    slug: "breathe-easy",
+    name: "Breathe Easy",
+    category: "Mini Series",
     level: 1,
-    svgSmall: "/statics/svg/sleep series/small/fall-asleep-faster-sm.svg",
-    svgLarge: "/statics/svg/sleep series/large/fall-asleep-faster.svg",
-    description: "Long day? Get comfortable, align your body and mind to calmly fall asleep earning yourself some crucial zzz's.",
-    color: "#f7cc8e",
+    svgSmall: "/statics/svg/work series/small/sm-desk-flex.svg",
+    svgLarge: "/statics/svg/work series/large/lg-sat-down.svg",
+    icon: "flaticon-desk-chair",
+    description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
     caption: "",
+    color: "#ffc3ca",
+    pattern: "/statics/svg/patterns/wiggle.svg",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
-        id: 'fall-sleep-01-01',
-        file: '/statics/audio/jwc-10.mp3',
+        id: 'sat-at-work-01-01',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
         awardsNeeded: [],
-        awardsGiven: ['knight-night'],
+        awardsGiven: ['first-timer'],
         audiosNeeded: [],
         lungLove: 100,
         brainBoost: 100,
         CalsCrushed: 100,
         alignAce: 100
     }, {
-        id: 'fall-sleep-01-02',
+        id: 'sat-at-work-01-02',
+        index: 2,
         file: '/statics/audio/jwc-10.mp3',
         awardsNeeded: [],
-        awardsGiven: ['knight-night'],
+        awardsGiven: [],
+        audiosNeeded: ['sat-at-work-01-01'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}, {
+    slug: "neck-release",
+    name: "Neck Release",
+    category: "Mini Series",
+    level: 1,
+    svgSmall: "/statics/svg/work series/small/sm-desk-flex.svg",
+    svgLarge: "/statics/svg/work series/large/lg-sat-down.svg",
+    icon: "flaticon-desk-chair",
+    description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
+    caption: "",
+    color: "#fbd69a",
+    pattern: "/statics/svg/patterns/yyy.svg",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'sat-at-work-01-01',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['first-timer'],
         audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'sat-at-work-01-02',
+        index: 2,
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['sat-at-work-01-01'],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }]
+}, {
+    slug: "hip-opener",
+    name: "Hip Opener",
+    category: "Lower Body Brilliance",
+    level: 1,
+    svgSmall: "/statics/svg/work series/small/sm-desk-flex.svg",
+    svgLarge: "/statics/svg/work series/large/lg-sat-down.svg",
+    icon: "flaticon-desk-chair",
+    description: "Integrate active movement whilst sat at your desk, reducing stress and boosting your posture, focus, productivity and happiness.",
+    caption: "",
+    color: "#dfcae7",
+    pattern: "/statics/svg/patterns/yyy.svg",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'sat-at-work-01-01',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: ['first-timer'],
+        audiosNeeded: [],
+        lungLove: 100,
+        brainBoost: 100,
+        CalsCrushed: 100,
+        alignAce: 100
+    }, {
+        id: 'sat-at-work-01-02',
+        index: 2,
+        file: '/statics/audio/jwc-10.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['sat-at-work-01-01'],
         lungLove: 100,
         brainBoost: 100,
         CalsCrushed: 100,
@@ -65046,7 +65021,7 @@ var Awards = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(_sidebar2.default, { screen: 'awards' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
@@ -65493,7 +65468,7 @@ var Community = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(_sidebar2.default, { screen: 'community' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
@@ -65656,6 +65631,10 @@ var _header = __webpack_require__(25);
 
 var _header2 = _interopRequireDefault(_header);
 
+var _promo = __webpack_require__(753);
+
+var _promo2 = _interopRequireDefault(_promo);
+
 var _sidebar = __webpack_require__(26);
 
 var _sidebar2 = _interopRequireDefault(_sidebar);
@@ -65742,7 +65721,7 @@ var Dashboard = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(_sidebar2.default, { screen: 'dashboard' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
@@ -65752,162 +65731,208 @@ var Dashboard = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'content-content' },
-                                _react2.default.createElement(_subHeader2.default, { text: 'Dashboard' }),
+                                _react2.default.createElement(_subHeader2.default, { text: 'Howdy Superstar!' }),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'sub-sub-heading' },
-                                    'Next session'
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'session-header mini', style: { backgroundImage: 'url(\'' + session.svgLarge + '\')' } },
-                                    _react2.default.createElement('div', { className: 'header-overlay' }),
+                                    { className: 'dashboard-stats' },
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'session-title' },
-                                        session.name
+                                        { className: 'dashboard-stat' },
+                                        _react2.default.createElement('i', { className: 'stat-icon flaticon-star' }),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'flex flex-min' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-value' },
+                                                '0'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-text' },
+                                                'Daily streak'
+                                            )
+                                        )
                                     ),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'session-description' },
-                                        'Session ',
-                                        session.index
+                                        { className: 'dashboard-stat' },
+                                        _react2.default.createElement('i', { className: 'stat-icon flaticon-star' }),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'flex flex-min' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-value' },
+                                                '0'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'stat-text' },
+                                                'Total active minutes'
+                                            )
+                                        )
                                     ),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'session-stats' },
+                                        { className: 'dashboard-stat' },
+                                        _react2.default.createElement('i', { className: 'stat-icon flaticon-star' }),
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'stats-stat' },
+                                            { className: 'flex flex-min' },
                                             _react2.default.createElement(
                                                 'div',
-                                                { className: 'stat-number' },
-                                                session.audios.length
+                                                { className: 'stat-value' },
+                                                '0'
                                             ),
                                             _react2.default.createElement(
                                                 'div',
-                                                { className: 'stat-label' },
-                                                'sessions'
+                                                { className: 'stat-text' },
+                                                'Sessions complete'
                                             )
-                                        ),
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'dashboard-stat' },
+                                        _react2.default.createElement('i', { className: 'stat-icon flaticon-star' }),
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'stats-stat' },
+                                            { className: 'flex flex-min' },
                                             _react2.default.createElement(
                                                 'div',
-                                                { className: 'stat-number' },
-                                                'LOW'
+                                                { className: 'stat-value' },
+                                                '0'
                                             ),
                                             _react2.default.createElement(
                                                 'div',
-                                                { className: 'stat-label' },
-                                                'intensity'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stats-stat' },
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-number' },
-                                                '2'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'stat-label' },
-                                                'total mins'
+                                                { className: 'stat-text' },
+                                                'Folks exercising now'
                                             )
                                         )
                                     )
                                 ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'thin-row' },
+                                    { className: 'sub-sub-heading-2' },
+                                    'We think you\u2019ll like this session'
+                                ),
+                                _react2.default.createElement(_promo2.default, { size: 'large', sessionId: 'desk-flex', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'dashboard-note' },
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'thin-col' },
+                                        { className: 'note-text' },
+                                        'Based on your job, hours and desk, We recommend getting started with a nice and easy stand up session.'
+                                    ),
+                                    _react2.default.createElement('div', { className: 'note-line' }),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'note-action clickable' },
+                                        'Got it'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'sub-sub-heading-2' },
+                                    'Get the basics right and the rest is a breeze'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'flex flex-cols' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'flex-col' },
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sitting', audioId: 'sat-at-work-01-01' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'flex-col' },
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing', audioId: 'sat-at-work-01-01' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'sub-sub-heading-2' },
+                                    'In a rush? Tune in to a mini session'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'flex flex-cols' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'flex-col' },
+                                        _react2.default.createElement(_promo2.default, { size: 'small', sessionId: 'breathe-easy', audioId: 'take-a-seat-lv01-s01' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'flex-col' },
+                                        _react2.default.createElement(_promo2.default, { size: 'small', sessionId: 'neck-release', audioId: 'sat-at-work-01-01' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'flex-col' },
+                                        _react2.default.createElement(_promo2.default, { size: 'small', sessionId: 'hip-opener', audioId: 'sat-at-work-01-01' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'dashboard-note' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'note-text' },
+                                        'Mini Sessions are designed to fit around your busy schedule. Tune in and give yourself a quick boost in just 1 minute'
+                                    ),
+                                    _react2.default.createElement('div', { className: 'note-line' }),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'note-action clickable' },
+                                        'Got it'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'sub-sub-heading-2' },
+                                    'Latest community activity'
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'flex-table' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'hori list-header' },
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'sub-sub-heading' },
-                                            'Awards'
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'info' },
-                                            _react2.default.createElement('div', { className: 'info-white' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-number' },
-                                                '1'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-text' },
-                                                'Day streak'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'sub-sub-heading' },
-                                            'Progress'
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'info' },
-                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-session.svg\')' } }),
-                                            _react2.default.createElement('div', { className: 'info-white' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-number' },
-                                                '30'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-text' },
-                                                'Total active minutes'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'info' },
-                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/progress-active.svg\')' } }),
-                                            _react2.default.createElement('div', { className: 'info-white' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-number' },
-                                                '12'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-text' },
-                                                'Total sessions complete'
-                                            )
+                                            { className: 'col' },
+                                            'Recent activity'
                                         )
                                     ),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'thin-col flex' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'sub-sub-heading' },
-                                            'Activity'
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'info' },
-                                            _react2.default.createElement('div', { className: 'info-icon', style: { backgroundImage: 'url(\'/statics/svg/progress/activity-feed.svg\')' } }),
-                                            _react2.default.createElement('div', { className: 'info-white' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-number' },
-                                                '330'
-                                            ),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'info-text' },
-                                                'Total badges won'
-                                            )
-                                        )
+                                        { className: 'hori list-row' },
+                                        _react2.default.createElement('div', { className: 'col' })
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'hori list-row' },
+                                        _react2.default.createElement('div', { className: 'col' })
+                                    ),
+                                    _react2.default.createElement('div', { className: 'hori list-row' })
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'dashboard-note' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'note-text' },
+                                        'Suppl is a community of awesome folks. React & add new friends. Everyone has the same goal; to unlock a happy, healthier you.'
+                                    ),
+                                    _react2.default.createElement('div', { className: 'note-line' }),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'note-action clickable' },
+                                        'Got it'
                                     )
                                 )
                             )
@@ -66234,7 +66259,7 @@ var Profile = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(_sidebar2.default, { screen: 'profile' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
@@ -66422,7 +66447,7 @@ var Progress = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(_sidebar2.default, { screen: 'progress' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
@@ -67596,7 +67621,7 @@ var Sessions = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(_sidebar2.default, { screen: 'sessions' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
@@ -67842,6 +67867,10 @@ var _session = __webpack_require__(73);
 
 var _helper = __webpack_require__(15);
 
+var _promo = __webpack_require__(753);
+
+var _promo2 = _interopRequireDefault(_promo);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -67883,7 +67912,7 @@ var Sessions = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex flex-row' },
-                    _react2.default.createElement(_sidebar2.default, null),
+                    _react2.default.createElement(_sidebar2.default, { screen: 'sessions' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-content': true, className: 'flex flex-max' },
@@ -67905,46 +67934,12 @@ var Sessions = function (_React$Component) {
                                         ),
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'series-list' },
-                                            seriesList[category].map(function (series, index) {
+                                            { className: 'flex flex-cols' },
+                                            seriesList[category].map(function (series, seriesIndex) {
                                                 return _react2.default.createElement(
-                                                    _reactRouterComponent.Link,
-                                                    { className: 'series', href: '/sessions/' + series.slug, key: series.slug, style: { backgroundColor: series.color } },
-                                                    _react2.default.createElement('div', { className: 'series-white' }),
-                                                    _react2.default.createElement('div', { className: 'series-icon', style: { backgroundImage: 'url(\'' + series.svgSmall + '\')' } }),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'series-time' },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'time-number' },
-                                                            series.audios.length
-                                                        ),
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'time-text' },
-                                                            'levels'
-                                                        )
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'div',
-                                                        { className: 'series-info' },
-                                                        _react2.default.createElement(
-                                                            'div',
-                                                            { className: 'flex' },
-                                                            _react2.default.createElement(
-                                                                'div',
-                                                                { className: 'info-title' },
-                                                                series.name
-                                                            ),
-                                                            _react2.default.createElement(
-                                                                'div',
-                                                                { className: 'info-text' },
-                                                                series.name
-                                                            )
-                                                        ),
-                                                        _react2.default.createElement('i', { className: 'flaticon-right-chevron go-icon' })
-                                                    )
+                                                    'div',
+                                                    { className: 'flex-col' },
+                                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: series.slug, audioId: series.audios[0] })
                                                 );
                                             })
                                         )
@@ -75020,7 +75015,7 @@ exports = module.exports = __webpack_require__(41)(undefined);
 
 
 // module
-exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.info {\n  background-color: #eff2f9;\n  min-height: 174px;\n  border-radius: 3px;\n  margin-top: 10px;\n  position: relative;\n  overflow: hidden;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  line-height: 1;\n  flex: 1 0 auto; }\n  .info .info-white {\n    position: absolute;\n    top: 93px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .info .info-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain;\n    height: 110px;\n    width: calc(100% - 20px);\n    top: 0px;\n    left: 20px; }\n  .info .info-number {\n    font-size: 30px;\n    font-weight: 600;\n    color: #263345;\n    margin-top: 80px;\n    text-align: right; }\n  .info .info-text {\n    font-size: 15px;\n    color: #999999;\n    margin-top: 5px;\n    text-align: right; }\n\n.info-stat {\n  height: 220px;\n  border-radius: 3px;\n  background-color: #fff;\n  position: relative;\n  overflow: hidden;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  line-height: 1;\n  margin-top: 10px;\n  justify-content: center;\n  align-items: center; }\n  .info-stat:first-child {\n    margin-top: 0; }\n  .info-stat .stat-icon {\n    width: 95px;\n    height: 95px;\n    border: 10px solid #eff2f9;\n    background-color: #eff2f9;\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-position: center;\n    border-radius: 200px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .info-stat .stat-number {\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    margin-top: 15px; }\n  .info-stat .stat-text {\n    margin-top: 5px;\n    font-size: 15px;\n    text-align: center;\n    color: #999999; }\n\n.info-emoji {\n  height: 110px;\n  border-radius: 3px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: row;\n  padding: 20px;\n  align-items: center; }\n  .info-emoji .emoji-icon {\n    width: 73px;\n    height: 73px;\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .info-emoji .emoji-number {\n    margin-left: 15px;\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345; }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n  .not-desktop .suppl-label {\n    font-size: 10px;\n    font-weight: 600; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n    .not-desktop .suppl-input.large {\n      height: 50px;\n      line-height: 48px;\n      font-size: 14px; }\n      .not-desktop .suppl-input.large .input-icon {\n        height: 48px;\n        width: 48px; }\n      .not-desktop .suppl-input.large input {\n        height: 48px;\n        line-height: 48px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px;\n    text-decoration: none; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\n.register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  .register-screen .register-left {\n    background-color: #eff2f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    transition: .6s; }\n  .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px;\n    position: relative;\n    overflow: hidden; }\n  .register-screen .register-img {\n    flex: 0 1 600px;\n    position: absolute; }\n  .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    .not-desktop .register-screen .register-header {\n      height: 60px;\n      align-items: center;\n      padding: 0 20px;\n      background: white;\n      width: 100%;\n      flex: 0 0 60px; }\n    .register-screen .register-header .header-logo img {\n      height: 15px; }\n    .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px;\n      text-decoration: none; }\n    .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  .register-screen .register-heading {\n    font-size: 22px;\n    font-weight: 400;\n    color: #263345;\n    margin-top: 80px; }\n    .not-desktop .register-screen .register-heading {\n      font-size: 18px;\n      margin-top: 30px; }\n  .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  .register-screen.active-screen {\n    opacity: 1; }\n    .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.register-top {\n  margin-top: 30px; }\n  .register-top .top-star {\n    font-size: 25px;\n    color: #ffc200; }\n  .register-top .top-title {\n    font-size: 24px;\n    font-weight: 600;\n    text-align: left;\n    color: #263345;\n    margin-left: 10px; }\n  .register-top .top-text {\n    margin-top: 5px;\n    font-size: 15px;\n    text-align: left;\n    color: #263345; }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n    .not-desktop .butn.large {\n      font-size: 18px;\n      height: 60px; }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #eff2f9;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent;\n  z-index: 1; }\n  .series .series-white {\n    position: absolute;\n    top: 110px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .series .series-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 67px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header.mini {\n    min-height: 190px;\n    margin-top: 45px; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px; }\n    .session-list .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center;\n      justify-content: center; }\n  .session-list .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row[data-inactive=\"false\"] {\n      background: rgba(255, 255, 255, 0.5); }\n      .session-list .list-row[data-inactive=\"false\"] .session-number {\n        color: rgba(38, 51, 69, 0.5); }\n    .session-list .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 80px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n  .session-list .lock-button {\n    width: 43px;\n    height: 43px;\n    background-color: #cccccc;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .lock-button i {\n      color: white;\n      font-size: 20px; }\n\n.position-info {\n  display: flex;\n  flex: 1 0 0px;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1.5; }\n  .position-info .position-18 {\n    font-size: 18px;\n    color: white;\n    margin-top: 5px;\n    max-width: 430px; }\n    .not-desktop .position-info .position-18 {\n      max-width: 280px;\n      font-size: 14px; }\n  .position-info .position-number {\n    font-size: 40px;\n    font-weight: 600;\n    margin-top: 5px; }\n  .position-info .position-line {\n    height: 1px;\n    background: rgba(255, 255, 255, 0.2);\n    margin-top: 30px;\n    width: 430px; }\n  .position-info .position-text {\n    margin-top: 20px;\n    width: 300px;\n    height: 40px;\n    font-size: 15px;\n    text-align: center;\n    color: white; }\n    .not-desktop .position-info .position-text {\n      max-width: 280px; }\n  .position-info .position-code {\n    width: 410px;\n    height: 160px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/position-invitation.svg\");\n    background-position: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    padding-top: 35px; }\n    .not-desktop .position-info .position-code {\n      max-width: 300px;\n      background-size: contain;\n      height: 110px;\n      padding-top: 27px;\n      font-size: 11px; }\n  .position-info .position-buttons {\n    margin-top: 30px;\n    width: 390px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .not-desktop .position-info .position-buttons {\n      max-width: 280px; }\n    .position-info .position-buttons .position-button {\n      width: 93px;\n      height: 40px;\n      border-radius: 4px;\n      border: solid 1px #00a2f2;\n      display: flex;\n      flex-direction: row;\n      justify-content: center;\n      align-items: center;\n      color: #00a2f2;\n      font-size: 15px;\n      font-weight: 600;\n      text-align: center;\n      user-select: none; }\n      .position-info .position-buttons .position-button i {\n        margin-right: 10px;\n        font-size: 18px; }\n      .not-desktop .position-info .position-buttons .position-button {\n        font-size: 13px;\n        width: 85px; }\n  .position-info .position-reward {\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    margin-top: 30px;\n    width: 430px; }\n    .position-info .position-reward .reward-star {\n      margin-right: 20px;\n      display: flex;\n      flex-direction: column;\n      flex: 1;\n      line-height: 1; }\n      .position-info .position-reward .reward-star i {\n        font-size: 50px; }\n    .position-info .position-reward .reward-top {\n      font-size: 15px;\n      font-weight: 600; }\n    .position-info .position-reward .reward-bottom {\n      font-size: 13px;\n      color: #263345; }\n\n.bump-register {\n  background-color: #f7fafc;\n  background-image: url(\"/statics/svg/bump/position-backdrop.svg\");\n  background-size: cover;\n  background-position: calc(50% + 33px) 50%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  flex: 1; }\n\n.bump-info {\n  display: flex;\n  flex: 0 0 350px;\n  flex-direction: column;\n  width: 100%;\n  align-self: center;\n  align-items: center;\n  text-align: center;\n  color: #263345;\n  line-height: 1.5;\n  z-index: 1;\n  margin-top: 260px; }\n  .bump-info .bump-18 {\n    font-size: 18px;\n    color: #263345;\n    margin-top: 5px; }\n  .bump-info .bump-number {\n    font-size: 40px;\n    font-weight: 600;\n    margin-top: 30px;\n    color: #263345; }\n  .bump-info .bump-line {\n    height: 1px;\n    background: #cccccc;\n    margin-top: 30px;\n    width: 430px; }\n  .bump-info .bump-text {\n    margin-top: 20px;\n    width: 300px;\n    font-size: 15px;\n    text-align: center;\n    color: #263345; }\n  .bump-info .bump-code {\n    width: 390px;\n    height: 109px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/golden-ticket.svg\");\n    background-bump: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    margin-top: 30px; }\n  .bump-info .bump-button {\n    width: 200px;\n    height: 50px;\n    border-radius: 4px;\n    border: solid 1px #00a2f2;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    color: #00a2f2;\n    font-size: 15px;\n    font-weight: 600;\n    text-align: center;\n    user-select: none;\n    margin-top: 30px;\n    text-decoration: none; }\n    .bump-info .bump-button i {\n      margin-right: 10px;\n      font-size: 18px; }\n\nhtml, body {\n  overflow: hidden;\n  min-width: 320px;\n  width: 100%; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 14px;\n  font-weight: 400;\n  color: #666666; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #cccccc;\n  margin-top: 20px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n[data-mobile-screen] {\n  display: flex;\n  flex-direction: column;\n  flex: 1 0 320px;\n  max-width: 100vw;\n  height: 100vh;\n  overflow-y: auto;\n  background-color: #f7f9fb; }\n  [data-mobile-screen] [data-mobile-content] {\n    display: flex;\n    flex-direction: column;\n    padding: 0 20px; }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading {\n  margin-top: 20px;\n  font-size: 13px;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child {\n    margin-top: 0; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\n[class^=\"emotions-\"]:before, [class*=\" emotions-\"]:before, [class^=\"emotions-\"]:after, [class*=\" emotions-\"]:after {\n  font-family: Emotions;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%;\n  margin-left: 1px;\n  margin-top: 1px; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.clickable {\n  transition: .15s;\n  transform: scale(1);\n  cursor: pointer; }\n  .clickable:hover {\n    transform: scale(1.1); }\n  .clickable:active {\n    transform: scale(0.9);\n    box-shadow: 0 0 transparent; }\n\n.thin-row {\n  display: flex;\n  flex-direction: row;\n  position: relative;\n  margin: 0 -10px;\n  margin-top: 20px; }\n\n.thin-col {\n  flex: 1 1 calc(50%);\n  padding: 0 10px;\n  position: relative; }\n\n.awards-streak {\n  height: 190px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1; }\n  .awards-streak .streak-number {\n    font-size: 50px;\n    font-weight: 600;\n    color: #f6b8a7; }\n  .awards-streak .streak-text {\n    margin-top: 10px;\n    font-size: 15px;\n    font-weight: 600;\n    color: #f6b8a7;\n    text-transform: uppercase; }\n\n.ribbon-title {\n  background-image: url(\"/statics/svg/awards/awards-backdrop.svg\");\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 50px;\n  width: 200px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: 13px;\n  text-align: center;\n  color: #fff;\n  align-self: center;\n  top: -37px;\n  position: relative;\n  margin: 10px auto; }\n\n.streak-icons {\n  display: flex;\n  flex-direction: row;\n  margin: -30px -30px 30px;\n  flex-wrap: wrap;\n  align-self: center; }\n  .streak-icons .streak-icon {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 70px;\n    height: 100px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    margin: 30px;\n    filter: grayscale(100%);\n    opacity: 0.6; }\n    .streak-icons .streak-icon.active {\n      filter: grayscale(0%);\n      opacity: 1; }\n\n.community-list .community-dot {\n  width: 13px;\n  height: 13px;\n  background-color: #5dcfa2;\n  border-radius: 100px; }\n\n.community-list .community-name {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345; }\n\n.community-list .community-icons {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345;\n  display: flex;\n  flex-direction: row; }\n\n.community-list .community-view {\n  color: #00a2f2;\n  font-size: 25px;\n  font-weight: 600; }\n", ""]);
+exports.push([module.i, ".flex {\n  display: flex;\n  flex: 1 1 auto;\n  flex-direction: column; }\n  .flex.flex-row {\n    flex-direction: row; }\n  .flex.flex-max {\n    flex: 1 0 auto; }\n  .flex.flex-min {\n    flex: 0 0 auto; }\n  .flex.flex-shrink {\n    flex: 0 1 auto; }\n  .flex.flex-wrap {\n    flex-wrap: wrap; }\n  .flex.flex-align {\n    align-items: center; }\n  .flex.flex-justify {\n    justify-content: center; }\n  .flex.flex-start {\n    align-self: flex-start; }\n  .flex.flex-end {\n    align-self: flex-end; }\n\n.flex-cols {\n  margin: 0 -10px;\n  flex-direction: row;\n  flex-wrap: wrap;\n  display: flex; }\n\n.flex-col {\n  display: flex;\n  flex-direction: column;\n  padding: 0 10px;\n  flex: 1 0 0px; }\n\n.box {\n  background: white;\n  border-radius: 5px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 30px;\n  text-align: left;\n  margin-top: 30px; }\n\n.panels {\n  margin: 0 -15px -15px;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap; }\n\n.panel {\n  text-align: center;\n  width: 190px;\n  height: 230px;\n  border-radius: 4px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  padding: 15px 15px;\n  display: flex;\n  align-items: center;\n  margin: 15px;\n  flex-direction: column;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: none !important;\n  width: 215px;\n  height: 185px;\n  padding: 10px;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  position: relative;\n  top: 0; }\n  .panel:after {\n    z-index: -1;\n    background-color: #ffffff;\n    border-radius: 4px;\n    content: \"\";\n    top: 2px;\n    left: 2px;\n    position: absolute;\n    width: 215px;\n    height: 185px;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2); }\n  .panel .panel-icon {\n    color: #e5e9ea;\n    font-size: 40px;\n    font-weight: 100;\n    height: 75px;\n    width: 75px;\n    max-height: 75px;\n    max-width: 75px;\n    min-height: 75px;\n    min-width: 75px;\n    background: red;\n    color: white;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 100%;\n    margin-right: auto; }\n  .panel .panel-heading {\n    font-size: 13px;\n    font-weight: 600;\n    margin-top: 10px;\n    padding: 0px;\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    color: #263345; }\n  .panel .panel-line {\n    width: 25px;\n    border: solid 1px #00a2f2; }\n  .panel .panel-text {\n    display: flex;\n    font-size: 11px;\n    color: #999999;\n    margin-top: 0px;\n    text-align: left;\n    width: 100%;\n    justify-content: space-between;\n    align-items: center;\n    text-transform: uppercase; }\n  .panel:hover {\n    top: -5px; }\n  .panel:active {\n    transform: scale(0.95); }\n\n.info {\n  background-color: #eff2f9;\n  min-height: 174px;\n  border-radius: 3px;\n  margin-top: 10px;\n  position: relative;\n  overflow: hidden;\n  z-index: 1;\n  display: flex;\n  flex-direction: column;\n  padding: 20px;\n  line-height: 1;\n  flex: 1 0 auto; }\n  .info .info-white {\n    position: absolute;\n    top: 93px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .info .info-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain;\n    height: 110px;\n    width: calc(100% - 20px);\n    top: 0px;\n    left: 20px; }\n  .info .info-number {\n    font-size: 30px;\n    font-weight: 600;\n    color: #263345;\n    margin-top: 80px;\n    text-align: right; }\n  .info .info-text {\n    font-size: 15px;\n    color: #999999;\n    margin-top: 5px;\n    text-align: right; }\n\n.info-stat {\n  height: 220px;\n  border-radius: 3px;\n  background-color: #fff;\n  position: relative;\n  overflow: hidden;\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  line-height: 1;\n  margin-top: 10px;\n  justify-content: center;\n  align-items: center; }\n  .info-stat:first-child {\n    margin-top: 0; }\n  .info-stat .stat-icon {\n    width: 95px;\n    height: 95px;\n    border: 10px solid #eff2f9;\n    background-color: #eff2f9;\n    background-size: contain;\n    background-repeat: no-repeat;\n    background-position: center;\n    border-radius: 200px;\n    display: flex;\n    align-items: center;\n    justify-content: center; }\n  .info-stat .stat-number {\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    margin-top: 15px; }\n  .info-stat .stat-text {\n    margin-top: 5px;\n    font-size: 15px;\n    text-align: center;\n    color: #999999; }\n\n.info-emoji {\n  height: 110px;\n  border-radius: 3px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: row;\n  padding: 20px;\n  align-items: center; }\n  .info-emoji .emoji-icon {\n    width: 73px;\n    height: 73px;\n    background-size: cover;\n    background-position: center;\n    background-repeat: no-repeat; }\n  .info-emoji .emoji-number {\n    margin-left: 15px;\n    font-size: 30px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345; }\n\n.suppl-form {\n  margin-top: -20px; }\n\n.suppl-label {\n  font-size: 12px;\n  font-weight: 600;\n  color: #08182f;\n  margin-top: 20px;\n  text-transform: uppercase; }\n  .not-desktop .suppl-label {\n    font-size: 10px;\n    font-weight: 600; }\n\n.suppl-multi {\n  height: 60px;\n  margin-top: 7px;\n  border-radius: 2px;\n  background-color: #fff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  overflow: hidden;\n  display: flex;\n  flex-direction: row;\n  font-weight: normal;\n  user-focus: none;\n  user-select: none; }\n  .suppl-multi .multi-item {\n    flex: 1 0 0;\n    font-size: 18px;\n    color: #08182f;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    cursor: pointer;\n    border: 1px solid #c4c4c4;\n    transition: .15s;\n    border-left: none; }\n    .suppl-multi .multi-item:hover {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .suppl-multi .multi-item:first-child {\n      border-left: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item:last-child {\n      border-right: 1px solid #c4c4c4; }\n    .suppl-multi .multi-item.active {\n      background-color: #263345;\n      color: #fff;\n      border: 1px solid #263345; }\n\n.suppl-input {\n  margin-top: 7px;\n  height: 40px;\n  line-height: 38px;\n  border-radius: 2px;\n  background-color: #ffffff;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);\n  border: solid 1px #c4c4c3;\n  min-width: 188px;\n  display: flex;\n  flex-direction: row;\n  transition: .15s;\n  font-weight: normal; }\n  .suppl-input.focus {\n    border: solid 1px #00a2f2; }\n  .suppl-input .input-icon {\n    height: 38px;\n    width: 38px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: #cccccc; }\n  .suppl-input input {\n    height: 38px;\n    line-height: 38px;\n    display: flex;\n    flex: 1 1 188px;\n    background: none;\n    border: none;\n    box-shadow: none;\n    outline: none;\n    padding: 0 7px; }\n    .suppl-input input::-placeholder-shown {\n      color: #cccccc; }\n    .suppl-input input::-webkit-input-placeholder {\n      /* Chrome/Opera/Safari */\n      color: #cccccc; }\n    .suppl-input input::-moz-placeholder {\n      /* Firefox 19+ */\n      color: #cccccc; }\n    .suppl-input input:-ms-input-placeholder {\n      /* IE 10+ */\n      color: #cccccc; }\n    .suppl-input input:-moz-placeholder {\n      /* Firefox 18- */\n      color: #cccccc; }\n  .suppl-input.large {\n    height: 60px;\n    line-height: 58px;\n    font-size: 17px; }\n    .suppl-input.large .input-icon {\n      height: 58px;\n      width: 58px; }\n    .suppl-input.large input {\n      height: 58px;\n      line-height: 58px; }\n    .not-desktop .suppl-input.large {\n      height: 50px;\n      line-height: 48px;\n      font-size: 14px; }\n      .not-desktop .suppl-input.large .input-icon {\n        height: 48px;\n        width: 48px; }\n      .not-desktop .suppl-input.large input {\n        height: 48px;\n        line-height: 48px; }\n\n.suppl-dropdown {\n  position: absolute;\n  margin-top: 30px;\n  right: 0;\n  user-focus: none;\n  user-select: none;\n  width: 150px;\n  background-color: #ffffff;\n  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);\n  border: solid 1px #d9d9d9;\n  opacity: 0;\n  visibility: hidden;\n  transition: .15s; }\n  .suppl-dropdown.active {\n    opacity: 1;\n    visibility: visible; }\n  .suppl-dropdown .dropdown-item {\n    border-bottom: solid 1px #d9d9d9;\n    background-color: #ffffff;\n    font-size: 12px;\n    font-weight: 600;\n    line-height: 2.5;\n    color: #08182f;\n    height: 30px;\n    display: flex;\n    flex-direction: row;\n    transition: .15s;\n    cursor: pointer;\n    text-decoration: none; }\n    .suppl-dropdown .dropdown-item .item-icon {\n      height: 30px;\n      width: 30px;\n      display: flex;\n      align-items: center;\n      justify-content: center; }\n    .suppl-dropdown .dropdown-item .item-text {\n      display: flex;\n      align-items: center; }\n    .suppl-dropdown .dropdown-item:last-child {\n      border: none; }\n    .suppl-dropdown .dropdown-item:hover, .suppl-dropdown .dropdown-item.active {\n      background-color: #00a2f2;\n      color: white; }\n\n.splash {\n  background: #eff5f9;\n  align-items: center;\n  flex-direction: column;\n  text-align: center; }\n\n.splash-header {\n  margin: 25px 0 0 50px;\n  font-size: 15px;\n  font-weight: 600;\n  text-align: left;\n  color: #666666;\n  align-self: flex-start;\n  justify-self: flex-start;\n  display: flex;\n  flex-direction: row; }\n  .splash-header .header-logo img {\n    height: 15px; }\n  .splash-header .header-logo-text {\n    font-size: 16px;\n    font-weight: 600;\n    color: #00a2f2;\n    margin-left: 15px;\n    text-decoration: none; }\n  .splash-header .header-page {\n    margin-left: 15px;\n    padding-left: 15px;\n    border-left: 1px solid #979797; }\n\n.splash-heading {\n  font-size: 28px;\n  font-weight: 600;\n  text-align: center;\n  color: #666666;\n  margin-top: 100px; }\n\n.register-screen {\n  display: flex;\n  flex-direction: row;\n  flex: 1;\n  opacity: 0;\n  transition: .6s;\n  background: white; }\n  .register-screen .register-left {\n    background-color: #eff2f9;\n    flex-direction: column;\n    flex: 0 1 480px;\n    display: flex;\n    padding: 25px 50px;\n    transition: .6s; }\n  .register-screen .register-right {\n    flex: 1 0 0;\n    display: flex;\n    background: white;\n    align-items: center;\n    justify-content: center;\n    flex-direction: row;\n    padding: 30px;\n    position: relative;\n    overflow: hidden; }\n  .register-screen .register-img {\n    flex: 0 1 600px;\n    position: absolute; }\n  .register-screen .register-header {\n    font-size: 15px;\n    font-weight: 600;\n    text-align: left;\n    color: #666666;\n    align-self: flex-start;\n    justify-self: flex-start;\n    display: flex;\n    flex-direction: row; }\n    .not-desktop .register-screen .register-header {\n      height: 60px;\n      align-items: center;\n      padding: 0 20px;\n      background: white;\n      width: 100%;\n      flex: 0 0 60px; }\n    .register-screen .register-header .header-logo img {\n      height: 15px; }\n    .register-screen .register-header .header-logo-text {\n      font-size: 16px;\n      font-weight: 600;\n      color: #00a2f2;\n      margin-left: 15px;\n      text-decoration: none; }\n    .register-screen .register-header .header-page {\n      margin-left: 15px;\n      padding-left: 15px;\n      border-left: 1px solid #979797; }\n  .register-screen .register-heading {\n    font-size: 22px;\n    font-weight: 400;\n    color: #263345;\n    margin-top: 80px; }\n    .not-desktop .register-screen .register-heading {\n      font-size: 18px;\n      margin-top: 30px; }\n  .register-screen .register-sub-heading {\n    font-size: 16px;\n    color: #666666;\n    margin-top: 5px; }\n  .register-screen.active-screen {\n    opacity: 1; }\n    .register-screen.active-screen .register-left {\n      transform: translateX(0); }\n\n.register-top {\n  margin-top: 30px; }\n  .register-top .top-star {\n    font-size: 25px;\n    color: #ffc200; }\n  .register-top .top-title {\n    font-size: 24px;\n    font-weight: 600;\n    text-align: left;\n    color: #263345;\n    margin-left: 10px; }\n  .register-top .top-text {\n    margin-top: 5px;\n    font-size: 15px;\n    text-align: left;\n    color: #263345; }\n\n.butn {\n  min-width: 110px;\n  height: 40px;\n  border-radius: 4px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.22);\n  border: solid 1px #00a2f2;\n  padding: 0 15px;\n  font-size: 14px;\n  font-weight: 600;\n  color: #ffffff;\n  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  text-decoration: none;\n  margin-top: 25px;\n  cursor: pointer;\n  transition: .15s;\n  user-select: none;\n  outline: none;\n  transition: .15s; }\n  .butn.no-margin {\n    margin: 0; }\n  .butn:hover, .butn:focus {\n    background-color: #26b7ff;\n    outline: none; }\n  .butn:active {\n    background-color: #59c8ff;\n    outline: none; }\n  .butn:hover {\n    text-decoration: none; }\n  .butn:active, .butn:visited, .butn:focus {\n    text-decoration: none; }\n  .butn.mid {\n    margin-top: 35px;\n    max-width: 255px;\n    width: 145px;\n    height: 50px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n  .butn.large {\n    margin-top: 35px;\n    max-width: 255px;\n    height: 75px;\n    font-size: 21px;\n    font-weight: 600;\n    color: #fff;\n    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22); }\n    .not-desktop .butn.large {\n      font-size: 18px;\n      height: 60px; }\n  .butn[disabled] {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none; }\n  .butn.white {\n    background: white;\n    color: #00a2f2;\n    text-shadow: none;\n    font-size: 16px;\n    font-weight: 600; }\n  .butn.transparent, .butn.clear {\n    text-shadow: none;\n    background: none;\n    border: none;\n    color: inherit;\n    cursor: auto;\n    box-shadow: none;\n    padding: 0;\n    font-weight: normal;\n    width: auto;\n    max-width: none;\n    text-align: left;\n    justify-content: flex-start;\n    font-size: inherit; }\n\n.stats-streak {\n  border-radius: 5px;\n  background-color: #00a2f2;\n  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n  margin-top: 10px;\n  min-height: 175px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  position: relative; }\n  .stats-streak .streak-img {\n    position: absolute;\n    right: 20px;\n    height: 190px; }\n  .stats-streak .streak-number {\n    width: 66px;\n    height: 66px;\n    background-color: #11acf9;\n    border: solid 1px #0488c9;\n    border-radius: 100px;\n    font-size: 34px;\n    font-weight: 600;\n    color: #fff;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n  .stats-streak .streak-header {\n    font-size: 16px;\n    font-weight: 600;\n    color: #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-line {\n    width: 25px;\n    border-top: solid 1px #fff;\n    margin-top: 10px; }\n  .stats-streak .streak-text {\n    margin-top: 10px;\n    font-size: 13px;\n    text-align: center;\n    color: #fff; }\n\n.stats-all {\n  margin: 0 -10px; }\n\n.stats-container {\n  flex: 1 0 auto;\n  display: flex;\n  flex-direction: column;\n  margin: 0 10px; }\n\n.stats-box {\n  border-radius: 6px;\n  background-color: #fff;\n  margin-top: 10px;\n  flex: 0 0 auto;\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  overflow: hidden; }\n  .stats-box .stats-stat {\n    border-top: dashed 1px #e7ebee;\n    border-left: dashed 1px #e7ebee;\n    margin: -1px 0 0 -1px;\n    flex: 1 0 100px;\n    padding: 20px;\n    flex-direction: row;\n    display: flex;\n    position: relative;\n    min-height: 60px; }\n    .stats-box .stats-stat:last-child {\n      border-right: none; }\n    .stats-box .stats-stat .stat-icon {\n      color: #ff939f;\n      font-size: 20px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      width: 40px;\n      height: 40px;\n      border: solid 1px #e7ebee;\n      border-radius: 100px; }\n      .stats-box .stats-stat .stat-icon.light-gold {\n        color: #ffd355; }\n      .stats-box .stats-stat .stat-icon.charcoal {\n        color: #373a39; }\n      .stats-box .stats-stat .stat-icon.tealish {\n        color: #2ccfa9; }\n      .stats-box .stats-stat .stat-icon.dark {\n        color: #263345; }\n    .stats-box .stats-stat .session-icon {\n      border: none;\n      font-size: 24px; }\n    .stats-box .stats-stat .stat-number {\n      margin-left: 10px;\n      line-height: 1;\n      font-size: 15px;\n      color: #263345; }\n      .stats-box .stats-stat .stat-number span {\n        font-size: 8px; }\n    .stats-box .stats-stat .stat-desc {\n      margin-top: 5px;\n      margin-left: 10px;\n      font-size: 10px;\n      color: #cccccc;\n      text-transform: uppercase; }\n\n.series-list {\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  margin: 12px -12px 12px; }\n\n.series {\n  width: 245px;\n  height: 203px;\n  background-color: #eff2f9;\n  margin: 12px;\n  overflow: hidden;\n  position: relative;\n  transition: .15s;\n  cursor: pointer;\n  display: flex;\n  flex-direction: column;\n  text-decoration: none !important;\n  line-height: 1;\n  box-shadow: 0 2px 4px 0 transparent;\n  z-index: 1; }\n  .series .series-white {\n    position: absolute;\n    top: 110px;\n    transform: rotate(-9deg);\n    left: -1000px;\n    right: -1000px;\n    bottom: -1000px;\n    z-index: -1;\n    background: white; }\n  .series .series-icon {\n    position: absolute;\n    z-index: -2;\n    height: 130px;\n    width: 60%;\n    background-repeat: no-repeat;\n    background-position: top left;\n    background-size: contain; }\n  .series .series-time {\n    width: 50px;\n    height: 50px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    border-radius: 100px;\n    position: absolute;\n    top: 67px;\n    right: 25px;\n    align-items: center;\n    justify-content: center;\n    display: flex;\n    flex-direction: column; }\n    .series .series-time .time-number {\n      font-size: 19px;\n      color: #263345; }\n    .series .series-time .time-text {\n      font-size: 9px;\n      color: #263345;\n      margin-top: 1px; }\n  .series .series-info {\n    margin-top: auto;\n    display: flex;\n    flex-direction: row;\n    padding: 25px;\n    align-items: center; }\n    .series .series-info .flex {\n      max-width: 100%; }\n    .series .series-info .info-title {\n      font-size: 15px;\n      font-weight: 600;\n      color: #263345;\n      text-transform: uppercase; }\n    .series .series-info .info-text {\n      margin-top: 3px;\n      font-size: 10px;\n      color: #263345;\n      overflow: hidden;\n      white-space: nowrap;\n      text-overflow: ellipsis;\n      flex: 1 1 auto; }\n    .series .series-info .go-icon {\n      color: #00a2f2;\n      font-size: 18px;\n      margin-left: auto;\n      padding-left: 10px; }\n  .series:hover {\n    transform: scale(1.05);\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }\n  .series:active {\n    transform: scale(0.95); }\n\n.session-header {\n  min-height: 233px;\n  background-size: contain;\n  background-position: left center;\n  background-repeat: no-repeat;\n  display: flex;\n  flex-direction: column;\n  margin: 35px;\n  margin-top: 55px;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1;\n  position: relative;\n  z-index: 0; }\n  .session-header.mini {\n    min-height: 190px;\n    margin-top: 45px; }\n  .session-header .header-overlay {\n    position: absolute;\n    top: -35px;\n    bottom: -35px;\n    right: -35px;\n    left: -35px;\n    opacity: 0.42;\n    background-color: #263345;\n    z-index: -1; }\n  .session-header .session-title {\n    font-size: 20px;\n    font-weight: 600;\n    color: #fff;\n    text-transform: uppercase; }\n  .session-header .session-description {\n    font-size: 13px;\n    font-weight: 600;\n    color: #fff;\n    line-height: 1.6;\n    margin-top: 10px;\n    max-width: 320px; }\n  .session-header .session-stats {\n    display: flex;\n    flex-direction: row;\n    align-self: center;\n    justify-self: center;\n    margin-top: 25px; }\n    .session-header .session-stats .stats-stat {\n      display: flex;\n      flex-direction: column;\n      width: 100px; }\n    .session-header .session-stats .stat-number {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #fff; }\n    .session-header .session-stats .stat-label {\n      font-size: 11px;\n      text-align: center;\n      color: #fff;\n      margin-top: 3px; }\n\n.session-header-extra {\n  height: 70px;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  font-size: 13px;\n  color: #666666;\n  position: relative; }\n  .session-header-extra .top-label {\n    position: absolute;\n    top: -15px;\n    width: 100px;\n    height: 30px;\n    background-color: #fff;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 13px;\n    text-align: center;\n    color: #263345;\n    text-transform: uppercase; }\n\n.session-list, .flex-table {\n  display: flex;\n  flex-direction: column;\n  margin-top: 40px; }\n  .session-list .hori, .flex-table .hori {\n    display: flex;\n    flex: 1;\n    flex-direction: row; }\n  .session-list .col, .flex-table .col {\n    display: flex;\n    flex: 1 0 0;\n    flex-direction: row;\n    align-items: center;\n    padding: 10px; }\n    .session-list .col.col-70, .flex-table .col.col-70 {\n      flex: 0 0 70px;\n      text-align: center;\n      justify-content: center; }\n  .session-list .list-header, .flex-table .list-header {\n    height: 40px;\n    background-color: #eff2f9;\n    font-size: 11px;\n    font-weight: 300;\n    text-align: center;\n    color: #666666;\n    text-transform: uppercase; }\n  .session-list .list-row, .flex-table .list-row {\n    background-color: #fff;\n    border: solid 1px #f3f3f3;\n    height: 80px;\n    margin-top: -1px;\n    font-size: 18px;\n    font-weight: 300;\n    text-align: center;\n    color: #263345; }\n    .session-list .list-row[data-inactive=\"false\"], .flex-table .list-row[data-inactive=\"false\"] {\n      background: rgba(255, 255, 255, 0.5); }\n      .session-list .list-row[data-inactive=\"false\"] .session-number, .flex-table .list-row[data-inactive=\"false\"] .session-number {\n        color: rgba(38, 51, 69, 0.5); }\n    .session-list .list-row:first-child, .flex-table .list-row:first-child {\n      margin-top: 0; }\n  .session-list .session-number, .flex-table .session-number {\n    width: 25px;\n    height: 25px;\n    background-color: #e7ebee;\n    border-radius: 100px;\n    font-size: 18px;\n    font-weight: 600;\n    text-align: center;\n    color: #263345;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n    z-index: 1; }\n    .session-list .session-number:before, .flex-table .session-number:before {\n      content: '';\n      width: 2px;\n      border: solid 2px #e7ebee;\n      position: absolute;\n      height: 80px;\n      z-index: -1;\n      top: 5px; }\n    .session-list .session-number[data-last=\"true\"]:before, .flex-table .session-number[data-last=\"true\"]:before {\n      display: none; }\n  .session-list .next-session, .flex-table .next-session {\n    height: 20px;\n    padding: 0 10px;\n    border-radius: 2px;\n    background-color: #f8bb2a;\n    font-size: 9px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin-right: auto; }\n  .session-list .play-button, .flex-table .play-button {\n    width: 43px;\n    height: 43px;\n    background-color: #00a2f2;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .play-button i, .flex-table .play-button i {\n      color: white;\n      font-size: 17px;\n      padding-left: 4px; }\n  .session-list .lock-button, .flex-table .lock-button {\n    width: 43px;\n    height: 43px;\n    background-color: #cccccc;\n    border-radius: 100px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    color: white;\n    font-size: 30px; }\n    .session-list .lock-button i, .flex-table .lock-button i {\n      color: white;\n      font-size: 20px; }\n\n.flex-table {\n  margin-top: 10px; }\n  .flex-table .hori {\n    border: none; }\n    .flex-table .hori:nth-child(2n + 3) {\n      background-color: #fbfbfb; }\n\n.position-info {\n  display: flex;\n  flex: 1 0 0px;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: white;\n  line-height: 1.5; }\n  .position-info .position-18 {\n    font-size: 18px;\n    color: white;\n    margin-top: 5px;\n    max-width: 430px; }\n    .not-desktop .position-info .position-18 {\n      max-width: 280px;\n      font-size: 14px; }\n  .position-info .position-number {\n    font-size: 40px;\n    font-weight: 600;\n    margin-top: 5px; }\n  .position-info .position-line {\n    height: 1px;\n    background: rgba(255, 255, 255, 0.2);\n    margin-top: 30px;\n    width: 430px; }\n  .position-info .position-text {\n    margin-top: 20px;\n    width: 300px;\n    height: 40px;\n    font-size: 15px;\n    text-align: center;\n    color: white; }\n    .not-desktop .position-info .position-text {\n      max-width: 280px; }\n  .position-info .position-code {\n    width: 410px;\n    height: 160px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/position-invitation.svg\");\n    background-position: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    padding-top: 35px; }\n    .not-desktop .position-info .position-code {\n      max-width: 300px;\n      background-size: contain;\n      height: 110px;\n      padding-top: 27px;\n      font-size: 11px; }\n  .position-info .position-buttons {\n    margin-top: 30px;\n    width: 390px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .not-desktop .position-info .position-buttons {\n      max-width: 280px; }\n    .position-info .position-buttons .position-button {\n      width: 93px;\n      height: 40px;\n      border-radius: 4px;\n      border: solid 1px #00a2f2;\n      display: flex;\n      flex-direction: row;\n      justify-content: center;\n      align-items: center;\n      color: #00a2f2;\n      font-size: 15px;\n      font-weight: 600;\n      text-align: center;\n      user-select: none; }\n      .position-info .position-buttons .position-button i {\n        margin-right: 10px;\n        font-size: 18px; }\n      .not-desktop .position-info .position-buttons .position-button {\n        font-size: 13px;\n        width: 85px; }\n  .position-info .position-reward {\n    display: flex;\n    flex-direction: row;\n    text-align: left;\n    margin-top: 30px;\n    width: 430px; }\n    .position-info .position-reward .reward-star {\n      margin-right: 20px;\n      display: flex;\n      flex-direction: column;\n      flex: 1;\n      line-height: 1; }\n      .position-info .position-reward .reward-star i {\n        font-size: 50px; }\n    .position-info .position-reward .reward-top {\n      font-size: 15px;\n      font-weight: 600; }\n    .position-info .position-reward .reward-bottom {\n      font-size: 13px;\n      color: #263345; }\n\n.bump-register {\n  background-color: #f7fafc;\n  background-image: url(\"/statics/svg/bump/position-backdrop.svg\");\n  background-size: cover;\n  background-position: calc(50% + 33px) 50%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  flex: 1; }\n\n.bump-info {\n  display: flex;\n  flex: 0 0 350px;\n  flex-direction: column;\n  width: 100%;\n  align-self: center;\n  align-items: center;\n  text-align: center;\n  color: #263345;\n  line-height: 1.5;\n  z-index: 1;\n  margin-top: 260px; }\n  .bump-info .bump-18 {\n    font-size: 18px;\n    color: #263345;\n    margin-top: 5px; }\n  .bump-info .bump-number {\n    font-size: 40px;\n    font-weight: 600;\n    margin-top: 30px;\n    color: #263345; }\n  .bump-info .bump-line {\n    height: 1px;\n    background: #cccccc;\n    margin-top: 30px;\n    width: 430px; }\n  .bump-info .bump-text {\n    margin-top: 20px;\n    width: 300px;\n    font-size: 15px;\n    text-align: center;\n    color: #263345; }\n  .bump-info .bump-code {\n    width: 390px;\n    height: 109px;\n    background: none;\n    background-image: url(\"/statics/svg/waitlist/golden-ticket.svg\");\n    background-bump: center;\n    background-repeat: no-repeat;\n    border: none;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    text-align: center;\n    font-size: 15px;\n    font-weight: 600;\n    color: #967b26;\n    margin-top: 30px; }\n  .bump-info .bump-button {\n    width: 200px;\n    height: 50px;\n    border-radius: 4px;\n    border: solid 1px #00a2f2;\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    color: #00a2f2;\n    font-size: 15px;\n    font-weight: 600;\n    text-align: center;\n    user-select: none;\n    margin-top: 30px;\n    text-decoration: none; }\n    .bump-info .bump-button i {\n      margin-right: 10px;\n      font-size: 18px; }\n\n.dashboard-stats {\n  border-bottom: solid 1px #fff;\n  display: flex;\n  flex-direction: row;\n  color: #cccccc;\n  padding: 20px 0; }\n  .dashboard-stats .dashboard-stat {\n    display: flex;\n    flex: 1 0 0px;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    line-height: 1; }\n    .dashboard-stats .dashboard-stat .stat-icon {\n      width: 40px;\n      height: 40px;\n      margin-right: 15px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      font-size: 35px;\n      opacity: 0.3; }\n    .dashboard-stats .dashboard-stat .stat-value {\n      font-size: 28px;\n      font-weight: 600; }\n    .dashboard-stats .dashboard-stat .stat-text {\n      font-size: 13px;\n      font-weight: 300;\n      color: #666666;\n      margin-top: 5px; }\n\n.dashboard-banner, .dashboard-banner-mid, .dashboard-banner-low {\n  height: 240px;\n  border-radius: 4px;\n  background-color: #95d1ff;\n  background-image: url(\"/statics/svg/patterns/wiggle.svg\");\n  background-position: top left;\n  background-size: 300px;\n  margin-top: 10px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: white;\n  font-size: 15px;\n  text-align: center; }\n  .dashboard-banner .banner-title, .dashboard-banner-mid .banner-title, .dashboard-banner-low .banner-title {\n    font-size: 30px;\n    font-weight: bold;\n    text-align: center;\n    color: #fff;\n    text-transform: uppercase;\n    line-height: 1.2; }\n  .dashboard-banner .banner-session, .dashboard-banner-mid .banner-session, .dashboard-banner-low .banner-session {\n    margin-top: 5px; }\n  .dashboard-banner .banner-butn, .dashboard-banner-mid .banner-butn, .dashboard-banner-low .banner-butn {\n    width: 109px;\n    height: 40px;\n    border-radius: 100px;\n    background-color: #00a2f2;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 0 20px;\n    font-size: 15px;\n    font-weight: 600;\n    text-align: center;\n    color: #fff;\n    margin-top: 25px; }\n\n.dashboard-banner-mid, .dashboard-banner-low {\n  background-color: #a2e4eb;\n  height: 113px;\n  flex-direction: row;\n  padding: 30px;\n  align-items: center;\n  text-align: left;\n  justify-content: flex-start; }\n  .dashboard-banner-mid i, .dashboard-banner-low i {\n    font-size: 40px;\n    margin-right: 20px; }\n  .dashboard-banner-mid .banner-title, .dashboard-banner-low .banner-title {\n    text-transform: none;\n    font-size: 22px;\n    text-align: left; }\n\n.dashboard-banner-low {\n  background-color: #ffc3ca;\n  height: 80px; }\n  .dashboard-banner-low i {\n    font-size: 25px;\n    margin-right: 20px; }\n  .dashboard-banner-low .banner-title {\n    text-transform: uppercase;\n    font-weight: 600;\n    font-size: 15px;\n    text-align: left; }\n\n.dashboard-note {\n  height: 120px;\n  background-color: #fff;\n  border-radius: 4px;\n  padding: 10px;\n  margin-top: 20px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  color: #999999;\n  color: #4f617b;\n  font-size: 13px;\n  position: relative; }\n  .dashboard-note:before {\n    content: '';\n    border-top: solid 10px white;\n    border-left: solid 10px white;\n    border-right: solid 10px transparent;\n    border-bottom: solid 10px transparent;\n    position: absolute;\n    top: -10px;\n    transform: rotate(45deg); }\n  .dashboard-note .note-text {\n    max-width: 350px; }\n  .dashboard-note .note-line {\n    border-top: solid 1px #cccccc;\n    margin: 10px 0;\n    width: 70px; }\n  .dashboard-note .note-action {\n    color: #00a2f2;\n    font-weight: bold;\n    cursor: pointer;\n    text-decoration: underline; }\n\nhtml, body {\n  overflow: hidden;\n  min-width: 320px;\n  width: 100%; }\n\nbody {\n  background-color: #f7f9fb;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  font-size: 14px;\n  font-weight: 400;\n  color: #666666; }\n\ninput, textarea, select {\n  background-color: #e7ebee;\n  font-family: 'Open Sans', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  color: #08182f; }\n\n.fa {\n  line-height: inherit; }\n\n#app {\n  display: flex;\n  flex-direction: column;\n  height: 100vh; }\n\np, .p {\n  margin: 20px 0 0;\n  padding: 0; }\n\na {\n  color: rgba(0, 0, 0, 0.2);\n  color: inherit;\n  transition: .15s;\n  cursor: pointer;\n  text-decoration: underline; }\n  a:hover {\n    color: #00a2f2; }\n\n.line {\n  height: 1px;\n  background: #cccccc;\n  margin-top: 20px; }\n\n[data-reactroot], [data-screen] {\n  height: 100vh;\n  display: flex;\n  flex: 1 0 0;\n  flex-direction: column; }\n\n[data-content] {\n  opacity: 0;\n  max-width: calc(100vw - 146px);\n  min-width: 511px;\n  transition: .6s;\n  transform: translateY(-10px); }\n\n[data-screen].active [data-content], [data-screen].active-screen [data-content] {\n  opacity: 1;\n  transform: translateY(0); }\n\n[data-mobile-screen] {\n  display: flex;\n  flex-direction: column;\n  flex: 1 0 320px;\n  max-width: 100vw;\n  height: 100vh;\n  overflow-y: auto;\n  background-color: #f7f9fb; }\n  [data-mobile-screen] [data-mobile-content] {\n    display: flex;\n    flex-direction: column;\n    padding: 0 20px; }\n\n.content-area {\n  padding: 20px;\n  display: flex;\n  flex-direction: column;\n  overflow: auto;\n  flex: 1 1 auto !important; }\n\n.content-content {\n  display: flex;\n  flex: 0 0 auto;\n  flex-direction: column; }\n\n.content-area-plain {\n  display: flex;\n  flex: 1;\n  max-width: calc(100vw - 146px);\n  min-width: 511px; }\n\n.sub-sub-heading, .sub-sub-heading-2 {\n  margin-top: 20px;\n  font-size: 13px;\n  text-align: left;\n  color: #999999;\n  text-transform: uppercase; }\n  .sub-sub-heading:first-child, .sub-sub-heading-2:first-child {\n    margin-top: 0; }\n\n.sub-sub-heading-2 {\n  margin-top: 30px;\n  text-transform: none;\n  font-size: 13px;\n  color: #4f617b; }\n\n.line-heading {\n  margin-top: 20px;\n  font-size: 15px;\n  font-weight: 600;\n  color: #263345;\n  line-height: 1; }\n\n[class^=\"flaticon-\"]:before, [class*=\" flaticon-\"]:before, [class^=\"flaticon-\"]:after, [class*=\" flaticon-\"]:after {\n  font-family: Flaticon;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%; }\n\n[class^=\"emotions-\"]:before, [class*=\" emotions-\"]:before, [class^=\"emotions-\"]:after, [class*=\" emotions-\"]:after {\n  font-family: Emotions;\n  font-size: inherit;\n  font-style: inherit;\n  margin-left: inherit;\n  font-size: 110%;\n  margin-left: 1px;\n  margin-top: 1px; }\n\ni {\n  font-style: normal; }\n\n.link {\n  color: #00a2f2;\n  font-weight: bold;\n  text-decoration: none; }\n\n.clickable {\n  transition: .15s;\n  transform: scale(1);\n  cursor: pointer;\n  user-select: none; }\n  .clickable:hover {\n    transform: scale(1.1); }\n  .clickable:active {\n    transform: scale(0.9);\n    box-shadow: 0 0 transparent; }\n\n.thin-row {\n  display: flex;\n  flex-direction: row;\n  position: relative;\n  margin: 0 -10px;\n  margin-top: 20px; }\n\n.thin-col {\n  flex: 1 1 calc(50%);\n  padding: 0 10px;\n  position: relative; }\n\n.awards-streak {\n  height: 190px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1; }\n  .awards-streak .streak-number {\n    font-size: 50px;\n    font-weight: 600;\n    color: #f6b8a7; }\n  .awards-streak .streak-text {\n    margin-top: 10px;\n    font-size: 15px;\n    font-weight: 600;\n    color: #f6b8a7;\n    text-transform: uppercase; }\n\n.ribbon-title {\n  background-image: url(\"/statics/svg/awards/awards-backdrop.svg\");\n  background-position: center;\n  background-repeat: no-repeat;\n  height: 50px;\n  width: 200px;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  font-size: 13px;\n  text-align: center;\n  color: #fff;\n  align-self: center;\n  top: -37px;\n  position: relative;\n  margin: 10px auto; }\n\n.streak-icons {\n  display: flex;\n  flex-direction: row;\n  margin: -30px -30px 30px;\n  flex-wrap: wrap;\n  align-self: center; }\n  .streak-icons .streak-icon {\n    background-position: center;\n    background-repeat: no-repeat;\n    width: 70px;\n    height: 100px;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    margin: 30px;\n    filter: grayscale(100%);\n    opacity: 0.6; }\n    .streak-icons .streak-icon.active {\n      filter: grayscale(0%);\n      opacity: 1; }\n\n.community-list .community-dot {\n  width: 13px;\n  height: 13px;\n  background-color: #5dcfa2;\n  border-radius: 100px; }\n\n.community-list .community-name {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345; }\n\n.community-list .community-icons {\n  font-size: 18px;\n  font-weight: 600;\n  color: #263345;\n  display: flex;\n  flex-direction: row; }\n\n.community-list .community-view {\n  color: #00a2f2;\n  font-size: 25px;\n  font-weight: 600; }\n", ""]);
 
 // exports
 
@@ -75048,7 +75043,7 @@ exports = module.exports = __webpack_require__(41)(undefined);
 
 
 // module
-exports.push([module.i, ".header-component {\n  height: 70px;\n  background: white;\n  padding: 15px 25px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  position: relative;\n  z-index: 1; }\n  .header-component .user-logo {\n    height: 40px;\n    width: 40px;\n    min-width: 40px;\n    border-radius: 100%;\n    background: #eaca97;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    color: white;\n    font-size: 12px;\n    font-size: 20px;\n    font-weight: 600;\n    transition: .15s;\n    text-decoration: none; }\n    .header-component .user-logo:hover, .header-component .user-logo:focus {\n      background-color: #f6e0be; }\n    .header-component .user-logo:active {\n      background-color: #fdf6ea; }\n  .header-component .user-hello {\n    font-size: 13px;\n    font-weight: 600;\n    color: #263345;\n    margin-left: 15px;\n    text-decoration: none; }\n    .header-component .user-hello a {\n      text-decoration: none; }\n  .header-component .suppl-logo {\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n    color: #00a2f2;\n    position: absolute;\n    left: 50%;\n    margin-left: -100px;\n    width: 200px; }\n  .header-component .header-menu {\n    margin-left: auto;\n    display: flex;\n    flex-direction: row; }\n    .header-component .header-menu .menu-item {\n      font-size: 16px;\n      text-align: center;\n      color: #263345;\n      margin-left: 5px;\n      display: flex;\n      flex-direction: row;\n      position: relative;\n      cursor: pointer;\n      transition: .15s; }\n      .header-component .header-menu .menu-item i {\n        font-size: 20px;\n        margin: auto 5px; }\n      .header-component .header-menu .menu-item .icon-chevron-down {\n        font-size: 10px; }\n      .header-component .header-menu .menu-item:hover {\n        color: #00a2f2; }\n", ""]);
+exports.push([module.i, ".header-component {\n  height: 70px;\n  flex: 0 0 70px;\n  background: white;\n  padding: 15px 25px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  position: relative;\n  z-index: 1; }\n  .header-component .user-logo {\n    height: 40px;\n    width: 40px;\n    min-width: 40px;\n    border-radius: 100%;\n    background: #78e1d2;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    text-align: center;\n    color: white;\n    font-size: 12px;\n    font-size: 20px;\n    font-weight: 600;\n    transition: .15s;\n    text-decoration: none; }\n    .header-component .user-logo:hover, .header-component .user-logo:focus {\n      background-color: #86edde; }\n    .header-component .user-logo:active {\n      background-color: #96f6e8; }\n  .header-component .user-hello {\n    font-size: 13px;\n    font-weight: 600;\n    color: #263345;\n    margin-left: 15px;\n    text-decoration: none; }\n    .header-component .user-hello a {\n      text-decoration: none; }\n  .header-component .suppl-logo {\n    font-size: 16px;\n    font-weight: 600;\n    text-align: center;\n    color: #00a2f2;\n    position: absolute;\n    left: 50%;\n    margin-left: -100px;\n    width: 200px; }\n  .header-component .header-menu {\n    margin-left: auto;\n    display: flex;\n    flex-direction: row; }\n    .header-component .header-menu .menu-item {\n      font-size: 16px;\n      text-align: center;\n      color: #263345;\n      margin-left: 5px;\n      display: flex;\n      flex-direction: row;\n      position: relative;\n      cursor: pointer;\n      transition: .15s; }\n      .header-component .header-menu .menu-item i {\n        font-size: 20px;\n        margin: auto 5px; }\n      .header-component .header-menu .menu-item .icon-chevron-down {\n        font-size: 10px; }\n      .header-component .header-menu .menu-item:hover {\n        color: #00a2f2; }\n", ""]);
 
 // exports
 
@@ -75146,7 +75141,7 @@ exports = module.exports = __webpack_require__(41)(undefined);
 
 
 // module
-exports.push([module.i, ".sidebar-component {\n  background: #263345;\n  background: #eef1f4;\n  flex: 0 0 146px;\n  display: flex;\n  flex-direction: column;\n  color: #656f7e; }\n  .sidebar-component .top-menu, .sidebar-component .bottom-menu {\n    display: flex;\n    flex-direction: column;\n    margin: 0 0px auto; }\n    .sidebar-component .top-menu .menu-label, .sidebar-component .bottom-menu .menu-label {\n      margin-left: 15px;\n      margin-top: 20px;\n      font-size: 8px;\n      font-weight: 600;\n      text-align: left;\n      color: #656f7e;\n      text-transform: uppercase;\n      margin-bottom: -5px; }\n    .sidebar-component .top-menu .menu-item, .sidebar-component .bottom-menu .menu-item {\n      display: flex;\n      align-items: center;\n      height: 20px;\n      margin-top: 15px;\n      padding-left: 10px;\n      cursor: pointer;\n      transition: .15s;\n      text-decoration: none;\n      text-align: left;\n      font-size: 13px;\n      color: #656f7e;\n      flex-direction: row;\n      border-left: 5px solid transparent; }\n      .sidebar-component .top-menu .menu-item i, .sidebar-component .bottom-menu .menu-item i {\n        font-size: 18px;\n        margin-right: 10px;\n        font-weight: normal;\n        color: #999999; }\n      .sidebar-component .top-menu .menu-item span, .sidebar-component .bottom-menu .menu-item span {\n        font-size: 13px;\n        font-weight: 600; }\n      .sidebar-component .top-menu .menu-item:hover, .sidebar-component .bottom-menu .menu-item:hover {\n        color: #00a2f2;\n        border-left: 5px solid #00a2f2; }\n  .sidebar-component .bottom-menu {\n    margin: auto;\n    margin-bottom: 15px; }\n", ""]);
+exports.push([module.i, ".sidebar-component {\n  background: #263345;\n  background: #eef1f4;\n  flex: 0 0 146px;\n  display: flex;\n  flex-direction: column;\n  color: #656f7e; }\n  .sidebar-component .top-menu, .sidebar-component .bottom-menu {\n    display: flex;\n    flex-direction: column;\n    margin: 0 0px auto; }\n    .sidebar-component .top-menu .menu-label, .sidebar-component .bottom-menu .menu-label {\n      margin-left: 15px;\n      margin-top: 20px;\n      font-size: 8px;\n      font-weight: 600;\n      text-align: left;\n      color: #656f7e;\n      text-transform: uppercase;\n      margin-bottom: -5px; }\n    .sidebar-component .top-menu .menu-item, .sidebar-component .bottom-menu .menu-item {\n      display: flex;\n      align-items: center;\n      height: 30px;\n      margin: 10px 10px 0px;\n      cursor: pointer;\n      transition: .15s;\n      text-decoration: none;\n      text-align: left;\n      padding: 0 10px;\n      font-size: 13px;\n      color: #656f7e;\n      flex-direction: row;\n      border-radius: 3px;\n      transition: .15s; }\n      .sidebar-component .top-menu .menu-item i, .sidebar-component .bottom-menu .menu-item i {\n        font-size: 18px;\n        margin-right: 10px;\n        font-weight: normal;\n        color: #999999;\n        transition: .15s; }\n      .sidebar-component .top-menu .menu-item span, .sidebar-component .bottom-menu .menu-item span {\n        font-size: 13px;\n        font-weight: 600; }\n      .sidebar-component .top-menu .menu-item.active, .sidebar-component .bottom-menu .menu-item.active {\n        background-color: #fff;\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n        color: #00a2f2; }\n        .sidebar-component .top-menu .menu-item.active i, .sidebar-component .bottom-menu .menu-item.active i {\n          color: #00a2f2; }\n      .sidebar-component .top-menu .menu-item:active, .sidebar-component .bottom-menu .menu-item:active {\n        transform: scale(0.95); }\n  .sidebar-component .bottom-menu {\n    margin: auto;\n    margin-bottom: 15px; }\n", ""]);
 
 // exports
 
@@ -75160,7 +75155,7 @@ exports = module.exports = __webpack_require__(41)(undefined);
 
 
 // module
-exports.push([module.i, ".sub-header-component {\n  padding: 10px 0px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 60px;\n  min-height: 60px;\n  border-bottom: 1px solid white;\n  position: relative;\n  z-index: 10; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345;\n    flex: 1;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    justify-content: space-between; }\n    .sub-header-component .sub-heading .small-sub-heading {\n      font-size: 12px;\n      color: #263345;\n      margin-left: 15px;\n      font-weight: normal; }\n  .sub-header-component .user-count {\n    display: flex;\n    width: 100px;\n    height: 35px;\n    border-radius: 3px;\n    background-color: #eff2f9;\n    font-size: 13px;\n    text-align: left;\n    color: #263345;\n    font-weight: normal;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 0 20px;\n    margin-left: auto; }\n    .sub-header-component .user-count i {\n      margin-right: auto;\n      font-size: 17px; }\n", ""]);
+exports.push([module.i, ".sub-header-component {\n  padding: 10px 0px;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 60px;\n  min-height: 60px;\n  border-bottom: 1px solid white;\n  position: relative;\n  z-index: 10; }\n  .sub-header-component .sub-heading {\n    font-size: 18px;\n    font-weight: 600;\n    color: #263345;\n    color: #4f617b;\n    flex: 1;\n    display: flex;\n    flex-direction: row;\n    align-items: baseline;\n    justify-content: space-between; }\n    .sub-header-component .sub-heading .small-sub-heading {\n      font-size: 12px;\n      color: #263345;\n      color: #4f617b;\n      margin-left: 15px;\n      font-weight: normal; }\n  .sub-header-component .user-count {\n    display: flex;\n    width: 100px;\n    height: 35px;\n    border-radius: 3px;\n    background-color: #eff2f9;\n    font-size: 13px;\n    text-align: left;\n    color: #263345;\n    font-weight: normal;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    padding: 0 20px;\n    margin-left: auto; }\n    .sub-header-component .user-count i {\n      margin-right: auto;\n      font-size: 17px; }\n", ""]);
 
 // exports
 
@@ -94793,6 +94788,235 @@ module.exports = __webpack_amd_options__;
 __webpack_require__(352);
 module.exports = __webpack_require__(60);
 
+
+/***/ }),
+/* 753 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(9);
+
+var _reactRouterComponent = __webpack_require__(14);
+
+var _reactRouterComponent2 = _interopRequireDefault(_reactRouterComponent);
+
+var _lodash = __webpack_require__(19);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions = __webpack_require__(6);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _session = __webpack_require__(73);
+
+var _helper = __webpack_require__(15);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+__webpack_require__(755);
+
+var Sidebar = function (_React$Component) {
+    _inherits(Sidebar, _React$Component);
+
+    function Sidebar() {
+        _classCallCheck(this, Sidebar);
+
+        return _possibleConstructorReturn(this, (Sidebar.__proto__ || Object.getPrototypeOf(Sidebar)).apply(this, arguments));
+    }
+
+    _createClass(Sidebar, [{
+        key: 'render',
+
+        // const screen = this.props.screen;
+
+        value: function render() {
+            var _this2 = this;
+
+            var size = this.props.size;
+            var session = _.find(_session.SessionList, { slug: this.props.sessionId });
+            var audio = _.find(_session.SessionList, { id: this.props.audioId }) || session.audios[0];
+
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(
+                    _helper.If,
+                    { condition: size === 'large' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'dashboard-banner', style: {
+                                backgroundImage: 'url(\'' + session.pattern + '\')',
+                                backgroundColor: session.color
+                            } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'banner-title' },
+                            session.name
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'banner-session' },
+                            'Session ',
+                            session.index
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'banner-butn clickable', onClick: function onClick() {
+                                    return _this2.props.showAudio(session, audio);
+                                } },
+                            _react2.default.createElement('i', { className: 'flaticon-play-button' }),
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                'Begin'
+                            )
+                        ),
+                        _react2.default.createElement('div', { className: 'banner-stats' })
+                    )
+                ),
+                _react2.default.createElement(
+                    _helper.If,
+                    { condition: size === 'mid' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'dashboard-banner-mid', style: {
+                                backgroundImage: 'url(\'' + session.pattern + '\')',
+                                backgroundColor: session.color
+                            } },
+                        _react2.default.createElement('i', { className: 'fa fa-play clickable', onClick: function onClick() {
+                                return _this2.props.showAudio(session, audio);
+                            } }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'flex flex-min' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'banner-title' },
+                                session.name
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'banner-session' },
+                                session.audios.length,
+                                ' Sessions'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    _helper.If,
+                    { condition: size === 'small' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'dashboard-banner-low', style: {
+                                backgroundImage: 'url(\'' + session.pattern + '\')',
+                                backgroundColor: session.color
+                            } },
+                        _react2.default.createElement('i', { className: 'fa fa-play clickable', onClick: function onClick() {
+                                return _this2.props.showAudio(session, audio);
+                            } }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'flex flex-min' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'banner-title' },
+                                session.name
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'banner-session' },
+                                session.audios.length,
+                                ' Sessions'
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Sidebar;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        showAudio: function showAudio(session, audio) {
+            return dispatch({
+                type: ACTIONS.SHOW_AUDIO,
+                session: session,
+                audio: audio
+            });
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Sidebar);
+
+/***/ }),
+/* 754 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(41)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/***/ }),
+/* 755 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(754);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(43)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./promo.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./promo.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

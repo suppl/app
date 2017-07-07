@@ -8,7 +8,7 @@ import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 import {SessionList, isAudioAvailable} from '../services/session.service';
-import {SetUrl} from '../services/helper.service';
+import {SetUrl, If} from '../services/helper.service';
 
 
 class Sessions extends React.Component {
@@ -31,7 +31,7 @@ class Sessions extends React.Component {
             <div data-screen className={`${this.activeClass}`}>
                 <Header/>
                 <div className="flex flex-row">
-                    <Sidebar/>
+                    <Sidebar screen="sessions"/>
                     <div data-content className="flex flex-max">
 
                         <div className="content-area" style={{paddingTop: 0}}>
@@ -96,9 +96,8 @@ class Sessions extends React.Component {
                                                         <i className="flaticon-lock-2"/>
                                                     </div>
                                                 }
-
-
                                             </div>
+
                                             <div className="col"/>
                                             <div className="col col-70">58</div>
                                             <div className="col col-70">2k</div>

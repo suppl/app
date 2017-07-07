@@ -10,6 +10,7 @@
 @import "global/session";
 @import "global/position";
 @import "global/bump";
+@import "global/dashboard";
 
 html, body {
   overflow: hidden;
@@ -166,6 +167,15 @@ a {
   }
 }
 
+.sub-sub-heading-2 {
+  @extend .sub-sub-heading;
+
+  margin-top: 30px;
+  text-transform: none;
+  font-size: 13px;
+  color: #4f617b;
+}
+
 .line-heading {
   margin-top: 20px;
   font-size: 15px;
@@ -206,6 +216,7 @@ i {
   transition: .15s;
   transform: scale(1.0);
   cursor: pointer;
+  user-select: none;
 
   &:hover {
     transform: scale(1.1);

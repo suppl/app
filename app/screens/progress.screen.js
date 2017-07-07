@@ -23,7 +23,7 @@ class Progress extends React.Component {
             <div data-screen className={`${this.activeClass}`}>
                 <Header/>
                 <div className="flex flex-row">
-                    <Sidebar/>
+                    <Sidebar screen="progress"/>
                     <div data-content className="flex flex-max">
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">

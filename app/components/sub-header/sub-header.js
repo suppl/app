@@ -6,7 +6,6 @@ require('./sub-header.scss');
 
 class SubHeader extends React.Component {
 
-
     render() {
         return (
             <div className="sub-header-component">

@@ -112,7 +112,7 @@
   }
 }
 
-.session-list {
+.session-list, .flex-table {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
@@ -147,6 +147,7 @@
     text-align: center;
     color: $brownish-grey;
     text-transform: uppercase;
+
   }
 
   .list-row {
@@ -259,5 +260,16 @@
     }
   }
 
+}
+
+.flex-table {
+  margin-top: 10px;
+
+  .hori {
+    border: none;
+    &:nth-child(2n + 3) {
+      background-color: #fbfbfb;
+    }
+  }
 }
 

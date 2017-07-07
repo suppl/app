@@ -28,25 +28,28 @@
     .menu-item {
       display: flex;
       align-items: center;
-      height: 20px;
-      margin-top: 15px;
-      padding-left: 10px;
+      height: 30px;
+      margin: 10px 10px 0px;
       cursor: pointer;
       transition: .15s;
       text-decoration: none;
       text-align: left;
+      padding: 0 10px;
 
       font-size: 13px;
       color: $battleship-grey;
       flex-direction: row;
+      border-radius: 3px;
+      transition: .15s;
 
-      border-left: 5px solid transparent;
+      //border-left: 5px solid transparent;
 
       i {
         font-size: 18px;
         margin-right: 10px;
         font-weight: normal;
         color: $warm-grey-two;
+        transition: .15s;
       }
 
       span {
@@ -54,11 +57,23 @@
         font-weight: 600;
       }
 
-      &:hover {
-        //background: $dark-indigo;
+      &.active {
+        background-color: $white;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
         color: $azure;
-        border-left: 5px solid $azure;
 
+
+        i {
+          color: $azure;
+        }
+      }
+
+      &:hover {
+        //transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(0.95);
       }
     }
   }

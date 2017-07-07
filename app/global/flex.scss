@@ -47,3 +47,17 @@
     align-self: flex-end;
   }
 }
+
+.flex-cols {
+  margin: 0 -10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
+  flex: 1 0 0px;
+}

@@ -2,6 +2,7 @@
 
 .header-component {
   height: 70px;
+  flex: 0 0 70px;
   background: white;
   padding: 15px 25px;
   display: flex;
@@ -15,7 +16,7 @@
     width: 40px;
     min-width: 40px;
     border-radius: 100%;
-    background: $beige;
+    background: #78e1d2;
 
     display: flex;
     justify-content: center;
@@ -30,11 +31,11 @@
     text-decoration: none;
 
     &:hover, &:focus {
-      background-color: adjust-color($beige, $saturation: 10, $lightness: 10);
+      background-color: adjust-color(#78e1d2, $saturation: 10, $lightness: 5);
     }
 
     &:active {
-      background-color: adjust-color($beige, $saturation: 20, $lightness: 20);
+      background-color: adjust-color(#78e1d2, $saturation: 20, $lightness: 10);
     }
   }
 

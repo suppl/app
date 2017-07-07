@@ -26,7 +26,7 @@ class Profile extends React.Component {
             <div data-screen className={`${this.activeClass}`}>
                 <Header/>
                 <div className="flex flex-row">
-                    <Sidebar/>
+                    <Sidebar screen="profile"/>
                     <div data-content className="flex flex-max">
                         <SubHeader text="Your Profile"/>
 
