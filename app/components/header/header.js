@@ -29,7 +29,7 @@ class Header extends React.Component {
             <div className="header-component">
                 <div className="suppl-logo">SUPPL</div>
                 <Link className="user-logo" href="/profile">{this.getUserFirstLetter()}</Link>
-                <Link className="user-hello" href="/profile" onClick={this.props.login}>Welcome back {this.getUserFirstName()}!</Link>
+                <Link className="user-hello" href="/profile" onClick={this.props.login}>{this.getUserFirstName()}</Link>
                 <div className="header-menu">
                     <div className="menu-item"><i className="flaticon-bell"></i></div>
                     <div className="menu-item"><i className="flaticon-add-user"></i></div>

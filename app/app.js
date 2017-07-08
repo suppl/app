@@ -7,7 +7,7 @@ import Router from 'react-router-component'
 const Locations = Router.Locations;
 const Location  = Router.Location;
 
-import {IsDesktop, IsMobile, IsTablet} from './services/helper.service';
+import {IsDesktop, IsMobile, IsTablet, If} from './services/helper.service';
 
 import SessionsScreen from './screens/sessions.screen';
 import SessionScreen from './screens/session.screen';
@@ -85,7 +85,6 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <div className={`flex flex-max ${this.styleClasses()}`}>
-
                     <Notification/>
                     <Player/>
                     <Loader/>
@@ -93,7 +92,7 @@ class App extends React.Component {
                     <PopupStandard/>
                     <Award/>
 
-                    {IsDesktop() ?
+                    <If condition={IsDesktop()}>
                         <Locations>
                             <Location path="/" handler={SplashScreen}/>
                             <Location path="/register" handler={RegisterScreen}/>
@@ -111,10 +110,10 @@ class App extends React.Component {
                             <Location path="/waitlist/check" handler={PositionScreen}/>
                             <Location path="/waitlist/share" handler={ShareScreen}/>
                             <Location path="/waitlist/bump" handler={BumpScreen}/>
-                        </Locations> : ''
-                    }
+                        </Locations>
+                    </If>
 
-                    {IsTablet() || IsMobile() ?
+                    <If condition={IsTablet() || IsMobile()}>
                         <Locations>
                             <Location path="/" handler={SplashScreenMobile}/>
                             <Location path="/register" handler={RegisterScreenMobile}/>
@@ -132,9 +131,8 @@ class App extends React.Component {
                             <Location path="/waitlist/check" handler={PositionScreenMobile}/>
                             <Location path="/waitlist/share" handler={ShareScreenMobile}/>
                             <Location path="/waitlist/bump" handler={BumpScreenMobile}/>
-                        </Locations> : ''
-                    }
-
+                        </Locations>
+                    </If>
                 </div>
 
             </Provider>

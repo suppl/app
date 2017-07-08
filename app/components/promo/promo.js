@@ -44,7 +44,8 @@ class Sidebar extends React.Component {
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
-                        <i className="fa fa-play clickable" onClick={() => this.props.showAudio(session, audio)}/>
+                        {/*<i className="fa fa-play clickable" onClick={() => this.props.showAudio(session, audio)}/>*/}
+                        <i className="fa fa-play clickable"/>
                         <div className="flex flex-min">
                             <div className="banner-title">{session.name}</div>
                             <div className="banner-session">{session.audios.length} Sessions</div>
@@ -57,7 +58,7 @@ class Sidebar extends React.Component {
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
-                        <i className="fa fa-play clickable" onClick={() => this.props.showAudio(session, audio)}/>
+                        <i className="fa fa-play clickable"/>
                         <div className="flex flex-min">
                             <div className="banner-title">{session.name}</div>
                             <div className="banner-session">{session.audios.length} Sessions</div>

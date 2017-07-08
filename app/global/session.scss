@@ -3,14 +3,13 @@
 .session-header {
   min-height: 233px;
   //background-color: white;
-  background-size: contain;
-  background-position: left center;
-  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 250px;
 
   display: flex;
   flex-direction: column;
-  margin: 35px;
-  margin-top: 55px;
+  //margin: 35px;
+  margin-top: 25px;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -18,19 +17,27 @@
   line-height: 1;
   position: relative;
   z-index: 0;
+  transition: 10000000000000s;
 
   &.mini {
     min-height: 190px;
     margin-top: 45px;
   }
 
+  &:hover {
+    //cursor: pointer;
+    //background-size: 350px;
+    transition: 1000s linear;
+    background-position-y: -60000px;
+  }
+
   .header-overlay {
     position: absolute;
-    top: -35px;
-    bottom: -35px;
-    right: -35px;
-    left: -35px;
-    opacity: 0.42;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    opacity: 0.1;
     background-color: $dark;
     z-index: -1;
   }
@@ -39,7 +46,9 @@
     font-size: 20px;
     font-weight: 600;
     color: $white;
-    text-transform: uppercase;
+    //text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
   }
 
   .session-description {

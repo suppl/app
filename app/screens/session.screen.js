@@ -37,7 +37,10 @@ class Sessions extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
                                 <SubHeader text={`Sessions › ${session.name}`}/>
-                                <div className="session-header" style={{backgroundImage: `url('${session.svgLarge}')`}}>
+                                <div className="session-header" style={{
+                                    backgroundImage: `url('${session.pattern}')`,
+                                    backgroundColor: session.color,
+                                }}>
                                     <div className="header-overlay"></div>
                                     <div className="session-title">{session.name}</div>
                                     <div className="session-description">{session.description}</div>
