@@ -29,8 +29,8 @@ class Sidebar extends React.Component {
                     }}>
                         <div className="banner-title">{session.name}</div>
                         <div className="banner-session">Session {session.index}</div>
-                        <div className="banner-butn clickable" onClick={() => this.props.showAudio(session, audio)}>
-                            <i className="flaticon-play-button"/>
+                        <div className="banner-butn clickable">
+                            <i className="fa fa-play"/>
                             <span>Begin</span>
                         </div>
                         <div className="banner-stats">

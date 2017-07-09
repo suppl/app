@@ -65,14 +65,14 @@ class Sessions extends React.Component {
 
                                 <div className="session-header-extra">
                                     <div className="top-label">Good For</div>
-                                    <div>Spinal co-ordination - Joint movemenet - core strength - focus - lungs</div>
+                                    <div>{session.description}</div>
                                 </div>
 
                                 <div className="session-list">
                                     <div className="hori list-header">
                                         <div className="col col-70">Session</div>
                                         <div className="col"/>
-                                        <div className="col col-70">Tune In</div>
+                                        <div className="col col-100">Tune In</div>
                                         <div className="col"/>
                                         <div className="col col-70"><i className="icon-heart"/></div>
                                         <div className="col col-70"><i className="flaticon-arrows-2"/></div>
@@ -85,20 +85,24 @@ class Sessions extends React.Component {
                                                 </div>
                                             </div>
                                             <div className="col">
-                                                {isAudioAvailable(audio) ?
-                                                    <div className="next-session">Next session</div> : ''}
+                                                <div className="session-info">
+                                                    <div className="info-top">5 mins</div>
+                                                    <div className="info-bottom">3 exercises low intensity</div>
+                                                </div>
                                             </div>
-                                            <div className="col col-70">
-                                                {isAudioAvailable(audio)
-                                                    ?
-                                                    <div className="play-button clickable" onClick={() => this.props.showAudio(session, audio)}>
-                                                        <i className="flaticon-arrows-1"/>
+                                            <div className="col col-100">
+                                                <If condition={isAudioAvailable(audio)}>
+                                                    <div className="banner-butn flush clickable" onClick={() => this.props.showAudio(session, audio)}>
+                                                        <i className="fa fa-play"/>
+                                                        <span>Begin</span>
                                                     </div>
-                                                    :
-                                                    <div className="lock-button">
-                                                        <i className="flaticon-lock-2"/>
+                                                </If>
+                                                <If condition={!isAudioAvailable(audio)}>
+                                                    <div className="banner-butn flush" disabled onClick={() => this.props.showAudio(session, audio)}>
+                                                        <i className="fa fa-play"/>
+                                                        <span>Begin</span>
                                                     </div>
-                                                }
+                                                </If>
                                             </div>
 
                                             <div className="col"/>
