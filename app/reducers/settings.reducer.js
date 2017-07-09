@@ -16,19 +16,19 @@ const initialState = {
 };
 
 const performAction = {
-    [ACTIONS.HIDE_AUDIO]     : (data, state) => hideAudio(data, state),
-    [ACTIONS.SHOW_AUDIO]     : (data, state) => showAudio(data, state),
-    [ACTIONS.TOGGLE_SETTINGS]: (data, state) => ({settingsVisible: !state.settingsVisible,}),
-    [ACTIONS.START_LOADING]  : (data, state) => ({loaderVisible: true,}),
-    [ACTIONS.DONE_LOADING]   : (data, state) => ({loaderVisible: false,}),
-    [ACTIONS.SET_SESSION]    : (data, state) => ({session: data.session,}),
-    [ACTIONS.SET_AWARDS]     : (data, state) => ({awards: data.awards,}),
-    // [ACTIONS.LOAD_AUDIO]     : (data, state) => loadAudio(data, state),
-    [ACTIONS.PLAY_AUDIO]     : (data, state) => playAudio(data, state),
-    [ACTIONS.PAUSE_AUDIO]    : (data, state) => pauseAudio(data, state),
+    [ACTIONS.HIDE_AUDIO]     : (action, state) => hideAudio(action, state),
+    [ACTIONS.SHOW_AUDIO]     : (action, state) => showAudio(action, state),
+    [ACTIONS.TOGGLE_SETTINGS]: (action, state) => ({settingsVisible: !state.settingsVisible,}),
+    [ACTIONS.START_LOADING]  : (action, state) => ({loaderVisible: true,}),
+    [ACTIONS.DONE_LOADING]   : (action, state) => ({loaderVisible: false,}),
+    [ACTIONS.SET_SESSION]    : (action, state) => ({session: action.session,}),
+    [ACTIONS.SET_AWARDS]     : (action, state) => ({awards: action.awards,}),
+    // [ACTIONS.LOAD_AUDIO]     : (action, state) => loadAudio(action, state),
+    [ACTIONS.PLAY_AUDIO]     : (action, state) => playAudio(action, state),
+    [ACTIONS.PAUSE_AUDIO]    : (action, state) => pauseAudio(action, state),
 };
 
-const hideAudio = (data, state) => {
+const hideAudio = (action, state) => {
     state.sound.stop();
     state.sound.once('load', () => {
         setTimeout(() => state.sound.stop(), 1);
@@ -40,7 +40,7 @@ const hideAudio = (data, state) => {
     }
 };
 
-const pauseAudio = (data, state) => {
+const pauseAudio = (action, state) => {
     state.sound.pause();
     state.sound.once('load', () => {
         setTimeout(() => state.sound.pause(), 1);
@@ -49,8 +49,9 @@ const pauseAudio = (data, state) => {
     return {playing: false,}
 };
 
-const playAudio = (data, state) => {
+const playAudio = (action, state) => {
     state.sound.play();
+    Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
     state.sound.once('load', () => {
         state.sound.play();
     });
@@ -60,20 +61,20 @@ const playAudio = (data, state) => {
     }
 };
 
-const showAudio = (data, state) => {
-    let sound = new Howl({src: [data.audio.file]});
+const showAudio = (action, state) => {
+    let sound = new Howl({src: [action.audio.file]});
 
     sound.on('end', () => {
         console.log('audio end!');
         Dispatch(ACTIONS.PAUSE_AUDIO);
 
         state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
-        Dispatch({type: ACTIONS.GIVE_DONE, audioId: data.audio.id});
+        Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});
     });
 
     return {
         sound       : sound,
-        audio       : data.audio,
+        audio       : action.audio,
         audioVisible: true,
     }
 };

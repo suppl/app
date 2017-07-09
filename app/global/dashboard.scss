@@ -35,8 +35,21 @@
     .stat-text {
       font-size: 13px;
       font-weight: 300;
-      color: $brownish-grey;;
+      color: $brownish-grey;
       margin-top: 5px;
+    }
+
+    &[data-active='true'] {
+      color: $dark;
+      .stat-icon {
+      }
+
+      .stat-value {
+      }
+
+      .stat-text {
+        color: $dark;
+      }
     }
   }
 }

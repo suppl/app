@@ -49,6 +49,7 @@ import settingsReducer from './reducers/settings.reducer';
 import awardReducer from './reducers/award.reducer';
 import publicReducer from './reducers/public.reducer';
 import waitlistReducer from './reducers/waitlist.reducer';
+import communityReducer from './reducers/community.reducer';
 
 
 const reducer = combineReducers({
@@ -60,6 +61,7 @@ const reducer = combineReducers({
     award       : awardReducer,
     'public'    : publicReducer,
     waitlist    : waitlistReducer,
+    communit    : communityReducer,
 });
 
 export const store = createStore(reducer);

@@ -4,7 +4,7 @@ import * as ACTIONS from '../constants/actions.constants';
 
 import {connect} from "react-redux";
 import {Link} from 'react-router-component';
-import {SetUrl} from '../services/helper.service';
+import {SetUrl, CalcStreak, If} from '../services/helper.service';
 
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
@@ -18,7 +18,13 @@ class Community extends React.Component {
         }, 1);
     }
 
+    isOnline(user) {
+        return this.props.public.online[user.uid] !== undefined;
+    }
+
     render() {
+        const users = this.props.public.users;
+
         return (
             <div data-screen className={`${this.activeClass}`}>
                 <Header/>
@@ -38,30 +44,41 @@ class Community extends React.Component {
                                         <div className="col">React</div>
                                         <div className="col col-70">View</div>
                                     </div>
-                                    <div className="hori list-row">
-                                        <div className="col col-70">
-                                            <div className="community-dot"></div>
+
+                                    {users.map(user =>
+                                        <div className="hori list-row">
+                                            <div className="col col-70">
+                                                <If condition={!this.isOnline(user)}>
+                                                    <div className="community-dot"/>
+                                                </If>
+                                                <If condition={this.isOnline(user)}>
+                                                    <div className="community-dot active"/>
+                                                </If>
+                                            </div>
+                                            <div className="col col-70">
+                                                <div className="community-user-icon">{user.name[0]}</div>
+                                            </div>
+                                            <div className="col community-name">{user.name}</div>
+                                            <div className="col col-70  community-name">{CalcStreak(user)}</div>
+                                            <div className="col"></div>
+                                            <div className="col col-70 community-view">
+                                                {/*<i className="fa fa-angle-right"></i>*/}
+                                            </div>
                                         </div>
-                                        <div className="col col-70"></div>
-                                        <div className="col community-name">Zander</div>
-                                        <div className="col col-70  community-name">5</div>
-                                        <div className="col"></div>
-                                        <div className="col col-70 community-view">
-                                            <i className="fa fa-angle-right"></i>
-                                        </div>
-                                    </div>
-                                    <div className="hori list-row">
-                                        <div className="col col-70">
-                                            <div className="community-dot"></div>
-                                        </div>
-                                        <div className="col col-70"></div>
-                                        <div className="col community-name">Dave</div>
-                                        <div className="col col-70  community-name">7</div>
-                                        <div className="col"></div>
-                                        <div className="col col-70 community-view">
-                                            <i className="fa fa-angle-right"></i>
-                                        </div>
-                                    </div>
+                                    )}
+
+                                    {/*<div className="hori list-row">*/}
+                                        {/*<div className="col col-70">*/}
+                                            {/*<div className="community-dot"></div>*/}
+                                        {/*</div>*/}
+                                        {/*<div className="col col-70"></div>*/}
+                                        {/*<div className="col community-name">Dave</div>*/}
+                                        {/*<div className="col col-70  community-name">7</div>*/}
+                                        {/*<div className="col"></div>*/}
+                                        {/*<div className="col col-70 community-view">*/}
+                                            {/*<i className="fa fa-angle-right"></i>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
                                 </div>
 
                             </div>

@@ -12,7 +12,7 @@ import Sidebar from '../components/sidebar/sidebar';
 import PlayerList from '../components/player-list/player-list.component';
 import Dispatch from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
-import {SetUrl} from '../services/helper.service';
+import {SetUrl, CalcStreak} from '../services/helper.service';
 
 import _ from 'lodash';
 import {SessionList} from '../services/session.service';
@@ -56,10 +56,10 @@ class Dashboard extends React.Component {
                                 <SubHeader text="Howdy Superstar!"/>
 
                                 <div className="dashboard-stats">
-                                    <div className="dashboard-stat">
+                                    <div className="dashboard-stat" data-active={CalcStreak(this.props.public.user) > 0}>
                                         <i className="stat-icon flaticon-star"/>
                                         <div className="flex flex-min">
-                                            <div className="stat-value">0</div>
+                                            <div className="stat-value">{CalcStreak(this.props.public.user)}</div>
                                             <div className="stat-text">Daily streak</div>
                                         </div>
                                     </div>
@@ -77,10 +77,10 @@ class Dashboard extends React.Component {
                                             <div className="stat-text">Sessions complete</div>
                                         </div>
                                     </div>
-                                    <div className="dashboard-stat">
+                                    <div className="dashboard-stat" data-active={this.props.public.onlineCount > 0}>
                                         <i className="stat-icon flaticon-star"/>
                                         <div className="flex flex-min">
-                                            <div className="stat-value">0</div>
+                                            <div className="stat-value">{this.props.public.onlineCount}</div>
                                             <div className="stat-text">Folks exercising now</div>
                                         </div>
                                     </div>

@@ -10,7 +10,7 @@ $(document).on('blur', '.suppl-input > *', function () {
     $(this).parent().removeClass('focus');
 });
 
-var DEBUG = false;
+var DEBUG = true;
 // ENABLE/DISABLE Console Logs
 if (!DEBUG) {
     console.log  = function () {

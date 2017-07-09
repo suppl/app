@@ -13,12 +13,13 @@ const initialState = {
 };
 
 const performAction = {
-    [ACTIONS.SET_AWARDS]: (data, state) => ({awards: data.awards}),
-    [ACTIONS.GIVE_AWARD]: (data, state) => giveAward(data, state),
-    [ACTIONS.SHOW_AWARD]: (data, state) => showAward(data, state),
-    [ACTIONS.HIDE_AWARD]: (data, state) => ({visible: false}),
-    [ACTIONS.GIVE_DONE] : (data, state) => giveDone(data, state),
-    [ACTIONS.GIVE_DONE] : (data, state) => giveStreak(data, state),
+    [ACTIONS.SET_AWARDS] : (data, state) => ({awards: data.awards}),
+    [ACTIONS.GIVE_AWARD] : (data, state) => giveAward(data, state),
+    [ACTIONS.SHOW_AWARD] : (data, state) => showAward(data, state),
+    [ACTIONS.HIDE_AWARD] : (data, state) => ({visible: false}),
+    [ACTIONS.GIVE_DONE]  : (data, state) => giveDone(data, state),
+    [ACTIONS.GIVE_DONE]  : (data, state) => giveStreak(data, state),
+    [ACTIONS.GIVE_STREAK]: (data, state) => giveStreak(data, state),
 };
 
 const showAward = (data, state) => ({
@@ -51,6 +52,7 @@ const giveDone = async (data, state) => {
 };
 
 const giveStreak = async (data, state) => {
+    console.log('streak')
     const user = firebase.auth().currentUser;
     const date = moment().format('YYYYMMDD');
 

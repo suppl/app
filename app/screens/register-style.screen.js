@@ -47,7 +47,7 @@ class RegisterStyle extends React.Component {
                             )}
                         </div>
 
-                        <Link className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} onClick={this.props.registerUser}>Start using Suppl</Link>
+                        <div className="butn large" style={{marginLeft: 'auto'}} disabled={!isValid()} tabIndex={0} onClick={this.props.registerUser}>Start using Suppl</div>
 
                         <p className="clearfix">
                             {/*<Link href="/" className="pull-left">Login</Link>*/}

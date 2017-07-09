@@ -1,58 +1,105 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
-import {Dispatch, State} from './../services/dispatch.service';
+
+import {Dispatch, State, CreateReducer} from './../services/dispatch.service';
 import SessionList from './../services/session.service';
+import * as _ from "lodash";
 
-// let timeLoop;
+class PublicReducer {
+    initialState = {
+        online     : [],
+        onlineCount: 0,
+        users      : [],
+        user       : {},
+    };
 
-const initialState = {
-    online     : [],
-    onlineCount: 0,
-};
+    actions = {
+        [ACTIONS.SET_ONLINE_STATUS]: (action, state) => ({online: action.online}),
+        [ACTIONS.SET_ONLINE_COUNT] : (action, state) => ({onlineCount: action.onlineCount}),
+        [ACTIONS.SET_PUBLIC_USERS] : (action, state) => ({users: action.users}),
+        [ACTIONS.SET_PUBLIC_USER]  : (action, state) => ({user: action.user}),
+        [ACTIONS.LOAD_PUBLIC_USERS]: this.loadUsers,
+    };
 
-const performAction = {
-    // [ACTIONS.SET_ONLINE_STATUS]: (data, state) => setOnlineStatus(data, state),
-    [ACTIONS.SET_ONLINE_STATUS]: (data, state) => ({online: data.online}),
-    [ACTIONS.SET_ONLINE_COUNT] : (data, state) => ({onlineCount: data.onlineCount}),
-};
+    constructor() {
+        this.loadUsers();
+        this.initOnlineCount();
+        this.updatePublicData();
+    }
 
-const settings = (state = initialState, action) => {
-    if (!performAction[action.type]) return state;
+    loadUsers(action, state) {
+        const publicUserRef = firebase.database().ref(`public/users`);
 
-    const newState = Object.assign({}, state, performAction[action.type](action, state));
-    console.info('NEW PUBLIC STATE:', action.type, newState);
+        publicUserRef.on('value', (snapshot) => {
+            if (!snapshot.val()) return;
 
-    return newState;
-};
+            const users = Object.values(snapshot.val());
 
-const init = () => {
-    firebase.auth().onAuthStateChanged(user => {
-        if (!user) return;
-
-        const connectedRef = firebase.database().ref('.info/connected');
-        const userRef      = firebase.database().ref(`public/online/${user.uid}`);
-
-        connectedRef.on('value', (snapshot) => {
-            if (snapshot.val()) {
-                userRef.onDisconnect().remove();
-                userRef.set({
-                    name: user.displayName
-                });
-            }
+            Dispatch({type: ACTIONS.SET_PUBLIC_USERS, users: users});
         });
-    });
+    }
 
-    const listRef = firebase.database().ref("public/online");
+    updatePublicData() {
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) return;
 
-    // Number of online users is the number of objects in the presence list.
-    listRef.on("value", function (snapshot) {
-        Dispatch({type: ACTIONS.SET_ONLINE_STATUS, online: snapshot.val()});
-        Dispatch({type: ACTIONS.SET_ONLINE_COUNT, onlineCount: snapshot.numChildren()});
-        console.log("online status = ", snapshot.val());
-        console.log("# of online users = ", snapshot.numChildren());
-    });
-};
+            const standardUserRef = firebase.database().ref(`users/${user.uid}`);
+            const publicUserRef   = firebase.database().ref(`public/users/${user.uid}`);
 
-init();
+            standardUserRef.on('value', (snapshot) => {
+                if (!snapshot.val()) {
+                    publicUserRef.update({name: user.displayName});
+                    return;
+                }
 
-export default settings;
+                let standardUserData = snapshot.val();
+                // console.info('standardUserData', standardUserData);
+
+                let publicData = {
+                    uid   : user.uid,
+                    name  : user.displayName,
+                    awards: standardUserData.awards,
+                    done  : standardUserData.done,
+                    info  : standardUserData.info,
+                    streak: standardUserData.streak,
+                };
+
+                console.error('public data', publicData);
+
+                let userObject = _.omitBy(publicData, _.isUndefined);
+
+                Dispatch({type: ACTIONS.SET_PUBLIC_USER, user: userObject});
+                publicUserRef.update(userObject);
+            });
+        });
+    }
+
+    initOnlineCount() {
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) return;
+
+            const connectedRef = firebase.database().ref('.info/connected');
+            const userRef      = firebase.database().ref(`public/online/${user.uid}`);
+
+            connectedRef.on('value', (snapshot) => {
+                if (!snapshot.val()) return;
+
+                userRef.onDisconnect().remove();
+                userRef.set({name: user.displayName});
+            });
+        });
+
+        const listRef = firebase.database().ref("public/online");
+
+        // Number of online users is the number of objects in the presence list.
+        listRef.on("value", function (snapshot) {
+            Dispatch({type: ACTIONS.SET_ONLINE_STATUS, online: snapshot.val()});
+            Dispatch({type: ACTIONS.SET_ONLINE_COUNT, onlineCount: snapshot.numChildren()});
+            // console.log("online status = ", snapshot.val());
+            console.log("# of online users = ", snapshot.numChildren());
+        });
+    }
+}
+
+
+export default CreateReducer('Public', new PublicReducer());

@@ -1,4 +1,5 @@
 import * as React from "react";
+import moment from "moment";
 
 export const SetUrl = (url) => {
     console.log('SetUrl', url);
@@ -13,6 +14,26 @@ export const IsDesktop = () => getWidth() > 900;
 export const IsMobile = () => getWidth() < 600;
 
 export const IsTablet = () => !IsMobile() && !IsDesktop();
+
+export const CalcStreak = (user) => {
+    if (!user.streak) return 0;
+
+    let count = -1;
+    let date;
+
+    do {
+        count += 1;
+        date = moment().subtract(count + 1, 'days').format('YYYYMMDD');
+    } while (user.streak[date] !== undefined);
+
+    const today = moment().format('YYYYMMDD');
+
+    if (user.streak[today] !== undefined) {
+        count += 1;
+    }
+
+    return count;
+};
 
 export const If = React.createClass({
     displayName: 'If',

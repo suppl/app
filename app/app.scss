@@ -325,20 +325,35 @@ i {
   .community-dot {
     width: 13px;
     height: 13px;
-    background-color: #5dcfa2;
     border-radius: 100px;
+    background-color: $pinkish-grey;
+
+    &.active {
+      background-color: #5dcfa2;
+    }
   }
+
   .community-name {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
     color: $dark;
   }
-  .community-icons {
-    font-size: 18px;
-    font-weight: 600;
-    color: $dark;
+
+  .community-user-icon {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    border-radius: 100%;
+    background: #a9d3e8;
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    transition: .15s;
+    text-decoration: none;
   }
 
   .community-view {
