@@ -23,12 +23,13 @@ class Sidebar extends React.Component {
         return (
             <div>
                 <If condition={size === 'large'}>
-                    <Link className="dashboard-banner" href={`/sessions/${session.slug}`} style={{
+                    <Link className="dashboard-banner dashboard-banner-large" href={`/sessions/${session.slug}`} style={{
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
-                        <div className="banner-title">{session.name}</div>
-                        <div className="banner-session">Session {session.index}</div>
+                        <div>Day {audio.index} of {session.audios.length}</div>
+                        <div className="banner-title" style={{marginLeft: -3}}>{session.name}</div>
+                        <div className="banner-session">{session.description}</div>
                         <div className="banner-butn clickable">
                             <i className="fa fa-play"/>
                             <span>Begin</span>
@@ -40,21 +41,21 @@ class Sidebar extends React.Component {
                 </If>
 
                 <If condition={size === 'mid'}>
-                    <Link className="dashboard-banner-mid" href={`/sessions/${session.slug}`}  style={{
+                    <Link className="dashboard-banner-mid" href={`/sessions/${session.slug}`} style={{
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
                         {/*<i className="fa fa-play clickable" onClick={() => this.props.showAudio(session, audio)}/>*/}
-                        <i className="fa fa-play clickable"/>
+                        {/*<i className="fa fa-play clickable"/>*/}
                         <div className="flex flex-min">
                             <div className="banner-title">{session.name}</div>
-                            <div className="banner-session">{session.audios.length} Sessions</div>
+                            <div className="banner-session">{session.description}</div>
                         </div>
                     </Link>
                 </If>
 
                 <If condition={size === 'small'}>
-                    <Link className="dashboard-banner-low" href={`/sessions/${session.slug}`}  style={{
+                    <Link className="dashboard-banner-low" href={`/sessions/${session.slug}`} style={{
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>

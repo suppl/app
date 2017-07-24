@@ -12,7 +12,7 @@ import Sidebar from '../components/sidebar/sidebar';
 import PlayerList from '../components/player-list/player-list.component';
 import Dispatch from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
-import {SetUrl, CalcStreak} from '../services/helper.service';
+import {SetUrl, CalcStreak, CalcComplete} from '../services/helper.service';
 
 import _ from 'lodash';
 import {SessionList} from '../services/session.service';
@@ -53,179 +53,130 @@ class Dashboard extends React.Component {
                     <div data-content className="flex flex-max">
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
-                                <SubHeader text="Howdy Superstar!"/>
 
-                                <div className="dashboard-stats">
-                                    <div className="dashboard-stat" data-active={CalcStreak(this.props.public.user) > 0}>
-                                        <i className="stat-icon flaticon-star"/>
-                                        <div className="flex flex-min">
-                                            <div className="stat-value">{CalcStreak(this.props.public.user)}</div>
-                                            <div className="stat-text">Daily streak</div>
-                                        </div>
-                                    </div>
-                                    <div className="dashboard-stat">
-                                        <i className="stat-icon flaticon-star"/>
-                                        <div className="flex flex-min">
-                                            <div className="stat-value">0</div>
-                                            <div className="stat-text">Total active minutes</div>
-                                        </div>
-                                    </div>
-                                    <div className="dashboard-stat">
-                                        <i className="stat-icon flaticon-star"/>
-                                        <div className="flex flex-min">
-                                            <div className="stat-value">0</div>
-                                            <div className="stat-text">Sessions complete</div>
-                                        </div>
-                                    </div>
-                                    <div className="dashboard-stat" data-active={this.props.public.onlineCount > 0}>
-                                        <i className="stat-icon flaticon-star"/>
-                                        <div className="flex flex-min">
-                                            <div className="stat-value">{this.props.public.onlineCount}</div>
-                                            <div className="stat-text">Folks exercising now</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="sub-sub-heading-2">We think you’ll like this session</div>
                                 <Promo size="large" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
 
-                                <div className="dashboard-note">
-                                    <div className="note-text">
-                                        Based on your job, hours and desk, We recommend getting started with a nice and easy stand up session.
-                                    </div>
-                                    <div className="note-line"/>
-                                    <div className="note-action clickable">Got it</div>
-                                </div>
+                                <div className="sub-sub-heading-4">Your sessions</div>
+                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>
 
-                                <div className="sub-sub-heading-2">
-                                    Get the basics right and the rest is a breeze
-                                </div>
                                 <div className="flex flex-cols">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId="sitting" audioId="sat-at-work-01-01"/>
+                                        <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId="standing" audioId="sat-at-work-01-01"/>
-                                    </div>
-                                </div>
-
-                                <div className="sub-sub-heading-2">
-                                    In a rush? Tune in to a mini session
-                                </div>
-                                <div className="flex flex-cols">
-                                    <div className="flex-col">
-                                        <Promo size="small" sessionId="breathe-easy" audioId="take-a-seat-lv01-s01"/>
+                                        <Promo size="mid" sessionId="sleeping" audioId="sat-at-work-01-01"/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="small" sessionId="neck-release" audioId="sat-at-work-01-01"/>
-                                    </div>
-                                    <div className="flex-col">
-                                        <Promo size="small" sessionId="hip-opener" audioId="sat-at-work-01-01"/>
+                                        <Promo size="mid" sessionId="breathe-easy" audioId="sat-at-work-01-01"/>
                                     </div>
                                 </div>
 
-                                <div className="dashboard-note">
-                                    <div className="note-text">
-                                        Mini Sessions are designed to fit around your busy schedule. Tune in and give yourself a quick boost in just 1 minute
-                                    </div>
-                                    <div className="note-line"/>
-                                    <div className="note-action clickable">Got it</div>
+                                <div className="flex" style={{textAlign:'center'}}>
+                                    <div className="suppl-butn clickable">Discover more sessions</div>
                                 </div>
 
+                                <div className="sub-sub-heading-4">Community activity</div>
+                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Encourage and check how the community is progressing everyday</div>
 
-                                <div className="sub-sub-heading-2">
-                                    Latest community activity
+                                <div className="activity-boxes">
+                                    <div className="activity-box">
+                                        <div className="activity-image"></div>
+                                        <div className="activity-text">
+                                            <strong className="linkable">Nathan Nelson</strong> completed
+                                            <strong className="linkable"> Day 1 of Basics</strong>
+                                        </div>
+                                        <div className="activity-time"> &nbsp;- just now</div>
+                                        <div style={{margin: 'auto'}}/>
+                                        <i className="activity-icon clickable likeable icon-heart"/>
+                                        <div className="activity-count">12</div>
+                                    </div>
+                                    <div className="activity-box">
+                                        <div className="activity-image"></div>
+                                        <div className="activity-text">
+                                            <strong className="linkable">Nathan Nelson</strong> completed
+                                            <strong className="linkable"> Day 1 of Basics</strong>
+                                        </div>
+                                        <div className="activity-time"> &nbsp;- just now</div>
+                                        <div style={{margin: 'auto'}}/>
+                                        <i className="activity-icon clickable likeable icon-heart"/>
+                                        <div className="activity-count">12</div>
+                                    </div>
+                                    <div className="activity-box">
+                                        <div className="activity-image"></div>
+                                        <div className="activity-text">
+                                            <strong className="linkable">Nathan Nelson</strong> completed
+                                            <strong className="linkable"> Day 1 of Basics</strong>
+                                        </div>
+                                        <div className="activity-time"> &nbsp;- just now</div>
+                                        <div style={{margin: 'auto'}}/>
+                                        <i className="activity-icon clickable likeable icon-heart"/>
+                                        <div className="activity-count">12</div>
+                                    </div>
+                                    <div className="activity-box">
+                                        <div className="activity-image"></div>
+                                        <div className="activity-text">
+                                            <strong className="linkable">Nathan Nelson</strong> completed
+                                            <strong className="linkable"> Day 1 of Basics</strong>
+                                        </div>
+                                        <div className="activity-time"> &nbsp;- just now</div>
+                                        <div style={{margin: 'auto'}}/>
+                                        <i className="activity-icon clickable likeable icon-heart"/>
+                                        <div className="activity-count">12</div>
+                                    </div>
                                 </div>
 
-                                <div className="flex-table">
-                                    <div className="hori list-header">
-                                        <div className="col">Recent activity</div>
+                                <div className="sub-sub-heading-4">Your performance</div>
+                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Keep up your streak and form a healthy habit everyday</div>
+
+                                <div className="dashboard-large-stat" style={{marginTop: 20}}>
+                                    <div className="stat-content">
+                                        <div className="content-top">{CalcStreak(this.props.public.user)} day{CalcStreak(this.props.public.user) == 1 ? '' : 's'}</div>
+                                        <div className="content-bottom">Current run streak</div>
                                     </div>
+                                    <div className="stat-icon">
+                                        <img src="/statics/svg/dash/session-streak-icon.svg" alt=""/>
+                                    </div>
+                                </div>
 
-                                    <div className="hori list-row">
-                                        <div className="col">
+                                <div className="dashboard-large-stat" style={{
+                                    backgroundColor: '#a4b9d7',
+                                    backgroundImage: `url('/statics/svg/dash/sessions-complete.svg')`
+                                }}>
+                                    <div className="stat-icon">
+                                        <img src="/statics/svg/dash/session-complete-icon.svg" alt=""/>
+                                    </div>
+                                    <div className="stat-content">
+                                        <div className="content-top">{CalcComplete(this.props.public.user)}</div>
+                                        <div className="content-bottom">Session{CalcComplete(this.props.public.user) == 1 ? '' : 's'} completed</div>
+                                    </div>
+                                </div>
 
+                                <div className="dashboard-large-stat" style={{
+                                    backgroundColor: '#bdcee7',
+                                    backgroundImage: `url('/statics/svg/dash/posture-minutes.svg')`
+                                }}>
+                                    <div className="stat-content">
+                                        <div className="content-top">3 mins</div>
+                                        <div className="content-bottom">Total posture mins</div>
+                                    </div>
+                                    <div className="stat-icon">
+                                        <img src="/statics/svg/dash/posture-minute-icon.svg" alt=""/>
+                                    </div>
+                                </div>
+
+                                <div className="dashboard-invite">
+                                    <div className="invite-flex">
+                                        <div className="sub-sub-heading-4" style={{marginTop:0}}>Invite a friend</div>
+                                        <div className="sub-sub-heading-2" style={{marginTop:10}}>
+                                            Suppl is super fun solo but with your <br/> friend it’s even better!
+                                        </div>
+
+                                        <div className="flex" style={{textAlign:'center'}}>
+                                            <div className="suppl-butn clickable">Invite friends</div>
                                         </div>
                                     </div>
-                                    <div className="hori list-row">
-                                        <div className="col">
-
-                                        </div>
-                                    </div>
-                                    <div className="hori list-row">
-                                    </div>
                                 </div>
 
-                                <div className="dashboard-note">
-                                    <div className="note-text">
-                                        Suppl is a community of awesome folks. React & add new friends. Everyone has the same goal; to unlock a happy, healthier you.
-                                    </div>
-                                    <div className="note-line"/>
-                                    <div className="note-action clickable">Got it</div>
-                                </div>
-
-
-                                {/*
-                                 <div className="sub-sub-heading">Next session</div>
-                                 <div className="session-header mini" style={{backgroundImage: `url('${session.svgLarge}')`}}>
-                                 <div className="header-overlay"></div>
-                                 <div className="session-title">{session.name}</div>
-                                 <div className="session-description">Session {session.index}</div>
-
-                                 <div className="session-stats">
-                                 <div className="stats-stat">
-                                 <div className="stat-number">{session.audios.length}</div>
-                                 <div className="stat-label">sessions</div>
-                                 </div>
-
-                                 <div className="stats-stat">
-                                 <div className="stat-number">LOW</div>
-                                 <div className="stat-label">intensity</div>
-                                 </div>
-
-                                 <div className="stats-stat">
-                                 <div className="stat-number">2</div>
-                                 <div className="stat-label">total mins</div>
-                                 </div>
-                                 </div>
-                                 </div>
-
-                                 <div className="thin-row">
-                                 <div className="thin-col">
-                                 <div className="sub-sub-heading">Awards</div>
-                                 <div className="info">
-                                 <div className="info-white"/>
-                                 <div className="info-number">1</div>
-                                 <div className="info-text">Day streak</div>
-                                 </div>
-
-                                 <div className="sub-sub-heading">Progress</div>
-                                 <div className="info">
-                                 <div className="info-icon" style={{backgroundImage:`url('/statics/svg/progress/progress-session.svg')`}}/>
-                                 <div className="info-white"/>
-                                 <div className="info-number">30</div>
-                                 <div className="info-text">Total active minutes</div>
-                                 </div>
-
-                                 <div className="info">
-                                 <div className="info-icon" style={{backgroundImage:`url('/statics/svg/progress/progress-active.svg')`}}/>
-                                 <div className="info-white"/>
-                                 <div className="info-number">12</div>
-                                 <div className="info-text">Total sessions complete</div>
-                                 </div>
-                                 </div>
-
-                                 <div className="thin-col flex">
-                                 <div className="sub-sub-heading">Activity</div>
-                                 <div className="info">
-                                 <div className="info-icon" style={{backgroundImage:`url('/statics/svg/progress/activity-feed.svg')`}}/>
-                                 <div className="info-white"/>
-                                 <div className="info-number">330</div>
-                                 <div className="info-text">Total badges won</div>
-                                 </div>
-                                 </div>
-                                 </div>
-                                 */}
                             </div>
                         </div>
                     </div>

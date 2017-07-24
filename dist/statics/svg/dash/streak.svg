@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="235px" height="201px" viewBox="0 0 235 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 15</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-15" transform="translate(-6.000000, -4.000000)" fill="#3C3C3C">
+            <polygon id="Line-6" points="203.5 44.5 202.5 47.5 210.589495 60.9627835 229.029017 63.6632163 240.322835 79.211773 237.78179 50.7106658 223.651969 45.523783 219.214758 30.1547666"></polygon>
+            <polygon id="Line-6" transform="translate(172.466694, 173.882439) rotate(42.000000) translate(-172.466694, -173.882439) " points="154.555277 163.699169 153.555277 166.699169 161.644772 180.161952 180.084294 182.862385 191.378112 198.410942 188.837067 169.909835 174.707245 164.722952 170.270035 149.353935"></polygon>
+            <polygon id="Line-6" transform="translate(27.466694, 23.882439) rotate(80.000000) translate(-27.466694, -23.882439) " points="9.55527672 13.6991688 8.55527672 16.6991688 16.6447721 30.1619523 35.0842942 32.8623851 46.3781121 48.4109418 43.8370672 19.9098346 29.7072453 14.7229518 25.2700349 -0.646064588"></polygon>
+            <polygon id="Line-6" transform="translate(38.642020, 89.698016) rotate(30.000000) translate(-38.642020, -89.698016) " points="20.730602 79.5147459 19.730602 82.5147459 27.8200975 95.9775295 46.2596195 98.6779622 57.5534374 114.226519 55.0123925 85.7254117 40.8825706 80.538529 36.4453602 65.1695125"></polygon>
+        </g>
+    </g>
+</svg>

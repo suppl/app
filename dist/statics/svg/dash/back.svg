@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="278px" height="184px" viewBox="0 0 278 184" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 17</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Group-17" transform="translate(0.000000, 1.000000)" stroke="#3C3C3C" stroke-width="5">
+            <path d="M140.944781,37.8932606 C152.232317,51.8276992 132.239497,60.7874613 138.483775,77.9835124" id="Path-2" transform="translate(140.857506, 57.938387) rotate(22.000000) translate(-140.857506, -57.938387) "></path>
+            <path d="M83.9447809,-0.351811468 C95.2323168,13.582627 75.2394971,22.5423892 81.4837745,39.7384403" id="Path-2" transform="translate(83.857506, 19.693314) rotate(-25.000000) translate(-83.857506, -19.693314) "></path>
+            <path d="M16.9447809,86.8932606 C28.2323168,100.827699 8.2394971,109.787461 14.4837745,126.983512" id="Path-2" transform="translate(16.857506, 106.938387) rotate(-45.000000) translate(-16.857506, -106.938387) "></path>
+            <path d="M183.944781,139.648189 C195.232317,153.582627 175.239497,162.542389 181.483775,179.73844" id="Path-2"></path>
+            <path d="M268.698716,39 C279.986252,52.9344385 259.993432,61.8942007 266.237709,79.0902517" id="Path-2" transform="translate(268.611441, 59.045126) rotate(15.000000) translate(-268.611441, -59.045126) "></path>
+        </g>
+    </g>
+</svg>

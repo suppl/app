@@ -1,9 +1,10 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
+import * as _ from "lodash";
 
 import {Dispatch, State, CreateReducer} from './../services/dispatch.service';
 import SessionList from './../services/session.service';
-import * as _ from "lodash";
+import * as FEED_ACTIONS from "../constants/feed.constants";
 
 class PublicReducer {
     initialState = {
@@ -69,6 +70,14 @@ class PublicReducer {
                 let userObject = _.omitBy(publicData, _.isUndefined);
 
                 Dispatch({type: ACTIONS.SET_PUBLIC_USER, user: userObject});
+
+
+                Dispatch({
+                    type      : ACTIONS.ADD_FEED_ITEM,
+                    feedAction: FEED_ACTIONS.SIGNED_IN,
+                    user      : userObject,
+                });
+
                 publicUserRef.update(userObject);
             });
         });

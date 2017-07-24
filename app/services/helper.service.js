@@ -35,11 +35,16 @@ export const CalcStreak = (user) => {
     return count;
 };
 
+export const CalcComplete = (user) => {
+
+    return !user.done ? 0 : Object.values(user.done).length;
+
+};
+
 export const If = React.createClass({
     displayName: 'If',
 
-    render: function()
-    {
+    render: function () {
         if (this.props.condition)
             return (this.props.children);
         return null;

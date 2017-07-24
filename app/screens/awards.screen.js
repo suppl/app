@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {SetUrl} from '../services/helper.service';
+import {CalcStreak, SetUrl} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -31,6 +31,11 @@ class Awards extends React.Component {
     }
 
     render() {
+
+        const activeStreak = (number) => {
+            return number <= CalcStreak(this.props.public.user) ? 'active' : ''
+        };
+
         return (
             <div data-screen className={`${this.activeClass}`}>
                 <Header/>
@@ -42,7 +47,7 @@ class Awards extends React.Component {
                                 <SubHeader text="Awards"/>
 
                                 <div className="awards-streak">
-                                    <div className="streak-number">1</div>
+                                    <div className="streak-number">{CalcStreak(this.props.public.user)}</div>
                                     <div className="streak-text">Daily streak</div>
                                 </div>
 
@@ -51,26 +56,24 @@ class Awards extends React.Component {
                                 <div className="ribbon-title">Daily streak stars</div>
 
                                 <div className="streak-icons">
-                                    <div className="streak-icon active" style={{backgroundImage: `url('/statics/svg/awards/awards-01.svg')`}}/>
-                                    <div className="streak-icon" style={{backgroundImage: `url('/statics/svg/awards/awards-02.svg')`}}/>
-                                    <div className="streak-icon" style={{backgroundImage: `url('/statics/svg/awards/awards-03.svg')`}}/>
-                                    <div className="streak-icon" style={{backgroundImage: `url('/statics/svg/awards/awards-04.svg')`}}/>
-                                    <div className="streak-icon" style={{backgroundImage: `url('/statics/svg/awards/awards-05.svg')`}}/>
-                                    <div className="streak-icon" style={{backgroundImage: `url('/statics/svg/awards/awards-06.svg')`}}/>
-                                    <div className="streak-icon" style={{backgroundImage: `url('/statics/svg/awards/awards-07.svg')`}}/>
-                                    <div className="streak-icon" style={{backgroundImage: `url('/statics/svg/awards/awards-08.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(1)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-01.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(3)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-02.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(10)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-03.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(15)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-04.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(30)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-05.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(90)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-06.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(180)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-07.svg')`}}/>
+                                    <div className={`streak-icon ${activeStreak(365)}`} style={{backgroundImage: `url('/statics/svg/awards/awards-08.svg')`}}/>
                                 </div>
 
-
-                                <div className="line"/>
-                                <div className="ribbon-title">Badges won</div>
-
+                                {/*<div className="line"/>*/}
+                                {/*<div className="ribbon-title">Badges won</div>*/}
 
                             </div>
                         </div>
 
-                        {/*<div className="content-area flex flex-max">*/}
 
+                        {/*<div className="content-area flex flex-max">*/}
 
                         {/*<div className="row">*/}
                         {/*<div className="col-sm-6">*/}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82px" height="68px" viewBox="0 0 82 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 13</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-13">
+            <g id="Group-179" transform="translate(0.000000, 28.000000)">
+                <ellipse id="Oval-45" fill="#DBEFF3" cx="40.8315245" cy="22.2113197" rx="40.8315245" ry="17.2496815"></ellipse>
+                <ellipse id="Oval-45" fill="#E8F6F9" cx="40.8315245" cy="17.8443118" rx="40.8315245" ry="17.2496815"></ellipse>
+                <ellipse id="Oval-45" fill="#E2F1F4" cx="41.0322239" cy="20.281388" rx="17.4631681" ry="7.37748814"></ellipse>
+            </g>
+            <g id="Group-8" transform="translate(27.000000, 0.932337)">
+                <polygon id="Line-4" fill="#E8B61B" points="30.695599 4.8817861 24.8487473 4.8817861 15.3643446 17.2210054 21.0341854 17.2210054"></polygon>
+                <polygon id="Line-4" fill="#FFCF38" points="30.695599 4.8817861 24.8487473 4.8817861 5.89404553 0.627263209 9.75581084 0"></polygon>
+                <polygon id="Line-4" fill="#E8B61B" points="24.2363969 32.0114617 23.0299718 33.0059762 15.3643446 17.2210054 21.0341854 17.2210054"></polygon>
+                <polygon id="Line-4" fill="#D6A91E" points="24.2363969 32.0114617 23.0299718 33.0059762 2.75502895 49.4185125 13.4957129 30.3019673"></polygon>
+                <polygon id="Line-4" fill="#FFC204" points="5.8799419 0.517534639 24.8487473 4.8817861 15.3643446 17.2210054 22.9014007 32.1742416 2.33584547 50.0336548 8.7196156 32.1742416 -9.09494702e-13 15.4324782"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

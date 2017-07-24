@@ -15,7 +15,54 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
 
+.activity-boxes {
+  margin-top: 15px;
+}
+
+.activity-box {
+  height: 50px;
+  border-radius: 5px;
+  background-color: $white;
+  border: solid 1px $pale-grey;
+
+  margin-top: 6px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 15px;
+
+  font-size: 13px;
+  color: #4f617b;
+  font-weight: 300;
+
+  .activity-image {
+    height: 30px;
+    width: 30px;
+    border-radius: 100px;
+    background: #f7f7f7;
+  }
+
+  .activity-text {
+    margin-left: 15px;
+  }
+
+  .activity-time {
+    margin-left: 0px;
+    font-size: 11px;
+  }
+
+  .activity-icon {
+    //cursor: pointer;
+
+
+  }
+
+  .activity-count {
+    margin-left: 5px;
+  }
 }
 
 .panel {
@@ -109,7 +156,7 @@
   }
 
   &:hover {
-    top:-5px;
+    top: -5px;
   }
 
   &:active {
@@ -136,7 +183,7 @@
     top: 93px;
     transform: rotate(-9deg);
     left: -1000px;
-    right:-1000px;
+    right: -1000px;
     bottom: -1000px;
     z-index: -1;
     background: white;
