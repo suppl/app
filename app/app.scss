@@ -123,6 +123,9 @@ a {
   background-color: $pale-grey-five;
   //padding: 0 20px;
 
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+
   [data-mobile-content] {
     display: flex;
     flex-direction: column;
