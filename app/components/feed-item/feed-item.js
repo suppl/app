@@ -16,7 +16,7 @@ class FeedItem extends React.Component {
     // const screen = this.props.screen;
 
     getUser = (uid) => {
-        console.info('getUser', uid, _.find(this.props.public.users, {uid}))
+        // console.info('getUser', uid, _.find(this.props.public.users, {uid}))
         return _.find(this.props.public.users, {uid}) || {};
     };
 

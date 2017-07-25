@@ -16,9 +16,9 @@ class Sidebar extends React.Component {
         return (
             <div className="sidebar-component">
                 <div className="top-menu">
-                    <Link href="/dashboard" className={`menu-item ${isScreenClass('dashboard')}`}>
+                    <Link href="/home" className={`menu-item ${isScreenClass('home')}`}>
                         <i className="flaticon-dashboard-1"/>
-                        <span>Dashboard</span>
+                        <span>Home</span>
                     </Link>
 
                     <div className="menu-label">All yours</div>

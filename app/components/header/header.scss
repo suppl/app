@@ -11,6 +11,11 @@
   position: relative;
   z-index: 1;
 
+  .not-desktop & {
+    height: 60px;
+    flex: 0 0 60px;
+  }
+
   .user-logo {
     height: 40px;
     width: 40px;
@@ -30,6 +35,13 @@
     font-weight: 600;
     transition: .15s;
     text-decoration: none;
+
+
+    .not-desktop & {
+      height: 30px;
+      width: 30px;
+      min-width: 30px;
+    }
 
     &:hover, &:focus {
       background-color: adjust-color(#78e1d2, $saturation: 10, $lightness: 5);
@@ -83,10 +95,20 @@
       i {
         font-size: 20px;
         margin: auto 5px;
+
+
+        .not-desktop & {
+          font-size: 14px;
+          margin: auto 2px;
+        }
       }
 
       .icon-chevron-down {
         font-size: 10px;
+        .not-desktop & {
+          font-size: 7px;
+
+        }
       }
 
       &:hover {

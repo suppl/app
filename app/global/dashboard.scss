@@ -168,9 +168,14 @@
   padding-top: 60px;
   margin: 0 -20px 10px;
   font-size: 18px;
+  text-align: left;
 
   justify-content: flex-start;
   align-items: flex-start;
+
+  .not-desktop & {
+    padding-left: 20px;
+  }
 
   .banner-title {
     font-size: 42px;

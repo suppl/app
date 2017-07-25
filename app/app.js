@@ -32,6 +32,7 @@ import PositionScreenMobile from './screens-mobile/position.screen.mobile';
 import BumpScreenMobile from './screens-mobile/bump.screen.mobile';
 import ShareScreenMobile from './screens-mobile/share.screen.mobile';
 import RegisterScreenMobile from './screens-mobile/register.screen.mobile';
+import DashboardScreenMobile from './screens-mobile/dashboard.screen.mobile';
 import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
 
 import PopupPassword from './components/popup-password/popup-password';
@@ -40,6 +41,8 @@ import Notification from './components/notification/notification';
 import Player from './components/player/player.component';
 import Loader from './components/loader/loader';
 import Award from './components/award/award';
+
+import HeaderMobile from './components/header/header.mobile';
 
 import userReducer from './reducers/user.reducer';
 import requestReducer from './reducers/request.reducer';
@@ -96,6 +99,7 @@ class App extends React.Component {
                     <PopupStandard/>
                     <Award/>
 
+
                     <If condition={IsDesktop()}>
                         <Locations>
                             <Location path="/" handler={SplashScreen}/>
@@ -108,6 +112,7 @@ class App extends React.Component {
                             <Location path="/sessions" handler={SessionsScreen}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreen}/>
                             <Location path="/dashboard(/*)" handler={DashboardScreen}/>
+                            <Location path="/home(/*)" handler={DashboardScreen}/>
                             <Location path="/profile" handler={ProfileScreen}/>
                             <Location path="/community" handler={CommunityScreen}/>
                             <Location path="/waitlist" handler={WaitlistScreen}/>
@@ -116,6 +121,8 @@ class App extends React.Component {
                             <Location path="/waitlist/bump" handler={BumpScreen}/>
                         </Locations>
                     </If>
+
+
 
                     <If condition={IsTablet() || IsMobile()}>
                         <Locations>
@@ -128,7 +135,8 @@ class App extends React.Component {
                             <Location path="/progress" handler={ProgressScreen}/>
                             <Location path="/sessions" handler={SessionsScreen}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreen}/>
-                            <Location path="/dashboard(/*)" handler={DashboardScreen}/>
+                            <Location path="/dashboard(/*)" handler={DashboardScreenMobile}/>
+                            <Location path="/home(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/profile" handler={ProfileScreen}/>
                             <Location path="/community" handler={CommunityScreen}/>
                             <Location path="/waitlist" handler={WaitlistScreenMobile}/>
