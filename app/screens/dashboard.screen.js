@@ -9,6 +9,7 @@ import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Promo from '../components/promo/promo';
 import Sidebar from '../components/sidebar/sidebar';
+import FeedItem from '../components/feed-item/feed-item'
 import PlayerList from '../components/player-list/player-list.component';
 import Dispatch from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
@@ -39,6 +40,8 @@ class Dashboard extends React.Component {
     }
 
     render() {
+        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
+
         const session = this.props.settings.session ? this.props.settings.session : {};
 
         const getSessionName = () => {
@@ -71,7 +74,7 @@ class Dashboard extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="flex" style={{textAlign:'center'}}>
+                                <div className="flex" style={{textAlign: 'center'}}>
                                     <div className="suppl-butn clickable">Discover more sessions</div>
                                 </div>
 
@@ -79,50 +82,7 @@ class Dashboard extends React.Component {
                                 <div className="sub-sub-heading-2" style={{marginTop: 5}}>Encourage and check how the community is progressing everyday</div>
 
                                 <div className="activity-boxes">
-                                    <div className="activity-box">
-                                        <div className="activity-image"></div>
-                                        <div className="activity-text">
-                                            <strong className="linkable">Nathan Nelson</strong> completed
-                                            <strong className="linkable"> Day 1 of Basics</strong>
-                                        </div>
-                                        <div className="activity-time"> &nbsp;- just now</div>
-                                        <div style={{margin: 'auto'}}/>
-                                        <i className="activity-icon clickable likeable icon-heart"/>
-                                        <div className="activity-count">12</div>
-                                    </div>
-                                    <div className="activity-box">
-                                        <div className="activity-image"></div>
-                                        <div className="activity-text">
-                                            <strong className="linkable">Nathan Nelson</strong> completed
-                                            <strong className="linkable"> Day 1 of Basics</strong>
-                                        </div>
-                                        <div className="activity-time"> &nbsp;- just now</div>
-                                        <div style={{margin: 'auto'}}/>
-                                        <i className="activity-icon clickable likeable icon-heart"/>
-                                        <div className="activity-count">12</div>
-                                    </div>
-                                    <div className="activity-box">
-                                        <div className="activity-image"></div>
-                                        <div className="activity-text">
-                                            <strong className="linkable">Nathan Nelson</strong> completed
-                                            <strong className="linkable"> Day 1 of Basics</strong>
-                                        </div>
-                                        <div className="activity-time"> &nbsp;- just now</div>
-                                        <div style={{margin: 'auto'}}/>
-                                        <i className="activity-icon clickable likeable icon-heart"/>
-                                        <div className="activity-count">12</div>
-                                    </div>
-                                    <div className="activity-box">
-                                        <div className="activity-image"></div>
-                                        <div className="activity-text">
-                                            <strong className="linkable">Nathan Nelson</strong> completed
-                                            <strong className="linkable"> Day 1 of Basics</strong>
-                                        </div>
-                                        <div className="activity-time"> &nbsp;- just now</div>
-                                        <div style={{margin: 'auto'}}/>
-                                        <i className="activity-icon clickable likeable icon-heart"/>
-                                        <div className="activity-count">12</div>
-                                    </div>
+                                    {feed.map(feedItem => <FeedItem feedItem={feedItem}/>)}
                                 </div>
 
                                 <div className="sub-sub-heading-4">Your performance</div>
@@ -166,12 +126,12 @@ class Dashboard extends React.Component {
 
                                 <div className="dashboard-invite">
                                     <div className="invite-flex">
-                                        <div className="sub-sub-heading-4" style={{marginTop:0}}>Invite a friend</div>
-                                        <div className="sub-sub-heading-2" style={{marginTop:10}}>
+                                        <div className="sub-sub-heading-4" style={{marginTop: 0}}>Invite a friend</div>
+                                        <div className="sub-sub-heading-2" style={{marginTop: 10}}>
                                             Suppl is super fun solo but with your <br/> friend it’s even better!
                                         </div>
 
-                                        <div className="flex" style={{textAlign:'center'}}>
+                                        <div className="flex flex-min" style={{textAlign: 'center'}}>
                                             <div className="suppl-butn clickable">Invite friends</div>
                                         </div>
                                     </div>

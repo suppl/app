@@ -46,10 +46,12 @@ class Sidebar extends React.Component {
                         backgroundColor: session.color,
                     }}>
                         {/*<i className="fa fa-play clickable" onClick={() => this.props.showAudio(session, audio)}/>*/}
-                        {/*<i className="fa fa-play clickable"/>*/}
                         <div className="flex flex-min">
                             <div className="banner-title">{session.name}</div>
                             <div className="banner-session">{session.description}</div>
+                            <div className="banner-play clickable">
+                                <i className="fa fa-play "/>
+                            </div>
                         </div>
                     </Link>
                 </If>

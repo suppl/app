@@ -51,7 +51,7 @@ class FeedReducer {
 
         let feedItem = {
             user      : firebase.auth().currentUser.uid,
-            time      : moment().format('YYYYMMDD-HH:MM:ss'),
+            time      : moment().format('YYYYMMDD-HH:mm:ss'),
             feedAction: action.feedAction,
             recipient : action.recipient,
             details   : action.details,

@@ -107,6 +107,29 @@
   .banner-session {
     margin-top: 5px;
   }
+
+  .banner-play {
+    background: white;
+    flex: 0 0 36px;
+    height: 36px;
+    width: 36px;
+    border-radius: 100px;
+    color: $azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+
+    i {
+      line-height: inherit;
+      font-size: 15px;
+      text-align: center;
+      margin: 0;
+      margin-left: 3px;
+      text-shadow: none;
+    }
+  }
 }
 
 .banner-butn {
@@ -125,7 +148,7 @@
   text-align: center;
   color: $azure;
   margin-top: 25px;
-  text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+  //text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
 
   &.flush {
     margin: 0;
@@ -175,7 +198,7 @@
     font-size: 55px;
     margin-right: 20px;
     /* transform: scaleX(0.8); */
-    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+    //text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
   }
 
   .banner-title {
@@ -290,6 +313,7 @@
   height: 350px;
 
   position: relative;
+  text-align: center;
 
   .invite-flex {
     display: flex;
@@ -302,6 +326,7 @@
   }
 
   .invite-icon {
+    position: absolute;
 
   }
 }
