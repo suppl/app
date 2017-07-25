@@ -79,6 +79,7 @@
 
   &:hover, &:focus {
     text-decoration: none;
+    color: white;
   }
 
   &:hover {
@@ -86,6 +87,11 @@
     //background-size: 350px;
     transition: 1000s linear;
     background-position-y: -60000px;
+
+    .not-desktop & {
+      transition: 0s linear;
+      background-position-y: 0px;
+    }
   }
 
   &:active {
@@ -93,6 +99,11 @@
     //background-size: 350px;
     transition-duration: 1000s;
     background-position-y: -800000px;
+
+    .not-desktop & {
+      transition: 0s linear;
+      background-position-y: 0px;
+    }
   }
 
   .banner-title {
