@@ -34,6 +34,14 @@ body {
   color: $brownish-grey;
 
   //min-width: 600px;
+  user-select: none;
+}
+
+* {
+
+  .not-desktop & {
+    user-select: none;
+  }
 }
 
 input, textarea, select {
@@ -42,6 +50,7 @@ input, textarea, select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $greyish-brown;
+  user-select: text;
 }
 
 .fa {
@@ -240,6 +249,10 @@ i {
 
   &:hover {
     transform: scale(1.05);
+
+    .not-desktop & {
+      transform: scale(1.0);
+    }
   }
 
   &:active {
