@@ -11,12 +11,6 @@
   position: relative;
   z-index: 1;
 
-  .not-desktop & {
-    height: 60px;
-    flex: 0 0 60px;
-    padding: 0 20px;
-  }
-
   .user-logo {
     height: 40px;
     width: 40px;
@@ -75,6 +69,8 @@
     //margin: auto;
     margin-left: -100px;
     width: 200px;
+
+    margin-top: 17px;
   }
 
   .header-menu {
@@ -115,6 +111,17 @@
       &:hover {
         color: $azure;
       }
+    }
+  }
+
+  .not-desktop & {
+    height: 60px;
+    flex: 0 0 60px;
+    padding: 0 20px;
+
+
+    .suppl-logo {
+      margin-top: 10px;
     }
   }
 }

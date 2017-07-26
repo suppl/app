@@ -71,7 +71,7 @@ class DashboardScreenMobile extends React.Component {
                                     <Promo size="mid" sessionId="breathe-easy" audioId="sat-at-work-01-01"/>
                                 </div>
 
-                                <div className="flex" style={{textAlign: 'center'}}>
+                                <div className="flex flex-row" style={{textAlign: 'center'}}>
                                     <div className="suppl-butn clickable">Discover more sessions</div>
                                 </div>
 
