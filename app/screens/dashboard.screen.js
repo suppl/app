@@ -125,6 +125,24 @@ class Dashboard extends React.Component {
                                 </div>
 
                                 <div className="dashboard-invite">
+                                    <div className="invite-icons">
+                                        <img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{
+                                            marginLeft: -250,
+                                            top       : 40
+                                        }}/>
+                                        <img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{
+                                            marginLeft: -270,
+                                            top       : 230
+                                        }}/>
+                                        <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
+                                            marginLeft: 120,
+                                            top       : 230
+                                        }}/>
+                                        <img className="invite-icon" src="/statics/svg/dash/giraffe.svg" style={{
+                                            marginLeft: 190,
+                                            top       : 40
+                                        }}/>
+                                    </div>
                                     <div className="invite-flex">
                                         <div className="sub-sub-heading-4" style={{marginTop: 0}}>Invite a friend</div>
                                         <div className="sub-sub-heading-2" style={{marginTop: 10}}>

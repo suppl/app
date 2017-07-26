@@ -8,6 +8,7 @@ const Location  = Router.Location;
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import HeaderMobile from '../components/header/header.mobile';
+import FooterMobile from '../components/footer/footer.mobile';
 import Promo from '../components/promo/promo';
 import Sidebar from '../components/sidebar/sidebar';
 import FeedItem from '../components/feed-item/feed-item'
@@ -54,6 +55,7 @@ class DashboardScreenMobile extends React.Component {
                 <div data-mobile-screen>
 
                     <HeaderMobile/>
+                    <FooterMobile screen="home"/>
                     <div data-mobile-content style={{padding: 0}}>
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
@@ -120,8 +122,18 @@ class DashboardScreenMobile extends React.Component {
                                 </div>
 
                                 <div className="dashboard-invite">
+                                    <div className="invite-icons">
+                                        <img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{
+                                            marginLeft: -200,
+                                            top       : 220
+                                        }}/>
+                                        <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
+                                            marginLeft: 100,
+                                            top       : 240
+                                        }}/>
+                                    </div>
                                     <div className="invite-flex">
-                                        <div className="sub-sub-heading-4" style={{marginTop: 0}}>Invite a friend</div>
+                                        <div className="sub-sub-heading-4" style={{marginTop: -70}}>Invite a friend</div>
                                         <div className="sub-sub-heading-2" style={{marginTop: 10}}>
                                             Suppl is super fun solo but with your <br/> friend it’s even better!
                                         </div>

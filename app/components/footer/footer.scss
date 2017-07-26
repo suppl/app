@@ -1,0 +1,48 @@
+@import "../../global/colors";
+
+.footer-component {
+  position: fixed;
+  z-index: 2000;
+
+  height: 60px;
+  background-color: $pale-grey-six;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  flex-direction: row;
+
+  .footer-link {
+    height: 60px;
+    box-shadow: 0 0px 0px 0 $black-20;
+    flex: 1 1 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    font-weight: 600;
+    text-align: center;
+    flex-direction: column;
+
+    color: $battleship-grey;
+    text-decoration: none;
+
+    .link-icon {
+      font-size: 25px;
+      font-weight: normal;
+      line-height: 1;
+    }
+
+    .link-text {
+      margin-top: 5px;
+    }
+
+    &.active {
+      background-color: $white;
+      color: $azure;
+      box-shadow: 0 2px 4px 0 $black-20;
+    }
+  }
+}
+

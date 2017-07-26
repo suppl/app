@@ -203,7 +203,6 @@
   margin: 20px 0px 0;
   display: block;
 
-
   flex-direction: row;
   padding: 25px 20px;
   align-items: flex-start;
@@ -298,10 +297,10 @@
   margin: 0 -20px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   color: white;
   flex-direction: row;
-  padding: 0 150px;
+  padding: 0 30%;
   background-image: url('/statics/svg/patterns/streak.svg');
   background-position: top left;
   background-size: 400px;
@@ -328,6 +327,7 @@
     flex-direction: column;
     padding: 0;
     text-align: center;
+    justify-content: center;
 
     .content-top {
       font-size: 32px;
@@ -338,12 +338,12 @@
     }
 
     .stat-icon {
-       img {
-         height: 45px;
-         margin-bottom: 10px;
-       }
+      img {
+        height: 45px;
+        margin-bottom: 10px;
+      }
 
-     }
+    }
   }
 }
 
@@ -363,8 +363,14 @@
     flex-direction: column;
   }
 
-  .invite-icon {
+  .invite-icons {
     position: absolute;
+    height: 350px;
+    width: 100%;
 
+    .invite-icon {
+      position: absolute;
+      left: 50%;
+    }
   }
 }

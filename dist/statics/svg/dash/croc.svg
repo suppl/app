@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="106px" height="103px" viewBox="0 0 106 103" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 150</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-47.4%" y="-28.0%" width="184.2%" height="164.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-150" transform="translate(0.000000, 0.913545)">
+            <circle id="Oval-28" fill="#E2F2FB" cx="50.1448566" cy="50.1448566" r="50.1448566"></circle>
+            <g id="Group-141" transform="translate(8.687309, 10.692073)">
+                <path d="M39.5657,63.4292831 C34.5308256,54.6314409 12.0578475,35.9464359 15.0024384,22.8577844 C16.3854208,16.7104534 22.7063428,14.8693487 28.3239193,16.1876197 C30.0521322,16.5931778 40.2730813,24.2864164 45.5977681,23.1151378 C56.9583107,20.6161437 68.7338103,11.6205619 80.5782544,12.2758484 C81.4897501,12.3262763 82.3747455,13.0175068 82.8596377,13.7909711 C83.2900088,14.4774673 83.3824846,15.4767348 83.0473969,16.2144425 C78.1437508,27.0099992 67.0644374,27.2791032 59.2019752,33.3781006 C44.8195464,44.5347069 50.4308033,50.4551043 51.5906047,56.4867011 C51.8585047,57.8799264 57.445602,67.5570627 68.3518964,85.5181099 C65.7579228,87.1600154 63.4780522,88.1178813 61.5122849,88.3917077 L39.5657,63.4292831 Z" id="Path-175" fill="#A2E4EB" transform="translate(48.993851, 50.316763) rotate(30.000000) translate(-48.993851, -50.316763) "></path>
+                <ellipse id="Oval-20" stroke="#263345" fill="#263345" transform="translate(48.574906, 21.345439) scale(-1, 1) rotate(32.000000) translate(-48.574906, -21.345439) " cx="48.5749063" cy="21.3454392" rx="1" ry="1"></ellipse>
+                <ellipse id="Oval-20" stroke="#263345" fill="#263345" transform="translate(51.901499, 19.533687) scale(-1, 1) rotate(32.000000) translate(-51.901499, -19.533687) " cx="51.9014994" cy="19.5336873" rx="1" ry="1"></ellipse>
+                <polyline id="Line-24" stroke="#263345" stroke-linecap="round" points="95.8232131 35.1951211 90.1714418 37.2503107 85.9254081 33.7946924 81.0234058 35.5225016 73.7802359 32.5051527 70.8771295 35.5225016 65.9984805 31.3966011 60.7615044 35.5225016 51.0932408 30.0618144"></polyline>
+                <polyline id="Line-25" stroke="#263345" stroke-linecap="round" points="54.2056245 29.5433499 50.6090428 29.5433499 50.6090428 32.010996"></polyline>
+                <path d="M39.9730403,7.84621065 C43.1678267,4.32379783 41.4156272,4.4406506 45.1155139,6.70179703" id="Path-180" stroke="#263345"></path>
+                <path d="M46.6524063,6.30481848 C49.8471927,2.78240566 48.0949932,2.89925843 51.7948799,5.16040486" id="Path-180" stroke="#263345"></path>
+            </g>
+            <g id="Group-152" filter="url(#filter-1)" transform="translate(45.296874, 26.199218) scale(-1, 1) translate(-45.296874, -26.199218) translate(35.796874, 13.699218)">
+                <ellipse id="Oval-29" fill="#FFFFFF" cx="13.425125" cy="17.8745549" rx="4.88629783" ry="6.17216568"></ellipse>
+                <ellipse id="Oval-29" fill="#FBF6F6" cx="14.1657057" cy="18.243467" rx="4.18705096" ry="5.28890647"></ellipse>
+                <path d="M13.2109189,11.9198226 C15.4680195,-4.50887126 -1.85143645,-1.05991981 0.432326922,5.28060299" id="Path-72" stroke="#FFFFFF" stroke-width="4"></path>
+            </g>
+        </g>
+    </g>
+</svg>
