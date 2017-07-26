@@ -36,8 +36,6 @@ body {
   //min-width: 600px;
   user-select: none;
   -webkit-touch-callout: none;
-
-  -webkit-touch-callout: none;
   -webkit-user-select: none; /* Disable selection/copy in UIWebView */
 }
 
@@ -46,6 +44,10 @@ body {
   .not-desktop & {
     user-select: none;
     -webkit-touch-callout: none;
+
+    -webkit-tap-highlight-color: transparent; /* turn off default press states */
+    -webkit-user-select: none; /* disable selection copy/paste */
+    -webkit-user-drag: none;
   }
 }
 
