@@ -36,6 +36,9 @@ body {
   //min-width: 600px;
   user-select: none;
   -webkit-touch-callout: none;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; /* Disable selection/copy in UIWebView */
 }
 
 * {
