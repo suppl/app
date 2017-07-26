@@ -84,12 +84,12 @@ class DashboardScreenMobile extends React.Component {
                                 <div className="sub-sub-heading-2" style={{marginTop: 5}}>Keep up your streak and form a healthy habit everyday</div>
 
                                 <div className="dashboard-large-stat" style={{marginTop: 20}}>
+                                    <div className="stat-icon">
+                                        <img src="/statics/svg/dash/session-streak-icon.svg" alt=""/>
+                                    </div>
                                     <div className="stat-content">
                                         <div className="content-top">{CalcStreak(this.props.public.user)} day{CalcStreak(this.props.public.user) == 1 ? '' : 's'}</div>
                                         <div className="content-bottom">Current run streak</div>
-                                    </div>
-                                    <div className="stat-icon">
-                                        <img src="/statics/svg/dash/session-streak-icon.svg" alt=""/>
                                     </div>
                                 </div>
 
@@ -110,12 +110,12 @@ class DashboardScreenMobile extends React.Component {
                                     backgroundColor: '#bdcee7',
                                     backgroundImage: `url('/statics/svg/dash/posture-minutes.svg')`
                                 }}>
+                                    <div className="stat-icon">
+                                        <img src="/statics/svg/dash/posture-minute-icon.svg" alt=""/>
+                                    </div>
                                     <div className="stat-content">
                                         <div className="content-top">3 mins</div>
                                         <div className="content-bottom">Total posture mins</div>
-                                    </div>
-                                    <div className="stat-icon">
-                                        <img src="/statics/svg/dash/posture-minute-icon.svg" alt=""/>
                                     </div>
                                 </div>
 

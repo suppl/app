@@ -298,7 +298,7 @@
   margin: 0 -20px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   color: white;
   flex-direction: row;
   padding: 0 150px;
@@ -322,6 +322,28 @@
 
   .stat-icon {
 
+  }
+
+  .not-desktop & {
+    flex-direction: column;
+    padding: 0;
+    text-align: center;
+
+    .content-top {
+      font-size: 32px;
+    }
+
+    .content-bottom {
+      font-size: 13px;
+    }
+
+    .stat-icon {
+       img {
+         height: 45px;
+         margin-bottom: 10px;
+       }
+
+     }
   }
 }
 
