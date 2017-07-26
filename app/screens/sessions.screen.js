@@ -32,7 +32,9 @@ class Sessions extends React.Component {
 
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
-                                <SubHeader text="Sessions"/>
+
+                                <div className="sub-sub-heading-4">Your sessions</div>
+                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>
 
                                 <div className="series-heading">
                                     <div className="series-icon" style={{backgroundColor: seriesList['Basics'][0].color}}>
