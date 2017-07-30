@@ -30,23 +30,23 @@ class FooterMobile extends React.Component {
         return (
             <div className="footer-component">
                 <Link href="/home" className={`footer-link ${isScreenClass('home')}`}>
-                    <i className="link-icon flaticon-dashboard-1"/>
+                    <i className="link-icon icon-uniE7F1"/>
                     <div className="link-text">Home</div>
                 </Link>
                 <Link href="/sessions" className={`footer-link ${isScreenClass('sessions')}`}>
-                    <i className="link-icon flaticon-layers"/>
+                    <i className="link-icon icon-uniE6DC"/>
                     <div className="link-text">Sessions</div>
                 </Link>
                 <Link href="/awards" className={`footer-link ${isScreenClass('awards')}`}>
-                    <i className="link-icon flaticon-trophy"/>
-                    <div className="link-text">Awards</div>
+                    <i className="link-icon icon-uniE820"/>
+                    <div className="link-text">Performance</div>
                 </Link>
                 <Link href="/journey" className={`footer-link ${isScreenClass('journey')}`}>
-                    <i className="link-icon flaticon-cardiogram"/>
+                    <i className="link-icon icon-uniE817"/>
                     <div className="link-text">Journey</div>
                 </Link>
                 <Link href="/community" className={`footer-link ${isScreenClass('community')}`}>
-                    <i className="link-icon flaticon-technology"/>
+                    <i className="link-icon icon-uniE724"/>
                     <div className="link-text">Community</div>
                 </Link>
 

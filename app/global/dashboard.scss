@@ -177,7 +177,7 @@
   border-radius: 0px;
   padding-left: 100px;
   padding-top: 60px;
-  margin: 0 -20px 10px;
+  margin: 0 -30px 0px;
   font-size: 18px;
   text-align: left;
 
@@ -185,6 +185,7 @@
   align-items: flex-start;
 
   .not-desktop & {
+    margin: 0 -20px 0px;
     padding-left: 20px;
   }
 
@@ -200,7 +201,7 @@
 
   background-color: #a2e4eb;
   height: 220px;
-  margin: 20px 0px 0;
+  margin: 30px 0px 0;
   display: block;
 
   flex-direction: row;
@@ -221,6 +222,10 @@
 
     font-size: 30px;
     text-align: left;
+  }
+
+  .not-desktop & {
+    margin: 20px 0px 0;
   }
 }
 
@@ -352,6 +357,12 @@
 
   position: relative;
   text-align: center;
+  overflow: hidden;
+  margin: 0 -30px;
+
+  .not-desktop & {
+    margin: 0 -20px;
+  }
 
   .invite-flex {
     display: flex;

@@ -33,19 +33,10 @@ class Sessions extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
-                                <div className="sub-sub-heading-4">Your sessions</div>
+                                <div className="sub-sub-heading-4">Foundation</div>
                                 <div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>
 
-                                <div className="series-heading">
-                                    <div className="series-icon" style={{backgroundColor: seriesList['Basics'][0].color}}>
-                                        <div className="icon-image"></div>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="series-title">Basics Series</div>
-                                        <div className="series-text">{seriesList['Basics'][0].description}</div>
-                                    </div>
-                                </div>
-                                <div className="flex flex-cols">
+                                <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
                                         <Promo size="mid" sessionId={seriesList['Basics'][0].slug}/>
                                     </div>
@@ -55,44 +46,10 @@ class Sessions extends React.Component {
                                 </div>
 
 
-                                {/*<div className="series-heading">*/}
-                                    {/*<div className="series-icon" style={{backgroundColor: seriesList['Work Series'][0].color}}>*/}
-                                        {/*<div className="icon-image"></div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="flex">*/}
-                                        {/*<div className="series-title">Work Series</div>*/}
-                                        {/*<div className="series-text">{seriesList['Work Series'][0].description}</div>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
-                                {/*<div className="flex flex-cols">*/}
-                                    {/*<div className="flex-col">*/}
-                                        {/*<Promo size="mid" sessionId={seriesList['Work Series'][0].slug}/>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="flex-col">*/}
-                                        {/*<Promo size="mid" sessionId={seriesList['Work Series'][0].slug}/>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
-                                {/*<div className="flex flex-cols">*/}
-                                    {/*<div className="flex-col">*/}
-                                        {/*<Promo size="mid" sessionId={seriesList['Work Series'][0].slug}/>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="flex-col">*/}
-                                        {/*<Promo size="mid" sessionId={seriesList['Work Series'][0].slug}/>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
+                                <div className="sub-sub-heading-4">Minis</div>
+                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Too busy? Spend 1 minute focusing on relaigning your body and mind.  </div>
 
-
-                                <div className="series-heading">
-                                    <div className="series-icon" style={{backgroundColor: seriesList['Mini Series'][0].color}}>
-                                        <div className="icon-image"></div>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="series-title">Mini Series</div>
-                                        <div className="series-text">{seriesList['Mini Series'][0].description}</div>
-                                    </div>
-                                </div>
-                                <div className="sub-sub-heading-3">Work on your breathing</div>
-                                <div className="flex flex-cols">
+                                <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
                                         <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
                                     </div>
@@ -103,8 +60,8 @@ class Sessions extends React.Component {
                                         <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
                                     </div>
                                 </div>
-                                <div className="sub-sub-heading-3">Upper body boost</div>
-                                <div className="flex flex-cols">
+
+                                <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
                                         <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
                                     </div>
@@ -115,72 +72,35 @@ class Sessions extends React.Component {
                                         <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
                                     </div>
                                 </div>
-                                <div className="sub-sub-heading-3">Lower body brilliance</div>
-                                <div className="flex flex-cols">
+
+                                <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="small" sessionId={seriesList['Mini Series'][2].slug}/>
+                                        <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="small" sessionId={seriesList['Mini Series'][2].slug}/>
+                                        <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="small" sessionId={seriesList['Mini Series'][2].slug}/>
+                                        <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
                                     </div>
                                 </div>
 
 
+                                <div className="sub-sub-heading-4">Growth</div>
+                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Finished with fundamentals? Extend your range and motion and perfect your posture.</div>
 
-
-                                <div className="series-heading">
-                                    <div className="series-icon" style={{backgroundColor: seriesList['Sleep Series'][0].color}}>
-                                        <div className="icon-image"></div>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="series-title">Sleep Series</div>
-                                        <div className="series-text">{seriesList['Sleep Series'][0].description}</div>
-                                    </div>
-                                </div>
-                                <div className="flex flex-cols">
+                                <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Sleep Series'][0].slug}/>
+                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Sleep Series'][0].slug}/>
+                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                    </div>
+                                    <div className="flex-col">
+                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
                                     </div>
                                 </div>
-                                {/*<div className="flex flex-cols">*/}
-                                    {/*<div className="flex-col">*/}
-                                        {/*<Promo size="small" sessionId={seriesList['Mini Series'][2].slug}/>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="flex-col">*/}
-                                        {/*<Promo size="small" sessionId={seriesList['Mini Series'][2].slug}/>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="flex-col">*/}
-                                        {/*<Promo size="small" sessionId={seriesList['Mini Series'][2].slug}/>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
 
-
-                                {/*{Object.keys(seriesList).map((category) =>*/}
-                                {/*<div>*/}
-                                {/*<div className="series-heading">*/}
-                                {/*<div className="series-icon" style={{backgroundColor: seriesList[category][0].color}}>*/}
-                                {/*<div className="icon-image"></div>*/}
-                                {/*</div>*/}
-                                {/*<div className="flex">*/}
-                                {/*<div className="series-title">{category}</div>*/}
-                                {/*<div className="series-text">{seriesList[category][0].description}</div>*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-                                {/*<div className="flex flex-cols">*/}
-                                {/*{seriesList[category].map((series, seriesIndex) => (*/}
-                                {/*<div className="flex-col">*/}
-                                {/*<Promo size="mid" sessionId={series.slug} audioId={series.audios[0]}/>*/}
-                                {/*</div>*/}
-                                {/*))}*/}
-                                {/*</div>*/}
-                                {/*</div>*/}
-                                {/*)}*/}
                             </div>
                         </div>
                     </div>

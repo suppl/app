@@ -63,7 +63,6 @@ class DashboardScreenMobile extends React.Component {
                                 <Promo size="large" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
 
                                 <div className="sub-sub-heading-4">Your sessions</div>
-                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>
 
                                 <div className="flex">
                                     <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
@@ -76,7 +75,6 @@ class DashboardScreenMobile extends React.Component {
                                 </div>
 
                                 <div className="sub-sub-heading-4">Community activity</div>
-                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Encourage and check how the community is progressing everyday</div>
 
                                 <div className="activity-boxes">
                                     {feed.map(feedItem => <FeedItem feedItem={feedItem}/>)}

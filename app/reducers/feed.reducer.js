@@ -34,7 +34,7 @@ class FeedReducer {
     }
 
     loadFeed(action, state) {
-        const feedRef = firebase.database().ref(`feed`);
+        const feedRef = firebase.database().ref(`feed`).orderByChild('time').limitToLast(5);
 
         feedRef.on('value', (snapshot) => {
             if (!snapshot.val()) return;

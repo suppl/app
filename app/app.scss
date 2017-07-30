@@ -126,9 +126,19 @@ a {
   transform: translateY(-10px);
 }
 
+[data-mobile-content] {
+  opacity: 0;
+  transition: .6s;
+  transform: translateY(-10px);
+}
+
 [data-screen] {
   &.active, &.active-screen {
     [data-content] {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-mobile-content] {
       opacity: 1;
       transform: translateY(0);
     }
@@ -160,11 +170,16 @@ a {
 }
 
 .content-area {
-  padding: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
   overflow: auto;
   flex: 1 1 auto !important;
+
+  .not-desktop & {
+    padding: 20px;
+    padding-bottom: 80px;
+  }
 }
 
 .content-content {
@@ -210,7 +225,7 @@ a {
 }
 
 .sub-sub-heading-4 {
-  margin-top: 30px;
+  margin-top: 40px;
   //width: 132px;
   height: 24px;
   font-size: 18px;

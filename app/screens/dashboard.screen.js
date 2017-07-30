@@ -62,7 +62,7 @@ class Dashboard extends React.Component {
                                 <div className="sub-sub-heading-4">Your sessions</div>
                                 <div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>
 
-                                <div className="flex flex-cols">
+                                <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
                                         <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
                                     </div>

@@ -53,6 +53,14 @@
   flex-direction: row;
   flex-wrap: wrap;
   display: flex;
+
+  &.flex-cols-large {
+    margin: 0 -15px;
+
+    .flex-col {
+      padding: 0 15px;
+    }
+  }
 }
 
 .flex-col {

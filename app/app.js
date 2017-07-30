@@ -33,6 +33,7 @@ import BumpScreenMobile from './screens-mobile/bump.screen.mobile';
 import ShareScreenMobile from './screens-mobile/share.screen.mobile';
 import RegisterScreenMobile from './screens-mobile/register.screen.mobile';
 import DashboardScreenMobile from './screens-mobile/dashboard.screen.mobile';
+import SessionsScreenMobile from './screens-mobile/sessions.screen.mobile';
 import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
 
 import PopupPassword from './components/popup-password/popup-password';
@@ -42,7 +43,6 @@ import Player from './components/player/player.component';
 import Loader from './components/loader/loader';
 import Award from './components/award/award';
 
-import HeaderMobile from './components/header/header.mobile';
 
 import userReducer from './reducers/user.reducer';
 import requestReducer from './reducers/request.reducer';
@@ -122,8 +122,6 @@ class App extends React.Component {
                         </Locations>
                     </If>
 
-
-
                     <If condition={IsTablet() || IsMobile()}>
                         <Locations>
                             <Location path="/" handler={SplashScreenMobile}/>
@@ -133,7 +131,7 @@ class App extends React.Component {
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
                             <Location path="/awards" handler={AwardsScreen}/>
                             <Location path="/progress" handler={ProgressScreen}/>
-                            <Location path="/sessions" handler={SessionsScreen}/>
+                            <Location path="/sessions" handler={SessionsScreenMobile}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreen}/>
                             <Location path="/dashboard(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/home(/*)" handler={DashboardScreenMobile}/>
