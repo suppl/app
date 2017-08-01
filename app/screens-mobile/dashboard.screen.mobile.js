@@ -141,7 +141,6 @@ class DashboardScreenMobile extends React.Component {
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>

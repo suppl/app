@@ -4,14 +4,13 @@ import {Link} from 'react-router-component';
 import * as _ from 'lodash';
 
 import * as ACTIONS from '../constants/actions.constants';
-import SubHeader from '../components/sub-header/sub-header';
-import Header from '../components/header/header';
-import Sidebar from '../components/sidebar/sidebar';
+import HeaderMobile from '../components/header/header.mobile';
+import FooterMobile from '../components/footer/footer.mobile';
 import {SessionList, isAudioAvailable, isAudioDone} from '../services/session.service';
 import {SetUrl, If} from '../services/helper.service';
 
 
-class SessionScreen extends React.Component {
+class SessionScreenMobile extends React.Component {
     componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active';
@@ -29,11 +28,11 @@ class SessionScreen extends React.Component {
 
         return (
             <div data-screen className={`${this.activeClass}`}>
-                <Header/>
-                <div className="flex flex-row">
-                    <Sidebar screen="sessions"/>
-                    <div data-content className="flex flex-max">
+                <div data-mobile-screen>
 
+                    <HeaderMobile/>
+                    <FooterMobile screen="sessions"/>
+                    <div data-mobile-content style={{padding: 0}}>
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
                                 <div className="sub-sub-heading-4">
@@ -75,8 +74,6 @@ class SessionScreen extends React.Component {
                                     )}
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
@@ -111,4 +108,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(SessionScreen)
+)(SessionScreenMobile)

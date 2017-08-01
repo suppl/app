@@ -119,7 +119,7 @@ a {
 
 [data-content] {
   opacity: 0;
-  max-width: calc(100vw - 146px);
+  max-width: calc(100vw - 166px);
   min-width: 511px;
 
   transition: .6s;
@@ -231,6 +231,10 @@ a {
   font-size: 18px;
   font-weight: 600;
   color: #4f617b;
+
+  a {
+    text-decoration: none;
+  }
 }
 
 .line-heading {

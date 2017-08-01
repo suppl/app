@@ -34,6 +34,7 @@ import ShareScreenMobile from './screens-mobile/share.screen.mobile';
 import RegisterScreenMobile from './screens-mobile/register.screen.mobile';
 import DashboardScreenMobile from './screens-mobile/dashboard.screen.mobile';
 import SessionsScreenMobile from './screens-mobile/sessions.screen.mobile';
+import SessionScreenMobile from './screens-mobile/session.screen.mobile';
 import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
 
 import PopupPassword from './components/popup-password/popup-password';
@@ -132,7 +133,7 @@ class App extends React.Component {
                             <Location path="/awards" handler={AwardsScreen}/>
                             <Location path="/progress" handler={ProgressScreen}/>
                             <Location path="/sessions" handler={SessionsScreenMobile}/>
-                            <Location path="/sessions/:sessionId" handler={SessionScreen}/>
+                            <Location path="/sessions/:sessionId" handler={SessionScreenMobile}/>
                             <Location path="/dashboard(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/home(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/profile" handler={ProfileScreen}/>

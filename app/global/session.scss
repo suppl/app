@@ -1,6 +1,5 @@
 @import "colors";
 
-
 @keyframes background-scroll {
   0% {;
     background-position-y: 0px;
@@ -11,28 +10,36 @@
 }
 
 .session-header {
-  min-height: 233px;
-  //background-color: white;
+  min-height: 305px;
   background-position: top left;
-  background-size: 250px;
+  background-size: 400px;
+  margin-top: 30px;
 
   display: flex;
   flex-direction: column;
-  //margin: 35px;
-  margin-top: 25px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   color: white;
   line-height: 1;
   position: relative;
   z-index: 0;
-  //transition: 10000000000000s;
+  border-radius: 4px 4px 0 0;
 
   animation-name: background-scroll;
-  animation-duration: 1000s;
+  animation-duration: 2000s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
+
+  padding-left: 100px;
+  padding-top: 60px;
+  //margin: 0 -30px 0px;
+  font-size: 18px;
+  text-align: left;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  .not-desktop & {
+    padding-left: 20px;
+  }
 
   &.mini {
     min-height: 190px;
@@ -46,60 +53,93 @@
     //background-position-y: -60000px;
   }
 
-  .header-overlay {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    left: 0px;
-    opacity: 0.1;
-    background-color: $dark;
-    z-index: -1;
-  }
-
   .session-title {
-    font-size: 20px;
-    font-weight: 600;
+    text-align: center;
     color: $white;
     //text-transform: uppercase;
-    font-size: 22px;
+    line-height: 1.2;
+    font-size: 40px;
     font-weight: bold;
   }
 
-  .session-description {
-    font-size: 13px;
-    font-weight: 600;
-    color: $white;
-    line-height: 1.6;
-    margin-top: 10px;
-    max-width: 320px;
+  .session-text {
+    margin-top: 5px;
+    line-height: 1.2;
+    font-size: 15px;
+    max-width: 300px;
   }
+}
 
-  .session-stats {
+.session-audios {
+  border-radius: 0 0 4px 4px;
+  //background-color: $white;
+  border: solid 1px $pale-grey;
+
+  display: flex;
+  flex-direction: column;
+
+  .session-audio {
+    height: 60px;
+    border-radius: 4px;
+    background-color: $white;
+    border-top: solid 1px $pale-grey;
+    overflow: hidden;
     display: flex;
     flex-direction: row;
-    align-self: center;
-    justify-self: center;
-    margin-top: 25px;
+    padding: 0 20px;
+    align-items: center;
 
-    .stats-stat {
+    .audio-check {
+      width: 30px;
+      height: 30px;
+      border: solid 1px $pale-grey;
+      color: #ddd;
+      border-radius: 100px;
       display: flex;
-      flex-direction: column;
-      width: 100px;
+      align-items: center;
+      justify-content: center;
+
+      i {
+        font-weight: bold;
+      }
     }
 
-    .stat-number {
-      font-size: 24px;
-      font-weight: 300;
-      text-align: center;
-      color: $white;
+    .audio-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: $battleship-grey;
+      margin-left: 20px;
     }
 
-    .stat-label {
-      font-size: 11px;
+    .audio-play {
+      margin: 0 auto;
+      color: $azure;
+      text-shadow: 0 2px 4px $black--12;
+
+      font-size: 22px;
+      height: 30px;
+      width: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .audio-time {
+      font-size: 15px;
       text-align: center;
-      color: $white;
-      margin-top: 3px;
+      color: $warm-grey-two;
+    }
+
+    &:first-child {
+      border: none;
+    }
+
+    &[data-inactive="true"] {
+      opacity: 0.4;
+
+      .audio-play {
+        pointer-events: none;
+      }
     }
   }
 }
@@ -191,7 +231,6 @@
 
     &[data-inactive="false"] {
       background: rgba(255, 255, 255, 0.5);
-
 
       .session-number {
         color: transparentize($dark, 0.9);
