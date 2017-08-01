@@ -132,7 +132,7 @@ a {
   transform: translateY(-10px);
 
   .not-desktop & {
-    padding-bottom: 80px !important;
+    padding-bottom: 60px !important;
   }
 }
 
@@ -181,7 +181,7 @@ a {
   flex: 1 1 auto !important;
 
   .not-desktop & {
-    padding: 20px;
+    padding: 20px 20px 0;
   }
 }
 
@@ -189,6 +189,10 @@ a {
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
+
+  .not-desktop & {
+    margin-bottom: 20px;
+  }
 }
 
 .content-area-plain {

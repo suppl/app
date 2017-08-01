@@ -11,12 +11,14 @@
   border-radius: 2px;
   background-color: $azure;
   background-color: $tealish;
-  box-shadow: 0 2px 3px 0 $black--12;
+  //box-shadow: 0 2px 3px 0 $black--12;
+
+  //border: solid 1px $pale-grey;
 
   font-size: 15px;
   text-align: left;
   color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
+  //text-shadow: 0 2px 4px rgba(0, 0, 0, 0.22);
 
   display: flex;
 
@@ -25,6 +27,19 @@
   visibility: hidden;
 
   transform: translateY(30px);
+
+
+  .not-desktop & {
+    left: 10px;
+    right: 10px;
+    bottom: 70px;
+    width: auto;
+    background: white;
+    color: $battleship-grey;
+    border-radius: 4px;
+
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.05);
+  }
 
   &.active {
     opacity: 1;
