@@ -129,7 +129,7 @@ a {
 [data-mobile-content] {
   opacity: 0;
   transition: .6s;
-  transform: translateY(-10px);
+  transform: translateY(20px);
 
   .not-desktop & {
     padding-bottom: 60px !important;
