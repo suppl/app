@@ -35,7 +35,7 @@ class SessionScreenMobile extends React.Component {
                     <div data-mobile-content style={{padding: 0}}>
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
-                                <div className="sub-sub-heading-4">
+                                <div className="sub-sub-heading-4" style={{marginTop:20}}>
                                     <Link href="/sessions">Sessions</Link> › {session.name}
                                 </div>
 

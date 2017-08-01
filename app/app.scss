@@ -130,6 +130,10 @@ a {
   opacity: 0;
   transition: .6s;
   transform: translateY(-10px);
+
+  .not-desktop & {
+    padding-bottom: 80px !important;
+  }
 }
 
 [data-screen] {
@@ -178,7 +182,6 @@ a {
 
   .not-desktop & {
     padding: 20px;
-    padding-bottom: 80px;
   }
 }
 
