@@ -25,7 +25,7 @@ class CommunityScreenMobile extends React.Component {
                 <div data-mobile-screen>
 
                     <HeaderMobile/>
-                    <FooterMobile screen="sessions"/>
+                    <FooterMobile screen=""/>
                     <div data-mobile-content style={{padding: 0}}>
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">

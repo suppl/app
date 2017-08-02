@@ -96948,7 +96948,7 @@ var CommunityScreenMobile = function (_React$Component) {
                     'div',
                     { 'data-mobile-screen': true },
                     _react2.default.createElement(_header2.default, null),
-                    _react2.default.createElement(_footer2.default, { screen: 'sessions' }),
+                    _react2.default.createElement(_footer2.default, { screen: '' }),
                     _react2.default.createElement(
                         'div',
                         { 'data-mobile-content': true, style: { padding: 0 } },
