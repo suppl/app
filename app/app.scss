@@ -63,6 +63,7 @@ input, textarea, select {
   -moz-osx-font-smoothing: grayscale;
   color: $greyish-brown;
   user-select: all !important;
+  -webkit-user-select: text !important;
 }
 
 .fa {

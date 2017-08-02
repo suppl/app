@@ -42,7 +42,7 @@ class SplashScreenMobile extends React.Component {
                             <div className="suppl-label">Your email</div>
 
                             <div className="suppl-input large">
-                                <div className="input-icon icon-envelope"/>
+                                <div className="input-icon icon-uniE90A"/> {/*email*/}
                                 <input type="email" placeholder="E.g. barry@work.com" value={this.props.user.email} onChange={this.props.updateLoginEmail}/>
                             </div>
 
@@ -50,7 +50,7 @@ class SplashScreenMobile extends React.Component {
                             <div className="suppl-label">Your password</div>
 
                             <div className="suppl-input large">
-                                <div className="input-icon icon-lock"/>
+                                <div className="input-icon icon-uniE720"/> {/*password  uniE720*/} {/*user  E740*/}
                                 <input type="password" placeholder="Password" value={this.props.user.password} onChange={this.props.updateLoginPassword}/>
                             </div>
                             <p className="clearfix">
