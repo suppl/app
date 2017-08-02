@@ -36,6 +36,9 @@ import DashboardScreenMobile from './screens-mobile/dashboard.screen.mobile';
 import SessionsScreenMobile from './screens-mobile/sessions.screen.mobile';
 import SessionScreenMobile from './screens-mobile/session.screen.mobile';
 import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
+import CommunityScreenMobile from './screens-mobile/community.screen.mobile';
+
+
 
 import PopupPassword from './components/popup-password/popup-password';
 import PopupStandard from './components/popup-standard/popup-standard';
@@ -130,14 +133,15 @@ class App extends React.Component {
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
-                            <Location path="/awards" handler={AwardsScreen}/>
-                            <Location path="/progress" handler={ProgressScreen}/>
+                            <Location path="/awards" handler={CommunityScreenMobile}/>
+                            <Location path="/progress" handler={CommunityScreenMobile}/>
                             <Location path="/sessions" handler={SessionsScreenMobile}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreenMobile}/>
                             <Location path="/dashboard(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/home(/*)" handler={DashboardScreenMobile}/>
-                            <Location path="/profile" handler={ProfileScreen}/>
-                            <Location path="/community" handler={CommunityScreen}/>
+                            <Location path="/profile" handler={CommunityScreenMobile}/>
+                            <Location path="/community" handler={CommunityScreenMobile}/>
+                            <Location path="/team" handler={CommunityScreenMobile}/>
                             <Location path="/waitlist" handler={WaitlistScreenMobile}/>
                             <Location path="/waitlist/check" handler={PositionScreenMobile}/>
                             <Location path="/waitlist/share" handler={ShareScreenMobile}/>

@@ -27,7 +27,6 @@ class HeaderMobile extends React.Component {
 
         return (
             <div className="header-component">
-
                 <Link className="suppl-logo" href="/home"><img src="/statics/images/suppl-favicon.png" style={{height:22}}/></Link>
                 <Link className="user-logo" href="/profile">{this.getUserFirstLetter()}</Link>
                 <div className="header-menu">
@@ -48,7 +47,7 @@ class HeaderMobile extends React.Component {
                             </div>
                         </div>
                         <i className="flaticon-cog"></i>
-                        <i className="icon-chevron-down"></i>
+                        {/*<i className="icon-chevron-down"></i>*/}
                     </div>
                 </div>
             </div>

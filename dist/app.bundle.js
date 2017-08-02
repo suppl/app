@@ -26446,6 +26446,10 @@ var _splashScreen = __webpack_require__(379);
 
 var _splashScreen2 = _interopRequireDefault(_splashScreen);
 
+var _communityScreen = __webpack_require__(769);
+
+var _communityScreen2 = _interopRequireDefault(_communityScreen);
+
 var _popupPassword = __webpack_require__(361);
 
 var _popupPassword2 = _interopRequireDefault(_popupPassword);
@@ -26618,14 +26622,15 @@ var App = function (_React$Component) {
                             _react2.default.createElement(Location, { path: '/register-password', handler: _registerPassword2.default }),
                             _react2.default.createElement(Location, { path: '/register-job', handler: _registerJob2.default }),
                             _react2.default.createElement(Location, { path: '/register-style', handler: _registerStyle2.default }),
-                            _react2.default.createElement(Location, { path: '/awards', handler: _awards2.default }),
-                            _react2.default.createElement(Location, { path: '/progress', handler: _progress2.default }),
+                            _react2.default.createElement(Location, { path: '/awards', handler: _communityScreen2.default }),
+                            _react2.default.createElement(Location, { path: '/progress', handler: _communityScreen2.default }),
                             _react2.default.createElement(Location, { path: '/sessions', handler: _sessionsScreen2.default }),
                             _react2.default.createElement(Location, { path: '/sessions/:sessionId', handler: _sessionScreen2.default }),
                             _react2.default.createElement(Location, { path: '/dashboard(/*)', handler: _dashboardScreen2.default }),
                             _react2.default.createElement(Location, { path: '/home(/*)', handler: _dashboardScreen2.default }),
-                            _react2.default.createElement(Location, { path: '/profile', handler: _profile2.default }),
-                            _react2.default.createElement(Location, { path: '/community', handler: _community2.default }),
+                            _react2.default.createElement(Location, { path: '/profile', handler: _communityScreen2.default }),
+                            _react2.default.createElement(Location, { path: '/community', handler: _communityScreen2.default }),
+                            _react2.default.createElement(Location, { path: '/team', handler: _communityScreen2.default }),
                             _react2.default.createElement(Location, { path: '/waitlist', handler: _waitlistScreen2.default }),
                             _react2.default.createElement(Location, { path: '/waitlist/check', handler: _positionScreen2.default }),
                             _react2.default.createElement(Location, { path: '/waitlist/share', handler: _shareScreen2.default }),
@@ -96222,8 +96227,7 @@ var HeaderMobile = function (_React$Component) {
                                 )
                             )
                         ),
-                        _react2.default.createElement('i', { className: 'flaticon-cog' }),
-                        _react2.default.createElement('i', { className: 'icon-chevron-down' })
+                        _react2.default.createElement('i', { className: 'flaticon-cog' })
                     )
                 )
             );
@@ -96859,6 +96863,137 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(SessionScreenMobile);
+
+/***/ }),
+/* 769 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(8);
+
+var _reactRouterComponent = __webpack_require__(14);
+
+var _lodash = __webpack_require__(16);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions = __webpack_require__(5);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _header = __webpack_require__(763);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _footer = __webpack_require__(764);
+
+var _footer2 = _interopRequireDefault(_footer);
+
+var _session = __webpack_require__(57);
+
+var _helper = __webpack_require__(13);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CommunityScreenMobile = function (_React$Component) {
+    _inherits(CommunityScreenMobile, _React$Component);
+
+    function CommunityScreenMobile() {
+        _classCallCheck(this, CommunityScreenMobile);
+
+        return _possibleConstructorReturn(this, (CommunityScreenMobile.__proto__ || Object.getPrototypeOf(CommunityScreenMobile)).apply(this, arguments));
+    }
+
+    _createClass(CommunityScreenMobile, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active';
+                _this2.forceUpdate();
+            }, 1);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: '' + this.activeClass },
+                _react2.default.createElement(
+                    'div',
+                    { 'data-mobile-screen': true },
+                    _react2.default.createElement(_header2.default, null),
+                    _react2.default.createElement(_footer2.default, { screen: 'sessions' }),
+                    _react2.default.createElement(
+                        'div',
+                        { 'data-mobile-content': true, style: { padding: 0 } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'content-area', style: { paddingTop: 0 } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'content-content' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'sub-sub-heading-4', style: { marginTop: 20 } },
+                                    'Coming soon...'
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return CommunityScreenMobile;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (!user) (0, _helper.SetUrl)('/');
+    });
+
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+
+        showAudio: function showAudio(session, audio) {
+            return dispatch({
+                type: ACTIONS.SHOW_AUDIO,
+                session: session,
+                audio: audio
+            });
+        }
+
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CommunityScreenMobile);
 
 /***/ })
 /******/ ]);
