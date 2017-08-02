@@ -42,7 +42,6 @@ body {
 *:not(input):not(textarea) {
   -webkit-user-select: none; /* disable selection/Copy of UIWebView */
   -webkit-touch-callout: none; /* disable the IOS popup when long-press on a link */
-
 }
 
 * {
@@ -63,7 +62,7 @@ input, textarea, select {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: $greyish-brown;
-  user-select: text;
+  user-select: all !important;
 }
 
 .fa {
