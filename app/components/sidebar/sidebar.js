@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
     // const screen = this.props.screen;
 
     render() {
-        const isScreenClass = (screen) => this.props.screen == screen ? 'active' : '';
+        const isScreenClass = (screen) => this.props.currentScreen == screen ? 'active' : '';
 
         return (
             <div className="sidebar-component">

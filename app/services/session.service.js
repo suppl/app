@@ -2,8 +2,10 @@ import * as _ from 'lodash';
 
 import {Dispatch, State} from './../services/dispatch.service';
 import SESSIONS from './../constants/sessions.constants';
+import ONBOARDING from './../constants/onboarding.constants';
 
-export const SessionList = SESSIONS;
+export const SessionList    = SESSIONS;
+export const OnboardingList = ONBOARDING;
 
 export const isSessionAvailable = (session) => {
     let flag = true;
@@ -34,6 +36,14 @@ export const isAudioDone = (audio) => {
     return flag;
 };
 
+
+export const isOnboardingAvailable = (audio) => {
+    return !!_.find(ONBOARDING, {audioId: audio.id})
+};
+
+export const getOnboarding = (audio) => {
+    return _.find(ONBOARDING, {audioId: audio.slug})
+};
 
 export const isAudioAvailable = (audio) => {
     console.log('audio', audio);

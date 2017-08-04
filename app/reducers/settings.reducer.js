@@ -2,6 +2,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
 import {Dispatch, State} from './../services/dispatch.service';
 import SessionList from './../services/session.service';
+import {isOnboardingAvailable} from "../services/session.service";
 
 // let timeLoop;
 
@@ -71,6 +72,10 @@ const showAudio = (action, state) => {
         state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
         Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});
     });
+
+    if (isOnboardingAvailable(action.audio)) {
+        Dispatch({type:ACTIONS.SHOW_ONBOARDING})
+    }
 
     return {
         sound       : sound,

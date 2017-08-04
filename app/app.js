@@ -39,13 +39,13 @@ import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
 import CommunityScreenMobile from './screens-mobile/community.screen.mobile';
 
 
-
 import PopupPassword from './components/popup-password/popup-password';
 import PopupStandard from './components/popup-standard/popup-standard';
 import Notification from './components/notification/notification';
 import Player from './components/player/player.component';
 import Loader from './components/loader/loader';
 import Award from './components/award/award';
+import Onboarding from './components/onboarding/onboarding.component';
 
 
 import userReducer from './reducers/user.reducer';
@@ -58,6 +58,7 @@ import publicReducer from './reducers/public.reducer';
 import waitlistReducer from './reducers/waitlist.reducer';
 import communityReducer from './reducers/community.reducer';
 import feedReducer from './reducers/feed.reducer';
+import OnboardingReducer from './reducers/onboarding.reducer';
 
 
 const reducer = combineReducers({
@@ -71,6 +72,7 @@ const reducer = combineReducers({
     waitlist    : waitlistReducer,
     community   : communityReducer,
     feed        : feedReducer,
+    onboarding  : OnboardingReducer,
 });
 
 export const store = createStore(reducer);
@@ -101,6 +103,7 @@ class App extends React.Component {
                     <Loader/>
                     <PopupPassword/>
                     <PopupStandard/>
+                    <Onboarding/>
                     <Award/>
 
 
