@@ -96364,8 +96364,10 @@ var FooterMobile = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
+            console.log('footer props', this.props);
+
             var isScreenClass = function isScreenClass(screen) {
-                return _this2.props.currentScreen == screen ? 'active' : '';
+                return _this2.props.screen == screen ? 'active' : '';
             };
 
             var settingsClass = (0, _classnames2.default)({

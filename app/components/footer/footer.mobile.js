@@ -21,7 +21,9 @@ class FooterMobile extends React.Component {
     }
 
     render() {
-        const isScreenClass = (screen) => this.props.currentScreen == screen ? 'active' : '';
+        console.log('footer props', this.props);
+
+        const isScreenClass = (screen) => this.props.screen == screen ? 'active' : '';
 
         const settingsClass = classNames({
             active: this.props.settings.settingsVisible,
