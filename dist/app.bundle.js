@@ -65633,7 +65633,7 @@ var DashboardScreenMobile = function (_React$Component) {
         value: function render() {
             var _this3 = this;
 
-            (0, _dispatch2.default)({ type: type });
+            // Dispatch({type})
 
             var feed = _lodash2.default.take(_lodash2.default.sortBy(this.props.feed.feed, 'time').reverse(), 5);
 

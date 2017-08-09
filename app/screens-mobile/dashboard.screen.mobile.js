@@ -42,7 +42,7 @@ class DashboardScreenMobile extends React.Component {
     }
 
     render() {
-        Dispatch({type})
+        // Dispatch({type})
 
         const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
 
