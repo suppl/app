@@ -59,17 +59,11 @@ class FooterMobile extends React.Component {
 
 const mapStateToProps = state => state;
 
-const mapDispatchToProps = dispatch => {
-    return {
-        logout: () => dispatch({
-            type: ACTIONS.SIGN_OUT
-        }),
-
-        toggleSettings: () => dispatch({
-            type: ACTIONS.TOGGLE_SETTINGS
-        }),
-    }
-};
+const mapDispatchToProps = dispatch => ({
+    // logout: () => dispatch({
+    //     type: ACTIONS.SIGN_OUT
+    // }),
+});
 
 export default connect(
     mapStateToProps,

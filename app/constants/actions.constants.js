@@ -49,6 +49,9 @@ export const LOAD_PUBLIC_USERS = 'LOAD_PUBLIC_USERS';
 export const SET_ONLINE_STATUS = 'SET_ONLINE_STATUS';
 export const SET_ONLINE_COUNT  = 'SET_ONLINE_COUNT';
 
+export const SET_SCREEN = 'SET_SCREEN';
+
+export const SET_ONBOARDING                = 'SET_ONBOARDING';
 export const SHOW_ONBOARDING               = 'SHOW_ONBOARDING';
 export const HIDE_ONBOARDING               = 'HIDE_ONBOARDING';
 export const NEXT_ONBOARDING_SCREEN        = 'NEXT_ONBOARDING_SCREEN';

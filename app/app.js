@@ -105,6 +105,7 @@ class App extends React.Component {
                     <PopupStandard/>
                     <Onboarding/>
                     <Award/>
+                    {/*<FooterMobile/>*/}
 
 
                     <If condition={IsDesktop()}>

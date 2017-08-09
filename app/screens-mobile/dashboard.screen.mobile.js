@@ -42,6 +42,8 @@ class DashboardScreenMobile extends React.Component {
     }
 
     render() {
+        Dispatch({type})
+
         const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
 
         const session = this.props.settings.session ? this.props.settings.session : {};
@@ -55,7 +57,6 @@ class DashboardScreenMobile extends React.Component {
                 <div data-mobile-screen>
 
                     <HeaderMobile/>
-                    <FooterMobile screen="home"/>
                     <div data-mobile-content style={{padding: 0}}>
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">

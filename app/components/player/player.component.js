@@ -58,30 +58,33 @@ class Player extends React.Component {
     render() {
 
         return (
-            <div className={`player-component ${this.getClasses()}`}>
+            <div className={`player-component ${this.getClasses()}`} style={{backgroundColor: this.props.settings.session.color}}>
                 <div className="player-main">
                     <div className="player-header">
                         <div className="header-back clickable" onClick={this.props.hideSession}>
                             <i className="fa fa-angle-left"/>
                         </div>
 
+                        <div className="header-name ">
+                            {this.props.settings.session.name}
+                        </div>
+
                         <div className="header-right">
-                            <div className="header-name">
-                                {this.props.settings.session.name}
-                            </div>
+                            {/*<div className="header-name">*/}
+                            {/*</div>*/}
                             <div className="header-number">
-                                1
+                                Day 1
                             </div>
 
                         </div>
                     </div>
 
-                    <div className="player-info">
-                        <div className="big-text">Get Ready!</div>
-                    </div>
+                    {/*<div className="player-info">*/}
+                        {/*<div className="big-text">Get Ready!</div>*/}
+                    {/*</div>*/}
 
                     <div className="player-bar">
-                        <div className="bar-fill" style={{width:this.getDash()}}></div>
+                        <div className="bar-fill" style={{height: this.getDash()}}></div>
                     </div>
                     <div className="player-controls">
                         {this.props.settings.playing ?
@@ -97,33 +100,33 @@ class Player extends React.Component {
                         <div className="controls-time">{this.seek}</div>
                     </div>
                 </div>
-                <div className="player-sidebar">
-                    <div className="sidebar-header">Session reactions</div>
+                {/*<div className="player-sidebar">*/}
+                    {/*<div className="sidebar-header">Session reactions</div>*/}
 
-                    <div className="sidebar-feed">
-                        <div className="feed-reaction">
-                            <div className="reaction-icon"></div>
+                    {/*<div className="sidebar-feed">*/}
+                        {/*<div className="feed-reaction">*/}
+                            {/*<div className="reaction-icon"></div>*/}
 
-                        </div>
+                        {/*</div>*/}
 
-                    </div>
+                    {/*</div>*/}
 
-                    <div className="sidebar-reactions">
-                        <div className="reactions-faces">
-                            <div className="face-circle clickable">
-                                <i className="flaticon-shapes"></i>
-                            </div>
-                            <div className="face-circle clickable">
-                                <i className="emotions-emoticon-square-face-with-a-smile"></i>
-                            </div>
-                            <div className="face-circle clickable">
-                                <i className="emotions-yawning-emoticon-square-face-1"></i>
-                            </div>
-                        </div>
+                    {/*<div className="sidebar-reactions">*/}
+                        {/*<div className="reactions-faces">*/}
+                            {/*<div className="face-circle clickable">*/}
+                                {/*<i className="flaticon-shapes"></i>*/}
+                            {/*</div>*/}
+                            {/*<div className="face-circle clickable">*/}
+                                {/*<i className="emotions-emoticon-square-face-with-a-smile"></i>*/}
+                            {/*</div>*/}
+                            {/*<div className="face-circle clickable">*/}
+                                {/*<i className="emotions-yawning-emoticon-square-face-1"></i>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
 
-                        <div className="reactions-text">React to your session</div>
-                    </div>
-                </div>
+                        {/*<div className="reactions-text">React to your session</div>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
                 {/*<div className="player-close icon-cross"/>*/}
                 {/*<div className="session-title">{this.props.settings.session.name}</div>*/}
                 {/*<div className="audio-title">{this.props.settings.audio.name}</div>*/}

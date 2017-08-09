@@ -1,5 +1,14 @@
 @import "../../global/colors";
 
+@keyframes background-scroll {
+  0% {;
+    background-position-y: 0px;
+  }
+  100% {;
+    background-position-y: -60000px;
+  }
+}
+
 .player-component {
   z-index: 2000;
   position: fixed;
@@ -8,8 +17,8 @@
   left: 0;
   right: 0;
 
-  background-color: white;
-  color: $warm-grey-two;
+  //background-color: white;
+  color: white;
 
   display: flex;
   //align-items: center;
@@ -22,6 +31,16 @@
   transform: scale(1.3);
   //color: white;
 
+  background-image: url('/statics/svg/patterns/basics.svg');
+  background-position: top left;
+  background-size: 800px;
+
+  animation-name: background-scroll;
+  animation-duration: 4000s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  //pointer-events: none;
+
   &.active {
     opacity: 1;
     visibility: visible;
@@ -32,10 +51,14 @@
   .player-header {
     flex: 0 0 41px;
     //height: 41px;
-    border-bottom: solid 1px #f3f3f3;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+
+    font-size: 15px;
+    font-weight: bold;
 
     .header-back {
       flex: 0 auto;
@@ -44,9 +67,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: $azure;
+      color: white;
       font-size: 26px;
       cursor: pointer;
+    }
+
+    .header-name {
+      //font-size: 10px;
+      text-align: center;
+      color: white;
+      //text-transform: uppercase;
+      font-size: 18px;
+      font-weight: bold;
+      //margin: auto;
+      //display: flex;
+      //align-items: center;
+      //justify-content: center;
+
     }
 
     .header-right {
@@ -54,21 +91,14 @@
       flex-direction: row;
       align-items: center;
 
-      .header-name {
-        font-size: 10px;
-        text-align: center;
-        color: $warm-grey-two;
-        text-transform: uppercase;
-
-      }
-
       .header-number {
-        font-size: 13px;
+        //font-size: 13px;
         text-align: center;
-        color: $dark;
+        color: white;
         flex: 0 auto;
         height: 40px;
-        width: 40px;
+        //width: 40px;
+        padding: 0 10px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -87,21 +117,21 @@
       font-size: 60px;
       font-weight: 600;
       text-align: center;
-      color: $azure;
+      color: white;
     }
   }
 
   .player-bar {
-    flex: 0 0 25px;
-    background-color: $pale-grey;
+    flex: 1 0 25px;
+    background: rgba(0, 0, 0, 0.05);
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
 
     .bar-fill {
-      background: $azure;
-      height: 25px;
-      width: 10%;
+      background: rgba(0, 0, 0, 0.25);
+      //height: 25px;
+      height: 0%;
       //transition: .1s;
     }
 
@@ -109,7 +139,7 @@
 
   .player-controls {
     height: 63px;
-    background-color: $white;
+    //background-color: $white;
     display: flex;
     flex-direction: row;
     //justify-content: space-between;
@@ -120,8 +150,8 @@
       border-radius: 100px;
       width: 43px;
       height: 43px;
-      border: solid 1px $azure;
-      color: $azure;
+      border: solid 2px white;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -135,7 +165,8 @@
     .controls-time {
       font-size: 20px;
       text-align: center;
-      color: $warm-grey-two;
+      //color: $warm-grey-two;
+      color: white;
       margin-left: 20px;
     }
   }
