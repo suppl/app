@@ -98,7 +98,7 @@
         flex: 0 auto;
         height: 60px;
         //width: 40px;
-        padding: 0 10px;
+        padding: 0 20px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -133,6 +133,10 @@
       //height: 25px;
       height: 0%;
       //transition: .1s;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
     }
 
   }
