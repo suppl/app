@@ -46,6 +46,10 @@
   &.flex-end {
     align-self: flex-end;
   }
+
+  &.flex-between {
+    justify-content: space-between;
+  }
 }
 
 .flex-cols {
@@ -55,10 +59,18 @@
   display: flex;
 
   &.flex-cols-large {
-    margin: 0 -15px;
+    margin: 0 -40px;
+
+    .not-desktop & {
+      margin: 0 -20px;
+    }
 
     .flex-col {
-      padding: 0 15px;
+      padding: 0 40px;
+
+      .not-desktop & {
+        padding: 0 20px;
+      }
     }
   }
 }

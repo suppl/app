@@ -1,0 +1,145 @@
+@import "colors";
+
+.block {
+  background-color: #fff;
+  padding: 0 40px 40px;
+  margin: 0 -40px;
+
+  .not-desktop & {
+    padding: 0 20px 20px;
+    margin: 0 -20px;
+  }
+
+  &.light {
+    background-color: #fafcff;
+  }
+}
+
+.thin-heading {
+  font-size: 32px;
+  font-weight: 300;
+  color: $battleship-grey;
+  margin-top: 40px;
+  line-height: 1.2;
+
+  .not-desktop & {
+    font-size: 22px;
+    margin-top: 20px;
+  }
+}
+
+.thin-heading-2 {
+  font-size: 32px;
+  font-weight: 300;
+  color: $battleship-grey;
+  margin-top: 40px;
+  line-height: 1;
+  font-size: 22px;
+  font-weight: 300;
+
+  .not-desktop & {
+    //margin-top: 20px;
+
+    font-size: 15px;
+    font-weight: 300;
+  }
+}
+
+.thin-subheading {
+  font-weight: 400;
+  line-height: 1;
+  font-size: 15px;
+  color: #8c9bb1;
+  margin-top: 5px;
+
+  .not-desktop & {
+    font-size: 12px;
+    font-weight: 400;
+  }
+}
+
+.invite-title {
+  font-size: 42px;
+  text-align: left;
+  color: $battleship-grey;
+}
+
+.invite-text {
+  margin-top: 10px;
+  line-height: 1.4;
+  font-size: 13px;
+  color: #73839a;
+}
+
+
+.realign-content {
+  display: flex;
+  flex-direction: row;
+  //justify-content: flex-end;
+  align-items: flex-end;
+  margin-left: auto;
+  line-height: 1;
+  //height: 60px;
+
+  .realign-number {
+    font-size: 28px;
+    font-weight: normal;
+    color: #1fb7c7;
+
+    .not-desktop & {
+      font-size: 22px;
+      margin-top: 20px;
+    }
+  }
+
+  .realign-text {
+    margin-left: 5px;
+    font-size: 13px;
+    font-weight: 300;
+    text-align: left;
+    color: $battleship-grey;
+  }
+
+}
+
+.suppl-stat {
+  height: 120px;
+  border-radius: 4px;
+  border: solid 1px $pale-grey-two;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: $battleship-grey;
+  font-weight: 300;
+  margin-top: 40px;
+
+  .not-desktop & {
+    margin-top: 20px;
+  }
+
+  .stat-img {
+    height: 60px;
+    margin-right: 25px;
+    margin-top: 5px;
+  }
+
+  .stat-stat {
+    font-size: 42px;
+    font-weight: normal;
+
+    .stat-small {
+      font-size: 15px;
+      font-weight: 300;
+    }
+  }
+
+  .stat-text {
+    font-weight: 400;
+    font-size: 13px;
+    color: #b4bdcc;
+    margin-top: 5px;
+  }
+}

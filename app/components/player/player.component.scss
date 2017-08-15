@@ -17,29 +17,15 @@
   left: 0;
   right: 0;
 
-  //background-color: white;
   color: white;
 
   display: flex;
-  //align-items: center;
-  //justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
 
   transition: .4s;
   opacity: 0;
   visibility: hidden;
   transform: scale(1.3);
-  //color: white;
-
-  background-image: url('/statics/svg/patterns/basics.svg');
-  background-position: top left;
-  background-size: 800px;
-
-  animation-name: background-scroll;
-  animation-duration: 4000s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  //pointer-events: none;
 
   &.active {
     opacity: 1;
@@ -49,16 +35,13 @@
   }
 
   .player-header {
-    flex: 0 0 61px;
+    flex: 0 0 60px;
     //height: 41px;
-    border-bottom: solid 1px rgba(0, 0, 0, 0.05);
+    //border-bottom: solid 1px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
-    font-size: 15px;
-    font-weight: bold;
 
     .header-back {
       flex: 0 auto;
@@ -73,361 +56,102 @@
     }
 
     .header-name {
-      //font-size: 10px;
       text-align: center;
       color: white;
-      //text-transform: uppercase;
       font-size: 18px;
-      font-weight: bold;
-      //margin: auto;
-      //display: flex;
-      //align-items: center;
-      //justify-content: center;
+      font-weight: 400;
+      margin: auto;
 
     }
 
-    .header-right {
+    .header-icon {
+      font-size: 24px;
+      height: 60px;
+      width: 60px;
       display: flex;
-      flex-direction: row;
       align-items: center;
-
-      .header-number {
-        //font-size: 13px;
-        text-align: center;
-        color: white;
-        flex: 0 auto;
-        height: 60px;
-        //width: 40px;
-        padding: 0 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-    }
-  }
-
-  .player-info {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-
-    .big-text {
-      font-size: 60px;
-      font-weight: 600;
+      justify-content: center;
       text-align: center;
-      color: white;
+      cursor: pointer;
     }
   }
 
-  .player-bar {
-    flex: 1 0 25px;
-    background: rgba(0, 0, 0, 0.05);
+  .player-content {
+    flex: 1 0 0px;
     position: relative;
     display: flex;
-    flex-direction: column-reverse;
 
-    .bar-fill {
-      background: rgba(0, 0, 0, 0.05);
-      //height: 25px;
-      height: 0%;
-      //transition: .1s;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-    }
-
-  }
-
-  .player-controls {
-    height: 63px;
-    //background-color: $white;
-    display: flex;
-    flex-direction: row;
-    //justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 20px;
+    justify-content: center;
 
-    .controls-control {
-      border-radius: 100px;
-      width: 43px;
-      height: 43px;
-      border: solid 2px white;
-      color: white;
+    .player-info {
+      flex: 1 0 0px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      flex-direction: column;
 
-      i {
-        font-size: 20px;
-      }
     }
 
-    .controls-time {
-      font-size: 20px;
-      text-align: center;
-      //color: $warm-grey-two;
-      color: white;
-      margin-left: 20px;
-    }
-  }
+    .player-button {
 
-  .player-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
+      border-radius: 200px;
+      width: 200px;
+      height: 200px;
+      background-color: rgba(255, 255, 255, 0.42);
+      margin-bottom: -100px;
+      position: relative;
+      z-index: 10;
 
-  .player-sidebar {
-    flex: 0 0 200px;
-    background-color: $pale-grey-six;
-    display: flex;
-    flex-direction: column;
-
-    .sidebar-header {
-      flex: 0 0 41px;
-      background-color: $pale-grey;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      text-transform: uppercase;
-
-      font-size: 15px;
-      color: $warm-grey-two;
-    }
-
-    .sidebar-feed {
-      flex: 1 1 auto;
-      background-color: #e5e8eb;
-      margin: 10px 20px 10px;
-
-      .feed-reaction {
-        height: 30px;
-        border-radius: 3px;
-        background-color: $white;
-        font-size: 10px;
-        color: $dark;
-        margin: 10px 10px 0;
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        .reaction-icon {
-          font-size: 20px;
-          margin-left: 10px;
-        }
-      }
-    }
-
-    .sidebar-reactions {
       display: flex;
       flex-direction: column;
-      margin: 22px 0px 0;
-      height: 66px;
-      padding: 0 20px 0;
-      background: $pale-grey;
-
-      .reactions-faces {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        margin-top: -22px;
-
-        .face-circle {
-          border-radius: 100px;
-          width: 43px;
-          height: 43px;
-          background-color: $rosa;
-          box-shadow: 0 2px 4px 0 $black-20;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          text-align: center;
-          color: white;
-
-          &:nth-child(2) {
-            background-color: #9ee1ce;
-          }
-
-          &:nth-child(3) {
-            background-color: #b798c3;
-          }
-
-          i {
-            font-size: 22px;
-          }
-        }
-      }
-
-      .reactions-text {
-        margin: 10px 0px;
-        font-size: 15px;
-        text-align: center;
-        color: $warm-grey-two;
-      }
-    }
-  }
-
-  .player-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 100px;
-    width: 100px;
-    font-size: 30px;
-    //color: white;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: 0.15s;
-    color: $warm-grey;
-
-    &:hover {
-      transform: scale(1.1)
-    }
-
-    &:active {
-      transform: scale(1.3)
-    }
-  }
-
-  .session-title {
-    text-align: center;
-    font-size: 24px;
-    font-weight: 400;
-    position: absolute;
-    top: 40px;
-    color: $light-blue-grey;
-    font-size: 19px;
-    font-weight: 600;
-    color: $dark;
-    text-transform: uppercase;
-  }
-
-  .audio-title {
-    text-align: center;
-    font-size: 30px;
-    position: absolute;
-    top: 80px;
-    color: $dark;
-    font-weight: 100;
-    font-size: 14px;
-    font-weight: 600;
-    color: $dark;
-    text-transform: uppercase;
-  }
-
-  .audio-duration {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 400;
-    margin-top: 90px;
-    //top: 160px;
-    color: $dark;
-    font-size: 19px;
-    font-style: italic;
-    color: $dark;
-  }
-
-  .audio-play {
-    cursor: pointer;
-
-    width: 222px;
-    height: 222px;
-    background-color: $white;
-    border-radius: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-
-    svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 222px;
-      height: 222px;
-      transform: rotateY(-180deg) rotateZ(-90deg);
-      pointer-events: none;
-
-      circle {
-        fill: none;
-
-        stroke-width: 70px;
-        stroke: $azure;
-        stroke-dasharray: 700px;
-        //transition: 2s;
-        stroke-dashoffset: 700px;
-        //stroke-dashoffset: -591px;
-      }
-    }
-
-    .play-inner {
-      width: 161px;
-      height: 161px;
-      background-color: $white;
-      box-shadow: 0 2px 4px 0 $black-20;
-      border: solid 2px $azure;
-      border-radius: 500px;
-      display: flex;
       align-items: center;
       justify-content: center;
-      transition: 0.15s;
-      position: relative;
-      color: $azure;
+      text-align: center;
 
-      &.playing {
-        border-color: $pale-grey;
-        color: $pale-grey;
-        transform: rotate(360deg);
-      }
-
-      &:hover {
-        width: 180px;
+      .button-inside {
         height: 180px;
-        border-color: $azure;
-        color: $azure;
-      }
+        width: 180px;
+        border-radius: 200px;
+        background-color: rgba(255, 255, 255, 0.4);
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
 
-      &:active {
-        width: 200px;
-        height: 200px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        color: $pinkish-grey;
+
+        font-size: 140px;
       }
     }
 
-    .icon, .fa {
-      //color: $azure;
-      font-size: 100px;
-      font-size: 90px;
-      margin-left: 18px;
+    .player-bar {
+      position: relative;
+      width: 100%;
+      height: 280px;
+      //opacity: 0.8;
+      background-color: rgba(0, 0, 0, 0.03);
+      z-index: 5;
+    }
+
+    .player-session {
+
+      font-size: 18px;
+      text-align: center;
+      color: $white;
+    }
+
+    .player-length {
+      font-size: 18px;
+      text-align: center;
+      color: #f3f3f3;
+      margin-top: 20px;
     }
 
   }
 
-  .loader-icon {
-    font-weight: bold;
-    font-size: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    animation-name: rotate;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-
-  }
-
-  .loader-text {
-    font-weight: bold;
-    margin-top: 10px;
-  }
 }

@@ -10,10 +10,8 @@
 }
 
 .session-header {
-  min-height: 305px;
   background-position: top left;
-  background-size: 400px;
-  margin-top: 30px;
+  background-size: 600px;
 
   display: flex;
   flex-direction: column;
@@ -21,25 +19,31 @@
   line-height: 1;
   position: relative;
   z-index: 0;
-  border-radius: 4px 4px 0 0;
 
   animation-name: background-scroll;
   animation-duration: 2000s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 
-  padding-left: 100px;
+  padding-left: 40px;
   padding-top: 60px;
-  //margin: 0 -30px 0px;
-  font-size: 18px;
   text-align: left;
 
   justify-content: flex-start;
   align-items: flex-start;
 
+  margin: 0 -40px 0;
+  border-radius: 0;
+  min-height: 325px;
+  font-size: 22px;
+
   .not-desktop & {
+    min-height: 237px;
     padding-left: 20px;
-    margin-top: 20px;
+    padding-top: 40px;
+    //margin-top: 20px;
+    margin: 0 -20px 0;
+    //animation: none;
   }
 
   &.mini {
@@ -55,39 +59,65 @@
   }
 
   .session-title {
-    text-align: center;
+    //text-align: center;
     color: $white;
     //text-transform: uppercase;
     line-height: 1.2;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 64px;
+    //text-align: left;
+    margin-top: 15px;
+
+    .not-desktop & {
+      font-size: 48px;
+    }
   }
 
   .session-text {
     margin-top: 5px;
-    line-height: 1.2;
+    line-height: 1.4;
     font-size: 15px;
-    max-width: 300px;
+    max-width: 500px;
+    font-size: 22px;
+
+    .not-desktop & {
+      font-size: 13px;
+      max-width: 280px;
+      margin-top: 15px;
+    }
+  }
+
+  .session-time {
+    margin-top: 0px;
+    line-height: 1;
+    font-size: 19px;
+    font-weight: 600;
+    text-align: left;
+    color: $white;
+
+    .not-desktop & {
+      font-size: 13px;
+    }
   }
 }
 
 .session-audios {
-  border-radius: 0 0 4px 4px;
+  //border-radius: 0 0 4px 4px;
   //background-color: $white;
   border: solid 1px $pale-grey;
+  margin: 0 -40px 0;
 
   display: flex;
   flex-direction: column;
 
   .session-audio {
-    height: 60px;
+    height: 80px;
     border-radius: 4px;
     background-color: $white;
     border-top: solid 1px $pale-grey;
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    padding: 0 20px;
+    padding: 0 40px;
     align-items: center;
 
     .audio-check {
@@ -102,33 +132,52 @@
 
       i {
         font-weight: bold;
+        //display: none;
       }
     }
 
     .audio-title {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 600;
       color: $battleship-grey;
       margin-left: 20px;
+
+      .not-desktop & {
+        font-size: 15px;
+      }
     }
 
     .audio-play {
-      margin: 0 auto;
-      color: $azure;
-      text-shadow: 0 2px 4px $black--12;
+      //margin: 0 auto;
+      //background: $azure;
+      //color: white;
+      //text-shadow: 0 2px 4px $black--12;
 
-      font-size: 28px;
+      border: solid 1px $pale-grey;
+      color: #ddd;
+      border-radius: 100px;
+
+      font-size: 15px;
       height: 30px;
       width: 30px;
       display: flex;
       align-items: center;
       justify-content: center;
+
+      i {
+        margin-left: 2px;
+      }
     }
 
     .audio-time {
       font-size: 15px;
       text-align: center;
       color: $warm-grey-two;
+
+
+      .not-desktop & {
+        font-size: 13px;
+      }
     }
 
     &:first-child {

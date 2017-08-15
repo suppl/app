@@ -5,6 +5,7 @@ import * as moment from "moment";
 // import {Dispatch, State, Store} from './../services/dispatch.service';
 
 import * as ACTIONS from '../../constants/actions.constants';
+import {SetUrl, If} from '../../services/helper.service';
 
 require('./player.component.scss');
 
@@ -59,73 +60,103 @@ class Player extends React.Component {
 
         return (
             <div className={`player-component ${this.getClasses()}`} style={{backgroundColor: this.props.settings.session.color}}>
-                <div className="player-main">
-                    <div className="player-header">
-                        <div className="header-back clickable" onClick={this.props.hideSession}>
-                            <i className="fa fa-angle-left"/>
-                        </div>
+                {/*<div className="player-main">*/}
+                <div className="player-header">
+                    <div className="header-icon clickable"/>
 
-                        <div className="header-name ">
-                            {this.props.settings.session.name}
-                        </div>
-
-                        <div className="header-right">
-                            {/*<div className="header-name">*/}
-                            {/*</div>*/}
-                            <div className="header-number">
-                                Day 1
-                            </div>
-
-                        </div>
+                    <div className="header-name ">
+                        {this.props.settings.session.name}
                     </div>
 
-                    {/*<div className="player-info">*/}
-                        {/*<div className="big-text">Get Ready!</div>*/}
-                    {/*</div>*/}
-
-                    <div className="player-bar">
-                        <div className="bar-fill" style={{height: this.getDash()}}></div>
-                    </div>
-                    <div className="player-controls">
-                        {this.props.settings.playing ?
-                            <div className="controls-control clickable" onClick={this.props.pauseAudio}>
-                                <i className="flaticon-pause-1" style={{margin: 0}}/>
-                            </div>
-                            :
-                            <div className="controls-control clickable" onClick={this.props.playAudio}>
-                                <i className="flaticon-arrows" style={{marginLeft: '3px'}}/>
-                            </div>
-                        }
-
-                        <div className="controls-time">{this.seek}</div>
+                    <div className="header-icon clickable" onClick={this.props.hideSession}>
+                        <i className="icon-uniE7D7"/>
                     </div>
                 </div>
+
+                <div className="player-content">
+
+                    <div className="player-info">
+                        <div className="player-session">
+                            Session 1 of 5
+                        </div>
+                        <div className="player-length">
+                            3 mins
+                        </div>
+                    </div>
+
+                    <If condition={!this.props.settings.playing}>
+                        <div className="player-button" onClick={this.props.playAudio}>
+                            <div className="button-inside">
+                                <i className="icon-uniE6BB" style={{
+                                    fontSize  : '100px',
+                                    marginLeft: '14px',
+                                }}/>
+                            </div>
+                        </div>
+                    </If>
+                    <If condition={this.props.settings.playing}>
+                        <div className="player-button" onClick={this.props.pauseAudio}>
+                            <div className="button-inside">
+                                <i className="icon-uniE6B9"/>
+                            </div>
+                        </div>
+                    </If>
+
+
+                    <div className="player-bar">
+
+                    </div>
+
+
+                    {/*</div>*/}
+
+                    {/*<div className="player-info">*/}
+                    {/*<div className="big-text">Get Ready!</div>*/}
+                    {/*</div>*/}
+
+                    {/*<div className="player-bar">*/}
+                    {/*<div className="bar-fill" style={{height: this.getDash()}}></div>*/}
+                    {/*</div>*/}
+                    {/*<div className="player-controls">*/}
+                    {/*{this.props.settings.playing ?*/}
+                    {/*<div className="controls-control clickable" onClick={this.props.pauseAudio}>*/}
+                    {/*<i className="flaticon-pause-1" style={{margin: 0}}/>*/}
+                    {/*</div>*/}
+                    {/*:*/}
+                    {/*<div className="controls-control clickable" onClick={this.props.playAudio}>*/}
+                    {/*<i className="flaticon-arrows" style={{marginLeft: '3px'}}/>*/}
+                    {/*</div>*/}
+                    {/*}*/}
+
+                    {/*<div className="controls-time">{this.seek}</div>*/}
+                    {/*</div>*/}
+                </div>
                 {/*<div className="player-sidebar">*/}
-                    {/*<div className="sidebar-header">Session reactions</div>*/}
+                {/*<div className="sidebar-header">Session reactions</div>*/}
 
-                    {/*<div className="sidebar-feed">*/}
-                        {/*<div className="feed-reaction">*/}
-                            {/*<div className="reaction-icon"></div>*/}
+                {/*<div className="sidebar-feed">*/}
+                {/*<div className="feed-reaction">*/}
+                {/*<div className="reaction-icon"></div>*/}
 
-                        {/*</div>*/}
+                {/*</div>*/}
 
-                    {/*</div>*/}
+                {/*</div>*/}
 
-                    {/*<div className="sidebar-reactions">*/}
-                        {/*<div className="reactions-faces">*/}
-                            {/*<div className="face-circle clickable">*/}
-                                {/*<i className="flaticon-shapes"></i>*/}
-                            {/*</div>*/}
-                            {/*<div className="face-circle clickable">*/}
-                                {/*<i className="emotions-emoticon-square-face-with-a-smile"></i>*/}
-                            {/*</div>*/}
-                            {/*<div className="face-circle clickable">*/}
-                                {/*<i className="emotions-yawning-emoticon-square-face-1"></i>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
+                {/*<div className="sidebar-reactions">*/}
+                {/*<div className="reactions-faces">*/}
+                {/*<div className="face-circle clickable">*/}
+                {/*<i className="flaticon-shapes"></i>*/}
+                {/*</div>*/}
+                {/*<div className="face-circle clickable">*/}
+                {/*<i className="emotions-emoticon-square-face-with-a-smile"></i>*/}
+                {/*</div>*/}
+                {/*<div className="face-circle clickable">*/}
+                {/*<i className="emotions-yawning-emoticon-square-face-1"></i>*/}
+                {/*</div>*/}
+                {/*</div>*/}
 
-                        {/*<div className="reactions-text">React to your session</div>*/}
-                    {/*</div>*/}
+                {/*<div className="reactions-text">React to your session</div>*/}
+                {/*</div>*/}
                 {/*</div>*/}
                 {/*<div className="player-close icon-cross"/>*/}
                 {/*<div className="session-title">{this.props.settings.session.name}</div>*/}

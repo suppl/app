@@ -3,10 +3,12 @@
 .sidebar-component {
   background: $dark;
   background: $pale-grey-six;
-  flex: 0 0 146px;
+  background: $pale-grey-five;
+  flex: 0 0 60px;
   display: flex;
   flex-direction: column;
   color: $battleship-grey;
+  border-right: solid 1px #f3f3f3;
 
   .top-menu, .bottom-menu {
     display: flex;
@@ -28,13 +30,14 @@
     .menu-item {
       display: flex;
       align-items: center;
-      height: 30px;
-      margin: 10px 10px 0px;
+      justify-content: center;
+      text-align: center;
+
+      margin: 10px auto 0;
       cursor: pointer;
       transition: .15s;
       text-decoration: none;
-      text-align: left;
-      padding: 0 10px;
+      //padding: 0 10px;
 
       font-size: 13px;
       color: $battleship-grey;
@@ -42,11 +45,16 @@
       border-radius: 3px;
       transition: .15s;
 
+
+      width: 40px;
+      height: 40px;
+      border-radius: 3px;
+
       //border-left: 5px solid transparent;
 
       i {
-        font-size: 18px;
-        margin-right: 10px;
+        font-size: 17px;
+        //margin-right: 10px;
         font-weight: normal;
         color: $warm-grey-two;
         transition: .15s;
@@ -58,13 +66,14 @@
       }
 
       &.active {
-        background-color: $white;
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-        color: $azure;
+        //background-color: $white;
+        //box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        color: $tealish;
+        background-color: #ebf0f5;
 
 
         i {
-          color: $azure;
+          color: $tealish;
         }
       }
 

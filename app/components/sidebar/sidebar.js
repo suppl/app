@@ -11,20 +11,23 @@ class Sidebar extends React.Component {
     // const screen = this.props.screen;
 
     render() {
-        const isScreenClass = (screen) => this.props.currentScreen == screen ? 'active' : '';
+        const isScreenClass = (screen) => this.props.screen == screen ? 'active' : '';
 
         return (
             <div className="sidebar-component">
                 <div className="top-menu">
+                    <Link href="/home" className={`menu-item`} style={{padding:'25px 0'}}>
+                        <img src="/statics/images/suppl-favicon.png" alt="" style={{height:24}}/>
+                    </Link>
                     <Link href="/home" className={`menu-item ${isScreenClass('home')}`}>
                         <i className="icon-uniE7F1"/>
-                        <span>Home</span>
+                        {/*<span>Home</span>*/}
                     </Link>
 
-                    <div className="menu-label">All yours</div>
+                    {/*<div className="menu-label">All yours</div>*/}
                     <Link href="/sessions" className={`menu-item ${isScreenClass('sessions')}`}>
                         <i className="icon-uniE6DC"/>
-                        <span>Sessions</span>
+                        {/*<span>Sessions</span>*/}
                     </Link>
                     {/*<Link href="/stats" className="menu-item">*/}
                     {/*<i className="flaticon-graphic"/>*/}
@@ -32,17 +35,17 @@ class Sidebar extends React.Component {
                     {/*</Link>*/}
                     <Link href="/awards" className={`menu-item ${isScreenClass('awards')}`}>
                         <i className="icon-uniE820"/>
-                        <span>Performance</span>
+                        {/*<span>Performance</span>*/}
                     </Link>
                     <Link href="/progress" className={`menu-item ${isScreenClass('progress')}`}>
                         <i className="icon-uniE817"/>
-                        <span>Journey</span>
+                        {/*<span>Journey</span>*/}
                     </Link>
 
-                    <div className="menu-label">Community</div>
+                    {/*<div className="menu-label">Community</div>*/}
                     <Link href='/community' className={`menu-item ${isScreenClass('community')}`}>
                         <i className="icon-uniE724"/>
-                        <span>Community</span>
+                        {/*<span>Community</span>*/}
                     </Link>
                     {/*<Link className={`menu-item ${isScreenClass('activity')}`}>*/}
                         {/*<i className="flaticon-technology"/>*/}

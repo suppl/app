@@ -27,12 +27,12 @@ class Header extends React.Component {
 
         return (
             <div className="header-component">
-                <div className="suppl-logo">SUPPL</div>
+                {/*<div className="suppl-logo">SUPPL</div>*/}
                 <Link className="user-logo" href="/profile">{this.getUserFirstLetter()}</Link>
                 <Link className="user-hello" href="/profile" onClick={this.props.login}>{this.getUserFirstName()}</Link>
                 <div className="header-menu">
                     <div className="menu-item"><i className="flaticon-bell"></i></div>
-                    <div className="menu-item"><i className="flaticon-add-user"></i></div>
+                    {/*<div className="menu-item"><i className="flaticon-add-user"></i></div>*/}
                     <div className="menu-item ${settingsClass}" onClick={this.props.toggleSettings}>
                         <div className={`suppl-dropdown ${settingsClass}`}>
                             <Link className="dropdown-item" href="/profile">

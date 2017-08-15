@@ -29,15 +29,22 @@ class SessionScreen extends React.Component {
 
         return (
             <div data-screen className={`${this.activeClass}`}>
-                <Header/>
                 <div className="flex flex-row">
                     <Sidebar screen="sessions"/>
                     <div data-content className="flex flex-max">
-
+                        <Header/>
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
-                                <div className="sub-sub-heading-4">
-                                    <Link href="/sessions">Sessions</Link> › {session.name}
+
+                                <div className="block light">
+                                    <div className="flex flex-row flex-between">
+                                        <div>
+                                            {/*<div className="thin-heading">Sessions</div>*/}
+                                            <div className="thin-heading">
+                                                <Link href="/sessions">&lsaquo; Sessions</Link>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div className="session-header" style={{
@@ -45,28 +52,39 @@ class SessionScreen extends React.Component {
                                     backgroundColor: session.color,
                                 }}>
 
-                                    <div className="session-title" style={{marginLeft: -3}}>{session.name}</div>
+                                    <div className="session-time">Day 1 of 5</div>
+                                    <div className="session-title" style={{marginLeft: -5}}>{session.name}</div>
                                     <div className="session-text">{session.description}</div>
-                                    <div className="banner-butn clickable">
-                                        <i className="fa fa-play"/>
-                                        <span>Begin</span>
-                                    </div>
+                                    {/*<div className="banner-butn clickable">*/}
+                                        {/*<i className="fa fa-play"/>*/}
+                                        {/*<span>Begin</span>*/}
+                                    {/*</div>*/}
                                 </div>
 
                                 <div className="session-audios">
                                     {session.audios.map((audio, index) =>
                                         <div className="session-audio" {...isInactive(audio)}>
-                                            <div className="audio-check">
-                                                <i className="icon-uniE7D6"/>
-                                            </div>
+                                            <If condition={isAudioAvailable(audio)}>
+                                                <div className="audio-play clickable" onClick={() => this.props.showAudio(session, audio)}>
+                                                    <i className="icon-uniE6BB"/>
+                                                </div>
+                                            </If>
+
+                                            <If condition={!isAudioAvailable(audio)}>
+                                                <div className="audio-check">
+                                                    <i className="icon-uniE7D6"/>
+                                                </div>
+                                            </If>
 
                                             <div className="audio-title">
                                                 Day {audio.index}
                                             </div>
 
-                                            <div className="audio-play clickable" onClick={() => this.props.showAudio(session, audio)}>
-                                                <i className="fa fa-play"/>
-                                            </div>
+                                            {/*<div className="audio-play clickable" onClick={() => this.props.showAudio(session, audio)}>*/}
+                                                {/*<i className="fa fa-play"/>*/}
+                                            {/*</div>*/}
+
+                                            <div style={{margin:'auto'}}/>
 
                                             <div className="audio-time">
                                                 3 mins

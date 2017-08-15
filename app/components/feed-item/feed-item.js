@@ -29,7 +29,7 @@ class FeedItem extends React.Component {
                 <div className="activity-image"></div>
 
 
-                <div className={`flex ${IsDesktop() ? 'flex-row' : ''}`}>
+                <div className={`flex ${IsDesktop() ? 'flex-row flex-align' : ''}`}>
                     <If condition={feedItem.feedAction = 'SIGNED_IN'}>
                         <div className="activity-text">
                             <strong className="linkable">{this.getUser(feedItem.user).name}</strong> signed in
@@ -40,7 +40,7 @@ class FeedItem extends React.Component {
                     <div className="activity-time"> &nbsp;- {moment(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow()}</div>
                 </div>
                 <div style={{margin: 'auto'}}/>
-                <i className="activity-icon clickable likeable icon-heart"/>
+                <i className="activity-icon clickable likeable icon-uniE7D4"/>
                 <div className="activity-count">0</div>
             </div>
         )

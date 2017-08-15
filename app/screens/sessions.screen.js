@@ -25,16 +25,24 @@ class Sessions extends React.Component {
 
         return (
             <div data-screen className={`${this.activeClass}`}>
-                <Header/>
                 <div className="flex flex-row">
                     <Sidebar screen="sessions"/>
                     <div data-content className="flex flex-max">
-
+                        <Header/>
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
-                                <div className="sub-sub-heading-4">Foundation</div>
-                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>
+                                <div className="block light">
+                                    <div className="flex flex-row flex-between">
+                                        <div>
+                                            <div className="thin-heading">Sessions</div>
+                                            <div className="thin-subheading">Great to have you realigning.</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="thin-heading-2">Foundation</div>
+                                {/*<div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>*/}
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
@@ -46,8 +54,8 @@ class Sessions extends React.Component {
                                 </div>
 
 
-                                <div className="sub-sub-heading-4">Minis</div>
-                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Too busy? Spend 1 minute focusing on relaigning your body and mind.  </div>
+                                <div className="thin-heading-2">Minis</div>
+                                {/*<div className="sub-sub-heading-2" style={{marginTop: 5}}>Too busy? Spend 1 minute focusing on relaigning your body and mind.  </div>*/}
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
@@ -86,8 +94,8 @@ class Sessions extends React.Component {
                                 </div>
 
 
-                                <div className="sub-sub-heading-4">Growth</div>
-                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Finished with fundamentals? Extend your range and motion and perfect your posture.</div>
+                                <div className="thin-heading-2">Growth</div>
+                                {/*<div className="sub-sub-heading-2" style={{marginTop: 5}}>Finished with fundamentals? Extend your range and motion and perfect your posture.</div>*/}
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">

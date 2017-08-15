@@ -42,14 +42,23 @@ class SessionsScreenMobile extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
-                                <div className="sub-sub-heading-4">Foundation</div>
+                                <div className="block light">
+                                    <div className="flex flex-row flex-between">
+                                        <div>
+                                            <div className="thin-heading">Sessions</div>
+                                            <div className="thin-subheading">Select a session for you</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="thin-heading-2">Foundation</div>
 
                                 <div className="flex">
                                     <Promo size="mid" sessionId={seriesList['Basics'][0].slug}/>
                                     <Promo size="mid" sessionId={seriesList['Basics'][1].slug}/>
                                 </div>
 
-                                <div className="sub-sub-heading-4">Minis</div>
+                                <div className="thin-heading-2">Minis</div>
 
                                 <div className="flex">
                                     <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
@@ -70,7 +79,7 @@ class SessionsScreenMobile extends React.Component {
                                 </div>
 
 
-                                <div className="sub-sub-heading-4">Growth</div>
+                                <div className="thin-heading-2">Growth</div>
 
                                 <div className="flex">
                                     <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>

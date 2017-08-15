@@ -11,6 +11,7 @@
 @import "global/position";
 @import "global/bump";
 @import "global/dashboard";
+@import "global/new-app";
 
 html, body {
   overflow: hidden;
@@ -21,7 +22,7 @@ html, body {
 }
 
 body {
-  background-color: $pale-grey-five;
+  //background-color: $pale-grey-five;
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -87,15 +88,16 @@ a {
   color: inherit;
   transition: .15s;
   cursor: pointer;
-  text-decoration: inherit;
+  text-decoration: none;
 
   &:hover {
+    text-decoration: none;
     //text-decoration: none;
     color: $azure;
   }
 
   &:active, &:visited, &:focus {
-    //text-decoration: none;
+    text-decoration: none;
   }
 }
 
@@ -119,7 +121,7 @@ a {
 
 [data-content] {
   opacity: 0;
-  max-width: calc(100vw - 146px);
+  max-width: calc(100vw - 60px);
   min-width: 511px;
 
   transition: .6s;
@@ -156,7 +158,7 @@ a {
   max-width: 100vw;
   height: 100vh;
   overflow-y: auto;
-  background-color: $pale-grey-five;
+  //background-color: $pale-grey-five;
   //padding: 0 20px;
 
   overflow-y: scroll; /* has to be scroll, not auto */
@@ -174,7 +176,7 @@ a {
 }
 
 .content-area {
-  padding: 30px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -192,13 +194,14 @@ a {
 
   .not-desktop & {
     margin-bottom: 20px;
+    margin-bottom: 60px;
   }
 }
 
 .content-area-plain {
   display: flex;
   flex: 1;
-  max-width: calc(100vw - 146px);
+  max-width: calc(100vw - 60px);
   min-width: 511px;
 }
 
@@ -480,4 +483,3 @@ i {
   }
 
 }
-

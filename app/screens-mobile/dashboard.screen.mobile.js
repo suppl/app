@@ -52,6 +52,10 @@ class DashboardScreenMobile extends React.Component {
             return this.props.settings.session ? this.props.settings.session.name : "No Player selected";
         };
 
+        const getUserFirstName = () => {
+            return this.props.user.user.displayName ? this.props.user.user.displayName.split(' ')[0] : 'Anonymous';
+        };
+
         return (
             <div data-screen className={`${this.activeClass}`}>
                 <div data-mobile-screen>
@@ -62,86 +66,120 @@ class DashboardScreenMobile extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
+                                <div className="block light">
+                                    <div className="flex flex-row flex-between">
+                                        <div>
+                                            <div className="thin-heading">Hey {getUserFirstName()}!</div>
+                                            <div className="thin-subheading">Great to have you realigning.</div>
+                                        </div>
+
+                                        <div className="realign-content">
+                                            <div className="realign-number">
+                                                {this.props.public.onlineCount}
+                                                &nbsp;
+                                                <i className="icon-uniE724" style={{fontSize:15}}/>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <Promo size="large" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
 
-                                <div className="sub-sub-heading-4">Your sessions</div>
+                                <div className="thin-heading-2">Your sessions</div>
 
-                                <div className="flex">
-                                    <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
-                                    <Promo size="mid" sessionId="sleeping" audioId="sat-at-work-01-01"/>
-                                    <Promo size="mid" sessionId="breathe-easy" audioId="sat-at-work-01-01"/>
-                                </div>
-
-                                <div className="flex flex-row" style={{textAlign: 'center'}}>
-                                    <div className="suppl-butn clickable">Discover more sessions</div>
-                                </div>
-
-                                <div className="sub-sub-heading-4">Community activity</div>
-
-                                <div className="activity-boxes">
-                                    {feed.map(feedItem => <FeedItem feedItem={feedItem}/>)}
-                                </div>
-
-                                <div className="sub-sub-heading-4">Your performance</div>
-                                <div className="sub-sub-heading-2" style={{marginTop: 5}}>Keep up your streak and form a healthy habit everyday</div>
-
-                                <div className="dashboard-large-stat" style={{marginTop: 20}}>
-                                    <div className="stat-icon">
-                                        <img src="/statics/svg/dash/session-streak-icon.svg" alt=""/>
+                                <div className="flex flex-cols flex-cols-large">
+                                    <div className="flex-col">
+                                        <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
                                     </div>
-                                    <div className="stat-content">
-                                        <div className="content-top">{CalcStreak(this.props.public.user)} day{CalcStreak(this.props.public.user) == 1 ? '' : 's'}</div>
-                                        <div className="content-bottom">Current run streak</div>
+                                    <div className="flex-col">
+                                        <Promo size="mid" sessionId="sleeping" audioId="sat-at-work-01-01"/>
+                                    </div>
+                                    <div className="flex-col">
+                                        <Promo size="mid" sessionId="breathe-easy" audioId="sat-at-work-01-01"/>
                                     </div>
                                 </div>
 
-                                <div className="dashboard-large-stat" style={{
-                                    backgroundColor: '#a4b9d7',
-                                    backgroundImage: `url('/statics/svg/dash/sessions-complete.svg')`
-                                }}>
-                                    <div className="stat-icon">
-                                        <img src="/statics/svg/dash/session-complete-icon.svg" alt=""/>
-                                    </div>
-                                    <div className="stat-content">
-                                        <div className="content-top">{CalcComplete(this.props.public.user)}</div>
-                                        <div className="content-bottom">Session{CalcComplete(this.props.public.user) == 1 ? '' : 's'} completed</div>
-                                    </div>
+                                <div className="thin-heading-2 ">Your performance</div>
+
+                                <div className="neat-banner">
+                                    <div className="neat-score">+500</div>
+                                    <div className="neat-text">Your <strong>NEAT</strong> score</div>
                                 </div>
 
-                                <div className="dashboard-large-stat" style={{
-                                    backgroundColor: '#bdcee7',
-                                    backgroundImage: `url('/statics/svg/dash/posture-minutes.svg')`
-                                }}>
-                                    <div className="stat-icon">
-                                        <img src="/statics/svg/dash/posture-minute-icon.svg" alt=""/>
-                                    </div>
-                                    <div className="stat-content">
-                                        <div className="content-top">3 mins</div>
-                                        <div className="content-bottom">Total posture mins</div>
-                                    </div>
-                                </div>
 
-                                <div className="dashboard-invite">
-                                    <div className="invite-icons">
-                                        <img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{
-                                            marginLeft: -200,
-                                            top       : 220
-                                        }}/>
-                                        <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
-                                            marginLeft: 100,
-                                            top       : 240
-                                        }}/>
-                                    </div>
-                                    <div className="invite-flex">
-                                        <div className="sub-sub-heading-4" style={{marginTop: -70}}>Invite a friend</div>
-                                        <div className="sub-sub-heading-2" style={{marginTop: 10}}>
-                                            Suppl is super fun solo but with your <br/> friend it’s even better!
-                                        </div>
-
-                                        <div className="flex flex-min" style={{textAlign: 'center'}}>
-                                            <div className="suppl-butn clickable">Invite friends</div>
+                                <div className="flex flex-cols flex-cols-large">
+                                    <div className="flex-col">
+                                        <div className="suppl-stat">
+                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
+                                            <div className="flex flex-min">
+                                                <div className="stat-stat">
+                                                    <span>1</span>
+                                                    <span className="stat-small"> / day</span>
+                                                </div>
+                                                <div className="stat-text">Run streak</div>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div className="flex-col">
+                                        <div className="suppl-stat">
+                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                            <div className="flex flex-min">
+                                                <div className="stat-stat">
+                                                    <span>1</span>
+                                                    <span className="stat-small"></span>
+                                                </div>
+                                                <div className="stat-text">Sessions done</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex-col">
+                                        <div className="suppl-stat">
+                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                            <div className="flex flex-min">
+                                                <div className="stat-stat">
+                                                    <span>3</span>
+                                                    <span className="stat-small"> mins</span>
+                                                </div>
+                                                <div className="stat-text">Realign time</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="block">
+                                    <div className="thin-heading-2 ">Recent activity</div>
+
+                                    <div className="activity-boxes">
+                                        {feed.map(feedItem => <FeedItem feedItem={feedItem}/>)}
+                                    </div>
+                                </div>
+
+                                <div className="block light flex">
+                                    <div className="flex flex-justify flex-min" style={{padding: '40px 0 0'}}>
+                                        <div className="invite-flex">
+                                            <div className="invite-title">Invite a friend</div>
+                                            <div className="invite-text">
+                                                Suppl is super fun solo but with your <br/> friend it’s even better!
+                                            </div>
+                                            <div className="banner-butn clickable">Invite friends</div>
+                                        </div>
+                                    </div>
+                                    <div className="flex">
+                                        <div className="dashboard-invite">
+                                            <div className="invite-icons">
+                                                <img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{
+                                                    marginLeft: -120,
+                                                    top       : 40
+                                                }}/>
+                                                <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
+                                                    marginLeft: 20,
+                                                    top       : 50
+                                                }}/>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

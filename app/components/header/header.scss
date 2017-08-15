@@ -1,8 +1,8 @@
 @import "../../global/colors";
 
 .header-component {
-  height: 70px;
-  flex: 0 0 70px;
+  height: 60px;
+  flex: 0 0 60px;
   background: white;
   padding: 15px 25px;
   display: flex;
@@ -10,11 +10,12 @@
   align-items: center;
   position: relative;
   z-index: 1;
+  border-bottom: solid 1px $pale-grey;
 
   .user-logo {
-    height: 40px;
-    width: 40px;
-    min-width: 40px;
+    height: 27px;
+    width: 27px;
+    min-width: 27px;
     border-radius: 100%;
     background: #78e1d2;
 
@@ -30,7 +31,6 @@
     font-weight: 600;
     transition: .15s;
     text-decoration: none;
-
 
     .not-desktop & {
       height: 30px;
@@ -48,11 +48,16 @@
   }
 
   .user-hello {
-    font-size: 13px;
-    font-weight: 600;
-    color: $dark;
-    margin-left: 15px;
+    margin-left: 10px;
     text-decoration: none;
+    font-size: 15px;
+    text-align: left;
+    color: $battleship-grey;
+
+    .not-desktop & {
+      font-size: 13px;
+    }
+
     a {
       text-decoration: none;
     }
@@ -91,9 +96,9 @@
       transition: .15s;
 
       i {
+        color: $battleship-grey;
         font-size: 20px;
         margin: auto 5px;
-
 
         .not-desktop & {
           font-size: 14px;
@@ -116,11 +121,10 @@
   }
 
   .not-desktop & {
-    height: 60px;
-    flex: 0 0 60px;
+    height: 50px;
+    flex: 0 0 50px;
     padding: 0 20px;
-    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.05);
-
+    //box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.05);
 
     .suppl-logo {
       margin-top: 10px;

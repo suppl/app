@@ -61,7 +61,7 @@
   background-color: #95d1ff;
   background-image: url('/statics/svg/patterns/wiggle.svg');
   background-position: top left;
-  background-size: 400px;
+  background-size: 600px;
   margin-top: 10px;
   margin-bottom: 10px;
 
@@ -144,7 +144,7 @@
 }
 
 .banner-butn {
-  width: 120px;
+  min-width: 120px;
   height: 45px;
   border-radius: 100px;
   background-color: white;
@@ -158,10 +158,14 @@
   font-weight: 600;
   text-align: center;
   color: $azure;
-  margin-top: 25px;
+  margin-top: 20px;
+
+  border-radius: 6px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  width: fit-content;
 
   i {
-    text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
+    //text-shadow: 0px 3px 3px rgba(0, 0, 0, 0.15);
   }
 
   &.flush {
@@ -178,24 +182,34 @@
 .dashboard-banner-large {
   height: 320px;
   border-radius: 0px;
-  padding-left: 100px;
-  padding-top: 60px;
-  margin: 0 -30px 0px;
+  padding-left: 40px;
+  padding-top: 50px;
+  margin: 0 -40px 0px;
   font-size: 18px;
   text-align: left;
+  font-size: 19px;
+  font-weight: 600;
 
   justify-content: flex-start;
   align-items: flex-start;
 
+  .banner-title {
+    font-size: 64px;
+    font-weight: 400;
+    text-transform: none;
+    margin-top: 10px;
+  }
+
   .not-desktop & {
     margin: 0 -20px 0px;
     padding-left: 20px;
-  }
+    font-size: 13px;
+    margin-top: 0px;
+    padding-top: 65px;
 
-  .banner-title {
-    font-size: 42px;
-    font-weight: bold;
-    text-transform: none;
+    .banner-title {
+      font-size: 48px;
+    }
   }
 }
 
@@ -203,8 +217,8 @@
   @extend .dashboard-banner;
 
   background-color: #a2e4eb;
-  height: 220px;
-  margin: 30px 0px 0;
+  height: 270px;
+  margin: 20px 0px 0;
   display: block;
 
   flex-direction: row;
@@ -212,6 +226,8 @@
   align-items: flex-start;
   text-align: left;
   justify-content: flex-start;
+  font-weight: 400;
+  margin-bottom: 20px;
 
   i {
     font-size: 55px;
@@ -225,10 +241,22 @@
 
     font-size: 30px;
     text-align: left;
+    font-size: 32px;
+
+    font-weight: 400;
+    margin-top: 50px;
+    margin-bottom: 5px;
   }
 
   .not-desktop & {
-    margin: 20px 0px 0;
+    height: 127px;
+    font-weight: 400;
+
+    .banner-title {
+      margin-top: 10px;
+      margin-bottom: 0px;
+      margin-left: -2px;
+    }
   }
 }
 
@@ -365,6 +393,7 @@
 
   .not-desktop & {
     margin: 0 -20px;
+    height: 200px;
   }
 
   .invite-flex {
@@ -386,5 +415,33 @@
       position: absolute;
       left: 50%;
     }
+  }
+}
+
+.neat-banner {
+  height: 215px;
+  border-radius: 4px;
+  background-color: #f0f8ff;
+  border: solid 1px $pale-grey-two;
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 40px;
+  line-height: 1;
+
+  .neat-score {
+
+    font-size: 50px;
+    text-align: left;
+    color: $battleship-grey;
+  }
+
+  .neat-text {
+    font-size: 18px;
+    color: #b4bdcc;
+    margin-top: 5px;
   }
 }

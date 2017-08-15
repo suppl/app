@@ -29,7 +29,7 @@ class Sidebar extends React.Component {
                     }}>
                         <div>Day {audio.index} of {session.audios.length}</div>
                         <div className="banner-title" style={{marginLeft: -3}}>{session.name}</div>
-                        <div className="banner-session">{session.description}</div>
+                        {/*<div className="banner-session">{session.description}</div>*/}
                         <div className="banner-butn clickable">
                             <i className="fa fa-play"/>
                             <span>Begin</span>
@@ -48,10 +48,11 @@ class Sidebar extends React.Component {
                         {/*<i className="fa fa-play clickable" onClick={() => this.props.showAudio(session, audio)}/>*/}
                         <div className="flex flex-min">
                             <div className="banner-title">{session.name}</div>
-                            <div className="banner-session">{session.description}</div>
-                            <div className="banner-play clickable">
-                                <i className="fa fa-play "/>
-                            </div>
+                            <div>Day {audio.index} of {session.audios.length}</div>
+                            {/*<div className="banner-session">{session.description}</div>*/}
+                            {/*<div className="banner-play clickable">*/}
+                                {/*<i className="fa fa-play "/>*/}
+                            {/*</div>*/}
                         </div>
                     </Link>
                 </If>

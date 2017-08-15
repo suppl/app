@@ -27,8 +27,9 @@ class HeaderMobile extends React.Component {
 
         return (
             <div className="header-component">
-                <Link className="suppl-logo" href="/home"><img src="/statics/images/suppl-favicon.png" style={{height:22}}/></Link>
+                {/*<Link className="suppl-logo" href="/home"><img src="/statics/images/suppl-favicon.png" style={{height:22}}/></Link>*/}
                 <Link className="user-logo" href="/profile">{this.getUserFirstLetter()}</Link>
+                <Link className="user-hello" href="/profile" onClick={this.props.login}>{this.getUserFirstName()}</Link>
                 <div className="header-menu">
                     <div className="menu-item"><i className="flaticon-bell"></i></div>
                     <div className="menu-item ${settingsClass}" onClick={this.props.toggleSettings}>
