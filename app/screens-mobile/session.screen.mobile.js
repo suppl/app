@@ -66,10 +66,9 @@ class SessionScreenMobile extends React.Component {
                                         <div className="session-audio" {...isInactive(audio)}>
 
                                             <If condition={isAudioAvailable(audio)}>
-                                                <div className="audio-play">
+                                                <div className="audio-play clickable" onClick={() => this.props.showAudio(session, audio)}>
                                                     <i className="icon-uniE6BB"/>
                                                 </div>
-
                                             </If>
 
                                             <If condition={!isAudioAvailable(audio)}>

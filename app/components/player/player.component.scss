@@ -99,7 +99,7 @@
       border-radius: 200px;
       width: 200px;
       height: 200px;
-      background-color: rgba(255, 255, 255, 0.42);
+      background-color: red;
       margin-bottom: -100px;
       position: relative;
       z-index: 10;
@@ -109,6 +109,20 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      transition: .15s;
+
+      .button-background {
+        z-index: 10;
+        width: 200px;
+        height: 200px;
+        border-radius: 200px;
+        background-color: rgba(255, 255, 255, 0.42);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
 
       .button-inside {
         height: 180px;
@@ -122,10 +136,27 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        transition: .15s;
 
         color: $pinkish-grey;
 
         font-size: 140px;
+        cursor: pointer;
+      }
+
+      &:hover {
+        //transform: scale(1.1);
+
+        .button-inside {
+          transform: scale(1.05);
+          box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05);
+        }
+      }
+
+      &:active {
+        .button-inside {
+          transform: scale(0.95);
+        }
       }
     }
 
@@ -136,6 +167,32 @@
       //opacity: 0.8;
       background-color: rgba(0, 0, 0, 0.03);
       z-index: 5;
+
+      .bar-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        //opacity: 0.2;
+        background: rgba(255,255,255,0.3);
+        z-index: 6;
+      }
+    }
+
+    .player-time {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 280px;
+      pointer-events: none;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      text-align: center;
+      color: $white;
     }
 
     .player-session {
@@ -149,7 +206,7 @@
       font-size: 18px;
       text-align: center;
       color: #f3f3f3;
-      margin-top: 20px;
+      margin-top: 10px;
     }
 
   }

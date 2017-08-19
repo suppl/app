@@ -121,8 +121,8 @@
     align-items: center;
 
     .audio-check {
-      width: 30px;
-      height: 30px;
+      width: 40px;
+      height: 40px;
       border: solid 1px $pale-grey;
       color: #ddd;
       border-radius: 100px;
@@ -157,15 +157,22 @@
       color: #ddd;
       border-radius: 100px;
 
-      font-size: 15px;
-      height: 30px;
-      width: 30px;
+      font-size: 16px;
+      height: 40px;
+      width: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
 
       i {
         margin-left: 2px;
+      }
+
+      .not-desktop & {
+        font-size: 18px;
+        height: 40px;
+        width: 40px;
+
       }
     }
 

@@ -31,9 +31,9 @@ const performAction = {
 
 const hideAudio = (action, state) => {
     state.sound.stop();
-    state.sound.once('load', () => {
-        setTimeout(() => state.sound.stop(), 1);
-    });
+    // state.sound.once('load', () => {
+    //     setTimeout(() => state.sound.stop(), 1);
+    // });
 
     return {
         audioVisible: false,
@@ -43,9 +43,9 @@ const hideAudio = (action, state) => {
 
 const pauseAudio = (action, state) => {
     state.sound.pause();
-    state.sound.once('load', () => {
-        setTimeout(() => state.sound.pause(), 1);
-    });
+    // state.sound.once('load', () => {
+    //     setTimeout(() => state.sound.pause(), 1);
+    // });
 
     return {playing: false,}
 };
@@ -53,9 +53,10 @@ const pauseAudio = (action, state) => {
 const playAudio = (action, state) => {
     state.sound.play();
     Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
-    state.sound.once('load', () => {
-        state.sound.play();
-    });
+    // state.sound.once('load', () => {
+        // if (!state.sound.)
+        // state.sound.play();
+    // });
 
     return {
         playing: true,
@@ -63,6 +64,10 @@ const playAudio = (action, state) => {
 };
 
 const showAudio = (action, state) => {
+    if (isOnboardingAvailable(action.audio)) {
+        Dispatch({type:ACTIONS.SHOW_ONBOARDING})
+    }
+
     let sound = new Howl({src: [action.audio.file]});
 
     sound.on('end', () => {
@@ -72,10 +77,6 @@ const showAudio = (action, state) => {
         state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
         Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});
     });
-
-    if (isOnboardingAvailable(action.audio)) {
-        Dispatch({type:ACTIONS.SHOW_ONBOARDING})
-    }
 
     return {
         sound       : sound,

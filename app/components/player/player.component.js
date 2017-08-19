@@ -6,6 +6,7 @@ import * as moment from "moment";
 
 import * as ACTIONS from '../../constants/actions.constants';
 import {SetUrl, If} from '../../services/helper.service';
+import {Dispatch} from "../../services/dispatch.service";
 
 require('./player.component.scss');
 
@@ -56,6 +57,11 @@ class Player extends React.Component {
         return (n < 10) ? ("0" + n) : n;
     }
 
+    hideSession() {
+        Dispatch({type: ACTIONS.HIDE_AUDIO});
+        Dispatch({type: ACTIONS.PAUSE_AUDIO});
+    }
+
     render() {
 
         return (
@@ -68,7 +74,7 @@ class Player extends React.Component {
                         {this.props.settings.session.name}
                     </div>
 
-                    <div className="header-icon clickable" onClick={this.props.hideSession}>
+                    <div className="header-icon clickable" onClick={this.hideSession}>
                         <i className="icon-uniE7D7"/>
                     </div>
                 </div>
@@ -77,111 +83,41 @@ class Player extends React.Component {
 
                     <div className="player-info">
                         <div className="player-session">
-                            Session 1 of 5
+                            Session 1/5
                         </div>
                         <div className="player-length">
-                            3 mins
+                            3 minutes
                         </div>
                     </div>
 
-                    <If condition={!this.props.settings.playing}>
-                        <div className="player-button" onClick={this.props.playAudio}>
-                            <div className="button-inside">
-                                <i className="icon-uniE6BB" style={{
-                                    fontSize  : '100px',
-                                    marginLeft: '14px',
-                                }}/>
+                    <div className="player-button" style={{background:this.props.settings.session.color}}>
+                        <If condition={!this.props.settings.playing}>
+                            <div className="button-background" onClick={this.props.playAudio}>
+                                <div className="button-inside">
+                                    <i className="icon-uniE6BB" style={{
+                                        fontSize  : '100px',
+                                        marginLeft: '14px',
+                                    }}/>
+                                </div>
                             </div>
-                        </div>
-                    </If>
-                    <If condition={this.props.settings.playing}>
-                        <div className="player-button" onClick={this.props.pauseAudio}>
-                            <div className="button-inside">
-                                <i className="icon-uniE6B9"/>
+                        </If>
+
+                        <If condition={this.props.settings.playing}>
+                            <div className="button-background" onClick={this.props.pauseAudio}>
+                                <div className="button-inside">
+                                    <i className="icon-uniE6B9"/>
+                                </div>
                             </div>
-                        </div>
-                    </If>
+                        </If>
+                    </div>
 
 
                     <div className="player-bar">
-
+                        <div className="bar-fill" style={{width: this.getDash()}}/>
                     </div>
 
-
-                    {/*</div>*/}
-
-                    {/*<div className="player-info">*/}
-                    {/*<div className="big-text">Get Ready!</div>*/}
-                    {/*</div>*/}
-
-                    {/*<div className="player-bar">*/}
-                    {/*<div className="bar-fill" style={{height: this.getDash()}}></div>*/}
-                    {/*</div>*/}
-                    {/*<div className="player-controls">*/}
-                    {/*{this.props.settings.playing ?*/}
-                    {/*<div className="controls-control clickable" onClick={this.props.pauseAudio}>*/}
-                    {/*<i className="flaticon-pause-1" style={{margin: 0}}/>*/}
-                    {/*</div>*/}
-                    {/*:*/}
-                    {/*<div className="controls-control clickable" onClick={this.props.playAudio}>*/}
-                    {/*<i className="flaticon-arrows" style={{marginLeft: '3px'}}/>*/}
-                    {/*</div>*/}
-                    {/*}*/}
-
-                    {/*<div className="controls-time">{this.seek}</div>*/}
-                    {/*</div>*/}
+                    <div className="player-time">{this.seek}</div>
                 </div>
-                {/*<div className="player-sidebar">*/}
-                {/*<div className="sidebar-header">Session reactions</div>*/}
-
-                {/*<div className="sidebar-feed">*/}
-                {/*<div className="feed-reaction">*/}
-                {/*<div className="reaction-icon"></div>*/}
-
-                {/*</div>*/}
-
-                {/*</div>*/}
-
-                {/*<div className="sidebar-reactions">*/}
-                {/*<div className="reactions-faces">*/}
-                {/*<div className="face-circle clickable">*/}
-                {/*<i className="flaticon-shapes"></i>*/}
-                {/*</div>*/}
-                {/*<div className="face-circle clickable">*/}
-                {/*<i className="emotions-emoticon-square-face-with-a-smile"></i>*/}
-                {/*</div>*/}
-                {/*<div className="face-circle clickable">*/}
-                {/*<i className="emotions-yawning-emoticon-square-face-1"></i>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-
-                {/*<div className="reactions-text">React to your session</div>*/}
-                {/*</div>*/}
-                {/*</div>*/}
-                {/*<div className="player-close icon-cross"/>*/}
-                {/*<div className="session-title">{this.props.settings.session.name}</div>*/}
-                {/*<div className="audio-title">{this.props.settings.audio.name}</div>*/}
-
-                {/*<div className="audio-play">*/}
-                {/*<svg>*/}
-                {/*<circle r="111" cx="111" cy="111" style={{strokeDashoffset: this.dash}}/>*/}
-                {/*</svg>*/}
-
-                {/*{this.props.settings.playing ?*/}
-                {/*<div className="play-inner playing" onClick={this.props.pauseAudio}>*/}
-                {/*<i className="fa fa-pause fa-fw" style={{margin: 0}}/>*/}
-                {/*</div>*/}
-                {/*:*/}
-                {/*<div className="play-inner" onClick={this.props.playAudio}>*/}
-                {/*<i className="fa fa-play fa-fw"/>*/}
-                {/*</div>*/}
-                {/*}*/}
-                {/*</div>*/}
-                {/*<div className="audio-duration">*/}
-                {/*{this.seek} left <br/> ({this.duration} mins)*/}
-                {/*</div>*/}
-
-
             </div>
         )
     }

@@ -77,7 +77,7 @@ class DashboardScreenMobile extends React.Component {
                                             <div className="realign-number">
                                                 {this.props.public.onlineCount}
                                                 &nbsp;
-                                                <i className="icon-uniE724" style={{fontSize:15}}/>
+                                                <i className="icon-uniE724" style={{fontSize: 15}}/>
                                             </div>
 
                                         </div>
@@ -88,17 +88,9 @@ class DashboardScreenMobile extends React.Component {
 
                                 <div className="thin-heading-2">Your sessions</div>
 
-                                <div className="flex flex-cols flex-cols-large">
-                                    <div className="flex-col">
-                                        <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
-                                    </div>
-                                    <div className="flex-col">
-                                        <Promo size="mid" sessionId="sleeping" audioId="sat-at-work-01-01"/>
-                                    </div>
-                                    <div className="flex-col">
-                                        <Promo size="mid" sessionId="breathe-easy" audioId="sat-at-work-01-01"/>
-                                    </div>
-                                </div>
+                                <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
+                                <Promo size="mid" sessionId="sleeping" audioId="sat-at-work-01-01"/>
+                                <Promo size="mid" sessionId="breathe-easy" audioId="sat-at-work-01-01"/>
 
                                 <div className="thin-heading-2 ">Your performance</div>
 
@@ -108,42 +100,34 @@ class DashboardScreenMobile extends React.Component {
                                 </div>
 
 
-                                <div className="flex flex-cols flex-cols-large">
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"> / day</span>
-                                                </div>
-                                                <div className="stat-text">Run streak</div>
-                                            </div>
+                                <div className="suppl-stat">
+                                    <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>1</span>
+                                            <span className="stat-small"> / day</span>
                                         </div>
+                                        <div className="stat-text">Run streak</div>
                                     </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"></span>
-                                                </div>
-                                                <div className="stat-text">Sessions done</div>
-                                            </div>
+                                </div>
+                                <div className="suppl-stat">
+                                    <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>1</span>
+                                            <span className="stat-small"></span>
                                         </div>
+                                        <div className="stat-text">Sessions done</div>
                                     </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>3</span>
-                                                    <span className="stat-small"> mins</span>
-                                                </div>
-                                                <div className="stat-text">Realign time</div>
-                                            </div>
+                                </div>
+                                <div className="suppl-stat">
+                                    <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>3</span>
+                                            <span className="stat-small"> mins</span>
                                         </div>
+                                        <div className="stat-text">Realign time</div>
                                     </div>
                                 </div>
 
