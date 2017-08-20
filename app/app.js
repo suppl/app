@@ -19,7 +19,7 @@ import RegisterPasswordScreen from './screens/register-password.screen';
 import RegisterJobScreen from './screens/register-job.screen';
 import RegisterStyleScreen from './screens/register-style.screen';
 import ProgressScreen from './screens/progress.screen';
-import AwardsScreen from './screens/awards.screen';
+import PerformanceScreen from './screens/performance.screen';
 import CommunityScreen from './screens/community.screen';
 import WaitlistScreen from './screens/waitlist.screen';
 import PositionScreen from './screens/position.screen';
@@ -27,6 +27,7 @@ import ShareScreen from './screens/share.screen';
 import BumpScreen from './screens/bump.screen';
 
 
+import PerformanceScreenMobile from './screens-mobile/performance.screen.mobile';
 import WaitlistScreenMobile from './screens-mobile/waitlist.screen.mobile';
 import PositionScreenMobile from './screens-mobile/position.screen.mobile';
 import BumpScreenMobile from './screens-mobile/bump.screen.mobile';
@@ -115,7 +116,7 @@ class App extends React.Component {
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
-                            <Location path="/awards" handler={AwardsScreen}/>
+                            <Location path="/performance" handler={PerformanceScreen}/>
                             <Location path="/progress" handler={ProgressScreen}/>
                             <Location path="/sessions" handler={SessionsScreen}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreen}/>
@@ -137,7 +138,7 @@ class App extends React.Component {
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
-                            <Location path="/awards" handler={CommunityScreenMobile}/>
+                            <Location path="/performance" handler={PerformanceScreenMobile}/>
                             <Location path="/progress" handler={CommunityScreenMobile}/>
                             <Location path="/sessions" handler={SessionsScreenMobile}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreenMobile}/>

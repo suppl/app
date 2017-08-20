@@ -417,31 +417,3 @@
     }
   }
 }
-
-.neat-banner {
-  height: 215px;
-  border-radius: 4px;
-  background-color: #f0f8ff;
-  border: solid 1px $pale-grey-two;
-  margin-top: 20px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
-  padding: 40px;
-  line-height: 1;
-
-  .neat-score {
-
-    font-size: 50px;
-    text-align: left;
-    color: $battleship-grey;
-  }
-
-  .neat-text {
-    font-size: 18px;
-    color: #b4bdcc;
-    margin-top: 5px;
-  }
-}

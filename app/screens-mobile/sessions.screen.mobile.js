@@ -42,7 +42,7 @@ class SessionsScreenMobile extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
-                                <div className="block light">
+                                <div className="block light" style={{backgroundImage:`url('/statics/svg/hero/sessions-hero.svg')`}}>
                                     <div className="flex flex-row flex-between">
                                         <div>
                                             <div className="thin-heading">Sessions</div>

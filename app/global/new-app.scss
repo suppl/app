@@ -5,9 +5,15 @@
   padding: 0 40px 40px;
   margin: 0 -40px;
 
+  background-repeat: no-repeat;
+  background-size: 250px;
+  background-position: right 40px top;
+
   .not-desktop & {
     padding: 0 20px 20px;
     margin: 0 -20px;
+    background-size: 100px;
+    background-position: right 20px top;
   }
 
   &.light {
@@ -70,7 +76,6 @@
   font-size: 13px;
   color: #73839a;
 }
-
 
 .realign-content {
   display: flex;
@@ -142,4 +147,49 @@
     color: #b4bdcc;
     margin-top: 5px;
   }
+}
+
+.neat-banner {
+  height: 215px;
+  border-radius: 4px;
+  background-color: #f0f8ff;
+  border: solid 1px $pale-grey-two;
+  display: flex;
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
+  line-height: 1;
+
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-image: url('/statics/svg/dashboard/NEAT.svg');
+
+  .not-desktop & {
+    height: 120px;
+    padding-left: 20px;
+  }
+
+  .neat-score {
+    font-size: 50px;
+    color: $battleship-grey;
+
+    .not-desktop & {
+      font-size: 30px;
+    }
+  }
+
+  .neat-text {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #b4bdcc;
+
+    .not-desktop & {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+  }
+
+
 }

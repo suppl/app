@@ -39,7 +39,7 @@ class FooterMobile extends React.Component {
                     <i className="link-icon icon-uniE6DC"/>
                     <div className="link-text">Sessions</div>
                 </Link>
-                <Link href="/awards" className={`footer-link ${isScreenClass('awards')}`}>
+                <Link href="/performance" className={`footer-link ${isScreenClass('performance')}`} title="{erformance">
                     <i className="link-icon icon-uniE820"/>
                     <div className="link-text">Performance</div>
                 </Link>
