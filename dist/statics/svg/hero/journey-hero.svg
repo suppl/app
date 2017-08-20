@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="258px" height="159px" viewBox="0 0 258 159" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 180</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-35.0%" y="-25.0%" width="170.0%" height="170.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-35.0%" y="-25.0%" width="170.0%" height="170.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-35.0%" y="-25.0%" width="170.0%" height="170.0%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter x="-35.0%" y="-25.0%" width="170.0%" height="170.0%" filterUnits="objectBoundingBox" id="filter-4">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M108.246303,16.9183261 C109.417553,14.6674084 110.182123,12.1526804 111.760052,10.1655729 C117.763895,2.60485011 133.721127,-0.998064993 138.962307,9.49487659 C144.202697,19.9862357 143.990696,27.5947027 145.996537,38.9974319 C146.094509,39.5543757 146.114082,37.8579798 146.323805,37.3328123 C146.559057,36.7437181 146.905469,36.1936778 147.310994,35.7059024 C148.659812,34.0835119 150.033078,32.4691203 151.569512,31.0231495 C152.917485,29.754543 154.419083,28.6532867 155.934425,27.5902082 C157.157222,26.7323621 158.432596,25.9388421 159.768706,25.2710536 C160.692312,24.8094351 161.676689,24.4543243 162.681791,24.2178719 C164.837129,23.7108239 167.015828,23.2534737 169.220406,23.0475204 C171.208127,22.8618259 173.241115,22.7145939 175.209535,23.0475204 C176.378733,23.2452712 177.481495,23.8634863 178.409484,24.6017041 C179.421002,25.4063696 180.267611,26.4465961 180.899679,27.5740468 C182.047042,29.6206536 182.963395,31.8045364 183.696941,34.0332021 C184.344443,36.0004505 184.750833,38.0500992 185.023519,40.103138 C186.06917,47.97582 186.497657,55.9255552 187.648392,63.7835649 C188.093429,66.8225807 189.084957,69.7560838 189.80324,72.7423432" id="path-5"></path>
+        <filter x="-9.8%" y="-8.6%" width="119.6%" height="122.9%" filterUnits="objectBoundingBox" id="filter-6">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+        <path d="M37.3844609,58.2953975 C38.5557103,56.0444798 39.3202802,53.5297518 40.8982091,51.5426443 C46.9020524,43.9819215 62.8592841,40.3790064 68.1004647,50.871948 C73.340855,61.3633071 73.1288531,68.9717742 75.1346949,80.3745034 C75.2326663,80.9314471 75.2522392,79.2350512 75.4619624,78.7098837" id="path-7"></path>
+        <filter x="-21.0%" y="-16.6%" width="142.0%" height="144.3%" filterUnits="objectBoundingBox" id="filter-8">
+            <feMorphology radius="1" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="1" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-180">
+            <polygon id="Star-11" fill="#F9D7A2" points="190.905107 37.0011308 189.217779 37.9651135 190.223674 36.3480908 189.217779 34.7310681 190.905107 35.6950508 192.592435 34.7310681 191.58654 36.3480908 192.592435 37.9651135"></polygon>
+            <polygon id="Star-11" fill="#F9D7A2" points="217.7446 28.989666 216.057272 29.9536487 217.063166 28.336626 216.057272 26.7196033 217.7446 27.683586 219.431928 26.7196033 218.426033 28.336626 219.431928 29.9536487"></polygon>
+            <polygon id="Star-11" fill="#F9D7A2" points="192.529619 25.5017282 188.217779 27.9651135 190.788268 23.8329335 188.217779 19.7007535 192.529619 22.1641388 196.841459 19.7007535 194.27097 23.8329335 196.841459 27.9651135"></polygon>
+            <polygon id="Star-11" fill="#F9D7A2" points="163.72098 11.4549845 155.906848 15.9192541 160.565217 8.43071156 155.906848 0.942168999 163.72098 5.40643865 171.535111 0.942168999 166.876743 8.43071156 171.535111 15.9192541"></polygon>
+            <polygon id="Star-11" fill="#F9D7A2" points="202.78598 42.9700729 198.140032 45.6243363 200.909698 41.1719698 198.140032 36.7196033 202.78598 39.3738667 207.431928 36.7196033 204.662261 41.1719698 207.431928 45.6243363"></polygon>
+            <g id="Group-144" transform="translate(0.000000, 34.202805)">
+                <polygon id="Rectangle-76" fill="#E2CEA8" points="30.2257344 47.4359505 79.1436992 18.2338894 48.8746388 0.795414062 0 27.5800047"></polygon>
+                <polygon id="Rectangle-76" fill="#FFE5B2" points="30.4245879 46.6405364 79.3425527 17.4384754 49.0734923 1.8189894e-12 0.198853516 26.7845906"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="29.3308935" cy="33.2085371" rx="3.47993652" ry="1.98853516"></ellipse>
+                <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(24.094718, 29.189572) rotate(41.000000) translate(-24.094718, -29.189572) " points="24.8830975 23.5425486 32.1200807 33.2705345 16.0693553 34.8365947"></polygon>
+                <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(24.094718, 28.791865) rotate(41.000000) translate(-24.094718, -28.791865) " points="24.8830975 23.1448416 32.1200807 32.8728275 16.0693553 34.4388876"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="39.2735693" cy="11.3346504" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="13.3231855" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="21.3767529" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="37.2850342" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="27.2429316" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="23.2658613" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="9.34611523" rx="3.47993652" ry="1.98853516"></ellipse>
+            </g>
+            <g id="Group-144" transform="translate(39.571850, 60.053762)">
+                <polygon id="Rectangle-76" fill="#E2CEA8" points="30.2257344 47.4359505 79.1436992 18.2338894 48.8746388 0.795414062 0 27.5800047"></polygon>
+                <polygon id="Rectangle-76" fill="#FFE5B2" points="30.4245879 46.6405364 79.3425527 17.4384754 49.0734923 1.8189894e-12 0.198853516 26.7845906"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="29.3308935" cy="33.2085371" rx="3.47993652" ry="1.98853516"></ellipse>
+                <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(24.094718, 29.189572) rotate(41.000000) translate(-24.094718, -29.189572) " points="24.8830975 23.5425486 32.1200807 33.2705345 16.0693553 34.8365947"></polygon>
+                <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(24.094718, 28.791865) rotate(41.000000) translate(-24.094718, -28.791865) " points="24.8830975 23.1448416 32.1200807 32.8728275 16.0693553 34.4388876"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="39.2735693" cy="11.3346504" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="13.3231855" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="21.3767529" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="37.2850342" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="27.2429316" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="23.2658613" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="9.34611523" rx="3.47993652" ry="1.98853516"></ellipse>
+            </g>
+            <g id="Group-163" transform="translate(104.398096, 14.516307)">
+                <ellipse id="Oval-52" fill="#B9F0F6" opacity="0.758208786" cx="4.23024098" cy="2.36893495" rx="4.23024098" ry="2.36893495"></ellipse>
+                <ellipse id="Oval-52" fill="#93E1E9" cx="4.27535058" cy="2.38624219" rx="2.48566894" ry="1.39197461"></ellipse>
+            </g>
+            <g id="Group-163" transform="translate(141.384850, 37.583314)">
+                <ellipse id="Oval-52" fill="#B9F0F6" opacity="0.758208786" cx="4.23024098" cy="2.36893495" rx="4.23024098" ry="2.36893495"></ellipse>
+                <ellipse id="Oval-52" fill="#93E1E9" cx="4.27535058" cy="2.38624219" rx="2.48566894" ry="1.39197461"></ellipse>
+            </g>
+            <path d="M108.246303,16.9183261 C109.417553,14.6674084 110.182123,12.1526804 111.760052,10.1655729 C117.763895,2.60485011 133.721127,-0.998064993 138.962307,9.49487659 C144.202697,19.9862357 143.990696,27.5947027 145.996537,38.9974319 C146.094509,39.5543757 146.114082,37.8579798 146.323805,37.3328123 C146.559057,36.7437181 146.905469,36.1936778 147.310994,35.7059024 C148.659812,34.0835119 150.033078,32.4691203 151.569512,31.0231495 C152.917485,29.754543 154.419083,28.6532867 155.934425,27.5902082 C157.157222,26.7323621 158.432596,25.9388421 159.768706,25.2710536 C160.692312,24.8094351 161.676689,24.4543243 162.681791,24.2178719 C164.837129,23.7108239 167.015828,23.2534737 169.220406,23.0475204 C171.208127,22.8618259 173.241115,22.7145939 175.209535,23.0475204 C176.378733,23.2452712 177.481495,23.8634863 178.409484,24.6017041 C179.421002,25.4063696 180.267611,26.4465961 180.899679,27.5740468 C182.047042,29.6206536 182.963395,31.8045364 183.696941,34.0332021 C184.344443,36.0004505 184.750833,38.0500992 185.023519,40.103138 C186.06917,47.97582 186.497657,55.9255552 187.648392,63.7835649 C188.093429,66.8225807 189.084957,69.7560838 189.80324,72.7423432" id="Path-193" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-dasharray="7"></path>
+            <g id="Group-144" opacity="0.432235054" transform="translate(79.342553, 86.103572)">
+                <polygon id="Rectangle-76" fill="#E2CEA8" points="30.2257344 47.4359505 79.1436992 18.2338894 48.8746388 0.795414062 0 27.5800047"></polygon>
+                <polygon id="Rectangle-76" fill="#FFE5B2" points="30.4245879 46.6405364 79.3425527 17.4384754 49.0734923 1.8189894e-12 0.198853516 26.7845906"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="29.3308935" cy="33.2085371" rx="3.47993652" ry="1.98853516"></ellipse>
+                <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(24.094718, 29.189572) rotate(41.000000) translate(-24.094718, -29.189572) " points="24.8830975 23.5425486 32.1200807 33.2705345 16.0693553 34.8365947"></polygon>
+                <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(24.094718, 28.791865) rotate(41.000000) translate(-24.094718, -28.791865) " points="24.8830975 23.1448416 32.1200807 32.8728275 16.0693553 34.4388876"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="39.2735693" cy="11.3346504" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="13.3231855" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="21.3767529" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="37.2850342" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="27.2429316" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="23.2658613" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="9.34611523" rx="3.47993652" ry="1.98853516"></ellipse>
+            </g>
+            <g id="Group-144" opacity="0.432235054" transform="translate(118.914402, 111.556822)">
+                <polygon id="Rectangle-76" fill="#E2CEA8" points="30.2257344 47.4359505 79.1436992 18.2338894 48.8746388 0.795414062 0 27.5800047"></polygon>
+                <polygon id="Rectangle-76" fill="#FFE5B2" points="30.4245879 46.6405364 79.3425527 17.4384754 49.0734923 1.8189894e-12 0.198853516 26.7845906"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="29.3308935" cy="33.2085371" rx="3.47993652" ry="1.98853516"></ellipse>
+                <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(24.094718, 29.189572) rotate(41.000000) translate(-24.094718, -29.189572) " points="24.8830975 23.5425486 32.1200807 33.2705345 16.0693553 34.8365947"></polygon>
+                <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(24.094718, 28.791865) rotate(41.000000) translate(-24.094718, -28.791865) " points="24.8830975 23.1448416 32.1200807 32.8728275 16.0693553 34.4388876"></polygon>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="39.2735693" cy="11.3346504" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="13.3231855" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="21.3767529" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="37.2850342" cy="21.2773262" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="27.2429316" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="59.1589209" cy="23.2658613" rx="3.47993652" ry="1.98853516"></ellipse>
+                <ellipse id="Oval-49" stroke="#ECCA87" cx="51.2047803" cy="9.34611523" rx="3.47993652" ry="1.98853516"></ellipse>
+            </g>
+            <g id="Group-146" transform="translate(57.667520, 0.000000)">
+                <polygon id="Rectangle-76" fill="#95D0D6" points="30.2257344 47.6041893 79.1436992 18.4021282 48.8746388 0.963652835 0 27.7482434"></polygon>
+                <polygon id="Rectangle-76" fill="#A2E4EB" points="30.4245879 46.8087752 79.3425527 17.6067141 49.0734923 0.168238773 0.198853516 26.9528294"></polygon>
+                <g id="Group-143" filter="url(#filter-1)" transform="translate(14.317453, 19.258176)">
+                    <g id="Group-145">
+                        <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(9.777265, 10.099634) rotate(41.000000) translate(-9.777265, -10.099634) " points="10.5656444 4.45261114 17.8026276 14.180597 1.75190214 15.7466572"></polygon>
+                        <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(9.777265, 9.701927) rotate(41.000000) translate(-9.777265, -9.701927) " points="10.5656444 4.05490411 17.8026276 13.78289 1.75190214 15.3489501"></polygon>
+                    </g>
+                </g>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="38.0552997 14.1185996 38.0552997 16.9545251 42.1066482 18.6465774 34.0039512 18.6465774"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="20.1584833 20.0842051 20.1584833 22.9201306 24.2098318 24.6121828 16.1071348 24.6121828"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(47.929445, 10.241562) rotate(138.000000) translate(-47.929445, -10.241562) " points="47.9294452 7.97757278 47.9294452 10.8134983 51.9807937 12.5055506 43.8780966 12.5055506"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(46.433471, 26.195747) rotate(257.000000) translate(-46.433471, -26.195747) " points="46.4334712 23.9317581 46.4334712 26.7676836 50.4848198 28.4597359 42.3821227 28.4597359"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(60.353217, 14.264536) rotate(310.000000) translate(-60.353217, -14.264536) " points="60.3532173 12.0005472 60.3532173 14.8364727 64.4045659 16.528525 56.3018688 16.528525"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(70.494747, 16.253071) rotate(310.000000) translate(-70.494747, -16.253071) " points="70.4947466 13.9890824 70.4947466 16.8250079 74.5460952 18.5170601 66.4433981 18.5170601"></polygon>
+            </g>
+            <g id="Group-146" transform="translate(98.631344, 26.248664)">
+                <polygon id="Rectangle-76" fill="#95D0D6" points="30.2257344 47.6041893 79.1436992 18.4021282 48.8746388 0.963652835 0 27.7482434"></polygon>
+                <polygon id="Rectangle-76" fill="#A2E4EB" points="30.4245879 46.8087752 79.3425527 17.6067141 49.0734923 0.168238773 0.198853516 26.9528294"></polygon>
+                <g id="Group-143" filter="url(#filter-2)" transform="translate(14.317453, 19.258176)">
+                    <g id="Group-145">
+                        <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(9.777265, 10.099634) rotate(41.000000) translate(-9.777265, -10.099634) " points="10.5656444 4.45261114 17.8026276 14.180597 1.75190214 15.7466572"></polygon>
+                        <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(9.777265, 9.701927) rotate(41.000000) translate(-9.777265, -9.701927) " points="10.5656444 4.05490411 17.8026276 13.78289 1.75190214 15.3489501"></polygon>
+                    </g>
+                </g>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="38.0552997 14.1185996 38.0552997 16.9545251 42.1066482 18.6465774 34.0039512 18.6465774"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="20.1584833 20.0842051 20.1584833 22.9201306 24.2098318 24.6121828 16.1071348 24.6121828"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(47.929445, 10.241562) rotate(138.000000) translate(-47.929445, -10.241562) " points="47.9294452 7.97757278 47.9294452 10.8134983 51.9807937 12.5055506 43.8780966 12.5055506"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(46.433471, 26.195747) rotate(257.000000) translate(-46.433471, -26.195747) " points="46.4334712 23.9317581 46.4334712 26.7676836 50.4848198 28.4597359 42.3821227 28.4597359"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(60.353217, 14.264536) rotate(310.000000) translate(-60.353217, -14.264536) " points="60.3532173 12.0005472 60.3532173 14.8364727 64.4045659 16.528525 56.3018688 16.528525"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(70.494747, 16.253071) rotate(310.000000) translate(-70.494747, -16.253071) " points="70.4947466 13.9890824 70.4947466 16.8250079 74.5460952 18.5170601 66.4433981 18.5170601"></polygon>
+            </g>
+            <g id="Group-146" transform="translate(138.600900, 51.900768)">
+                <polygon id="Rectangle-76" fill="#95D0D6" points="30.2257344 47.6041893 79.1436992 18.4021282 48.8746388 0.963652835 0 27.7482434"></polygon>
+                <polygon id="Rectangle-76" fill="#A2E4EB" points="30.4245879 46.8087752 79.3425527 17.6067141 49.0734923 0.168238773 0.198853516 26.9528294"></polygon>
+                <g id="Group-143" filter="url(#filter-3)" transform="translate(14.317453, 19.258176)">
+                    <g id="Group-145">
+                        <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(9.777265, 10.099634) rotate(41.000000) translate(-9.777265, -10.099634) " points="10.5656444 4.45261114 17.8026276 14.180597 1.75190214 15.7466572"></polygon>
+                        <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(9.777265, 9.701927) rotate(41.000000) translate(-9.777265, -9.701927) " points="10.5656444 4.05490411 17.8026276 13.78289 1.75190214 15.3489501"></polygon>
+                    </g>
+                </g>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="38.0552997 14.1185996 38.0552997 16.9545251 42.1066482 18.6465774 34.0039512 18.6465774"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="20.1584833 20.0842051 20.1584833 22.9201306 24.2098318 24.6121828 16.1071348 24.6121828"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(47.929445, 10.241562) rotate(138.000000) translate(-47.929445, -10.241562) " points="47.9294452 7.97757278 47.9294452 10.8134983 51.9807937 12.5055506 43.8780966 12.5055506"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(46.433471, 26.195747) rotate(257.000000) translate(-46.433471, -26.195747) " points="46.4334712 23.9317581 46.4334712 26.7676836 50.4848198 28.4597359 42.3821227 28.4597359"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(60.353217, 14.264536) rotate(310.000000) translate(-60.353217, -14.264536) " points="60.3532173 12.0005472 60.3532173 14.8364727 64.4045659 16.528525 56.3018688 16.528525"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(70.494747, 16.253071) rotate(310.000000) translate(-70.494747, -16.253071) " points="70.4947466 13.9890824 70.4947466 16.8250079 74.5460952 18.5170601 66.4433981 18.5170601"></polygon>
+            </g>
+            <g id="Group-146" opacity="0.315840127" transform="translate(178.172750, 77.751725)">
+                <polygon id="Rectangle-76" fill="#95D0D6" points="30.2257344 47.6041893 79.1436992 18.4021282 48.8746388 0.963652835 0 27.7482434"></polygon>
+                <polygon id="Rectangle-76" fill="#A2E4EB" points="30.4245879 46.8087752 79.3425527 17.6067141 49.0734923 0.168238773 0.198853516 26.9528294"></polygon>
+                <g id="Group-143" filter="url(#filter-4)" transform="translate(14.317453, 19.258176)">
+                    <g id="Group-145">
+                        <polygon id="Triangle-6" fill="#A3A1A1" transform="translate(9.777265, 10.099634) rotate(41.000000) translate(-9.777265, -10.099634) " points="10.5656444 4.45261114 17.8026276 14.180597 1.75190214 15.7466572"></polygon>
+                        <polygon id="Triangle-6" fill="#FFFFFF" transform="translate(9.777265, 9.701927) rotate(41.000000) translate(-9.777265, -9.701927) " points="10.5656444 4.05490411 17.8026276 13.78289 1.75190214 15.3489501"></polygon>
+                    </g>
+                </g>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="38.0552997 14.1185996 38.0552997 16.9545251 42.1066482 18.6465774 34.0039512 18.6465774"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" points="20.1584833 20.0842051 20.1584833 22.9201306 24.2098318 24.6121828 16.1071348 24.6121828"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(47.929445, 10.241562) rotate(138.000000) translate(-47.929445, -10.241562) " points="47.9294452 7.97757278 47.9294452 10.8134983 51.9807937 12.5055506 43.8780966 12.5055506"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(46.433471, 26.195747) rotate(257.000000) translate(-46.433471, -26.195747) " points="46.4334712 23.9317581 46.4334712 26.7676836 50.4848198 28.4597359 42.3821227 28.4597359"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(60.353217, 14.264536) rotate(310.000000) translate(-60.353217, -14.264536) " points="60.3532173 12.0005472 60.3532173 14.8364727 64.4045659 16.528525 56.3018688 16.528525"></polygon>
+                <polygon id="Triangle-7" fill="#8FD6DE" transform="translate(70.494747, 16.253071) rotate(310.000000) translate(-70.494747, -16.253071) " points="70.4947466 13.9890824 70.4947466 16.8250079 74.5460952 18.5170601 66.4433981 18.5170601"></polygon>
+            </g>
+            <g id="Group-163" transform="translate(104.398096, 14.516307)">
+                <ellipse id="Oval-52" fill="#B9F0F6" opacity="0.758208786" cx="4.23024098" cy="2.36893495" rx="4.23024098" ry="2.36893495"></ellipse>
+                <ellipse id="Oval-52" fill="#93E1E9" cx="4.27535058" cy="2.38624219" rx="2.48566894" ry="1.39197461"></ellipse>
+            </g>
+            <g id="Group-163" transform="translate(141.384850, 37.583314)">
+                <ellipse id="Oval-52" fill="#B9F0F6" opacity="0.758208786" cx="4.23024098" cy="2.36893495" rx="4.23024098" ry="2.36893495"></ellipse>
+                <ellipse id="Oval-52" fill="#93E1E9" cx="4.27535058" cy="2.38624219" rx="2.48566894" ry="1.39197461"></ellipse>
+            </g>
+            <g id="Group-163" transform="translate(186.524598, 71.587266)">
+                <ellipse id="Oval-52" fill="#B9F0F6" opacity="0.758208786" cx="4.23024098" cy="2.36893495" rx="4.23024098" ry="2.36893495"></ellipse>
+                <ellipse id="Oval-52" fill="#93E1E9" cx="4.27535058" cy="2.38624219" rx="2.48566894" ry="1.39197461"></ellipse>
+            </g>
+            <g id="Path-193" stroke-linecap="round" stroke-dasharray="7">
+                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                <use stroke="#FFFFFF" stroke-width="2" xlink:href="#path-5"></use>
+            </g>
+            <g id="Group-163" transform="translate(33.407391, 55.877838)" fill="#ECCA87">
+                <ellipse id="Oval-52" opacity="0.518625453" cx="4.23024098" cy="2.36893495" rx="4.23024098" ry="2.36893495"></ellipse>
+                <ellipse id="Oval-52" cx="4.27535058" cy="2.38624219" rx="2.48566894" ry="1.39197461"></ellipse>
+            </g>
+            <g id="Group-163" transform="translate(70.394145, 78.944846)">
+                <ellipse id="Oval-52" opacity="0.600996377" cx="4.23024098" cy="2.36893495" rx="4.23024098" ry="2.36893495"></ellipse>
+                <ellipse id="Oval-52" cx="4.27535058" cy="2.38624219" rx="2.48566894" ry="1.39197461"></ellipse>
+            </g>
+            <g id="Path-193" stroke-linecap="round" stroke-dasharray="7">
+                <use fill="black" fill-opacity="1" filter="url(#filter-8)" xlink:href="#path-7"></use>
+                <use stroke="#FFFFFF" stroke-width="2" xlink:href="#path-7"></use>
+            </g>
+        </g>
+    </g>
+</svg>

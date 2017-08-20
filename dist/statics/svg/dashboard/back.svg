@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="505px" height="333px" viewBox="0 0 505 333" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 41</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="Group-41" transform="translate(6.000000, 6.000000)" stroke-width="15" stroke="#3C3C3C">
+            <g id="Group-30">
+                <path d="M477.572476,55.4201533 C487.113016,75.8101693 493.602675,94.9010639 489.818738,118.152071 C484.350674,151.751471 470.099385,177.944652 478.166195,212.174917" id="Path-15"></path>
+                <path d="M50.8239161,-13 C60.3644557,7.39001601 66.8541148,26.4809106 63.0701781,49.7319177 C57.6021139,83.3313174 43.3508248,109.524498 51.4176347,143.754764" id="Path-15" transform="translate(56.582802, 65.377382) rotate(40.000000) translate(-56.582802, -65.377382) "></path>
+                <path d="M295.179383,38.7362508 C299.592535,48.1680279 302.594447,56.9988726 300.844117,67.7540537 C298.314763,83.2960744 291.722567,95.4122123 295.454019,111.246052" id="Path-15" transform="translate(297.843262, 74.991151) rotate(-50.000000) translate(-297.843262, -74.991151) "></path>
+                <path d="M284.578911,243.551012 C291.253317,257.815534 295.793376,271.171213 293.146196,287.437238 C289.320827,310.94283 279.350858,329.267152 284.994267,353.214088" id="Path-15" transform="translate(288.607733, 298.382550) rotate(64.000000) translate(-288.607733, -298.382550) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
