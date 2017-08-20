@@ -20,7 +20,9 @@ import RegisterJobScreen from './screens/register-job.screen';
 import RegisterStyleScreen from './screens/register-style.screen';
 import ProgressScreen from './screens/progress.screen';
 import PerformanceScreen from './screens/performance.screen';
+import JourneyScreen from './screens/journey.screen';
 import CommunityScreen from './screens/community.screen';
+import TeamScreen from './screens/team.screen';
 import WaitlistScreen from './screens/waitlist.screen';
 import PositionScreen from './screens/position.screen';
 import ShareScreen from './screens/share.screen';
@@ -28,6 +30,7 @@ import BumpScreen from './screens/bump.screen';
 
 
 import PerformanceScreenMobile from './screens-mobile/performance.screen.mobile';
+import JourneyScreenMobile from './screens-mobile/journey.screen.mobile';
 import WaitlistScreenMobile from './screens-mobile/waitlist.screen.mobile';
 import PositionScreenMobile from './screens-mobile/position.screen.mobile';
 import BumpScreenMobile from './screens-mobile/bump.screen.mobile';
@@ -38,6 +41,7 @@ import SessionsScreenMobile from './screens-mobile/sessions.screen.mobile';
 import SessionScreenMobile from './screens-mobile/session.screen.mobile';
 import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
 import CommunityScreenMobile from './screens-mobile/community.screen.mobile';
+import TeamScreenMobile from './screens-mobile/team.screen.mobile';
 
 
 import PopupPassword from './components/popup-password/popup-password';
@@ -117,17 +121,20 @@ class App extends React.Component {
                             <Location path="/register-job" handler={RegisterJobScreen}/>
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
                             <Location path="/performance" handler={PerformanceScreen}/>
+                            <Location path="/journey" handler={JourneyScreen}/>
                             <Location path="/progress" handler={ProgressScreen}/>
                             <Location path="/sessions" handler={SessionsScreen}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreen}/>
                             <Location path="/dashboard(/*)" handler={DashboardScreen}/>
                             <Location path="/home(/*)" handler={DashboardScreen}/>
                             <Location path="/profile" handler={ProfileScreen}/>
-                            <Location path="/community" handler={CommunityScreen}/>
+                            <Location path="/community" handler={TeamScreen}/>
+                            <Location path="/team" handler={TeamScreen}/>
                             <Location path="/waitlist" handler={WaitlistScreen}/>
                             <Location path="/waitlist/check" handler={PositionScreen}/>
                             <Location path="/waitlist/share" handler={ShareScreen}/>
                             <Location path="/waitlist/bump" handler={BumpScreen}/>
+                            <Location path="**" handler={SplashScreenMobile}/>
                         </Locations>
                     </If>
 
@@ -139,18 +146,20 @@ class App extends React.Component {
                             <Location path="/register-job" handler={RegisterJobScreen}/>
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
                             <Location path="/performance" handler={PerformanceScreenMobile}/>
+                            <Location path="/journey" handler={JourneyScreenMobile}/>
                             <Location path="/progress" handler={CommunityScreenMobile}/>
                             <Location path="/sessions" handler={SessionsScreenMobile}/>
                             <Location path="/sessions/:sessionId" handler={SessionScreenMobile}/>
                             <Location path="/dashboard(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/home(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/profile" handler={CommunityScreenMobile}/>
-                            <Location path="/community" handler={CommunityScreenMobile}/>
-                            <Location path="/team" handler={CommunityScreenMobile}/>
+                            <Location path="/community" handler={TeamScreenMobile}/>
+                            <Location path="/team" handler={TeamScreenMobile}/>
                             <Location path="/waitlist" handler={WaitlistScreenMobile}/>
                             <Location path="/waitlist/check" handler={PositionScreenMobile}/>
                             <Location path="/waitlist/share" handler={ShareScreenMobile}/>
                             <Location path="/waitlist/bump" handler={BumpScreenMobile}/>
+                            <Location path="**" handler={SplashScreenMobile}/>
                         </Locations>
                     </If>
                 </div>

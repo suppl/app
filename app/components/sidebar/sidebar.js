@@ -37,7 +37,7 @@ class Sidebar extends React.Component {
                         <i className="icon-uniE820"/>
                         {/*<span>Performance</span>*/}
                     </Link>
-                    <Link href="/progress" className={`menu-item ${isScreenClass('progress')}`}>
+                    <Link href="/journey" className={`menu-item ${isScreenClass('journey')}`}>
                         <i className="icon-uniE817"/>
                         {/*<span>Journey</span>*/}
                     </Link>
