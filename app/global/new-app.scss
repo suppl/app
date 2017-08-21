@@ -255,7 +255,6 @@
         font-weight: normal;
       }
 
-
       .box-time {
         margin-left: auto;
         font-size: 13px;
@@ -264,4 +263,76 @@
       }
     }
   }
+}
+
+.suppl-table {
+  width: 100%;
+  margin-top: 20px;
+  font-weight: 400;
+
+  table {
+    width: 100%;
+  }
+
+  thead {
+    tr {
+      height: 40px;
+      background-color: $pale-grey-five;
+      text-transform: uppercase;
+
+      font-size: 10px;
+      font-weight: 600;
+      text-align: left;
+      color: $pinkish-grey;
+      padding: 0 13px;
+      vertical-align: middle;
+
+      .not-desktop & {
+        font-size: 8px;
+        padding: 0 8px;
+      }
+    }
+  }
+
+  tbody {
+    td {
+      //font-weight: 600;
+      padding: 0 13px;
+      vertical-align: middle;
+      font-size: 15px;
+      color: $battleship-grey;
+
+      height: 60px;
+      background-color: $white;
+      border: solid 1px $pale-grey;
+
+      .not-desktop & {
+        font-size: 10px;
+        padding: 0 8px;
+        height: 40px;
+      }
+    }
+  }
+
+  .tr-first {
+    width: 70px;
+    text-align: center;
+    font-size: 15px;
+    color: $pinkish-grey;
+
+    .not-desktop & {
+      width: 45px;
+      font-size: 10px;
+    }
+  }
+
+  .tr-small {
+    width: 70px;
+    text-align: center;
+
+    .not-desktop & {
+      width: 45px;
+    }
+  }
+
 }

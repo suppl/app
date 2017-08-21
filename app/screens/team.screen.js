@@ -7,20 +7,13 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcStreak, SetUrl} from '../services/helper.service';
+import {CalcStreak, CalcComplete, SetUrl} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 import FeedItem from '../components/feed-item/feed-item'
 
 class TeamScreen extends React.Component {
-    getAwards() {
-        if (!this.props.user.customData.awards) return [];
-
-        return _.values(this.props.user.customData.awards).map(award => {
-            return this.props.award.awards[award.awardId]
-        });
-    }
 
     componentWillMount() {
         setTimeout(() => {
@@ -31,7 +24,21 @@ class TeamScreen extends React.Component {
         Dispatch(ACTIONS.HIDE_AUDIO);
     }
 
+    getAwards() {
+        if (!this.props.user.customData.awards) return [];
+
+        return _.values(this.props.user.customData.awards).map(award => {
+            return this.props.award.awards[award.awardId]
+        });
+    }
+
+    isOnline(user) {
+        return this.props.public.online[user.uid] !== undefined;
+    }
+
     render() {
+        const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
+
         const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
 
         const getUserFirstName = () => {
@@ -60,14 +67,41 @@ class TeamScreen extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="thin-heading-2">Weekly leaderboard</div>
+                                <div className="thin-heading-2">Leaderboard</div>
 
+                                <div className="suppl-table">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th className="tr-small">#</th>
+                                            <th>Team member</th>
+                                            <th className="tr-small">Minutes</th>
+                                            <th className="tr-small">Sessions</th>
+                                            <th className="tr-small">Streak</th>
+                                            <th className="tr-small">NEAT</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {users.map((user, index) =>
+                                        <tr>
+                                            <td className="tr-first">{index}</td>
+                                            <td>{user.name}</td>
+                                            <td className="tr-small">{3 * CalcStreak(user)}</td>
+                                            <td className="tr-small">{CalcComplete(user)}</td>
+                                            <td className="tr-small">{CalcStreak(user)}</td>
+                                            <td className="tr-small">{CalcStreak(user) ? '+' : ''}{100 * CalcStreak(user)}</td>
+                                        </tr>
+                                        )}
+                                        </tbody>
+                                    </table>
+                                </div>
 
 
                                 <div className="thin-heading-2 ">Your performance</div>
 
                                 <div className="neat-banner">
-                                    <div className="neat-score">+500</div>
+                                    <div className="neat-score">{CalcStreak(user) ? '+' : ''}{100 * CalcStreak(user)}</div>
                                     <div className="neat-text">Your <strong>NEAT</strong> score</div>
                                 </div>
 

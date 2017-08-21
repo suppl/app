@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import HeaderMobile from '../components/header/header.mobile';
 import FooterMobile from '../components/footer/footer.mobile';
 import {SessionList, isAudioAvailable, isAudioDone} from '../services/session.service';
-import {SetUrl, If} from '../services/helper.service';
+import {CalcComplete, CalcStreak, SetUrl, If} from '../services/helper.service';
 import FeedItem from '../components/feed-item/feed-item'
 
 
@@ -20,6 +20,8 @@ class TeamScreenMobile extends React.Component {
     }
 
     render() {
+        const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
+
         const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
 
         return (
@@ -41,7 +43,35 @@ class TeamScreenMobile extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="thin-heading-2">Weekly leaderboard</div>
+                                <div className="thin-heading-2">Leaderboard</div>
+
+                                <div className="suppl-table">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th className="tr-small">#</th>
+                                            <th>Team member</th>
+                                            <th className="tr-small">Minutes</th>
+                                            <th className="tr-small">Sessions</th>
+                                            <th className="tr-small">Streak</th>
+                                            <th className="tr-small">NEAT</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        {users.map((user, index) =>
+                                            <tr>
+                                                <td className="tr-first">{index}</td>
+                                                <td>{user.name}</td>
+                                                <td className="tr-small">{3 * CalcStreak(user)}</td>
+                                                <td className="tr-small">{CalcComplete(user)}</td>
+                                                <td className="tr-small">{CalcStreak(user)}</td>
+                                                <td className="tr-small">{CalcStreak(user) ? '+' : ''}{100 * CalcStreak(user)}</td>
+                                            </tr>
+                                        )}
+                                        </tbody>
+                                    </table>
+                                </div>
 
 
 
