@@ -67920,6 +67920,8 @@ var _feedItem = __webpack_require__(62);
 
 var _feedItem2 = _interopRequireDefault(_feedItem);
 
+var _dispatch = __webpack_require__(15);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -67952,11 +67954,11 @@ var TeamScreenMobile = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var users = _.sortBy(this.props.public.users, function (user) {
+            var users = _.sortBy((0, _dispatch.State)().public.users, function (user) {
                 return (0, _helper.CalcStreak)(user);
             }).reverse();
 
-            var feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
+            var feed = _.take(_.sortBy((0, _dispatch.State)().feed.feed, 'time').reverse(), 5);
 
             return _react2.default.createElement(
                 'div',
@@ -68100,7 +68102,8 @@ var TeamScreenMobile = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        '+500'
+                                        (0, _helper.CalcStreak)((0, _dispatch.State)().public.user) ? '+' : '',
+                                        100 * (0, _helper.CalcStreak)((0, _dispatch.State)().public.user)
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -72952,8 +72955,8 @@ var TeamScreen = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        (0, _helper.CalcStreak)(user) ? '+' : '',
-                                        100 * (0, _helper.CalcStreak)(user)
+                                        (0, _helper.CalcStreak)(this.props.public.user) ? '+' : '',
+                                        100 * (0, _helper.CalcStreak)(this.props.public.user)
                                     ),
                                     _react2.default.createElement(
                                         'div',

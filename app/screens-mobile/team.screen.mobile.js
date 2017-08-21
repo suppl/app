@@ -9,6 +9,7 @@ import FooterMobile from '../components/footer/footer.mobile';
 import {SessionList, isAudioAvailable, isAudioDone} from '../services/session.service';
 import {CalcComplete, CalcStreak, SetUrl, If} from '../services/helper.service';
 import FeedItem from '../components/feed-item/feed-item'
+import {State} from "../services/dispatch.service";
 
 
 class TeamScreenMobile extends React.Component {
@@ -20,9 +21,9 @@ class TeamScreenMobile extends React.Component {
     }
 
     render() {
-        const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
+        const users = _.sortBy(State().public.users, user => CalcStreak(user)).reverse();
 
-        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
+        const feed = _.take(_.sortBy(State().feed.feed, 'time').reverse(), 5);
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -78,7 +79,7 @@ class TeamScreenMobile extends React.Component {
                                 <div className="thin-heading-2 ">Your performance</div>
 
                                 <div className="neat-banner">
-                                    <div className="neat-score">{CalcStreak(this.props.public.user) ? '+' : ''}{100 * CalcStreak(this.props.public.user)}</div>
+                                    <div className="neat-score">{CalcStreak(State().public.user) ? '+' : ''}{100 * CalcStreak(State().public.user)}</div>
                                     <div className="neat-text">Your <strong>NEAT</strong> score</div>
                                 </div>
 
