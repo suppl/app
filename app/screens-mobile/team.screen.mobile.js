@@ -78,7 +78,7 @@ class TeamScreenMobile extends React.Component {
                                 <div className="thin-heading-2 ">Your performance</div>
 
                                 <div className="neat-banner">
-                                    <div className="neat-score">+500</div>
+                                    <div className="neat-score">{CalcStreak(this.props.public.user) ? '+' : ''}{100 * CalcStreak(this.props.public.user)}</div>
                                     <div className="neat-text">Your <strong>NEAT</strong> score</div>
                                 </div>
 
