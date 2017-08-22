@@ -75,7 +75,6 @@ class TeamScreenMobile extends React.Component {
                                 </div>
 
 
-
                                 <div className="thin-heading-2 ">Your performance</div>
 
                                 <div className="neat-banner">
@@ -84,42 +83,34 @@ class TeamScreenMobile extends React.Component {
                                 </div>
 
 
-                                <div className="flex flex-cols flex-cols-large">
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"> / day</span>
-                                                </div>
-                                                <div className="stat-text">Run streak</div>
-                                            </div>
+                                <div className="suppl-stat">
+                                    <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>1</span>
+                                            <span className="stat-small"> / day</span>
                                         </div>
+                                        <div className="stat-text">Run streak</div>
                                     </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"></span>
-                                                </div>
-                                                <div className="stat-text">Sessions done</div>
-                                            </div>
+                                </div>
+                                <div className="suppl-stat">
+                                    <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>1</span>
+                                            <span className="stat-small"></span>
                                         </div>
+                                        <div className="stat-text">Sessions done</div>
                                     </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>3</span>
-                                                    <span className="stat-small"> mins</span>
-                                                </div>
-                                                <div className="stat-text">Realign time</div>
-                                            </div>
+                                </div>
+                                <div className="suppl-stat">
+                                    <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>3</span>
+                                            <span className="stat-small"> mins</span>
                                         </div>
+                                        <div className="stat-text">Realign time</div>
                                     </div>
                                 </div>
 

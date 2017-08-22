@@ -68259,97 +68259,81 @@ var TeamScreenMobile = function (_React$Component) {
                                 ),
                                 _react2.default.createElement(
                                     'div',
-                                    { className: 'flex flex-cols flex-cols-large' },
+                                    { className: 'suppl-stat' },
+                                    _react2.default.createElement('img', { src: '/statics/svg/dash/session-streak-icon.svg', className: 'stat-img' }),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'flex-col' },
+                                        { className: 'flex flex-min' },
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'suppl-stat' },
-                                            _react2.default.createElement('img', { src: '/statics/svg/dash/session-streak-icon.svg', className: 'stat-img' }),
+                                            { className: 'stat-stat' },
                                             _react2.default.createElement(
-                                                'div',
-                                                { className: 'flex flex-min' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-stat' },
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        '1'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        { className: 'stat-small' },
-                                                        ' / day'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-text' },
-                                                    'Run streak'
-                                                )
+                                                'span',
+                                                null,
+                                                '1'
+                                            ),
+                                            _react2.default.createElement(
+                                                'span',
+                                                { className: 'stat-small' },
+                                                ' / day'
                                             )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'stat-text' },
+                                            'Run streak'
                                         )
-                                    ),
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'suppl-stat' },
+                                    _react2.default.createElement('img', { src: '/statics/svg/dash/session-complete-icon.svg', className: 'stat-img' }),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'flex-col' },
+                                        { className: 'flex flex-min' },
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'suppl-stat' },
-                                            _react2.default.createElement('img', { src: '/statics/svg/dash/session-complete-icon.svg', className: 'stat-img' }),
+                                            { className: 'stat-stat' },
                                             _react2.default.createElement(
-                                                'div',
-                                                { className: 'flex flex-min' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-stat' },
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        '1'
-                                                    ),
-                                                    _react2.default.createElement('span', { className: 'stat-small' })
-                                                ),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-text' },
-                                                    'Sessions done'
-                                                )
-                                            )
+                                                'span',
+                                                null,
+                                                '1'
+                                            ),
+                                            _react2.default.createElement('span', { className: 'stat-small' })
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'stat-text' },
+                                            'Sessions done'
                                         )
-                                    ),
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'suppl-stat' },
+                                    _react2.default.createElement('img', { src: '/statics/svg/dash/posture-minute-icon.svg', className: 'stat-img' }),
                                     _react2.default.createElement(
                                         'div',
-                                        { className: 'flex-col' },
+                                        { className: 'flex flex-min' },
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'suppl-stat' },
-                                            _react2.default.createElement('img', { src: '/statics/svg/dash/posture-minute-icon.svg', className: 'stat-img' }),
+                                            { className: 'stat-stat' },
                                             _react2.default.createElement(
-                                                'div',
-                                                { className: 'flex flex-min' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-stat' },
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        '3'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        { className: 'stat-small' },
-                                                        ' mins'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-text' },
-                                                    'Realign time'
-                                                )
+                                                'span',
+                                                null,
+                                                '3'
+                                            ),
+                                            _react2.default.createElement(
+                                                'span',
+                                                { className: 'stat-small' },
+                                                ' mins'
                                             )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'stat-text' },
+                                            'Realign time'
                                         )
                                     )
                                 ),
