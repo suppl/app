@@ -56,15 +56,11 @@ class SessionScreenMobile extends React.Component {
                                         <div className="session-time">Day 1 of {session.days || session.audios.length}</div>
                                     </If>
                                     <If condition={session.audios.length === 1}>
-                                        <div className="session-time">{session.audios[0].duration[0]}min(s)</div>
+                                        <div className="session-time">{session.audios[0].duration[0]} min{session.audios[0].duration[0] == 1 ? '' : 's'}</div>
                                     </If>
 
                                     <div className="session-title" style={{marginLeft: -5}}>{session.name}</div>
                                     <div className="session-text">{session.description}</div>
-                                    {/*<div className="banner-butn clickable">*/}
-                                    {/*<i className="fa fa-play"/>*/}
-                                    {/*<span>Begin</span>*/}
-                                    {/*</div>*/}
                                 </div>
 
                                 <div className="session-audios">
@@ -73,7 +69,7 @@ class SessionScreenMobile extends React.Component {
 
                                             <If condition={isAudioAvailable(audio)}>
                                                 <div className="audio-play clickable" onClick={() => this.props.showAudio(session, audio)}>
-                                                    <i className="icon-uniE6BB"/>
+                                                    <i className="fa fa-play"/>
                                                 </div>
                                             </If>
 
@@ -90,7 +86,7 @@ class SessionScreenMobile extends React.Component {
                                             <div style={{margin:'auto'}}/>
 
                                             <div className="audio-time">
-                                                {audio.duration[0]} mins
+                                                {audio.duration[0]} min{audio.duration[0] == 1 ? '' : 's'}
                                             </div>
                                         </div>
                                     )}

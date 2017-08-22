@@ -108,7 +108,7 @@ class Player extends React.Component {
                             {audio.name || 'Session ' + audio.index}
                         </div>
                         <div className="player-length">
-                            {State().settings.audio.duration[0]} minute(s)
+                            {audio.duration[0]} minute{audio.duration[0] == 1 ? '' : 's'}
                         </div>
                     </div>
 

@@ -52,41 +52,26 @@ class SessionsScreenMobile extends React.Component {
                                 </div>
 
                                 <div className="thin-heading-2">Foundation</div>
-
                                 <div className="flex">
-                                    <Promo size="mid" sessionId={'sitting'}/>
-                                    <Promo size="mid" sessionId={'standing'}/>
+                                    <Promo size="mid" sessionId={'sitting'} audioId={'sitting-1'}/>
+                                    <Promo size="mid" sessionId={'standing'} audioId={'standing-1'}/>
                                 </div>
 
                                 <div className="thin-heading-2">Minis</div>
-
                                 <div className="flex">
                                     <Promo size="mid" sessionId={'back'}/>
                                     <Promo size="mid" sessionId={'neck'}/>
                                     <Promo size="mid" sessionId={'shoulders'}/>
+                                    <Promo size="mid" sessionId={'knee'}/>
+                                    <Promo size="mid" sessionId={'wrist'}/>
+                                    <Promo size="mid" sessionId={'mindset'}/>
                                 </div>
-
-                                <div className="flex">
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
-                                </div>
-
-                                <div className="flex">
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
-                                </div>
-
 
                                 <div className="thin-heading-2">Growth</div>
-
                                 <div className="flex">
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                    <Promo size="mid" sessionId={'extend'}/>
+                                    <Promo size="mid" sessionId={'motion'}/>
                                 </div>
-
                             </div>
                         </div>
                     </div>

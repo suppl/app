@@ -42,7 +42,6 @@ class Sessions extends React.Component {
                                 </div>
 
                                 <div className="thin-heading-2">Foundation</div>
-
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
                                         <Promo size="mid" sessionId={'sitting'} audioId={'sitting-1'}/>
@@ -54,7 +53,6 @@ class Sessions extends React.Component {
 
 
                                 <div className="thin-heading-2">Minis</div>
-
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
                                         <Promo size="mid" sessionId={'back'}/>
@@ -79,9 +77,7 @@ class Sessions extends React.Component {
                                     </div>
                                 </div>
 
-
                                 <div className="thin-heading-2">Growth</div>
-
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
                                         <Promo size="mid" sessionId={'extend'}/>

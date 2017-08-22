@@ -62570,8 +62570,9 @@ var Player = function (_React$Component) {
                         _react2.default.createElement(
                             'div',
                             { className: 'player-length' },
-                            (0, _dispatch.State)().settings.audio.duration[0],
-                            ' minute(s)'
+                            audio.duration[0],
+                            ' minute',
+                            audio.duration[0] == 1 ? '' : 's'
                         )
                     ),
                     _react2.default.createElement(
@@ -62918,7 +62919,7 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ONBOARDING = [{
-    audioId: "sat-at-work-01-01",
+    audioId: "sitting-intro",
     screens: [{
         text: _react2.default.createElement(
             "div",
@@ -67418,7 +67419,8 @@ var SessionScreenMobile = function (_React$Component) {
                                             'div',
                                             { className: 'session-time' },
                                             session.audios[0].duration[0],
-                                            'min(s)'
+                                            ' min',
+                                            session.audios[0].duration[0] == 1 ? '' : 's'
                                         )
                                     ),
                                     _react2.default.createElement(
@@ -67447,7 +67449,7 @@ var SessionScreenMobile = function (_React$Component) {
                                                     { className: 'audio-play clickable', onClick: function onClick() {
                                                             return _this3.props.showAudio(session, audio);
                                                         } },
-                                                    _react2.default.createElement('i', { className: 'icon-uniE6BB' })
+                                                    _react2.default.createElement('i', { className: 'fa fa-play' })
                                                 )
                                             ),
                                             _react2.default.createElement(
@@ -67469,7 +67471,8 @@ var SessionScreenMobile = function (_React$Component) {
                                                 'div',
                                                 { className: 'audio-time' },
                                                 audio.duration[0],
-                                                ' mins'
+                                                ' min',
+                                                audio.duration[0] == 1 ? '' : 's'
                                             )
                                         );
                                     })
@@ -67664,8 +67667,8 @@ var SessionsScreenMobile = function (_React$Component) {
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'flex' },
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sitting' }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing' })
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sitting', audioId: 'sitting-1' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing', audioId: 'standing-1' })
                                 ),
                                 _react2.default.createElement(
                                     'div',
@@ -67677,21 +67680,10 @@ var SessionsScreenMobile = function (_React$Component) {
                                     { className: 'flex' },
                                     _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back' }),
                                     _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck' }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'shoulders' })
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'flex' },
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][1].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][1].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][1].slug })
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'flex' },
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][2].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][2].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][2].slug })
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'shoulders' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'knee' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'wrist' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'mindset' })
                                 ),
                                 _react2.default.createElement(
                                     'div',
@@ -67701,9 +67693,8 @@ var SessionsScreenMobile = function (_React$Component) {
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'flex' },
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug })
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'extend' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'motion' })
                                 )
                             )
                         )

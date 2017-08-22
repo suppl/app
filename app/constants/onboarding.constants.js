@@ -2,7 +2,7 @@ import React from 'react';
 
 const ONBOARDING = [
     {
-        audioId: "sat-at-work-01-01",
+        audioId: "sitting-intro",
         screens: [
             {
                 text:
