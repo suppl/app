@@ -84,11 +84,11 @@ class DashboardScreenMobile extends React.Component {
                                     </div>
                                 </div>
 
-                                <Promo size="large" sessionId="standing" audioId="sat-at-work-01-01"/>
+                                <Promo size="large" sessionId="sitting" audioId="sitting-intro"/>
 
                                 <div className="thin-heading-2">Your sessions</div>
 
-                                <Promo size="mid" sessionId="sitting" audioId="sat-at-work-01-01"/>
+                                <Promo size="mid" sessionId="standing" audioId="sat-at-work-01-01"/>
                                 <Promo size="mid" sessionId="back" audioId="sat-at-work-01-01"/>
                                 <Promo size="mid" sessionId="neck" audioId="sat-at-work-01-01"/>
 

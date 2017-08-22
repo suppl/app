@@ -62973,13 +62973,13 @@ var SESSIONS = [{
         id: 'sitting-intro',
         name: 'Intro',
         index: 0,
-        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        file: '/statics/audio/sitting/intro.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '6:31',
-        durationSeconds: 6 * 60 + 31,
-        NEAT: 100
+        duration: '1:30',
+        durationSeconds: 1 * 60 + 30,
+        NEAT: 50
     }, {
         id: 'sitting-1',
         name: 'Day 1',
@@ -62990,7 +62990,7 @@ var SESSIONS = [{
         audiosNeeded: [],
         duration: '6:31',
         durationSeconds: 6 * 60 + 31,
-        NEAT: 100
+        NEAT: 650
     }, {
         id: 'sitting-2',
         name: 'Day 2',
@@ -63001,7 +63001,7 @@ var SESSIONS = [{
         audiosNeeded: ['sitting-1'],
         duration: '6:31',
         durationSeconds: 6 * 60 + 31,
-        NEAT: 100
+        NEAT: 650
     }]
 }, {
     id: "standing",
@@ -63020,7 +63020,7 @@ var SESSIONS = [{
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
-        id: 'standing-1',
+        id: 'standing-intro',
         name: 'Intro',
         index: 1,
         file: '/statics/audio/take-a-seat-lv01-s01.mp3',
@@ -65835,13 +65835,13 @@ var DashboardScreenMobile = function (_React$Component) {
                                         )
                                     )
                                 ),
-                                _react2.default.createElement(_promo2.default, { size: 'large', sessionId: 'standing', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'large', sessionId: 'sitting', audioId: 'sitting-intro' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'thin-heading-2' },
                                     'Your sessions'
                                 ),
-                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sitting', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing', audioId: 'sat-at-work-01-01' }),
                                 _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back', audioId: 'sat-at-work-01-01' }),
                                 _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck', audioId: 'sat-at-work-01-01' }),
                                 _react2.default.createElement(
@@ -69346,7 +69346,7 @@ var Dashboard = function (_React$Component) {
                                         )
                                     )
                                 ),
-                                _react2.default.createElement(_promo2.default, { size: 'large', sessionId: 'desk-flex', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'large', sessionId: 'sitting', audioId: 'sitting-intro' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'thin-heading-2 ' },
@@ -69358,17 +69358,17 @@ var Dashboard = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'desk-flex', audioId: 'sat-at-work-01-01' })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing', audioId: 'sat-at-work-01-01' })
                                     ),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sleeping', audioId: 'sat-at-work-01-01' })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back', audioId: 'sat-at-work-01-01' })
                                     ),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'breathe-easy', audioId: 'sat-at-work-01-01' })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck', audioId: 'sat-at-work-01-01' })
                                     )
                                 ),
                                 _react2.default.createElement(

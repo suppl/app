@@ -78,19 +78,19 @@ class Dashboard extends React.Component {
                                     </div>
                                 </div>
 
-                                <Promo size="large" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
+                                <Promo size="large" sessionId="sitting" audioId="sitting-intro"/>
 
                                 <div className="thin-heading-2 ">Your sessions</div>
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId="desk-flex" audioId="sat-at-work-01-01"/>
+                                        <Promo size="mid" sessionId="standing" audioId="sat-at-work-01-01"/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId="sleeping" audioId="sat-at-work-01-01"/>
+                                        <Promo size="mid" sessionId="back" audioId="sat-at-work-01-01"/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId="breathe-easy" audioId="sat-at-work-01-01"/>
+                                        <Promo size="mid" sessionId="neck" audioId="sat-at-work-01-01"/>
                                     </div>
                                 </div>
 
