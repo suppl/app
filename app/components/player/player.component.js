@@ -72,14 +72,16 @@ class Player extends React.Component {
 
     render() {
 
+        const audio = State().settings.audio;
+        const session = State().settings.session;
+
         return (
-            <div className={`player-component ${this.getClasses()}`} style={{backgroundColor: this.props.settings.session.color}}>
-                {/*<div className="player-main">*/}
+            <div className={`player-component ${this.getClasses()}`} style={{backgroundColor: session.color}}>
                 <div className="player-header">
                     <div className="header-icon clickable"/>
 
                     <div className="header-name ">
-                        {this.props.settings.session.name}
+                        {session.name}
                     </div>
 
                     <div className="header-icon clickable" onClick={this.hideSession}>
@@ -91,23 +93,19 @@ class Player extends React.Component {
 
                     <div className="player-info">
                         <div className="player-session">
-                            Session 1/5
+                            {audio.name || 'Session ' + audio.index}
                         </div>
                         <div className="player-length">
-                            3 minutes
+                            {State().settings.audio.duration[0]} minute(s)
                         </div>
                     </div>
 
-                    <div className="player-button" style={{background: State().settings.session.color}}>
+                    <div className="player-button" style={{background: session.color}}>
                         <div className={`button-background ${State().settings.playing? 'isPlaying' : ''}`}
                              onClick={this.playPause}
                         >
                             <div className="button-inside">
                                 <If condition={!State().settings.playing}>
-                                    {/*<i className="icon-uniE6BB" style={{*/}
-                                        {/*fontSize  : '100px',*/}
-                                        {/*marginLeft: '14px',*/}
-                                    {/*}}/>*/}
                                     <i className="fa fa-play" style={{
                                         fontSize  : '100px',
                                         marginLeft: '14px',
@@ -119,14 +117,6 @@ class Player extends React.Component {
                                 </If>
                             </div>
                         </div>
-
-                        {/*<If condition={this.props.settings.playing}>*/}
-                            {/*<div className="button-background" onClick={this.props.pauseAudio}>*/}
-                                {/*<div className="button-inside">*/}
-                                    {/*/!*<i className="icon-uniE6B9"/>*!/*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
-                        {/*</If>*/}
                     </div>
 
 
