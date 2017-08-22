@@ -54,8 +54,8 @@ const playAudio = (action, state) => {
     state.sound.play();
     Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
     // state.sound.once('load', () => {
-        // if (!state.sound.)
-        // state.sound.play();
+    // if (!state.sound.)
+    // state.sound.play();
     // });
 
     return {
@@ -64,8 +64,9 @@ const playAudio = (action, state) => {
 };
 
 const showAudio = (action, state) => {
+
     if (isOnboardingAvailable(action.audio)) {
-        Dispatch({type:ACTIONS.SHOW_ONBOARDING})
+        Dispatch({type: ACTIONS.SHOW_ONBOARDING})
     }
 
     let sound = new Howl({src: [action.audio.file]});
@@ -80,6 +81,7 @@ const showAudio = (action, state) => {
 
     return {
         sound       : sound,
+        session     : action.session,
         audio       : action.audio,
         audioVisible: true,
     }

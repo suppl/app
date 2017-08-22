@@ -64700,6 +64700,7 @@ var playAudio = function playAudio(action, state) {
 };
 
 var showAudio = function showAudio(action, state) {
+
     if ((0, _session3.isOnboardingAvailable)(action.audio)) {
         (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_ONBOARDING });
     }
@@ -64718,6 +64719,7 @@ var showAudio = function showAudio(action, state) {
 
     return {
         sound: sound,
+        session: action.session,
         audio: action.audio,
         audioVisible: true
     };
