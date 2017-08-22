@@ -64712,7 +64712,10 @@ var showAudio = function showAudio(action, state) {
         (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_ONBOARDING });
     }
 
-    var sound = new Howl({ src: [action.audio.file] });
+    var sound = new Howl({
+        src: [action.audio.file],
+        html5: true
+    });
 
     sound.on('end', function () {
         console.log('audio end!');

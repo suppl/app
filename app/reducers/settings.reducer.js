@@ -69,7 +69,10 @@ const showAudio = (action, state) => {
         Dispatch({type: ACTIONS.SHOW_ONBOARDING})
     }
 
-    let sound = new Howl({src: [action.audio.file]});
+    let sound = new Howl({
+        src  : [action.audio.file],
+        html5: true,
+    });
 
     sound.on('end', () => {
         console.log('audio end!');
