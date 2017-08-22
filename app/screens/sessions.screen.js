@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
-import {SessionList, getSessionTime} from '../services/session.service';
+import {SessionList, getSessionTime, getAudioById} from '../services/session.service';
 import {SetUrl} from '../services/helper.service';
 import Promo from '../components/promo/promo';
 
@@ -46,10 +46,10 @@ class Sessions extends React.Component {
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Basics'][0].slug}/>
+                                        <Promo size="mid" sessionId={'sitting'}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Basics'][1].slug}/>
+                                        <Promo size="mid" sessionId={'standing'}/>
                                     </div>
                                 </div>
 

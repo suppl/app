@@ -54,8 +54,8 @@ class SessionsScreenMobile extends React.Component {
                                 <div className="thin-heading-2">Foundation</div>
 
                                 <div className="flex">
-                                    <Promo size="mid" sessionId={seriesList['Basics'][0].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Basics'][1].slug}/>
+                                    <Promo size="mid" sessionId={'sitting'}/>
+                                    <Promo size="mid" sessionId={'standing'}/>
                                 </div>
 
                                 <div className="thin-heading-2">Minis</div>

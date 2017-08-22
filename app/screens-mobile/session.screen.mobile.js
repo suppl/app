@@ -52,7 +52,7 @@ class SessionScreenMobile extends React.Component {
                                     backgroundColor: session.color,
                                 }}>
 
-                                    <div className="session-time">Day 1 of 5</div>
+                                    <div className="session-time">Day 1 of {session.days || session.audios.length}</div>
                                     <div className="session-title" style={{marginLeft: -5}}>{session.name}</div>
                                     <div className="session-text">{session.description}</div>
                                     {/*<div className="banner-butn clickable">*/}
@@ -78,17 +78,13 @@ class SessionScreenMobile extends React.Component {
                                             </If>
 
                                             <div className="audio-title">
-                                                Day {audio.index}
+                                                {audio.name || 'Day ' + audio.index}
                                             </div>
-
-                                            {/*<div className="audio-play clickable" onClick={() => this.props.showAudio(session, audio)}>*/}
-                                            {/*<i className="fa fa-play"/>*/}
-                                            {/*</div>*/}
 
                                             <div style={{margin:'auto'}}/>
 
                                             <div className="audio-time">
-                                                3 mins
+                                                {audio.duration[0]} mins
                                             </div>
                                         </div>
                                     )}

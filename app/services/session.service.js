@@ -21,6 +21,16 @@ export const isSessionAvailable = (session) => {
     return flag;
 };
 
+export const getAudioById = sessionId => {
+    for (let session in SessionList) {
+        if (_.find(session.audios, {id: sessionId})) {
+            return _.find(session.audios, {id: sessionId});
+        }
+    };
+
+    return undefined;
+};
+
 export const getSessionTime = session => {
     // return _.reduce(session.audios, audio);
     return 25;
