@@ -6,7 +6,7 @@ import * as moment from "moment";
 
 import * as ACTIONS from '../../constants/actions.constants';
 import {SetUrl, If} from '../../services/helper.service';
-import {Dispatch} from "../../services/dispatch.service";
+import {Dispatch, State} from "../../services/dispatch.service";
 
 require('./player.component.scss');
 
@@ -57,6 +57,14 @@ class Player extends React.Component {
         return (n < 10) ? ("0" + n) : n;
     }
 
+    playPause() {
+        if (State().settings.playing) {
+            Dispatch({type: ACTIONS.PAUSE_AUDIO})
+        } else {
+            Dispatch({type: ACTIONS.PLAY_AUDIO})
+        }
+    }
+
     hideSession() {
         Dispatch({type: ACTIONS.HIDE_AUDIO});
         Dispatch({type: ACTIONS.PAUSE_AUDIO});
@@ -90,25 +98,35 @@ class Player extends React.Component {
                         </div>
                     </div>
 
-                    <div className="player-button" style={{background:this.props.settings.session.color}}>
-                        <If condition={!this.props.settings.playing}>
-                            <div className="button-background" onClick={this.props.playAudio}>
-                                <div className="button-inside">
-                                    <i className="icon-uniE6BB" style={{
+                    <div className="player-button" style={{background: State().settings.session.color}}>
+                        <div className={`button-background ${State().settings.playing? 'isPlaying' : ''}`}
+                             onClick={this.playPause}
+                        >
+                            <div className="button-inside">
+                                <If condition={!State().settings.playing}>
+                                    {/*<i className="icon-uniE6BB" style={{*/}
+                                        {/*fontSize  : '100px',*/}
+                                        {/*marginLeft: '14px',*/}
+                                    {/*}}/>*/}
+                                    <i className="fa fa-play" style={{
                                         fontSize  : '100px',
                                         marginLeft: '14px',
                                     }}/>
-                                </div>
-                            </div>
-                        </If>
+                                </If>
 
-                        <If condition={this.props.settings.playing}>
-                            <div className="button-background" onClick={this.props.pauseAudio}>
-                                <div className="button-inside">
+                                <If condition={State().settings.playing}>
                                     <i className="icon-uniE6B9"/>
-                                </div>
+                                </If>
                             </div>
-                        </If>
+                        </div>
+
+                        {/*<If condition={this.props.settings.playing}>*/}
+                            {/*<div className="button-background" onClick={this.props.pauseAudio}>*/}
+                                {/*<div className="button-inside">*/}
+                                    {/*/!*<i className="icon-uniE6B9"/>*!/*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</If>*/}
                     </div>
 
 

@@ -122,26 +122,37 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+
+        &.isPlaying {
+
+          .button-inside {
+            color: $pinkish-grey;
+            background-color: rgba(255, 255, 255, 0.4);
+          }
+        }
       }
 
       .button-inside {
+
         height: 180px;
         width: 180px;
         border-radius: 200px;
-        background-color: rgba(255, 255, 255, 0.4);
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+        background-color: rgba(255, 255, 255, 1);
+        color: $azure;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         text-align: center;
-        transition: .15s;
+        transition: .5s;
 
-        color: $pinkish-grey;
 
         font-size: 140px;
         cursor: pointer;
+
       }
 
       &:hover {
@@ -155,6 +166,7 @@
 
       &:active {
         .button-inside {
+          transition: .15s;
           transform: scale(0.95);
         }
       }
@@ -207,6 +219,14 @@
       text-align: center;
       color: #f3f3f3;
       margin-top: 10px;
+
+      .not-desktop & {
+        font-size: 16px;
+        text-align: center;
+        color: white;
+        margin-top: 10px;
+        font-weight: 600;
+      }
     }
 
   }

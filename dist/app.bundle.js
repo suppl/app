@@ -62512,6 +62512,15 @@ var Player = function (_React$Component) {
             return n < 10 ? "0" + n : n;
         }
     }, {
+        key: 'playPause',
+        value: function playPause() {
+            if ((0, _dispatch.State)().settings.playing) {
+                (0, _dispatch.Dispatch)({ type: ACTIONS.PAUSE_AUDIO });
+            } else {
+                (0, _dispatch.Dispatch)({ type: ACTIONS.PLAY_AUDIO });
+            }
+        }
+    }, {
         key: 'hideSession',
         value: function hideSession() {
             (0, _dispatch.Dispatch)({ type: ACTIONS.HIDE_AUDIO });
@@ -62558,32 +62567,26 @@ var Player = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'div',
-                        { className: 'player-button', style: { background: this.props.settings.session.color } },
+                        { className: 'player-button', style: { background: (0, _dispatch.State)().settings.session.color } },
                         _react2.default.createElement(
-                            _helper.If,
-                            { condition: !this.props.settings.playing },
+                            'div',
+                            { className: 'button-background ' + ((0, _dispatch.State)().settings.playing ? 'isPlaying' : ''),
+                                onClick: this.playPause
+                            },
                             _react2.default.createElement(
                                 'div',
-                                { className: 'button-background', onClick: this.props.playAudio },
+                                { className: 'button-inside' },
                                 _react2.default.createElement(
-                                    'div',
-                                    { className: 'button-inside' },
-                                    _react2.default.createElement('i', { className: 'icon-uniE6BB', style: {
+                                    _helper.If,
+                                    { condition: !(0, _dispatch.State)().settings.playing },
+                                    _react2.default.createElement('i', { className: 'fa fa-play', style: {
                                             fontSize: '100px',
                                             marginLeft: '14px'
                                         } })
-                                )
-                            )
-                        ),
-                        _react2.default.createElement(
-                            _helper.If,
-                            { condition: this.props.settings.playing },
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'button-background', onClick: this.props.pauseAudio },
+                                ),
                                 _react2.default.createElement(
-                                    'div',
-                                    { className: 'button-inside' },
+                                    _helper.If,
+                                    { condition: (0, _dispatch.State)().settings.playing },
                                     _react2.default.createElement('i', { className: 'icon-uniE6B9' })
                                 )
                             )
@@ -79850,7 +79853,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "@keyframes background-scroll {\n  0% {\n    background-position-y: 0px; }\n  100% {\n    background-position-y: -60000px; } }\n\n.player-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  color: white;\n  display: flex;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .player-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .player-component .player-header {\n    flex: 0 0 60px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .player-component .player-header .header-back {\n      flex: 0 auto;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: white;\n      font-size: 30px;\n      cursor: pointer; }\n    .player-component .player-header .header-name {\n      text-align: center;\n      color: white;\n      font-size: 18px;\n      font-weight: 400;\n      margin: auto; }\n    .player-component .player-header .header-icon {\n      font-size: 24px;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      cursor: pointer; }\n  .player-component .player-content {\n    flex: 1 0 0px;\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n    .player-component .player-content .player-info {\n      flex: 1 0 0px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column; }\n    .player-component .player-content .player-button {\n      border-radius: 200px;\n      width: 200px;\n      height: 200px;\n      background-color: red;\n      margin-bottom: -100px;\n      position: relative;\n      z-index: 10;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      transition: .15s; }\n      .player-component .player-content .player-button .button-background {\n        z-index: 10;\n        width: 200px;\n        height: 200px;\n        border-radius: 200px;\n        background-color: rgba(255, 255, 255, 0.42);\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center; }\n      .player-component .player-content .player-button .button-inside {\n        height: 180px;\n        width: 180px;\n        border-radius: 200px;\n        background-color: rgba(255, 255, 255, 0.4);\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center;\n        transition: .15s;\n        color: #cccccc;\n        font-size: 140px;\n        cursor: pointer; }\n      .player-component .player-content .player-button:hover .button-inside {\n        transform: scale(1.05);\n        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05); }\n      .player-component .player-content .player-button:active .button-inside {\n        transform: scale(0.95); }\n    .player-component .player-content .player-bar {\n      position: relative;\n      width: 100%;\n      height: 280px;\n      background-color: rgba(0, 0, 0, 0.03);\n      z-index: 5; }\n      .player-component .player-content .player-bar .bar-fill {\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        background: rgba(255, 255, 255, 0.3);\n        z-index: 6; }\n    .player-component .player-content .player-time {\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      height: 280px;\n      pointer-events: none;\n      z-index: 6;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 18px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-session {\n      font-size: 18px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-length {\n      font-size: 18px;\n      text-align: center;\n      color: #f3f3f3;\n      margin-top: 10px; }\n", ""]);
+exports.push([module.i, "@keyframes background-scroll {\n  0% {\n    background-position-y: 0px; }\n  100% {\n    background-position-y: -60000px; } }\n\n.player-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  color: white;\n  display: flex;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .player-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .player-component .player-header {\n    flex: 0 0 60px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .player-component .player-header .header-back {\n      flex: 0 auto;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: white;\n      font-size: 30px;\n      cursor: pointer; }\n    .player-component .player-header .header-name {\n      text-align: center;\n      color: white;\n      font-size: 18px;\n      font-weight: 400;\n      margin: auto; }\n    .player-component .player-header .header-icon {\n      font-size: 24px;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      cursor: pointer; }\n  .player-component .player-content {\n    flex: 1 0 0px;\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n    .player-component .player-content .player-info {\n      flex: 1 0 0px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column; }\n    .player-component .player-content .player-button {\n      border-radius: 200px;\n      width: 200px;\n      height: 200px;\n      background-color: red;\n      margin-bottom: -100px;\n      position: relative;\n      z-index: 10;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      transition: .15s; }\n      .player-component .player-content .player-button .button-background {\n        z-index: 10;\n        width: 200px;\n        height: 200px;\n        border-radius: 200px;\n        background-color: rgba(255, 255, 255, 0.42);\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center; }\n        .player-component .player-content .player-button .button-background.isPlaying .button-inside {\n          color: #cccccc;\n          background-color: rgba(255, 255, 255, 0.4); }\n      .player-component .player-content .player-button .button-inside {\n        height: 180px;\n        width: 180px;\n        border-radius: 200px;\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);\n        background-color: white;\n        color: #00a2f2;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center;\n        transition: .5s;\n        font-size: 140px;\n        cursor: pointer; }\n      .player-component .player-content .player-button:hover .button-inside {\n        transform: scale(1.05);\n        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05); }\n      .player-component .player-content .player-button:active .button-inside {\n        transition: .15s;\n        transform: scale(0.95); }\n    .player-component .player-content .player-bar {\n      position: relative;\n      width: 100%;\n      height: 280px;\n      background-color: rgba(0, 0, 0, 0.03);\n      z-index: 5; }\n      .player-component .player-content .player-bar .bar-fill {\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        background: rgba(255, 255, 255, 0.3);\n        z-index: 6; }\n    .player-component .player-content .player-time {\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      height: 280px;\n      pointer-events: none;\n      z-index: 6;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 18px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-session {\n      font-size: 18px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-length {\n      font-size: 18px;\n      text-align: center;\n      color: #f3f3f3;\n      margin-top: 10px; }\n      .not-desktop .player-component .player-content .player-length {\n        font-size: 16px;\n        text-align: center;\n        color: white;\n        margin-top: 10px;\n        font-weight: 600; }\n", ""]);
 
 // exports
 
