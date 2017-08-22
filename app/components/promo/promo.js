@@ -18,7 +18,7 @@ class Sidebar extends React.Component {
 
         const size    = this.props.size;
         const session = _.find(SessionList, {slug: this.props.sessionId});
-        const audio   = _.find(SessionList, {id: this.props.audioId}) || session.audios[0];
+        const audio   = _.find(session.audios, {id: this.props.audioId}) || session.audios[0];
 
         return (
             <div>
@@ -27,9 +27,8 @@ class Sidebar extends React.Component {
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
-                        <div>Day {audio.index} of {session.audios.length}</div>
+                        <div>{audio.name || `Day ${audio.index} of ${session.days || session.audios.length}`}</div>
                         <div className="banner-title" style={{marginLeft: -3}}>{session.name}</div>
-                        {/*<div className="banner-session">{session.description}</div>*/}
                         <div className="banner-butn clickable">
                             <i className="fa fa-play"/>
                             <span>Begin</span>
@@ -45,14 +44,12 @@ class Sidebar extends React.Component {
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
-                        {/*<i className="fa fa-play clickable" onClick={() => this.props.showAudio(session, audio)}/>*/}
                         <div className="flex flex-min">
                             <div className="banner-title">{session.name}</div>
-                            <div>Day {audio.index} of {session.audios.length}</div>
-                            {/*<div className="banner-session">{session.description}</div>*/}
-                            {/*<div className="banner-play clickable">*/}
-                                {/*<i className="fa fa-play "/>*/}
-                            {/*</div>*/}
+                            <div style={{fontWeight:600}}>{session.days > 1
+                                ? `Day ${audio.index} of ${session.days || session.audios.length}`
+                                : `${audio.duration[0]} min${audio.duration[0] == 1 ? '' : 's'}`}
+                            </div>
                         </div>
                     </Link>
                 </If>
@@ -65,7 +62,7 @@ class Sidebar extends React.Component {
                         <i className="fa fa-play clickable"/>
                         <div className="flex flex-min">
                             <div className="banner-title">{session.name}</div>
-                            <div className="banner-session">{session.audios.length} Sessions</div>
+                            <div className="banner-session">{session.days} Sessions</div>
                         </div>
                     </Link>
                 </If>

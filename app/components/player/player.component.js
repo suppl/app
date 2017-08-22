@@ -14,6 +14,17 @@ class Player extends React.Component {
     // getClasses = () => [this.props.settings.audioVisible ? 'active' : ''].join(' ');
 
     componentDidMount() {
+        let that = this;
+        window.addEventListener("popstate", function(e) {
+            console.log('popstate', State().settings);
+            if (that.props.settings.audioVisible) {
+                console.log('popstate audioVisible');
+                e.preventDefault();
+                that.hideSession();
+                return false;
+            }
+        });
+
         setInterval(() => {
             this.duration = this.getDuration();
             this.seek     = this.getSeek();
@@ -71,6 +82,7 @@ class Player extends React.Component {
     }
 
     render() {
+
 
         const audio = State().settings.audio;
         const session = State().settings.session;

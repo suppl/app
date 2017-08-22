@@ -156,6 +156,8 @@
       border: solid 1px $pale-grey;
       color: #ddd;
       border-radius: 100px;
+      background: white;
+      color: $azure;
 
       font-size: 16px;
       height: 40px;
@@ -163,6 +165,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.075);
+
+      &:hover {
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      }
 
       i {
         margin-left: 2px;

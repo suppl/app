@@ -42,20 +42,18 @@ class Sessions extends React.Component {
                                 </div>
 
                                 <div className="thin-heading-2">Foundation</div>
-                                {/*<div className="sub-sub-heading-2" style={{marginTop: 5}}>Each session builds on the one before it.</div>*/}
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={'sitting'}/>
+                                        <Promo size="mid" sessionId={'sitting'} audioId={'sitting-1'}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={'standing'}/>
+                                        <Promo size="mid" sessionId={'standing'} audioId={'standing-1'}/>
                                     </div>
                                 </div>
 
 
                                 <div className="thin-heading-2">Minis</div>
-                                {/*<div className="sub-sub-heading-2" style={{marginTop: 5}}>Too busy? Spend 1 minute focusing on relaigning your body and mind.  </div>*/}
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
@@ -71,41 +69,25 @@ class Sessions extends React.Component {
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
+                                        <Promo size="mid" sessionId={'knee'}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
+                                        <Promo size="mid" sessionId={'wrist'}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][1].slug}/>
-                                    </div>
-                                </div>
-
-                                <div className="flex flex-cols flex-cols-large">
-                                    <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
-                                    </div>
-                                    <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
-                                    </div>
-                                    <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][2].slug}/>
+                                        <Promo size="mid" sessionId={'mindset'}/>
                                     </div>
                                 </div>
 
 
                                 <div className="thin-heading-2">Growth</div>
-                                {/*<div className="sub-sub-heading-2" style={{marginTop: 5}}>Finished with fundamentals? Extend your range and motion and perfect your posture.</div>*/}
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                        <Promo size="mid" sessionId={'extend'}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
-                                    </div>
-                                    <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                        <Promo size="mid" sessionId={'motion'}/>
                                     </div>
                                 </div>
 
