@@ -147,7 +147,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        transition: .15s;
+        transition: .6s;
 
 
         font-size: 140px;
@@ -174,13 +174,13 @@
 
       &:active {
         .button-inside {
-          transition: .5s;
+          transition: .15s;
           transform: scale(0.90);
         }
 
         .not-desktop & {
           .button-inside {
-            transition: .05s;
+            transition: .15s;
             transform: scale(0.90);
           }
         }
