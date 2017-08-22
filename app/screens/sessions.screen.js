@@ -59,13 +59,13 @@ class Sessions extends React.Component {
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                        <Promo size="mid" sessionId={'back'}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                        <Promo size="mid" sessionId={'neck'}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                        <Promo size="mid" sessionId={'shoulders'}/>
                                     </div>
                                 </div>
 

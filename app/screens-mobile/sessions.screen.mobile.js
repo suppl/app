@@ -61,9 +61,9 @@ class SessionsScreenMobile extends React.Component {
                                 <div className="thin-heading-2">Minis</div>
 
                                 <div className="flex">
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
-                                    <Promo size="mid" sessionId={seriesList['Mini Series'][0].slug}/>
+                                    <Promo size="mid" sessionId={'back'}/>
+                                    <Promo size="mid" sessionId={'neck'}/>
+                                    <Promo size="mid" sessionId={'shoulders'}/>
                                 </div>
 
                                 <div className="flex">

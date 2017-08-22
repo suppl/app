@@ -52,7 +52,13 @@ class SessionScreenMobile extends React.Component {
                                     backgroundColor: session.color,
                                 }}>
 
-                                    <div className="session-time">Day 1 of {session.days || session.audios.length}</div>
+                                    <If condition={session.audios.length > 1}>
+                                        <div className="session-time">Day 1 of {session.days || session.audios.length}</div>
+                                    </If>
+                                    <If condition={session.audios.length === 1}>
+                                        <div className="session-time">{session.audios[0].duration[0]}min(s)</div>
+                                    </If>
+
                                     <div className="session-title" style={{marginLeft: -5}}>{session.name}</div>
                                     <div className="session-text">{session.description}</div>
                                     {/*<div className="banner-butn clickable">*/}

@@ -63004,10 +63004,12 @@ var SESSIONS = [{
         NEAT: 100
     }]
 }, {
+    id: "standing",
     slug: "standing",
     name: "Standing",
     category: "Foundation",
     level: 1,
+    days: 5,
     // svgSmall    : "/statics/svg/work series/small/sm-desk-flex.svg",
     // svgLarge    : "/statics/svg/work series/large/lg-sat-down.svg",
     // icon        : "flaticon-desk-chair",
@@ -63019,6 +63021,7 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'standing-1',
+        name: 'Intro',
         index: 1,
         file: '/statics/audio/take-a-seat-lv01-s01.mp3',
         awardsNeeded: [],
@@ -63026,6 +63029,90 @@ var SESSIONS = [{
         audiosNeeded: [],
         duration: '6:31',
         durationSeconds: 6 * 60 + 31,
+        NEAT: 100
+    }]
+}, {
+    id: "back",
+    slug: "back",
+    name: "Back",
+    category: "Minis",
+    level: 1,
+    days: 1,
+    // svgSmall    : "/statics/svg/work series/small/sm-desk-flex.svg",
+    // svgLarge    : "/statics/svg/work series/large/lg-sat-down.svg",
+    // icon        : "flaticon-desk-chair",
+    description: "Arching your back all day? \u2026",
+    caption: "",
+    color: "#ffc3d9",
+    pattern: "/statics/svg/patterns/back.svg",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'back-1',
+        name: 'Mini',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '1:21',
+        durationSeconds: 1 * 60 + 21,
+        NEAT: 100
+    }]
+}, {
+    id: "neck",
+    slug: "neck",
+    name: "Neck",
+    category: "Minis",
+    level: 1,
+    days: 1,
+    // svgSmall    : "/statics/svg/work series/small/sm-desk-flex.svg",
+    // svgLarge    : "/statics/svg/work series/large/lg-sat-down.svg",
+    // icon        : "flaticon-desk-chair",
+    description: "Tilting your neck too often? \u2026 ",
+    caption: "",
+    color: "#ffcdd2",
+    pattern: "/statics/svg/patterns/neck.svg",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'neck-1',
+        name: 'Mini',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '1:21',
+        durationSeconds: 1 * 60 + 21,
+        NEAT: 100
+    }]
+}, {
+    id: "shoulders",
+    slug: "shoulders",
+    name: "Shoulders",
+    category: "Minis",
+    level: 1,
+    days: 1,
+    // svgSmall    : "/statics/svg/work series/small/sm-desk-flex.svg",
+    // svgLarge    : "/statics/svg/work series/large/lg-sat-down.svg",
+    // icon        : "flaticon-desk-chair",
+    description: "Hunching your shoulders all day? \u2026",
+    caption: "",
+    color: "#cae7c8",
+    pattern: "/statics/svg/patterns/neck.svg",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'shoulders-1',
+        name: 'Mini',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '1:21',
+        durationSeconds: 1 * 60 + 21,
         NEAT: 100
     }]
 }, {
@@ -65748,15 +65835,15 @@ var DashboardScreenMobile = function (_React$Component) {
                                         )
                                     )
                                 ),
-                                _react2.default.createElement(_promo2.default, { size: 'large', sessionId: 'desk-flex', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'large', sessionId: 'standing', audioId: 'sat-at-work-01-01' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'thin-heading-2' },
                                     'Your sessions'
                                 ),
-                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'desk-flex', audioId: 'sat-at-work-01-01' }),
-                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sleeping', audioId: 'sat-at-work-01-01' }),
-                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'breathe-easy', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sitting', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck', audioId: 'sat-at-work-01-01' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'thin-heading-2 ' },
@@ -67161,10 +67248,24 @@ var SessionScreenMobile = function (_React$Component) {
                                             backgroundColor: session.color
                                         } },
                                     _react2.default.createElement(
-                                        'div',
-                                        { className: 'session-time' },
-                                        'Day 1 of ',
-                                        session.days || session.audios.length
+                                        _helper.If,
+                                        { condition: session.audios.length > 1 },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'session-time' },
+                                            'Day 1 of ',
+                                            session.days || session.audios.length
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        _helper.If,
+                                        { condition: session.audios.length === 1 },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'session-time' },
+                                            session.audios[0].duration[0],
+                                            'min(s)'
+                                        )
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -67420,9 +67521,9 @@ var SessionsScreenMobile = function (_React$Component) {
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'flex' },
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug })
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'shoulders' })
                                 ),
                                 _react2.default.createElement(
                                     'div',
@@ -71815,9 +71916,24 @@ var SessionScreen = function (_React$Component) {
                                             backgroundColor: session.color
                                         } },
                                     _react2.default.createElement(
-                                        'div',
-                                        { className: 'session-time' },
-                                        'Day 1 of 5'
+                                        _helper.If,
+                                        { condition: session.audios.length > 1 },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'session-time' },
+                                            'Day 1 of ',
+                                            session.days || session.audios.length
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        _helper.If,
+                                        { condition: session.audios.length === 1 },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'session-time' },
+                                            session.audios[0].duration[0],
+                                            'min(s)'
+                                        )
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -71860,8 +71976,7 @@ var SessionScreen = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'div',
                                                 { className: 'audio-title' },
-                                                'Day ',
-                                                audio.index
+                                                audio.name || 'Day ' + audio.index
                                             ),
                                             _react2.default.createElement('div', { style: { margin: 'auto' } }),
                                             _react2.default.createElement(
@@ -72059,17 +72174,17 @@ var Sessions = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back' })
                                     ),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck' })
                                     ),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Mini Series'][0].slug })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'shoulders' })
                                     )
                                 ),
                                 _react2.default.createElement(
