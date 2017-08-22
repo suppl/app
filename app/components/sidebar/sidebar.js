@@ -20,7 +20,7 @@ class Sidebar extends React.Component {
                         <img src="/statics/images/suppl-favicon.png" alt="" style={{height:24}}/>
                     </Link>
                     <Link href="/home" className={`menu-item ${isScreenClass('home')}`}>
-                        <i className="icon-uniE7F1"/>
+                        <i className="icon-uniE85A"/>
                         {/*<span>Home</span>*/}
                     </Link>
 

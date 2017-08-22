@@ -133,8 +133,8 @@ class TeamScreenMobile extends React.Component {
                                 </div>
 
 
-                                <div className="block light flex flex-row">
-                                    <div className="flex flex-justify flex-min" style={{padding: '0 40px'}}>
+                                <div className="block light flex">
+                                    <div className="flex flex-justify flex-min" style={{padding: '40px 0 0'}}>
                                         <div className="invite-flex">
                                             <div className="invite-title">Invite a friend</div>
                                             <div className="invite-text">
@@ -147,24 +147,17 @@ class TeamScreenMobile extends React.Component {
                                         <div className="dashboard-invite">
                                             <div className="invite-icons">
                                                 <img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{
-                                                    marginLeft: -100,
+                                                    marginLeft: -120,
                                                     top       : 40
                                                 }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{
-                                                    marginLeft: -90,
-                                                    top       : 210
-                                                }}/>
                                                 <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
-                                                    marginLeft: 70,
+                                                    marginLeft: 20,
                                                     top       : 50
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/giraffe.svg" style={{
-                                                    marginLeft: 120,
-                                                    top       : 210
                                                 }}/>
                                             </div>
                                         </div>
                                     </div>
+
                                 </div>
 
                             </div>
