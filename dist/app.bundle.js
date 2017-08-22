@@ -23080,7 +23080,7 @@ module.exports = ReactDOMComponentTree;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.isAudioAvailable = exports.getOnboarding = exports.isOnboardingAvailable = exports.isAudioDone = exports.getSessionTime = exports.isSessionAvailable = exports.OnboardingList = exports.SessionList = undefined;
+exports.isAudioAvailable = exports.getOnboarding = exports.isOnboardingAvailable = exports.isAudioDone = exports.getSessionTime = exports.getAudioById = exports.isSessionAvailable = exports.OnboardingList = exports.SessionList = undefined;
 
 var _lodash = __webpack_require__(10);
 
@@ -23113,6 +23113,16 @@ var isSessionAvailable = exports.isSessionAvailable = function isSessionAvailabl
     // }
 
     return flag;
+};
+
+var getAudioById = exports.getAudioById = function getAudioById(sessionId) {
+    for (var session in SessionList) {
+        if (_.find(session.audios, { id: sessionId })) {
+            return _.find(session.audios, { id: sessionId });
+        }
+    };
+
+    return undefined;
 };
 
 var getSessionTime = exports.getSessionTime = function getSessionTime(session) {
@@ -62944,6 +62954,81 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var SESSIONS = [{
+    id: "sitting",
+    slug: "sitting",
+    name: "Sitting",
+    category: "Foundation",
+    level: 1,
+    days: 5,
+    // svgSmall    : "/statics/svg/work series/small/sm-desk-flex.svg",
+    // svgLarge    : "/statics/svg/work series/large/lg-sat-down.svg",
+    // icon        : "flaticon-desk-chair",
+    description: "Tired or hunching in your chair? Learn the basics of good posture whilst seated and start to sit like a superstar.",
+    caption: "",
+    color: "#a2e4eb",
+    pattern: "/statics/svg/patterns/basics.svg",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'sitting-intro',
+        name: 'Intro',
+        index: 0,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '6:31',
+        durationSeconds: 6 * 60 + 31,
+        NEAT: 100
+    }, {
+        id: 'sitting-1',
+        name: 'Day 1',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '6:31',
+        durationSeconds: 6 * 60 + 31,
+        NEAT: 100
+    }, {
+        id: 'sitting-2',
+        name: 'Day 2',
+        index: 2,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: ['sitting-1'],
+        duration: '6:31',
+        durationSeconds: 6 * 60 + 31,
+        NEAT: 100
+    }]
+}, {
+    slug: "standing",
+    name: "Standing",
+    category: "Foundation",
+    level: 1,
+    // svgSmall    : "/statics/svg/work series/small/sm-desk-flex.svg",
+    // svgLarge    : "/statics/svg/work series/large/lg-sat-down.svg",
+    // icon        : "flaticon-desk-chair",
+    description: "Learn how to work without pain or tiredness.",
+    caption: "",
+    color: "#a2e4eb",
+    pattern: "/statics/svg/patterns/basics.svg",
+    awardsNeeded: [],
+    audiosNeeded: [],
+    audios: [{
+        id: 'standing-1',
+        index: 1,
+        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '6:31',
+        durationSeconds: 6 * 60 + 31,
+        NEAT: 100
+    }]
+}, {
     slug: "desk-flex",
     name: "Basics",
     category: "Basics",
@@ -62962,58 +63047,11 @@ var SESSIONS = [{
         index: 1,
         file: '/statics/audio/take-a-seat-lv01-s01.mp3',
         awardsNeeded: [],
-        awardsGiven: ['first-timer'],
+        awardsGiven: [],
         audiosNeeded: [],
         duration: '6:31',
         durationSeconds: 6 * 60 + 31,
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-02',
-        index: 2,
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['sat-at-work-01-01'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-03',
-        index: 3,
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['threedom'],
-        audiosNeeded: ['sat-at-work-01-02'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-04',
-        index: 4,
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: ['sat-at-work-01-03'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
-    }, {
-        id: 'sat-at-work-01-05',
-        index: 5,
-        file: '/statics/audio/jwc-10.mp3',
-        awardsNeeded: [],
-        awardsGiven: ['level-up'],
-        audiosNeeded: ['sat-at-work-01-04'],
-        lungLove: 100,
-        brainBoost: 100,
-        CalsCrushed: 100,
-        alignAce: 100
+        NEAT: 100
     }]
 }, {
     slug: "standing",
@@ -67125,7 +67163,8 @@ var SessionScreenMobile = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'session-time' },
-                                        'Day 1 of 5'
+                                        'Day 1 of ',
+                                        session.days || session.audios.length
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -67168,14 +67207,14 @@ var SessionScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'div',
                                                 { className: 'audio-title' },
-                                                'Day ',
-                                                audio.index
+                                                audio.name || 'Day ' + audio.index
                                             ),
                                             _react2.default.createElement('div', { style: { margin: 'auto' } }),
                                             _react2.default.createElement(
                                                 'div',
                                                 { className: 'audio-time' },
-                                                '3 mins'
+                                                audio.duration[0],
+                                                ' mins'
                                             )
                                         );
                                     })
@@ -67370,8 +67409,8 @@ var SessionsScreenMobile = function (_React$Component) {
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'flex' },
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Basics'][0].slug }),
-                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Basics'][1].slug })
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sitting' }),
+                                    _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing' })
                                 ),
                                 _react2.default.createElement(
                                     'div',
@@ -72001,12 +72040,12 @@ var Sessions = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Basics'][0].slug })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'sitting' })
                                     ),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: seriesList['Basics'][1].slug })
+                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing' })
                                     )
                                 ),
                                 _react2.default.createElement(
