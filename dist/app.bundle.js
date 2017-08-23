@@ -63228,7 +63228,29 @@ var SESSIONS = [{
         id: 'wrist-1',
         name: 'Mini',
         index: 1,
-        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        file: '/statics/audio/wrist/wrist-mini-1.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '1:21',
+        durationSeconds: 1 * 60 + 21,
+        NEAT: 100
+    }, {
+        id: 'wrist-1',
+        name: 'Mini',
+        index: 1,
+        file: '/statics/audio/wrist/wrist-mini-2.m4a',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '1:21',
+        durationSeconds: 1 * 60 + 21,
+        NEAT: 100
+    }, {
+        id: 'wrist-3',
+        name: 'Mini',
+        index: 1,
+        file: '/statics/audio/wrist/wrist-mini-3.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
@@ -63254,13 +63276,13 @@ var SESSIONS = [{
         id: 'mindset-1',
         name: 'Mini',
         index: 1,
-        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        file: '/statics/audio/mindset/mindset-mini.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:21',
-        durationSeconds: 1 * 60 + 21,
-        NEAT: 100
+        duration: '1:51',
+        durationSeconds: 1 * 60 + 51,
+        NEAT: 200
     }]
 }, {
     id: "extend",
