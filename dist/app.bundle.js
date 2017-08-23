@@ -62945,6 +62945,33 @@ var ONBOARDING = [{
             " Now, It helps to plug in your headphones for maximum focus during these sessions."
         )
     }]
+}, {
+    audioId: "standing-intro",
+    screens: [{
+        text: _react2.default.createElement(
+            "div",
+            null,
+            "Pushing your shoulders back and lifting your chest up is a very obvious sign of poor posture!"
+        )
+    }, {
+        text: _react2.default.createElement(
+            "div",
+            null,
+            "This common over-correction creates tension in your neck, destabilises your shoulder joints and is not sustainable.."
+        )
+    }, {
+        text: _react2.default.createElement(
+            "div",
+            null,
+            "Standing comfortably should become a natural sustainable habit, not something forced every so often."
+        )
+    }, {
+        text: _react2.default.createElement(
+            "div",
+            null,
+            " Now, It helps to plug in your headphones for maximum focus during these sessions."
+        )
+    }]
 }];
 
 exports.default = ONBOARDING;
@@ -63075,7 +63102,7 @@ var SESSIONS = [{
         id: 'back-1',
         name: 'Mini',
         index: 1,
-        file: '/statics/audio/back/back-mini.m4a',
+        file: '/statics/audio/back/back-mini-1.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
@@ -63099,15 +63126,26 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'neck-1',
-        name: 'Mini',
+        name: 'Mini-1',
         index: 1,
-        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        file: '/statics/audio/back/neck-mini-1.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:21',
-        durationSeconds: 1 * 60 + 21,
-        NEAT: 100
+        duration: '2:56',
+        durationSeconds: 2 * 60 + 56,
+        NEAT: 300
+    }, {
+        id: 'neck-2',
+        name: 'Mini-2',
+        index: 1,
+        file: '/statics/audio/back/neck-mini-2.m4a',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '3:19',
+        durationSeconds: 3 * 60 + 19,
+        NEAT: 350
     }]
 }, {
     id: "shoulders",
@@ -63125,15 +63163,26 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'shoulders-1',
-        name: 'Mini',
+        name: 'Mini-1',
         index: 1,
-        file: '/statics/audio/take-a-seat-lv01-s01.mp3',
+        file: '/statics/audio/shoulders/shoulders-mini-1.mp3',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:21',
-        durationSeconds: 1 * 60 + 21,
-        NEAT: 100
+        duration: '3:41',
+        durationSeconds: 1 * 60 + 41,
+        NEAT: 350
+    }, {
+        id: 'shoulders-2',
+        name: 'Mini-2',
+        index: 1,
+        file: '/statics/audio/shoulders/shoulders-mini-2.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '3:24',
+        durationSeconds: 3 * 60 + 24,
+        NEAT: 350
     }]
 }, {
     id: "knee",
