@@ -15,13 +15,15 @@ export const SAVE_PROFILE         = 'SAVE_PROFILE';
 export const LOAD_PROFILE         = 'LOAD_PROFILE';
 export const SET_USER_CUSTOM_DATA = 'SET_USER_CUSTOM_DATA';
 
-export const SET_SESSION = 'SET_SESSION';
-export const SHOW_AUDIO  = 'SHOW_SESSION';
-export const HIDE_AUDIO  = 'HIDE_SESSION';
-export const LOAD_AUDIO  = 'LOAD_AUDIO';
-export const PLAY_AUDIO  = 'PLAY_AUDIO';
-export const PAUSE_AUDIO = 'PAUSE_AUDIO';
-export const RESET_AUDIO = 'RESET_AUDIO';
+export const SET_SESSION   = 'SET_SESSION';
+export const SHOW_AUDIO    = 'SHOW_SESSION';
+export const HIDE_AUDIO    = 'HIDE_SESSION';
+export const LOAD_AUDIO    = 'LOAD_AUDIO';
+export const PLAY_AUDIO    = 'PLAY_AUDIO';
+export const PAUSE_AUDIO   = 'PAUSE_AUDIO';
+export const RESET_AUDIO   = 'RESET_AUDIO';
+export const SHOW_COMPLETE = 'SHOW_COMPLETE';
+export const HIDE_COMPLETE = 'HIDE_COMPLETE';
 
 export const HIDE_POPUP                 = 'HIDE_POPUP';
 export const SHOW_POPUP                 = 'SHOW_POPUP';

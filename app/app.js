@@ -47,6 +47,7 @@ import TeamScreenMobile from './screens-mobile/team.screen.mobile';
 import PopupPassword from './components/popup-password/popup-password';
 import PopupStandard from './components/popup-standard/popup-standard';
 import Notification from './components/notification/notification';
+import Complete from './components/complete/complete.component';
 import Player from './components/player/player.component';
 import Loader from './components/loader/loader';
 import Award from './components/award/award';
@@ -105,6 +106,7 @@ class App extends React.Component {
                 <div className={`flex flex-max ${this.styleClasses()}`}>
                     <Notification/>
                     <Player/>
+                    <Complete/>
                     <Loader/>
                     <PopupPassword/>
                     <PopupStandard/>

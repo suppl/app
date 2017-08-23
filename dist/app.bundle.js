@@ -4814,6 +4814,8 @@ var LOAD_AUDIO = exports.LOAD_AUDIO = 'LOAD_AUDIO';
 var PLAY_AUDIO = exports.PLAY_AUDIO = 'PLAY_AUDIO';
 var PAUSE_AUDIO = exports.PAUSE_AUDIO = 'PAUSE_AUDIO';
 var RESET_AUDIO = exports.RESET_AUDIO = 'RESET_AUDIO';
+var SHOW_COMPLETE = exports.SHOW_COMPLETE = 'SHOW_COMPLETE';
+var HIDE_COMPLETE = exports.HIDE_COMPLETE = 'HIDE_COMPLETE';
 
 var HIDE_POPUP = exports.HIDE_POPUP = 'HIDE_POPUP';
 var SHOW_POPUP = exports.SHOW_POPUP = 'SHOW_POPUP';
@@ -26556,6 +26558,10 @@ var _notification = __webpack_require__(364);
 
 var _notification2 = _interopRequireDefault(_notification);
 
+var _complete = __webpack_require__(780);
+
+var _complete2 = _interopRequireDefault(_complete);
+
 var _player = __webpack_require__(366);
 
 var _player2 = _interopRequireDefault(_player);
@@ -26685,6 +26691,7 @@ var App = function (_React$Component) {
                     { className: 'flex flex-max ' + this.styleClasses() },
                     _react2.default.createElement(_notification2.default, null),
                     _react2.default.createElement(_player2.default, null),
+                    _react2.default.createElement(_complete2.default, null),
                     _react2.default.createElement(_loader2.default, null),
                     _react2.default.createElement(_popupPassword2.default, null),
                     _react2.default.createElement(_popupStandard2.default, null),
@@ -63716,20 +63723,15 @@ var giveDone = function () {
                     case 0:
                         user = firebase.auth().currentUser;
 
-                        if (!_.some((0, _dispatch.State)().user.customData.done, { audioId: data.audioId })) {
-                            _context2.next = 3;
-                            break;
-                        }
+                        // if (_.some(State().user.customData.done, {audioId: data.audioId})) return;
 
-                        return _context2.abrupt('return');
-
-                    case 3:
-                        _context2.next = 5;
-                        return firebase.database().ref('users/' + user.uid + '/done').push({
-                            audioId: data.audioId
+                        _context2.next = 3;
+                        return firebase.database().ref('users/' + user.uid + '/done/' + data.audioId).push({
+                            audioId: data.audioId,
+                            date: (0, _moment2.default)().format()
                         });
 
-                    case 5:
+                    case 3:
                     case 'end':
                         return _context2.stop();
                 }
@@ -63754,7 +63756,8 @@ var giveStreak = function () {
                         date = (0, _moment2.default)().format('YYYYMMDD');
                         _context3.next = 5;
                         return firebase.database().ref('users/' + user.uid + '/streak/' + date).push({
-                            audioId: data.audioId
+                            audioId: data.audioId,
+                            date: (0, _moment2.default)().format()
                         });
 
                     case 5:
@@ -64863,7 +64866,8 @@ var initialState = {
     audio: _session2.default[0].audios[0],
     audioVisible: false,
     playing: false,
-    sound: undefined
+    sound: undefined,
+    completeVisible: false
 };
 
 var performAction = (_performAction = {}, _defineProperty(_performAction, ACTIONS.HIDE_AUDIO, function (action, state) {
@@ -64872,6 +64876,10 @@ var performAction = (_performAction = {}, _defineProperty(_performAction, ACTION
     return showAudio(action, state);
 }), _defineProperty(_performAction, ACTIONS.TOGGLE_SETTINGS, function (action, state) {
     return { settingsVisible: !state.settingsVisible };
+}), _defineProperty(_performAction, ACTIONS.SHOW_COMPLETE, function (action, state) {
+    return { completeVisible: true };
+}), _defineProperty(_performAction, ACTIONS.HIDE_COMPLETE, function (action, state) {
+    return { completeVisible: false };
 }), _defineProperty(_performAction, ACTIONS.START_LOADING, function (action, state) {
     return { loaderVisible: true };
 }), _defineProperty(_performAction, ACTIONS.DONE_LOADING, function (action, state) {
@@ -64934,6 +64942,7 @@ var showAudio = function showAudio(action, state) {
     sound.on('end', function () {
         console.log('audio end!');
         (0, _dispatch.Dispatch)(ACTIONS.PAUSE_AUDIO);
+        (0, _dispatch.Dispatch)(ACTIONS.SHOW_COMPLETE);
 
         state.audio.awardsGiven.forEach(function (awardId) {
             return (0, _dispatch.Dispatch)({ type: ACTIONS.GIVE_AWARD, awardId: awardId });
@@ -80043,7 +80052,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "@keyframes background-scroll {\n  0% {\n    background-position-y: 0px; }\n  100% {\n    background-position-y: -60000px; } }\n\n.player-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  color: white;\n  display: flex;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .player-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .player-component .player-header {\n    flex: 0 0 60px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .player-component .player-header .header-back {\n      flex: 0 auto;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: white;\n      font-size: 30px;\n      cursor: pointer; }\n    .player-component .player-header .header-name {\n      text-align: center;\n      color: white;\n      font-size: 20px;\n      font-weight: 400;\n      margin: auto; }\n    .player-component .player-header .header-icon {\n      font-size: 24px;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      cursor: pointer; }\n  .player-component .player-content {\n    flex: 1 0 0px;\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n    .player-component .player-content .player-info {\n      flex: 1 0 0px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column; }\n    .player-component .player-content .player-button {\n      border-radius: 200px;\n      width: 200px;\n      height: 200px;\n      background-color: red;\n      margin-bottom: -100px;\n      position: relative;\n      z-index: 10;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      transition: .15s; }\n      .player-component .player-content .player-button .button-background {\n        z-index: 10;\n        width: 200px;\n        height: 200px;\n        border-radius: 200px;\n        background-color: rgba(255, 255, 255, 0.42);\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center; }\n        .player-component .player-content .player-button .button-background.isPlaying .button-inside {\n          color: #cccccc;\n          background-color: rgba(255, 255, 255, 0.4); }\n      .player-component .player-content .player-button .button-inside {\n        height: 180px;\n        width: 180px;\n        border-radius: 200px;\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);\n        background-color: white;\n        color: #00a2f2;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center;\n        transition: .5s;\n        font-size: 140px;\n        cursor: pointer; }\n      .player-component .player-content .player-button:hover .button-inside {\n        transform: scale(1.05);\n        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05); }\n      .not-desktop .player-component .player-content .player-button:hover .button-inside {\n        transform: scale(1);\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05); }\n      .player-component .player-content .player-button:active .button-inside {\n        transition: .1s;\n        transform: scale(0.9); }\n      .not-desktop .player-component .player-content .player-button:active .button-inside {\n        transition: .1s;\n        transform: scale(0.9); }\n    .player-component .player-content .player-bar {\n      position: relative;\n      width: 100%;\n      height: 280px;\n      background-color: rgba(0, 0, 0, 0.03);\n      z-index: 5; }\n      .player-component .player-content .player-bar .bar-fill {\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        background: rgba(255, 255, 255, 0.5);\n        z-index: 6; }\n    .player-component .player-content .player-time {\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      height: 280px;\n      pointer-events: none;\n      z-index: 6;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 24px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-session {\n      font-size: 22px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-length {\n      font-size: 18px;\n      text-align: center;\n      color: #f3f3f3;\n      margin-top: 10px; }\n      .not-desktop .player-component .player-content .player-length {\n        font-size: 16px;\n        text-align: center;\n        color: white;\n        margin-top: 10px;\n        font-weight: 600; }\n", ""]);
+exports.push([module.i, "@keyframes background-scroll {\n  0% {\n    background-position-y: 0px; }\n  100% {\n    background-position-y: -60000px; } }\n\n.player-component {\n  z-index: 2000;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  color: white;\n  display: flex;\n  flex-direction: column;\n  transition: .4s;\n  opacity: 0;\n  visibility: hidden;\n  transform: scale(1.3); }\n  .player-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: scale(1); }\n  .player-component .player-header {\n    flex: 0 0 60px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center; }\n    .player-component .player-header .header-back {\n      flex: 0 auto;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: white;\n      font-size: 30px;\n      cursor: pointer; }\n    .player-component .player-header .header-name {\n      text-align: center;\n      color: white;\n      font-size: 20px;\n      font-weight: 400;\n      margin: auto; }\n    .player-component .player-header .header-icon {\n      font-size: 24px;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      cursor: pointer; }\n  .player-component .player-content {\n    flex: 1 0 0px;\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n    .player-component .player-content .player-info {\n      flex: 1 0 0px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      flex-direction: column; }\n    .player-component .player-content .player-button {\n      border-radius: 200px;\n      width: 200px;\n      height: 200px;\n      background-color: red;\n      margin-bottom: -100px;\n      position: relative;\n      z-index: 10;\n      display: flex;\n      flex-direction: column;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      transition: .15s; }\n      .player-component .player-content .player-button .button-background {\n        z-index: 10;\n        width: 200px;\n        height: 200px;\n        border-radius: 200px;\n        background-color: rgba(255, 255, 255, 0.42);\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center; }\n        .player-component .player-content .player-button .button-background.isPlaying .button-inside {\n          color: #cccccc;\n          background-color: rgba(255, 255, 255, 0.4); }\n      .player-component .player-content .player-button .button-inside {\n        height: 180px;\n        width: 180px;\n        border-radius: 200px;\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);\n        background-color: white;\n        color: #656f7e;\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        justify-content: center;\n        text-align: center;\n        transition: .5s;\n        font-size: 140px;\n        cursor: pointer; }\n      .player-component .player-content .player-button:hover .button-inside {\n        transform: scale(1.05);\n        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.05); }\n      .not-desktop .player-component .player-content .player-button:hover .button-inside {\n        transform: scale(1);\n        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05); }\n      .player-component .player-content .player-button:active .button-inside {\n        transition: .1s;\n        transform: scale(0.9); }\n      .not-desktop .player-component .player-content .player-button:active .button-inside {\n        transition: .1s;\n        transform: scale(0.9); }\n    .player-component .player-content .player-bar {\n      position: relative;\n      width: 100%;\n      height: 280px;\n      background-color: rgba(0, 0, 0, 0.03);\n      z-index: 5; }\n      .player-component .player-content .player-bar .bar-fill {\n        position: absolute;\n        top: 0;\n        left: 0;\n        bottom: 0;\n        background: rgba(255, 255, 255, 0.5);\n        z-index: 6; }\n    .player-component .player-content .player-time {\n      position: absolute;\n      bottom: 0;\n      left: 0;\n      right: 0;\n      height: 280px;\n      pointer-events: none;\n      z-index: 6;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      font-size: 24px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-session {\n      font-size: 22px;\n      text-align: center;\n      color: #fff; }\n    .player-component .player-content .player-length {\n      font-size: 18px;\n      text-align: center;\n      color: #f3f3f3;\n      margin-top: 10px; }\n      .not-desktop .player-component .player-content .player-length {\n        font-size: 16px;\n        text-align: center;\n        color: white;\n        margin-top: 10px;\n        font-weight: 600; }\n", ""]);
 
 // exports
 
@@ -99824,6 +99833,235 @@ module.exports = __webpack_amd_options__;
 __webpack_require__(361);
 module.exports = __webpack_require__(57);
 
+
+/***/ }),
+/* 780 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _howler = __webpack_require__(630);
+
+var _reactRedux = __webpack_require__(5);
+
+var _moment = __webpack_require__(0);
+
+var moment = _interopRequireWildcard(_moment);
+
+var _actions = __webpack_require__(4);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _helper = __webpack_require__(9);
+
+var _dispatch = __webpack_require__(13);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import {Dispatch, State, Store} from './../services/dispatch.service';
+
+__webpack_require__(782);
+
+var Complete = function (_React$Component) {
+    _inherits(Complete, _React$Component);
+
+    function Complete() {
+        _classCallCheck(this, Complete);
+
+        return _possibleConstructorReturn(this, (Complete.__proto__ || Object.getPrototypeOf(Complete)).apply(this, arguments));
+    }
+
+    _createClass(Complete, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            // setTimeout(() => {
+            // Dispatch({type: ACTIONS.SHOW_COMPLETE})
+            // }, 2000);
+        }
+    }, {
+        key: 'getClasses',
+        value: function getClasses() {
+            return [this.props.settings.completeVisible ? 'active' : ''].join(' ');
+        }
+
+        // hideSession() {
+        //     Dispatch({type: ACTIONS.HIDE_AUDIO});
+        //     Dispatch({type: ACTIONS.PAUSE_AUDIO});
+        // }
+
+    }, {
+        key: 'hideComplete',
+        value: function hideComplete() {
+            (0, _dispatch.Dispatch)({ type: ACTIONS.HIDE_AUDIO });
+            (0, _dispatch.Dispatch)({ type: ACTIONS.HIDE_COMPLETE });
+            // Dispatch({type: ACTIONS.PAUSE_AUDIO});
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            var audio = (0, _dispatch.State)().settings.audio;
+            var session = (0, _dispatch.State)().settings.session;
+
+            return _react2.default.createElement(
+                'div',
+                { className: 'complete-component ' + this.getClasses() },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'complete-top ' + this.getClasses(), style: { backgroundColor: session.color } },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'top-stats' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'top-stat' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'stat-number' },
+                                '+',
+                                audio.NEAT
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'stat-text' },
+                                'Your NEAT score'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'top-stat' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'stat-number' },
+                                (0, _helper.CalcStreak)((0, _dispatch.State)().public.user),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'mini-text' },
+                                    'day'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'stat-text' },
+                                'Run streak'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'top-stat' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'stat-number' },
+                                audio.duration[0],
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'mini-text' },
+                                    'mins'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'stat-text' },
+                                'Realign time'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'complete-bottom ' + this.getClasses() },
+                    _react2.default.createElement('img', { className: 'fist-bump', src: '/statics/svg/session-icon/wrist-icon.svg', alt: '' }),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'fist-bump-text' },
+                        'Flamingo Fist Pump!'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'quote-text' },
+                        '\u201CEveryday is an opportunity to realign yourself\u201D'
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'banner-butn clickable', onClick: this.hideComplete },
+                        'Complete \xA0 ',
+                        _react2.default.createElement('i', { className: 'fa fa-angle-right' })
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Complete;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Complete);
+
+/***/ }),
+/* 781 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(29)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "@keyframes background-scroll {\n  0% {\n    background-position-y: 0px; }\n  100% {\n    background-position-y: -60000px; } }\n\n.complete-component {\n  z-index: 3500;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0;\n  background-color: #fff;\n  display: flex;\n  flex-direction: column;\n  transition: .3s;\n  opacity: 0;\n  visibility: hidden; }\n  .complete-component.active {\n    opacity: 1;\n    visibility: visible; }\n  .complete-component .complete-top {\n    position: absolute;\n    top: 0;\n    left: 0;\n    right: 0;\n    height: 275px;\n    background-color: #a2e4eb;\n    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);\n    z-index: 10;\n    transform: translateY(-100px);\n    opacity: 0;\n    transition: 1.4s;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n    line-height: 1; }\n    .not-desktop .complete-component .complete-top {\n      height: 200px; }\n    .complete-component .complete-top .top-stats {\n      flex: 0 1 600px;\n      display: flex;\n      flex-direction: row;\n      justify-content: space-between;\n      margin: 0 40px; }\n      .not-desktop .complete-component .complete-top .top-stats {\n        margin: 0 40px; }\n    .complete-component .complete-top .top-stat {\n      display: flex;\n      flex-direction: column; }\n      .complete-component .complete-top .top-stat .stat-number {\n        font-size: 50px;\n        line-height: 0.72;\n        text-align: left;\n        color: #fff;\n        display: flex;\n        flex-direction: row;\n        align-items: flex-end;\n        text-align: center;\n        justify-content: center; }\n        .not-desktop .complete-component .complete-top .top-stat .stat-number {\n          font-size: 40px; }\n        .complete-component .complete-top .top-stat .stat-number .mini-text {\n          font-size: 15px;\n          font-weight: 300;\n          margin-left: 2px; }\n          .not-desktop .complete-component .complete-top .top-stat .stat-number .mini-text {\n            font-size: 12px;\n            font-weight: 600; }\n      .complete-component .complete-top .top-stat .stat-text {\n        font-size: 18px;\n        text-align: left;\n        color: #f2f2f2;\n        margin-top: 10px; }\n        .not-desktop .complete-component .complete-top .top-stat .stat-text {\n          font-size: 12px;\n          font-weight: 600; }\n    .complete-component .complete-top.active {\n      transform: translateY(0);\n      opacity: 1;\n      visibility: visible; }\n  .complete-component .complete-bottom {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    right: 0;\n    top: 275px;\n    background: white;\n    padding: 40px;\n    transform: translateY(100px);\n    opacity: 0;\n    transition: 1.4s;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n    .complete-component .complete-bottom.active {\n      transform: translateY(0);\n      opacity: 1;\n      visibility: visible; }\n    .not-desktop .complete-component .complete-bottom {\n      top: 200px; }\n    .not-desktop .complete-component .complete-bottom .fist-bump {\n      height: 100px; }\n    .complete-component .complete-bottom .fist-bump-text {\n      font-size: 15px;\n      text-align: center;\n      color: #cccccc;\n      margin-top: 10px; }\n    .complete-component .complete-bottom .quote-text {\n      font-size: 24px;\n      font-weight: 300;\n      text-align: center;\n      color: #656f7e;\n      margin: 0 20px;\n      margin-top: 15px;\n      max-width: 333px; }\n    .complete-component .complete-bottom .banner-butn {\n      width: 182px;\n      margin-top: 40px;\n      justify-content: center;\n      border: 1px solid #00a2f2;\n      margin-bottom: 20px; }\n  .complete-component .complete-header {\n    flex: 0 0 60px;\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n    color: white; }\n    .complete-component .complete-header .header-back {\n      flex: 0 auto;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      color: white;\n      font-size: 30px;\n      cursor: pointer; }\n    .complete-component .complete-header .header-name {\n      text-align: center;\n      color: white;\n      font-size: 20px;\n      font-weight: 400;\n      margin: auto; }\n    .complete-component .complete-header .header-icon {\n      font-size: 24px;\n      height: 60px;\n      width: 60px;\n      display: flex;\n      align-items: center;\n      justify-content: center;\n      text-align: center;\n      cursor: pointer; }\n  .complete-component .complete-content {\n    flex: 1 0 0px;\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 782 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(781);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// add the styles to the DOM
+var update = __webpack_require__(30)(content, {});
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./complete.component.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./complete.component.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

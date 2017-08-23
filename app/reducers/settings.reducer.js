@@ -13,13 +13,16 @@ const initialState = {
     audio          : SessionList[0].audios[0],
     audioVisible   : false,
     playing        : false,
-    sound          : undefined
+    sound          : undefined,
+    completeVisible: false,
 };
 
 const performAction = {
     [ACTIONS.HIDE_AUDIO]     : (action, state) => hideAudio(action, state),
     [ACTIONS.SHOW_AUDIO]     : (action, state) => showAudio(action, state),
     [ACTIONS.TOGGLE_SETTINGS]: (action, state) => ({settingsVisible: !state.settingsVisible,}),
+    [ACTIONS.SHOW_COMPLETE]  : (action, state) => ({completeVisible: true}),
+    [ACTIONS.HIDE_COMPLETE]  : (action, state) => ({completeVisible: false}),
     [ACTIONS.START_LOADING]  : (action, state) => ({loaderVisible: true,}),
     [ACTIONS.DONE_LOADING]   : (action, state) => ({loaderVisible: false,}),
     [ACTIONS.SET_SESSION]    : (action, state) => ({session: action.session,}),
@@ -77,6 +80,7 @@ const showAudio = (action, state) => {
     sound.on('end', () => {
         console.log('audio end!');
         Dispatch(ACTIONS.PAUSE_AUDIO);
+        Dispatch(ACTIONS.SHOW_COMPLETE);
 
         state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
         Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});

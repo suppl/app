@@ -44,10 +44,11 @@ const giveAward = async (data, state) => {
 const giveDone = async (data, state) => {
     const user = firebase.auth().currentUser;
 
-    if (_.some(State().user.customData.done, {audioId: data.audioId})) return;
+    // if (_.some(State().user.customData.done, {audioId: data.audioId})) return;
 
-    await firebase.database().ref('users/' + user.uid + '/done').push({
-        audioId: data.audioId
+    await firebase.database().ref('users/' + user.uid + '/done/' + data.audioId).push({
+        audioId: data.audioId,
+        date   : moment().format(),
     });
 };
 
@@ -57,7 +58,8 @@ const giveStreak = async (data, state) => {
     const date = moment().format('YYYYMMDD');
 
     await firebase.database().ref('users/' + user.uid + '/streak/' + date).push({
-        audioId: data.audioId
+        audioId: data.audioId,
+        date   : moment().format(),
     });
 };
 
