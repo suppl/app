@@ -5084,7 +5084,7 @@ module.exports = exportsObject;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.If = exports.CalcComplete = exports.CalcStreak = exports.IsTablet = exports.IsMobile = exports.IsDesktop = exports.SetUrl = undefined;
+exports.If = exports.CalcComplete = exports.CalcStreak = exports.CalcTotals = exports.IsTablet = exports.IsMobile = exports.IsDesktop = exports.SetUrl = undefined;
 
 var _react = __webpack_require__(3);
 
@@ -5093,6 +5093,10 @@ var React = _interopRequireWildcard(_react);
 var _moment = __webpack_require__(0);
 
 var _moment2 = _interopRequireDefault(_moment);
+
+var _lodash = __webpack_require__(10);
+
+var _ = _interopRequireWildcard(_lodash);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5118,6 +5122,24 @@ var IsMobile = exports.IsMobile = function IsMobile() {
 
 var IsTablet = exports.IsTablet = function IsTablet() {
     return !IsMobile() && !IsDesktop();
+};
+
+var CalcTotals = exports.CalcTotals = function CalcTotals(user) {
+    var historyItems = Object.values(user.history || {});
+
+    var totals = {
+        NEAT: 0,
+        durationSeconds: 0,
+        durationMinutes: 0
+    };
+
+    _.each(historyItems, function (item) {
+        totals.NEAT += item.NEAT;
+        totals.durationSeconds += item.durationSeconds;
+        totals.durationMinutes += (item.durationSeconds - item.durationSeconds % 60) / 60;
+    });
+
+    return totals;
 };
 
 var CalcStreak = exports.CalcStreak = function CalcStreak(user) {
@@ -27094,6 +27116,10 @@ var _actions = __webpack_require__(4);
 
 var ACTIONS = _interopRequireWildcard(_actions);
 
+var _feed = __webpack_require__(118);
+
+var FEED_ACTIONS = _interopRequireWildcard(_feed);
+
 var _session = __webpack_require__(25);
 
 var _helper = __webpack_require__(9);
@@ -27141,6 +27167,10 @@ var FeedItem = function (_React$Component) {
 
             var feedItem = this.props.feedItem;
 
+            var isAction = function isAction(action) {
+                return feedItem.feedAction == action;
+            };
+
             return _react2.default.createElement(
                 'div',
                 { className: 'activity-box' },
@@ -27148,20 +27178,58 @@ var FeedItem = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'flex ' + ((0, _helper.IsDesktop)() ? 'flex-row flex-align' : '') },
-                    _react2.default.createElement(
-                        _helper.If,
-                        { condition: feedItem.feedAction = 'SIGNED_IN' },
+                    isAction(FEED_ACTIONS.SIGNED_IN) ? _react2.default.createElement(
+                        'div',
+                        { className: 'activity-text' },
                         _react2.default.createElement(
-                            'div',
-                            { className: 'activity-text' },
+                            'strong',
+                            { className: 'linkable' },
+                            this.getUser(feedItem.user).name
+                        ),
+                        ' signed in'
+                    ) : '',
+                    isAction(FEED_ACTIONS.STARTED_AUDIO) ? _react2.default.createElement(
+                        'div',
+                        { className: 'activity-text' },
+                        _react2.default.createElement(
+                            'strong',
+                            { className: 'linkable' },
+                            this.getUser(feedItem.user).name,
+                            ' '
+                        ),
+                        'started session',
+                        _react2.default.createElement(
+                            'strong',
+                            { className: 'linkable' },
                             _react2.default.createElement(
-                                'strong',
-                                { className: 'linkable' },
-                                this.getUser(feedItem.user).name
-                            ),
-                            ' signed in'
+                                _reactRouterComponent.Link,
+                                { href: '/sessions/' + feedItem.details.sessionId },
+                                ' ',
+                                feedItem.details.audioName
+                            )
                         )
-                    ),
+                    ) : '',
+                    isAction(FEED_ACTIONS.COMPLETED_AUDIO) ? _react2.default.createElement(
+                        'div',
+                        { className: 'activity-text' },
+                        _react2.default.createElement(
+                            'strong',
+                            { className: 'linkable' },
+                            this.getUser(feedItem.user).name,
+                            ' '
+                        ),
+                        'completed session',
+                        _react2.default.createElement(
+                            'strong',
+                            { className: 'linkable' },
+                            _react2.default.createElement(
+                                _reactRouterComponent.Link,
+                                { href: '/sessions/' + feedItem.details.sessionId },
+                                ' ',
+                                feedItem.details.audioName
+                            )
+                        )
+                    ) : '',
                     _react2.default.createElement(
                         'div',
                         { className: 'activity-time' },
@@ -41716,8 +41784,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 var SIGNED_IN = exports.SIGNED_IN = 'SIGNED_IN';
 var JOINED_WAITLIST = exports.JOINED_WAITLIST = 'JOINED_WAITLIST';
-var STARTED_SESSION = exports.STARTED_SESSION = 'STARTED_SESSION';
-var FINISHED_SESSION = exports.FINISHED_SESSION = 'FINISHED_SESSION';
+var STARTED_AUDIO = exports.STARTED_AUDIO = 'STARTED_AUDIO';
+var COMPLETED_AUDIO = exports.COMPLETED_AUDIO = 'COMPLETED_AUDIO';
 var EARNED_BADGE = exports.EARNED_BADGE = 'EARNED_BADGE';
 var CHANGED_PROFILE = exports.CHANGED_PROFILE = 'CHANGED_PROFILE';
 var REACTED_TO = exports.REACTED_TO = 'REACTED_TO';
@@ -64885,6 +64953,10 @@ var _session2 = _interopRequireDefault(_session);
 
 var _session3 = __webpack_require__(25);
 
+var _feed = __webpack_require__(118);
+
+var FEED_ACTIONS = _interopRequireWildcard(_feed);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
@@ -64964,6 +65036,15 @@ var playAudio = function playAudio(action, state) {
 
 var showAudio = function showAudio(action, state) {
 
+    (0, _dispatch.Dispatch)({
+        type: ACTIONS.ADD_FEED_ITEM,
+        feedAction: FEED_ACTIONS.STARTED_AUDIO,
+        details: {
+            sessionId: action.session.id,
+            audioName: action.audio.name
+        }
+    });
+
     if ((0, _session3.isOnboardingAvailable)(action.audio)) {
         (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_ONBOARDING });
     }
@@ -64978,12 +65059,21 @@ var showAudio = function showAudio(action, state) {
         (0, _dispatch.Dispatch)(ACTIONS.PAUSE_AUDIO);
         (0, _dispatch.Dispatch)(ACTIONS.SHOW_COMPLETE);
 
+        (0, _dispatch.Dispatch)({
+            type: ACTIONS.ADD_FEED_ITEM,
+            feedAction: FEED_ACTIONS.COMPLETED_AUDIO,
+            details: {
+                sessionId: action.session.id,
+                audioName: action.audio.name
+            }
+        });
+
         state.audio.awardsGiven.forEach(function (awardId) {
             return (0, _dispatch.Dispatch)({ type: ACTIONS.GIVE_AWARD, awardId: awardId });
         });
         (0, _dispatch.Dispatch)({ type: ACTIONS.GIVE_DONE, audioId: action.audio.id });
-        (0, _dispatch.Dispatch)({ type: ACTIONS.GIVE_STREAK, audioId: state.audio.id });
-        (0, _dispatch.Dispatch)({ type: ACTIONS.GIVE_HISTORY, audio: state.audio, session: state.session });
+        (0, _dispatch.Dispatch)({ type: ACTIONS.GIVE_STREAK, audioId: action.audio.id });
+        (0, _dispatch.Dispatch)({ type: ACTIONS.GIVE_HISTORY, audio: action.audio, session: action.session });
     });
 
     return {
@@ -68442,7 +68532,7 @@ var TeamScreenMobile = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'td',
                                                         { className: 'tr-small' },
-                                                        3 * (0, _helper.CalcStreak)(user)
+                                                        (0, _helper.CalcTotals)(user).durationMinutes
                                                     ),
                                                     _react2.default.createElement(
                                                         'td',
@@ -73233,7 +73323,7 @@ var TeamScreen = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'td',
                                                         { className: 'tr-small' },
-                                                        3 * (0, _helper.CalcStreak)(user)
+                                                        (0, _helper.CalcTotals)(user).durationMinutes
                                                     ),
                                                     _react2.default.createElement(
                                                         'td',

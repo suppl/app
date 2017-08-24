@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import HeaderMobile from '../components/header/header.mobile';
 import FooterMobile from '../components/footer/footer.mobile';
 import {SessionList, isAudioAvailable, isAudioDone} from '../services/session.service';
-import {CalcComplete, CalcStreak, SetUrl, If} from '../services/helper.service';
+import {CalcComplete, CalcStreak, CalcTotals, SetUrl, If} from '../services/helper.service';
 import FeedItem from '../components/feed-item/feed-item'
 import {State} from "../services/dispatch.service";
 
@@ -64,7 +64,7 @@ class TeamScreenMobile extends React.Component {
                                             <tr>
                                                 <td className="tr-first">{index}</td>
                                                 <td>{user.name}</td>
-                                                <td className="tr-small">{3 * CalcStreak(user)}</td>
+                                                <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
                                                 <td className="tr-small">{CalcComplete(user)}</td>
                                                 <td className="tr-small">{CalcStreak(user)}</td>
                                                 <td className="tr-small">{CalcStreak(user) ? '+' : ''}{100 * CalcStreak(user)}</td>

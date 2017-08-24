@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcStreak, CalcComplete, SetUrl} from '../services/helper.service';
+import {CalcStreak, CalcComplete, SetUrl, CalcTotals} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -87,7 +87,7 @@ class TeamScreen extends React.Component {
                                         <tr>
                                             <td className="tr-first">{index}</td>
                                             <td>{user.name}</td>
-                                            <td className="tr-small">{3 * CalcStreak(user)}</td>
+                                            <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
                                             <td className="tr-small">{CalcComplete(user)}</td>
                                             <td className="tr-small">{CalcStreak(user)}</td>
                                             <td className="tr-small">{CalcStreak(user) ? '+' : ''}{100 * CalcStreak(user)}</td>

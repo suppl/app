@@ -3,6 +3,7 @@ import * as Request from 'superagent';
 import {Dispatch, State} from './../services/dispatch.service';
 import SessionList from './../services/session.service';
 import {isOnboardingAvailable} from "../services/session.service";
+import * as FEED_ACTIONS from "../constants/feed.constants";
 
 // let timeLoop;
 
@@ -68,6 +69,15 @@ const playAudio = (action, state) => {
 
 const showAudio = (action, state) => {
 
+    Dispatch({
+        type      : ACTIONS.ADD_FEED_ITEM,
+        feedAction: FEED_ACTIONS.STARTED_AUDIO,
+        details   : {
+            sessionId: action.session.id,
+            audioName: action.audio.name,
+        }
+    });
+
     if (isOnboardingAvailable(action.audio)) {
         Dispatch({type: ACTIONS.SHOW_ONBOARDING})
     }
@@ -82,10 +92,19 @@ const showAudio = (action, state) => {
         Dispatch(ACTIONS.PAUSE_AUDIO);
         Dispatch(ACTIONS.SHOW_COMPLETE);
 
+        Dispatch({
+            type      : ACTIONS.ADD_FEED_ITEM,
+            feedAction: FEED_ACTIONS.COMPLETED_AUDIO,
+            details   : {
+                sessionId: action.session.id,
+                audioName: action.audio.name,
+            }
+        });
+
         state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
         Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});
-        Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
-        Dispatch({type: ACTIONS.GIVE_HISTORY, audio: state.audio, session: state.session});
+        Dispatch({type: ACTIONS.GIVE_STREAK, audioId: action.audio.id});
+        Dispatch({type: ACTIONS.GIVE_HISTORY, audio: action.audio, session: action.session});
     });
 
     return {

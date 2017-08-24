@@ -1,5 +1,6 @@
 import * as React from "react";
 import moment from "moment";
+import * as _ from "lodash";
 
 export const SetUrl = (url) => {
     console.log('SetUrl', url);
@@ -14,6 +15,24 @@ export const IsDesktop = () => getWidth() > 900;
 export const IsMobile = () => getWidth() < 600;
 
 export const IsTablet = () => !IsMobile() && !IsDesktop();
+
+export const CalcTotals = (user) => {
+    let historyItems = Object.values(user.history || {});
+
+    let totals = {
+        NEAT           : 0,
+        durationSeconds: 0,
+        durationMinutes: 0,
+    };
+
+    _.each(historyItems, item => {
+        totals.NEAT += item.NEAT;
+        totals.durationSeconds += item.durationSeconds;
+        totals.durationMinutes += ((item.durationSeconds - (item.durationSeconds % 60))  / 60);
+    });
+
+    return totals;
+};
 
 export const CalcStreak = (user) => {
     if (!user.streak) return 0;

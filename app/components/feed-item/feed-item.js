@@ -5,6 +5,7 @@ import Router from 'react-router-component'
 import * as _ from 'lodash';
 
 import * as ACTIONS from '../../constants/actions.constants';
+import * as FEED_ACTIONS from "../../constants/feed.constants";
 import {SessionList, isAudioAvailable} from '../../services/session.service';
 import {SetUrl, If, IsDesktop, IsMobile, IsTablet} from '../../services/helper.service';
 import moment from "moment";
@@ -24,18 +25,36 @@ class FeedItem extends React.Component {
 
         const feedItem = this.props.feedItem;
 
+        const isAction = (action) => feedItem.feedAction == action;
+
         return (
             <div className="activity-box">
                 <div className="activity-image"></div>
 
 
                 <div className={`flex ${IsDesktop() ? 'flex-row flex-align' : ''}`}>
-                    <If condition={feedItem.feedAction = 'SIGNED_IN'}>
+                    {(isAction(FEED_ACTIONS.SIGNED_IN)) ?
                         <div className="activity-text">
                             <strong className="linkable">{this.getUser(feedItem.user).name}</strong> signed in
                             {/*<strong className="linkable"> Day 1 of Basics</strong>*/}
-                        </div>
-                    </If>
+                        </div> : ''
+                    }
+                    {(isAction(FEED_ACTIONS.STARTED_AUDIO)) ?
+                        <div className="activity-text">
+                            <strong className="linkable">{this.getUser(feedItem.user).name} </strong>
+                            started session
+                            <strong className="linkable">
+                                <Link href={`/sessions/${feedItem.details.sessionId}`}> {feedItem.details.audioName}</Link></strong>
+                        </div> : ''
+                    }
+                    {(isAction(FEED_ACTIONS.COMPLETED_AUDIO)) ?
+                        <div className="activity-text">
+                            <strong className="linkable">{this.getUser(feedItem.user).name} </strong>
+                            completed session
+                            <strong className="linkable">
+                                <Link href={`/sessions/${feedItem.details.sessionId}`}> {feedItem.details.audioName}</Link></strong>
+                        </div> : ''
+                    }
 
                     <div className="activity-time"> &nbsp;- {moment(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow()}</div>
                 </div>
