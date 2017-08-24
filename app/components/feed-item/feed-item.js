@@ -29,7 +29,7 @@ class FeedItem extends React.Component {
 
         return (
             <div className="activity-box">
-                <div className="activity-image"></div>
+                {/*<div className="activity-image"></div>*/}
 
 
                 <div className={`flex ${IsDesktop() ? 'flex-row flex-align' : ''}`}>
@@ -58,9 +58,9 @@ class FeedItem extends React.Component {
 
                     <div className="activity-time"> &nbsp;- {moment(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow()}</div>
                 </div>
-                <div style={{margin: 'auto'}}/>
-                <i className="activity-icon clickable likeable icon-uniE7D4"/>
-                <div className="activity-count">0</div>
+                {/*<div style={{margin: 'auto'}}/>*/}
+                {/*<i className="activity-icon clickable likeable icon-uniE7D4"/>*/}
+                {/*<div className="activity-count">0</div>*/}
             </div>
         )
     }

@@ -320,7 +320,7 @@ i {
   }
 
   &:active {
-    color: darken($azure, 5%);
+    color: darken($azure, 5%) !important;
   }
 }
 

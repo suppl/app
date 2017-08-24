@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0 15px;
+  padding: 5px 15px;
 
   font-size: 13px;
   color: #4f617b;
@@ -61,6 +61,15 @@
       text-align: left;
       color: #73839a;
       font-weight: 400;
+
+      .not-desktop & {
+        font-size: 13px;
+        font-weight: 600;
+      }
+    }
+
+    .not-desktop & {
+      font-weight: 400;
     }
   }
 
@@ -69,6 +78,11 @@
     font-size: 13px;
     font-weight: 300;
     color: $warm-grey-two;
+
+    .not-desktop & {
+      font-weight: 400;
+      margin-left: auto;
+    }
   }
 
   .activity-icon {
