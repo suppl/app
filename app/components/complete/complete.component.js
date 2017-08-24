@@ -40,6 +40,10 @@ class Complete extends React.Component {
 
         return (
             <div className={`complete-component ${this.getClasses()}`}>
+                <div className="pyro">
+                    <div className="before"></div>
+                    <div className="after"></div>
+                </div>
 
                 <div className={`complete-top ${this.getClasses()}`} style={{backgroundColor: session.color}}>
 
@@ -78,7 +82,7 @@ class Complete extends React.Component {
 
                 <div className={`complete-bottom ${this.getClasses()}`}>
 
-                    <img className="fist-bump" src="/statics/svg/session-icon/wrist-icon.svg" alt=""/>
+                    <img className="fist-bump" src="/statics/svg/session-icon/fist-pump.svg" alt=""/>
 
                     <div className="fist-bump-text">
                         Flamingo Fist Pump!
