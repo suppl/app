@@ -90,7 +90,7 @@ class TeamScreen extends React.Component {
                                             <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
                                             <td className="tr-small">{CalcComplete(user)}</td>
                                             <td className="tr-small">{CalcStreak(user)}</td>
-                                            <td className="tr-small">{CalcStreak(user) ? '+' : ''}{100 * CalcStreak(user)}</td>
+                                            <td className="tr-small">+{CalcTotals(user).NEAT}</td>
                                         </tr>
                                         )}
                                         </tbody>
