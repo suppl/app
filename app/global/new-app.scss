@@ -242,6 +242,11 @@
       font-weight: 300;
       line-height: 1.2;
 
+      .not-desktop & {
+        margin-right: 0;
+        font-size: 15px;
+      }
+
       .box-logo {
         width: 32px;
         height: 32px;

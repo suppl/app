@@ -13,12 +13,13 @@ import Promo from '../components/promo/promo';
 import Sidebar from '../components/sidebar/sidebar';
 import FeedItem from '../components/feed-item/feed-item'
 import PlayerList from '../components/player-list/player-list.component';
-import Dispatch from '../services/dispatch.service'
+import Dispatch, {State} from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
 import {SetUrl, CalcStreak, CalcComplete} from '../services/helper.service';
 
 import _ from 'lodash';
 import {SessionList} from '../services/session.service';
+import moment from "moment";
 
 
 class JourneyScreenMobile extends React.Component {
@@ -42,6 +43,7 @@ class JourneyScreenMobile extends React.Component {
     }
 
     render() {
+        const historyArray = Object.values(State().public.user.history || {});
 
         const activeStreak = (number) => {
             return number <= CalcStreak(this.props.public.user) ? 'active' : ''
@@ -67,32 +69,17 @@ class JourneyScreenMobile extends React.Component {
                                 </div>
 
                                 <div className="journey-items">
-                                    <div className="journey-item">
-                                        <div className="journey-box">
-                                            <div className="box-logo"></div>
-                                            <div className="box-title">Sitting - </div>
-                                            Day 3
-
-                                            <div className="box-time">3 days ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="journey-item">
-                                        <div className="journey-box">
-                                            <div className="box-logo"></div>
-                                            <div className="box-title">Sitting - </div>
-                                            Day 3
-
-                                            <div className="box-time">3 days ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="journey-item">
-                                        <div className="journey-box">
-                                            <div className="box-logo"></div>
-                                            <div className="box-title">Sitting - </div>
-                                            Day 3
-
-                                            <div className="box-time">3 days ago</div>
-                                        </div>
+                                    <div className="journey-items">
+                                        {_.map(historyArray, (historyItem, index) =>
+                                            <div className="journey-item" key={historyItem.date}>
+                                                <div className="journey-box">
+                                                    <div className="box-logo" style={{background:historyItem.color}}></div>
+                                                    <div className="box-title">{historyItem.sessionName} - </div>
+                                                    {historyItem.audioName}
+                                                    <div className="box-time">{moment(historyItem.date).fromNow()}</div>
+                                                </div>
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 

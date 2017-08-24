@@ -13,13 +13,14 @@ const initialState = {
 };
 
 const performAction = {
-    [ACTIONS.SET_AWARDS] : (data, state) => ({awards: data.awards}),
-    [ACTIONS.HIDE_AWARD] : (data, state) => ({visible: false}),
-    [ACTIONS.GIVE_AWARD] : (data, state) => giveAward(data, state),
-    [ACTIONS.SHOW_AWARD] : (data, state) => showAward(data, state),
-    [ACTIONS.GIVE_DONE]  : (data, state) => giveDone(data, state),
-    [ACTIONS.GIVE_DONE]  : (data, state) => giveStreak(data, state),
-    [ACTIONS.GIVE_STREAK]: (data, state) => giveStreak(data, state),
+    [ACTIONS.SET_AWARDS]  : (data, state) => ({awards: data.awards}),
+    [ACTIONS.HIDE_AWARD]  : (data, state) => ({visible: false}),
+    [ACTIONS.GIVE_AWARD]  : (data, state) => giveAward(data, state),
+    [ACTIONS.SHOW_AWARD]  : (data, state) => showAward(data, state),
+    [ACTIONS.GIVE_DONE]   : (data, state) => giveDone(data, state),
+    [ACTIONS.GIVE_HISTORY]: (data, state) => giveHistory(data, state),
+    // [ACTIONS.GIVE_DONE]  : (data, state) => giveStreak(data, state),
+    [ACTIONS.GIVE_STREAK] : (data, state) => giveStreak(data, state),
 };
 
 const showAward = (data, state) => ({
@@ -34,8 +35,9 @@ const giveAward = async (data, state) => {
 
     if (_.some(State().user.customData.awards, {awardId: data.awardId})) return;
 
-    await firebase.database().ref('users/' + user.uid + '/awards').push({
-        awardId: data.awardId
+    await firebase.database().ref('users/' + user.uid + '/awards/' + data.awardId).set({
+        awardId: data.awardId,
+        date   : moment().format(),
     });
 
     Dispatch({type: ACTIONS.SHOW_AWARD, awardId: data.awardId});
@@ -44,11 +46,25 @@ const giveAward = async (data, state) => {
 const giveDone = async (data, state) => {
     const user = firebase.auth().currentUser;
 
-    // if (_.some(State().user.customData.done, {audioId: data.audioId})) return;
-
-    await firebase.database().ref('users/' + user.uid + '/done/' + data.audioId).push({
+    await firebase.database().ref('users/' + user.uid + '/done/' + data.audioId).set({
         audioId: data.audioId,
         date   : moment().format(),
+    });
+};
+
+const giveHistory = async (data, state) => {
+    const user = firebase.auth().currentUser;
+
+    await firebase.database().ref('users/' + user.uid + '/history').push({
+        color          : data.session.color,
+        sessionName    : data.session.name,
+        sessionId      : data.session.id,
+        audioName      : data.audio.name,
+        audioId        : data.audio.id,
+        NEAT           : data.audio.NEAT,
+        duration       : data.audio.duration,
+        durationSeconds: data.audio.durationSeconds,
+        date           : moment().format(),
     });
 };
 

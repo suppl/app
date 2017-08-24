@@ -11,6 +11,7 @@ import {CalcStreak, SetUrl} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
+import moment from "moment";
 
 class JourneyScreen extends React.Component {
     getAwards() {
@@ -36,6 +37,8 @@ class JourneyScreen extends React.Component {
             return number <= CalcStreak(this.props.public.user) ? 'active' : ''
         };
 
+        const historyArray = Object.values(State().public.user.history || {});
+
         return (
             <div data-screen className={`${this.activeClass}`}>
                 <div className="flex flex-row">
@@ -45,7 +48,7 @@ class JourneyScreen extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
-                                <div className="block light" style={{backgroundImage:`url('/statics/svg/hero/journey-hero.svg')`}}>
+                                <div className="block light" style={{backgroundImage: `url('/statics/svg/hero/journey-hero.svg')`}}>
                                     <div className="flex flex-row flex-between">
                                         <div>
                                             <div className="thin-heading">Journey</div>
@@ -55,33 +58,16 @@ class JourneyScreen extends React.Component {
                                 </div>
 
                                 <div className="journey-items">
-                                    <div className="journey-item">
-                                        <div className="journey-box">
-                                            <div className="box-logo"></div>
-                                            <div className="box-title">Sitting - </div>
-                                            Day 3
-
-                                            <div className="box-time">3 days ago</div>
+                                    {_.map(historyArray, (historyItem, index) =>
+                                        <div className="journey-item" key={historyItem.date}>
+                                            <div className="journey-box">
+                                                <div className="box-logo" style={{background:historyItem.color}}></div>
+                                                <div className="box-title">{historyItem.sessionName} - </div>
+                                                {historyItem.audioName}
+                                                <div className="box-time">{moment(historyItem.date).fromNow()}</div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className="journey-item">
-                                        <div className="journey-box">
-                                            <div className="box-logo"></div>
-                                            <div className="box-title">Sitting - </div>
-                                            Day 3
-
-                                            <div className="box-time">3 days ago</div>
-                                        </div>
-                                    </div>
-                                    <div className="journey-item">
-                                        <div className="journey-box">
-                                            <div className="box-logo"></div>
-                                            <div className="box-title">Sitting - </div>
-                                            Day 3
-
-                                            <div className="box-time">3 days ago</div>
-                                        </div>
-                                    </div>
+                                    )}
                                 </div>
 
 

@@ -57,12 +57,13 @@ class PublicReducer {
                 // console.info('standardUserData', standardUserData);
 
                 let publicData = {
-                    uid   : user.uid,
-                    name  : user.displayName,
-                    awards: standardUserData.awards,
-                    done  : standardUserData.done,
-                    info  : standardUserData.info,
-                    streak: standardUserData.streak,
+                    uid    : user.uid,
+                    name   : user.displayName,
+                    awards : standardUserData.awards,
+                    history: standardUserData.history,
+                    done   : standardUserData.done,
+                    info   : standardUserData.info,
+                    streak : standardUserData.streak,
                 };
 
                 console.error('public data', publicData);

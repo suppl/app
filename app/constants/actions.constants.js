@@ -39,6 +39,7 @@ export const GIVE_AWARD = 'GIVE_AWARD';
 // export const HIDE_AWARD = 'HIDE_AWARD';
 // export const SHOW_AWARD = 'SHOW_AWARD';
 // export const SET_AWARDS = 'SET_AWARDS';
+export const GIVE_HISTORY   = 'GIVE_HISTORY';
 export const GIVE_DONE   = 'GIVE_DONE';
 export const GIVE_STREAK = 'GIVE_STREAK';
 

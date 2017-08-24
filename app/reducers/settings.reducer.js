@@ -55,7 +55,7 @@ const pauseAudio = (action, state) => {
 
 const playAudio = (action, state) => {
     state.sound.play();
-    Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
+    // Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
     // state.sound.once('load', () => {
     // if (!state.sound.)
     // state.sound.play();
@@ -84,6 +84,8 @@ const showAudio = (action, state) => {
 
         state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
         Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});
+        Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
+        Dispatch({type: ACTIONS.GIVE_HISTORY, audio: state.audio, session: state.session});
     });
 
     return {
