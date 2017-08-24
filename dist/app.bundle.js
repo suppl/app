@@ -63153,6 +63153,17 @@ var SESSIONS = [{
         duration: '6:02',
         durationSeconds: 6 * 60 + 2,
         NEAT: 600
+    }, {
+        id: 'standing-2',
+        name: 'Day 2',
+        index: 2,
+        file: '/statics/audio/standing/standing-2.mp3',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '4:55',
+        durationSeconds: 4 * 60 + 55,
+        NEAT: 500
     }]
 }, {
     id: "back",
@@ -63298,37 +63309,37 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'wrist-1',
-        name: 'Mini',
+        name: 'Mini-1',
         index: 1,
         file: '/statics/audio/wrist/wrist-mini-1.mp3',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:21',
-        durationSeconds: 1 * 60 + 21,
-        NEAT: 100
+        duration: '3:03',
+        durationSeconds: 3 * 60 + 3,
+        NEAT: 300
     }, {
         id: 'wrist-1',
-        name: 'Mini',
+        name: 'Mini-2',
         index: 1,
         file: '/statics/audio/wrist/wrist-mini-2.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:21',
-        durationSeconds: 1 * 60 + 21,
-        NEAT: 100
+        duration: '1:26',
+        durationSeconds: 1 * 60 + 26,
+        NEAT: 150
     }, {
         id: 'wrist-3',
-        name: 'Mini',
+        name: 'Mini-3',
         index: 1,
         file: '/statics/audio/wrist/wrist-mini-3.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:21',
-        durationSeconds: 1 * 60 + 21,
-        NEAT: 100
+        duration: '1:32',
+        durationSeconds: 1 * 60 + 32,
+        NEAT: 150
     }]
 }, {
     id: "mindset",
@@ -68605,7 +68616,7 @@ var TeamScreenMobile = function (_React$Component) {
                                         _react2.default.createElement(
                                             'div',
                                             { className: 'stat-text' },
-                                            'Sessions done'
+                                            'Total sessions done'
                                         )
                                     )
                                 ),
@@ -68635,7 +68646,7 @@ var TeamScreenMobile = function (_React$Component) {
                                         _react2.default.createElement(
                                             'div',
                                             { className: 'stat-text' },
-                                            'Realign time'
+                                            'Total realign time'
                                         )
                                     )
                                 ),
@@ -73382,7 +73393,7 @@ var TeamScreen = function (_React$Component) {
                                                 _react2.default.createElement(
                                                     'div',
                                                     { className: 'stat-text' },
-                                                    'Sessions done'
+                                                    'Total sessions done'
                                                 )
                                             )
                                         )
@@ -73416,7 +73427,7 @@ var TeamScreen = function (_React$Component) {
                                                 _react2.default.createElement(
                                                     'div',
                                                     { className: 'stat-text' },
-                                                    'Realign time'
+                                                    'Total realign time'
                                                 )
                                             )
                                         )

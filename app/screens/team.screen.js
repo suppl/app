@@ -129,7 +129,7 @@ class TeamScreen extends React.Component {
                                                     </span>
                                                     <span className="stat-small"></span>
                                                 </div>
-                                                <div className="stat-text">Sessions done</div>
+                                                <div className="stat-text">Total sessions done</div>
                                             </div>
                                         </div>
                                     </div>
@@ -143,7 +143,7 @@ class TeamScreen extends React.Component {
                                                     </span>
                                                     <span className="stat-small"> mins</span>
                                                 </div>
-                                                <div className="stat-text">Realign time</div>
+                                                <div className="stat-text">Total realign time</div>
                                             </div>
                                         </div>
                                     </div>
