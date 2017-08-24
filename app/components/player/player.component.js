@@ -33,7 +33,7 @@ class Player extends React.Component {
         }, 10);
     }
 
-    duration = '0:00';
+    duration = '-:--';
 
     getClasses() {
         return [
@@ -47,13 +47,13 @@ class Player extends React.Component {
     }
 
     getDuration() {
-        if (!this.isSoundLoaded()) return '0:00';
+        if (!this.isSoundLoaded()) return '-:--';
         let duration = moment.duration(this.props.settings.sound.duration(), 'seconds');
         return `${this.pad(duration.minutes())}:${this.pad(duration.seconds())}`;
     }
 
     getSeek() {
-        if (!this.isSoundLoaded()) return '0:00';
+        if (!this.isSoundLoaded()) return '-:--';
         let duration = moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
 
         return `${this.pad(duration.minutes())}:${this.pad(duration.seconds())}`;

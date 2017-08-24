@@ -62523,7 +62523,7 @@ var Player = function (_React$Component) {
             args[_key] = arguments[_key];
         }
 
-        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Player.__proto__ || Object.getPrototypeOf(Player)).call.apply(_ref, [this].concat(args))), _this), _this.duration = '0:00', _temp), _possibleConstructorReturn(_this, _ret);
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Player.__proto__ || Object.getPrototypeOf(Player)).call.apply(_ref, [this].concat(args))), _this), _this.duration = '-:--', _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(Player, [{
@@ -62565,14 +62565,14 @@ var Player = function (_React$Component) {
     }, {
         key: 'getDuration',
         value: function getDuration() {
-            if (!this.isSoundLoaded()) return '0:00';
+            if (!this.isSoundLoaded()) return '-:--';
             var duration = moment.duration(this.props.settings.sound.duration(), 'seconds');
             return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
         }
     }, {
         key: 'getSeek',
         value: function getSeek() {
-            if (!this.isSoundLoaded()) return '0:00';
+            if (!this.isSoundLoaded()) return '-:--';
             var duration = moment.duration(this.props.settings.sound.duration() - this.props.settings.sound.seek(), 'seconds');
 
             return this.pad(duration.minutes()) + ':' + this.pad(duration.seconds());
