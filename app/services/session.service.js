@@ -59,11 +59,11 @@ export const isAudioAvailable = (audio) => {
     console.log('audio', audio);
     let flag = true;
 
-    audio.awardsNeeded.forEach(awardId => {
-        if (!_.some(State().user.customData.awards, {awardId})) {
-            flag = false;
-        }
-    });
+    // audio.awardsNeeded.forEach(awardId => {
+    //     if (!_.some(State().user.customData.awards, {awardId})) {
+    //         flag = false;
+    //     }
+    // });
 
     audio.audiosNeeded.forEach(audioId => {
         if (!_.some(State().user.customData.done, {audioId})) {

@@ -23177,11 +23177,11 @@ var isAudioAvailable = exports.isAudioAvailable = function isAudioAvailable(audi
     console.log('audio', audio);
     var flag = true;
 
-    audio.awardsNeeded.forEach(function (awardId) {
-        if (!_.some((0, _dispatch.State)().user.customData.awards, { awardId: awardId })) {
-            flag = false;
-        }
-    });
+    // audio.awardsNeeded.forEach(awardId => {
+    //     if (!_.some(State().user.customData.awards, {awardId})) {
+    //         flag = false;
+    //     }
+    // });
 
     audio.audiosNeeded.forEach(function (audioId) {
         if (!_.some((0, _dispatch.State)().user.customData.done, { audioId: audioId })) {
@@ -63158,9 +63158,9 @@ var SESSIONS = [{
         name: 'Day 2',
         index: 2,
         file: '/statics/audio/standing/standing-2.mp3',
-        awardsNeeded: ['standing-1'],
+        awardsNeeded: [],
         awardsGiven: ['standing-2'],
-        audiosNeeded: [],
+        audiosNeeded: ['standing-1'],
         duration: '4:55',
         durationSeconds: 4 * 60 + 55,
         NEAT: 500
