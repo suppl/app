@@ -1,4 +1,4 @@
-$particles: 50;
+$particles: 25;
 $width: 500;
 $height: 500;
 
@@ -75,7 +75,7 @@ body {
 
 .pyro {
   z-index: 9000;
-  margin-top: 50vh;
+  margin-top: 35vh;
   pointer-events: none;
 }
 
