@@ -22,13 +22,13 @@
 }
 
 .activity-box {
-  height: 50px;
+  min-height: 50px;
   border-radius: 5px;
   background-color: $white;
   border: solid 1px $pale-grey;
 
 
-  height: 60px;
+  min-height: 60px;
   border-radius: 4px;
   border: solid 1px #f3f3f3;
 
@@ -37,7 +37,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 5px 15px;
+  padding: 10px 15px;
 
   font-size: 13px;
   color: #4f617b;
