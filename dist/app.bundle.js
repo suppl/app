@@ -64744,11 +64744,11 @@ var PublicReducer = function () {
 
                     (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PUBLIC_USER, user: userObject });
 
-                    (0, _dispatch.Dispatch)({
-                        type: ACTIONS.ADD_FEED_ITEM,
-                        feedAction: FEED_ACTIONS.SIGNED_IN,
-                        user: userObject
-                    });
+                    // Dispatch({
+                    //     type      : ACTIONS.ADD_FEED_ITEM,
+                    //     feedAction: FEED_ACTIONS.SIGNED_IN,
+                    //     user      : userObject,
+                    // });
 
                     publicUserRef.update(userObject);
                 });
@@ -66222,7 +66222,8 @@ var DashboardScreenMobile = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        '+500'
+                                        '+',
+                                        (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).NEAT
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -66249,7 +66250,7 @@ var DashboardScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '1'
+                                                (0, _helper.CalcStreak)((0, _dispatch.State)().public.user)
                                             ),
                                             _react2.default.createElement(
                                                 'span',
@@ -66277,14 +66278,14 @@ var DashboardScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '1'
+                                                (0, _helper.CalcComplete)((0, _dispatch.State)().public.user)
                                             ),
                                             _react2.default.createElement('span', { className: 'stat-small' })
                                         ),
                                         _react2.default.createElement(
                                             'div',
                                             { className: 'stat-text' },
-                                            'Sessions done'
+                                            'Session(s) done'
                                         )
                                     )
                                 ),
@@ -66301,7 +66302,7 @@ var DashboardScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '3'
+                                                (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).durationMinutes
                                             ),
                                             _react2.default.createElement(
                                                 'span',
@@ -66805,7 +66806,8 @@ var PerformanceScreenMobile = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        '+500'
+                                        '+',
+                                        (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).NEAT
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -66837,7 +66839,7 @@ var PerformanceScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '1'
+                                                (0, _helper.CalcStreak)((0, _dispatch.State)().public.user)
                                             ),
                                             _react2.default.createElement(
                                                 'span',
@@ -66865,14 +66867,14 @@ var PerformanceScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '1'
+                                                (0, _helper.CalcComplete)((0, _dispatch.State)().public.user)
                                             ),
                                             _react2.default.createElement('span', { className: 'stat-small' })
                                         ),
                                         _react2.default.createElement(
                                             'div',
                                             { className: 'stat-text' },
-                                            'Sessions done'
+                                            'Session(s) done'
                                         )
                                     )
                                 ),
@@ -66889,7 +66891,7 @@ var PerformanceScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '3'
+                                                (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).durationMinutes
                                             ),
                                             _react2.default.createElement(
                                                 'span',
@@ -69696,7 +69698,8 @@ var Dashboard = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        '+500'
+                                        '+',
+                                        (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).NEAT
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -69729,7 +69732,7 @@ var Dashboard = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '1'
+                                                        (0, _helper.CalcStreak)((0, _dispatch.State)().public.user)
                                                     ),
                                                     _react2.default.createElement(
                                                         'span',
@@ -69761,14 +69764,14 @@ var Dashboard = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '1'
+                                                        (0, _helper.CalcComplete)((0, _dispatch.State)().public.user)
                                                     ),
                                                     _react2.default.createElement('span', { className: 'stat-small' })
                                                 ),
                                                 _react2.default.createElement(
                                                     'div',
                                                     { className: 'stat-text' },
-                                                    'Sessions done'
+                                                    'Session(s) done'
                                                 )
                                             )
                                         )
@@ -69789,7 +69792,7 @@ var Dashboard = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '3'
+                                                        (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).durationMinutes
                                                     ),
                                                     _react2.default.createElement(
                                                         'span',
@@ -70251,7 +70254,8 @@ var PerformanceScreen = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        '+500'
+                                        '+',
+                                        (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).NEAT
                                     ),
                                     _react2.default.createElement(
                                         'div',
@@ -70289,7 +70293,7 @@ var PerformanceScreen = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '1'
+                                                        (0, _helper.CalcStreak)((0, _dispatch.State)().public.user)
                                                     ),
                                                     _react2.default.createElement(
                                                         'span',
@@ -70321,14 +70325,14 @@ var PerformanceScreen = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '1'
+                                                        (0, _helper.CalcComplete)((0, _dispatch.State)().public.user)
                                                     ),
                                                     _react2.default.createElement('span', { className: 'stat-small' })
                                                 ),
                                                 _react2.default.createElement(
                                                     'div',
                                                     { className: 'stat-text' },
-                                                    'Sessions done'
+                                                    'Session(s) done'
                                                 )
                                             )
                                         )
@@ -70349,7 +70353,7 @@ var PerformanceScreen = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '3'
+                                                        (0, _helper.CalcTotals)((0, _dispatch.State)().public.user).durationMinutes
                                                     ),
                                                     _react2.default.createElement(
                                                         'span',

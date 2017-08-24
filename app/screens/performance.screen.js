@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcStreak, SetUrl} from '../services/helper.service';
+import {CalcComplete, CalcStreak, CalcTotals, SetUrl} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -57,7 +57,7 @@ class PerformanceScreen extends React.Component {
                                 <div className="thin-heading-2">NEAT job!</div>
 
                                 <div className="neat-banner">
-                                    <div className="neat-score">+500</div>
+                                    <div className="neat-score">+{CalcTotals(State().public.user).NEAT}</div>
                                     <div className="neat-text">Your <strong>NEAT</strong> score</div>
                                 </div>
 
@@ -69,7 +69,7 @@ class PerformanceScreen extends React.Component {
                                             <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>1</span>
+                                                    <span>{CalcStreak(State().public.user)}</span>
                                                     <span className="stat-small"> / day</span>
                                                 </div>
                                                 <div className="stat-text">Run streak</div>
@@ -81,10 +81,10 @@ class PerformanceScreen extends React.Component {
                                             <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>1</span>
+                                                    <span>{CalcComplete(State().public.user)}</span>
                                                     <span className="stat-small"></span>
                                                 </div>
-                                                <div className="stat-text">Sessions done</div>
+                                                <div className="stat-text">Session(s) done</div>
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@ class PerformanceScreen extends React.Component {
                                             <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>3</span>
+                                                    <span>{CalcTotals(State().public.user).durationMinutes}</span>
                                                     <span className="stat-small"> mins</span>
                                                 </div>
                                                 <div className="stat-text">Realign time</div>

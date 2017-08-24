@@ -72,11 +72,11 @@ class PublicReducer {
 
                 Dispatch({type: ACTIONS.SET_PUBLIC_USER, user: userObject});
 
-                Dispatch({
-                    type      : ACTIONS.ADD_FEED_ITEM,
-                    feedAction: FEED_ACTIONS.SIGNED_IN,
-                    user      : userObject,
-                });
+                // Dispatch({
+                //     type      : ACTIONS.ADD_FEED_ITEM,
+                //     feedAction: FEED_ACTIONS.SIGNED_IN,
+                //     user      : userObject,
+                // });
 
                 publicUserRef.update(userObject);
             });
