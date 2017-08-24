@@ -98,33 +98,35 @@ class TeamScreen extends React.Component {
                                 </div>
 
 
-                                <div className="thin-heading-2 ">Your performance</div>
+                                <div className="thin-heading-2 ">Community performance</div>
 
                                 <div className="neat-banner">
-                                    <div className="neat-score">{CalcStreak(this.props.public.user) ? '+' : ''}{100 * CalcStreak(this.props.public.user)}</div>
-                                    <div className="neat-text">Your <strong>NEAT</strong> score</div>
+                                    <div className="neat-score">+{_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).NEAT, 0)}</div>
+                                    <div className="neat-text">Community <strong>NEAT</strong> score</div>
                                 </div>
 
 
                                 <div className="flex flex-cols flex-cols-large">
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"> / day</span>
-                                                </div>
-                                                <div className="stat-text">Run streak</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {/*<div className="flex-col">*/}
+                                        {/*<div className="suppl-stat">*/}
+                                            {/*<img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>*/}
+                                            {/*<div className="flex flex-min">*/}
+                                                {/*<div className="stat-stat">*/}
+                                                    {/*<span>1</span>*/}
+                                                    {/*<span className="stat-small"> / day</span>*/}
+                                                {/*</div>*/}
+                                                {/*<div className="stat-text">Run streak</div>*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
                                     <div className="flex-col">
                                         <div className="suppl-stat">
                                             <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>1</span>
+                                                    <span>
+                                                        {_.reduce(State().public.users, (sum, user) => sum + CalcComplete(user), 0)}
+                                                    </span>
                                                     <span className="stat-small"></span>
                                                 </div>
                                                 <div className="stat-text">Sessions done</div>
@@ -136,7 +138,9 @@ class TeamScreen extends React.Component {
                                             <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>3</span>
+                                                    <span>
+                                                        {_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).durationMinutes, 0)}
+                                                    </span>
                                                     <span className="stat-small"> mins</span>
                                                 </div>
                                                 <div className="stat-text">Realign time</div>

@@ -68558,7 +68558,7 @@ var TeamScreenMobile = function (_React$Component) {
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'thin-heading-2 ' },
-                                    'Your performance'
+                                    'Community performance'
                                 ),
                                 _react2.default.createElement(
                                     'div',
@@ -68566,47 +68566,21 @@ var TeamScreenMobile = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        (0, _helper.CalcStreak)((0, _dispatch.State)().public.user) ? '+' : '',
-                                        100 * (0, _helper.CalcStreak)((0, _dispatch.State)().public.user)
+                                        '+',
+                                        _.reduce((0, _dispatch.State)().public.users, function (sum, user) {
+                                            return sum + (0, _helper.CalcTotals)(user).NEAT;
+                                        }, 0)
                                     ),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-text' },
-                                        'Your ',
+                                        'Community ',
                                         _react2.default.createElement(
                                             'strong',
                                             null,
                                             'NEAT'
                                         ),
                                         ' score'
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'suppl-stat' },
-                                    _react2.default.createElement('img', { src: '/statics/svg/dash/session-streak-icon.svg', className: 'stat-img' }),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'flex flex-min' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stat-stat' },
-                                            _react2.default.createElement(
-                                                'span',
-                                                null,
-                                                '1'
-                                            ),
-                                            _react2.default.createElement(
-                                                'span',
-                                                { className: 'stat-small' },
-                                                ' / day'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'stat-text' },
-                                            'Run streak'
-                                        )
                                     )
                                 ),
                                 _react2.default.createElement(
@@ -68622,7 +68596,9 @@ var TeamScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '1'
+                                                _.reduce((0, _dispatch.State)().public.users, function (sum, user) {
+                                                    return sum + (0, _helper.CalcComplete)(user);
+                                                }, 0)
                                             ),
                                             _react2.default.createElement('span', { className: 'stat-small' })
                                         ),
@@ -68646,7 +68622,9 @@ var TeamScreenMobile = function (_React$Component) {
                                             _react2.default.createElement(
                                                 'span',
                                                 null,
-                                                '3'
+                                                _.reduce((0, _dispatch.State)().public.users, function (sum, user) {
+                                                    return sum + (0, _helper.CalcTotals)(user).durationMinutes;
+                                                }, 0)
                                             ),
                                             _react2.default.createElement(
                                                 'span',
@@ -73351,7 +73329,7 @@ var TeamScreen = function (_React$Component) {
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'thin-heading-2 ' },
-                                    'Your performance'
+                                    'Community performance'
                                 ),
                                 _react2.default.createElement(
                                     'div',
@@ -73359,13 +73337,15 @@ var TeamScreen = function (_React$Component) {
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-score' },
-                                        (0, _helper.CalcStreak)(this.props.public.user) ? '+' : '',
-                                        100 * (0, _helper.CalcStreak)(this.props.public.user)
+                                        '+',
+                                        _.reduce((0, _dispatch.State)().public.users, function (sum, user) {
+                                            return sum + (0, _helper.CalcTotals)(user).NEAT;
+                                        }, 0)
                                     ),
                                     _react2.default.createElement(
                                         'div',
                                         { className: 'neat-text' },
-                                        'Your ',
+                                        'Community ',
                                         _react2.default.createElement(
                                             'strong',
                                             null,
@@ -73383,38 +73363,6 @@ var TeamScreen = function (_React$Component) {
                                         _react2.default.createElement(
                                             'div',
                                             { className: 'suppl-stat' },
-                                            _react2.default.createElement('img', { src: '/statics/svg/dash/session-streak-icon.svg', className: 'stat-img' }),
-                                            _react2.default.createElement(
-                                                'div',
-                                                { className: 'flex flex-min' },
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-stat' },
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        null,
-                                                        '1'
-                                                    ),
-                                                    _react2.default.createElement(
-                                                        'span',
-                                                        { className: 'stat-small' },
-                                                        ' / day'
-                                                    )
-                                                ),
-                                                _react2.default.createElement(
-                                                    'div',
-                                                    { className: 'stat-text' },
-                                                    'Run streak'
-                                                )
-                                            )
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'flex-col' },
-                                        _react2.default.createElement(
-                                            'div',
-                                            { className: 'suppl-stat' },
                                             _react2.default.createElement('img', { src: '/statics/svg/dash/session-complete-icon.svg', className: 'stat-img' }),
                                             _react2.default.createElement(
                                                 'div',
@@ -73425,7 +73373,9 @@ var TeamScreen = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '1'
+                                                        _.reduce((0, _dispatch.State)().public.users, function (sum, user) {
+                                                            return sum + (0, _helper.CalcComplete)(user);
+                                                        }, 0)
                                                     ),
                                                     _react2.default.createElement('span', { className: 'stat-small' })
                                                 ),
@@ -73453,7 +73403,9 @@ var TeamScreen = function (_React$Component) {
                                                     _react2.default.createElement(
                                                         'span',
                                                         null,
-                                                        '3'
+                                                        _.reduce((0, _dispatch.State)().public.users, function (sum, user) {
+                                                            return sum + (0, _helper.CalcTotals)(user).durationMinutes;
+                                                        }, 0)
                                                     ),
                                                     _react2.default.createElement(
                                                         'span',
