@@ -73,8 +73,9 @@ const showAudio = (action, state) => {
         type      : ACTIONS.ADD_FEED_ITEM,
         feedAction: FEED_ACTIONS.STARTED_AUDIO,
         details   : {
-            sessionId: action.session.id,
-            audioName: action.audio.name,
+            sessionId  : action.session.id,
+            sessionName: action.session.name,
+            audioName  : action.audio.name,
         }
     });
 
@@ -96,8 +97,9 @@ const showAudio = (action, state) => {
             type      : ACTIONS.ADD_FEED_ITEM,
             feedAction: FEED_ACTIONS.COMPLETED_AUDIO,
             details   : {
-                sessionId: action.session.id,
-                audioName: action.audio.name,
+                sessionId  : action.session.id,
+                sessionName: action.session.name,
+                audioName  : action.audio.name,
             }
         });
 

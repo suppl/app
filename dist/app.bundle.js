@@ -27205,6 +27205,8 @@ var FeedItem = function (_React$Component) {
                                 _reactRouterComponent.Link,
                                 { href: '/sessions/' + feedItem.details.sessionId },
                                 ' ',
+                                feedItem.details.sessionName,
+                                ' - ',
                                 feedItem.details.audioName
                             )
                         )
@@ -27226,6 +27228,8 @@ var FeedItem = function (_React$Component) {
                                 _reactRouterComponent.Link,
                                 { href: '/sessions/' + feedItem.details.sessionId },
                                 ' ',
+                                feedItem.details.sessionName,
+                                ' - ',
                                 feedItem.details.audioName
                             )
                         )
@@ -65041,6 +65045,7 @@ var showAudio = function showAudio(action, state) {
         feedAction: FEED_ACTIONS.STARTED_AUDIO,
         details: {
             sessionId: action.session.id,
+            sessionName: action.session.name,
             audioName: action.audio.name
         }
     });
@@ -65064,6 +65069,7 @@ var showAudio = function showAudio(action, state) {
             feedAction: FEED_ACTIONS.COMPLETED_AUDIO,
             details: {
                 sessionId: action.session.id,
+                sessionName: action.session.name,
                 audioName: action.audio.name
             }
         });

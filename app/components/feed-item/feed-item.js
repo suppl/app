@@ -44,7 +44,7 @@ class FeedItem extends React.Component {
                             <strong className="linkable">{this.getUser(feedItem.user).name} </strong>
                             started session
                             <strong className="linkable">
-                                <Link href={`/sessions/${feedItem.details.sessionId}`}> {feedItem.details.audioName}</Link></strong>
+                                <Link href={`/sessions/${feedItem.details.sessionId}`}> {feedItem.details.sessionName} - {feedItem.details.audioName}</Link></strong>
                         </div> : ''
                     }
                     {(isAction(FEED_ACTIONS.COMPLETED_AUDIO)) ?
@@ -52,7 +52,7 @@ class FeedItem extends React.Component {
                             <strong className="linkable">{this.getUser(feedItem.user).name} </strong>
                             completed session
                             <strong className="linkable">
-                                <Link href={`/sessions/${feedItem.details.sessionId}`}> {feedItem.details.audioName}</Link></strong>
+                                <Link href={`/sessions/${feedItem.details.sessionId}`}> {feedItem.details.sessionName} - {feedItem.details.audioName}</Link></strong>
                         </div> : ''
                     }
 
