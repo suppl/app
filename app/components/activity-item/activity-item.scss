@@ -1,0 +1,106 @@
+@import "../../global/colors";
+
+.activity-item {
+  border-radius: 4px;
+  background-color: $white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+  border: solid 1px #f3f3f3;
+
+  font-size: 15px;
+  color: #73839a;
+  font-weight: 400;
+
+  .activity-header {
+    height: 10px;
+    background-color: $azure;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .header-overlay {
+      background-color: rgba(255, 255, 255, 0.4);
+      margin-left: auto;
+      width: 75%;
+    }
+  }
+
+  .activity-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .activity-icon {
+    width: 35px;
+    height: 35px;
+    flex: 0 0 35px;
+    background-color: $pale-grey-two;
+    border-radius: 100px;
+  }
+
+  .activity-user {
+    margin-top: 10px;
+  }
+
+  .activity-text {
+    font-size: 13px;
+    font-weight: 300;
+    text-align: left;
+    color: #73839a;
+
+    .activity-strong {
+      font-size: 15px;
+      font-weight: 400;
+    }
+  }
+
+  .activity-dash {
+    height: 1px;
+    background: $pinkish-grey;
+    margin-top: 15px;
+    width: 22px;
+  }
+
+  .activity-time {
+    margin-top: 15px;
+    font-size: 10px;
+    color: #b4becd;
+  }
+
+  .activity-extra {
+    margin-top: 15px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #4f617b;
+
+    vertical-align: middle;
+
+    > div {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+  }
+}
+
+.activity-holder {
+  column-count: 3;
+  column-gap: 60px;
+  margin-top: 10px;
+
+  .not-desktop & {
+    column-count: 1;
+  }
+
+  .activity-panel {
+    break-inside: avoid;
+    padding-top: 10px;
+    padding-bottom: 10px
+  }
+}
