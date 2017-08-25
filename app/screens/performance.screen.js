@@ -13,21 +13,11 @@ import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 
 class PerformanceScreen extends React.Component {
-    getAwards() {
-        if (!this.props.user.customData.awards) return [];
-
-        return _.values(this.props.user.customData.awards).map(award => {
-            return this.props.award.awards[award.awardId]
-        });
-    }
-
     componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
-
-        Dispatch(ACTIONS.HIDE_AUDIO);
     }
 
     render() {

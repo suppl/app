@@ -22,19 +22,28 @@ class ProfileScreen extends React.Component {
         }, 1);
     }
 
+    componentWillUpdate() {
+        $('.content-area').scrollTop(0);
+    }
+
     render() {
-        const feed = _.take(_.sortBy(State().feed.feed, 'time').reverse(), 10);
-        let user   = {};
+        let feed = _.take(_.sortBy(State().feed.feed, 'time').reverse(), 10);
+        let user = {};
 
         if (this.props.profileId) {
-            const publicUserRef = firebase.database().ref(`public/users/${this.props.profileId}`);
+            const userRef  = firebase.database().ref(`public/users/${this.props.profileId}`);
 
-            publicUserRef.on('value', (snapshot) => {
-                user = snapshot.val();
-            });
+            userRef.on('value', (snapshot) => user = snapshot.val());
         } else {
             user = State().public.user;
+
+            firebase.auth().onAuthStateChanged(user => {
+                const feedRef = firebase.database().ref(`feed/`).orderByChild('user').equalTo(user.uid).limitToLast(10);
+                feedRef.on('value', (snapshot) => feed = Object.values(snapshot.val()).reverse());
+                // console.info('FEEEEEDD', feed)
+            });
         }
+
 
         return (
             <div data-screen className={`${this.activeClass}`}>

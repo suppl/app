@@ -27,8 +27,6 @@ class JourneyScreen extends React.Component {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
-
-        Dispatch(ACTIONS.HIDE_AUDIO);
     }
 
     render() {

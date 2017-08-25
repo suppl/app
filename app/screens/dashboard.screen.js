@@ -26,28 +26,10 @@ class Dashboard extends React.Component {
             this.activeClass = 'active';
             this.forceUpdate();
         }, 1);
-
-        const getSession = () => {
-            console.log('this.props._', this.props._);
-            return this.props._ ? _.find(SessionList, {slug: this.props._[0]}) : undefined;
-        };
-
-        if (getSession()) {
-            Dispatch({
-                type   : ACTIONS.SET_SESSION,
-                session: getSession(),
-            });
-        }
     }
 
     render() {
         const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
-
-        const session = this.props.settings.session ? this.props.settings.session : {};
-
-        const getSessionName = () => {
-            return this.props.settings.session ? this.props.settings.session.name : "No Player selected";
-        };
 
         const getUserFirstName = () => {
             return this.props.user.user.displayName ? this.props.user.user.displayName.split(' ')[0] : 'Anonymous';

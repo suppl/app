@@ -9,6 +9,7 @@ import moment from "moment";
 class FeedReducer {
     initialState = {
         feed: [],
+        userFeed: [],
     };
 
     actions = {
@@ -36,7 +37,7 @@ class FeedReducer {
     loadFeed(action, state) {
         const feedRef = firebase.database().ref(`feed`).orderByChild('time').limitToLast(10);
 
-        feedRef.on('value', (snapshot) => {f
+        feedRef.on('value', (snapshot) => {
             if (!snapshot.val()) return;
 
             const feed = Object.values(snapshot.val());

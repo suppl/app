@@ -21,21 +21,11 @@ class TeamScreen extends React.Component {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
-
-        Dispatch(ACTIONS.HIDE_AUDIO);
     }
 
-    getAwards() {
-        if (!this.props.user.customData.awards) return [];
-
-        return _.values(this.props.user.customData.awards).map(award => {
-            return this.props.award.awards[award.awardId]
-        });
-    }
-
-    isOnline(user) {
-        return this.props.public.online[user.uid] !== undefined;
-    }
+    // isOnline(user) {
+    //     return this.props.public.online[user.uid] !== undefined;
+    // }
 
     render() {
         const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();

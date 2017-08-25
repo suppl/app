@@ -125,7 +125,7 @@ a {
   max-width: calc(100vw - 60px);
   min-width: 511px;
 
-  transition: .6s;
+  transition: 0s;
   transform: translateY(-10px);
 }
 
@@ -144,10 +144,12 @@ a {
     [data-content] {
       opacity: 1;
       transform: translateY(0);
+      transition: .6s;
     }
     [data-mobile-content] {
       opacity: 1;
       transform: translateY(0);
+      transition: .6s;
     }
   }
 }

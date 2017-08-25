@@ -27,18 +27,6 @@ class PerformanceScreenMobile extends React.Component {
             this.activeClass = 'active';
             this.forceUpdate();
         }, 1);
-
-        const getSession = () => {
-            console.log('this.props._', this.props._);
-            return this.props._ ? _.find(SessionList, {slug: this.props._[0]}) : undefined;
-        };
-
-        if (getSession()) {
-            Dispatch({
-                type   : ACTIONS.SET_SESSION,
-                session: getSession(),
-            });
-        }
     }
 
     render() {
