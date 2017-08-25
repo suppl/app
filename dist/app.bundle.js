@@ -73743,26 +73743,19 @@ var ProfileScreen = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var feed = _.take(_.sortBy((0, _dispatch.State)().feed.feed, 'time').reverse(), 10);
-            var user = {};
+            var feed = [];
+            var user = this.props.public.user;
+            var profileId = this.props.profileId || this.props.public.user.uid;
 
-            if (this.props.profileId) {
-                var userRef = firebase.database().ref('public/users/' + this.props.profileId);
+            var userRef = firebase.database().ref('public/users/' + profileId);
+            userRef.on('value', function (snapshot) {
+                user = snapshot.val();
 
-                userRef.on('value', function (snapshot) {
-                    return user = snapshot.val();
+                var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(user.uid).limitToLast(5);
+                feedRef.on('value', function (snapshot) {
+                    return feed = Object.values(snapshot.val()).reverse();
                 });
-            } else {
-                user = (0, _dispatch.State)().public.user;
-
-                firebase.auth().onAuthStateChanged(function (user) {
-                    var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(user.uid).limitToLast(10);
-                    feedRef.on('value', function (snapshot) {
-                        return feed = Object.values(snapshot.val()).reverse();
-                    });
-                    // console.info('FEEEEEDD', feed)
-                });
-            }
+            });
 
             return _react2.default.createElement(
                 'div',
@@ -100484,7 +100477,7 @@ if(false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
+/* WEBPACK VAR INJECTION */(function($) {
 
 Object.defineProperty(exports, "__esModule", {
     value: true
@@ -100560,20 +100553,26 @@ var CommunityScreenMobile = function (_React$Component) {
             }, 1);
         }
     }, {
+        key: 'componentWillUpdate',
+        value: function componentWillUpdate() {
+            $('.content-area').scrollTop(0);
+        }
+    }, {
         key: 'render',
         value: function render() {
-            var feed = _.take(_.sortBy((0, _dispatch.State)().feed.feed, 'time').reverse(), 10);
-            var user = {};
+            var feed = [];
+            var user = this.props.public.user;
+            var profileId = this.props.profileId || this.props.public.user.uid;
 
-            if (this.props.profileId) {
-                var publicUserRef = firebase.database().ref('public/users/' + this.props.profileId);
+            var userRef = firebase.database().ref('public/users/' + profileId);
+            userRef.on('value', function (snapshot) {
+                user = snapshot.val();
 
-                publicUserRef.on('value', function (snapshot) {
-                    user = snapshot.val();
+                var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(user.uid).limitToLast(5);
+                feedRef.on('value', function (snapshot) {
+                    return feed = Object.values(snapshot.val()).reverse();
                 });
-            } else {
-                user = (0, _dispatch.State)().public.user;
-            }
+            });
 
             return _react2.default.createElement(
                 'div',
@@ -100738,25 +100737,9 @@ var CommunityScreenMobile = function (_React$Component) {
                                     user.firstName || user.name,
                                     '\'s favourite sessions'
                                 ),
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'flex flex-cols flex-cols-large' },
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing', audioId: 'sat-at-work-01-01' })
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back', audioId: 'sat-at-work-01-01' })
-                                    ),
-                                    _react2.default.createElement(
-                                        'div',
-                                        { className: 'flex-col' },
-                                        _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck', audioId: 'sat-at-work-01-01' })
-                                    )
-                                ),
+                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'standing', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'back', audioId: 'sat-at-work-01-01' }),
+                                _react2.default.createElement(_promo2.default, { size: 'mid', sessionId: 'neck', audioId: 'sat-at-work-01-01' }),
                                 _react2.default.createElement(
                                     'div',
                                     { className: 'thin-heading-2' },
@@ -100804,6 +100787,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CommunityScreenMobile);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(86)))
 
 /***/ })
 /******/ ]);
