@@ -56,14 +56,22 @@ class PublicReducer {
                 let standardUserData = snapshot.val();
                 // console.info('standardUserData', standardUserData);
 
+                let easyName = user.displayName.split(" ")[0]
+                    + " "
+                    + (user.displayName.split(" ")[1] ? user.displayName.split(" ")[1][0].toUpperCase() : "");
+
+                easyName = easyName[0].toUpperCase() + easyName.slice(1);
+
                 let publicData = {
-                    uid    : user.uid,
-                    name   : user.displayName,
-                    awards : standardUserData.awards,
-                    history: standardUserData.history,
-                    done   : standardUserData.done,
-                    info   : standardUserData.info,
-                    streak : standardUserData.streak,
+                    uid      : user.uid,
+                    name     : easyName,
+                    fullName : user.displayName,
+                    firstName: easyName.split(" ")[0],
+                    awards   : standardUserData.awards,
+                    history  : standardUserData.history,
+                    done     : standardUserData.done,
+                    info     : standardUserData.info,
+                    streak   : standardUserData.streak,
                 };
 
                 console.error('public data', publicData);

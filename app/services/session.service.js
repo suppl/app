@@ -26,7 +26,7 @@ export const getAudioById = sessionId => {
         if (_.find(session.audios, {id: sessionId})) {
             return _.find(session.audios, {id: sessionId});
         }
-    };
+    }
 
     return undefined;
 };

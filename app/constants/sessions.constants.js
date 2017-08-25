@@ -109,6 +109,18 @@ const SESSIONS = [
                 durationSeconds: (4 * 60) + 55,
                 NEAT           : 500,
             },
+            {
+                id             : 'standing-3',
+                name           : 'Day 3',
+                index          : 3,
+                file           : '/statics/audio/standing/standing-3.mp3',
+                awardsNeeded   : [],
+                awardsGiven    : ['standing-3'],
+                audiosNeeded   : ['standing-2'],
+                duration       : '4:09',
+                durationSeconds: (4 * 60) + 9,
+                NEAT           : 400,
+            },
         ],
     },
     {

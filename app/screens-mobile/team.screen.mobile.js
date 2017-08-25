@@ -9,6 +9,7 @@ import FooterMobile from '../components/footer/footer.mobile';
 import {SessionList, isAudioAvailable, isAudioDone} from '../services/session.service';
 import {CalcComplete, CalcStreak, CalcTotals, SetUrl, If} from '../services/helper.service';
 import FeedItem from '../components/feed-item/feed-item'
+import ActivityItem from '../components/activity-item/activity-item'
 import {State} from "../services/dispatch.service";
 
 
@@ -23,7 +24,7 @@ class TeamScreenMobile extends React.Component {
     render() {
         const users = _.sortBy(State().public.users, user => CalcStreak(user)).reverse();
 
-        const feed = _.take(_.sortBy(State().feed.feed, 'time').reverse(), 5);
+        const feed = _.take(_.sortBy(State().feed.feed, 'time').reverse(), 10);
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -122,8 +123,8 @@ class TeamScreenMobile extends React.Component {
                                 <div className="block">
                                     <div className="thin-heading-2 ">Recent activity</div>
 
-                                    <div className="activity-boxes">
-                                        {feed.map(feedItem => <FeedItem feedItem={feedItem}/>)}
+                                    <div className="activity-holder">
+                                        {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
                                     </div>
                                 </div>
 

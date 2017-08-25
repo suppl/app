@@ -29,6 +29,7 @@ import ShareScreen from './screens/share.screen';
 import BumpScreen from './screens/bump.screen';
 
 
+import ProfileScreenMobile from './screens-mobile/profile.screen.mobile';
 import PerformanceScreenMobile from './screens-mobile/performance.screen.mobile';
 import JourneyScreenMobile from './screens-mobile/journey.screen.mobile';
 import WaitlistScreenMobile from './screens-mobile/waitlist.screen.mobile';
@@ -130,6 +131,7 @@ class App extends React.Component {
                             <Location path="/dashboard(/*)" handler={DashboardScreen}/>
                             <Location path="/home(/*)" handler={DashboardScreen}/>
                             <Location path="/profile" handler={ProfileScreen}/>
+                            <Location path="/profile/:profileId" handler={ProfileScreen}/>
                             <Location path="/community" handler={TeamScreen}/>
                             <Location path="/team" handler={TeamScreen}/>
                             <Location path="/waitlist" handler={WaitlistScreen}/>
@@ -154,7 +156,8 @@ class App extends React.Component {
                             <Location path="/sessions/:sessionId" handler={SessionScreenMobile}/>
                             <Location path="/dashboard(/*)" handler={DashboardScreenMobile}/>
                             <Location path="/home(/*)" handler={DashboardScreenMobile}/>
-                            <Location path="/profile" handler={CommunityScreenMobile}/>
+                            <Location path="/profile" handler={ProfileScreenMobile}/>
+                            <Location path="/profile/:profileId" handler={ProfileScreenMobile}/>
                             <Location path="/community" handler={TeamScreenMobile}/>
                             <Location path="/team" handler={TeamScreenMobile}/>
                             <Location path="/waitlist" handler={WaitlistScreenMobile}/>

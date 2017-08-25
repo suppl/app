@@ -28,19 +28,19 @@ class FeedItem extends React.Component {
         const isAction = (action) => feedItem.feedAction == action;
 
         return (
-            <div className="activity-box">
-                {/*<div className="activity-image"></div>*/}
+            <div className="feed-box">
+                {/*<div className="feed-image"></div>*/}
 
 
                 <div className={`flex ${IsDesktop() ? 'flex-row flex-align' : ''}`}>
                     {(isAction(FEED_ACTIONS.SIGNED_IN)) ?
-                        <div className="activity-text">
+                        <div className="feed-text">
                             <strong className="linkable">{this.getUser(feedItem.user).name}</strong> signed in
                             {/*<strong className="linkable"> Day 1 of Basics</strong>*/}
                         </div> : ''
                     }
                     {(isAction(FEED_ACTIONS.STARTED_AUDIO)) ?
-                        <div className="activity-text">
+                        <div className="feed-text">
                             <strong className="linkable">{this.getUser(feedItem.user).name} </strong>
                             started session
                             <strong className="linkable">
@@ -48,7 +48,7 @@ class FeedItem extends React.Component {
                         </div> : ''
                     }
                     {(isAction(FEED_ACTIONS.COMPLETED_AUDIO)) ?
-                        <div className="activity-text">
+                        <div className="feed-text">
                             <strong className="linkable">{this.getUser(feedItem.user).name} </strong>
                             completed session
                             <strong className="linkable">
@@ -56,11 +56,11 @@ class FeedItem extends React.Component {
                         </div> : ''
                     }
 
-                    <div className="activity-time"> &nbsp;- {moment(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow()}</div>
+                    <div className="feed-time"> &nbsp;- {moment(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow()}</div>
                 </div>
                 {/*<div style={{margin: 'auto'}}/>*/}
-                {/*<i className="activity-icon clickable likeable icon-uniE7D4"/>*/}
-                {/*<div className="activity-count">0</div>*/}
+                {/*<i className="feed-icon clickable likeable icon-uniE7D4"/>*/}
+                {/*<div className="feed-count">0</div>*/}
             </div>
         )
     }

@@ -12,6 +12,7 @@ import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 import FeedItem from '../components/feed-item/feed-item'
+import ActivityItem from '../components/activity-item/activity-item'
 
 class TeamScreen extends React.Component {
 
@@ -39,7 +40,7 @@ class TeamScreen extends React.Component {
     render() {
         const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
 
-        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
+        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
 
         const getUserFirstName = () => {
             return this.props.user.user.displayName ? this.props.user.user.displayName.split(' ')[0] : 'Anonymous';
@@ -153,8 +154,8 @@ class TeamScreen extends React.Component {
                                 <div className="block">
                                     <div className="thin-heading-2 ">Recent activity</div>
 
-                                    <div className="activity-boxes">
-                                        {feed.map(feedItem => <FeedItem feedItem={feedItem}/>)}
+                                    <div className="activity-holder">
+                                        {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
                                     </div>
                                 </div>
 

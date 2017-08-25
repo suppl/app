@@ -17,11 +17,11 @@
   flex-wrap: wrap;
 }
 
-.activity-boxes {
+.feed-boxes {
   margin-top: 15px;
 }
 
-.activity-box {
+.feed-box {
   min-height: 50px;
   border-radius: 5px;
   background-color: $white;
@@ -43,7 +43,7 @@
   color: #4f617b;
   font-weight: 300;
 
-  .activity-image {
+  .feed-image {
     height: 30px;
     width: 30px;
     border-radius: 100px;
@@ -51,7 +51,7 @@
     margin-right: 15px;
   }
 
-  .activity-text {
+  .feed-text {
     font-size: 13px;
     font-weight: 300;
     color: $warm-grey-two;
@@ -73,7 +73,7 @@
     }
   }
 
-  .activity-time {
+  .feed-time {
     margin-left: 0px;
     font-size: 13px;
     font-weight: 300;
@@ -85,12 +85,12 @@
     }
   }
 
-  .activity-icon {
+  .feed-icon {
     color: $rosa;
     font-size: 15px;
   }
 
-  .activity-count {
+  .feed-count {
     margin-left: 5px;
 
     font-size: 13px;

@@ -10,6 +10,7 @@ import Header from '../components/header/header';
 import Promo from '../components/promo/promo';
 import Sidebar from '../components/sidebar/sidebar';
 import FeedItem from '../components/feed-item/feed-item'
+import ActivityItem from '../components/activity-item/activity-item'
 import PlayerList from '../components/player-list/player-list.component';
 import Dispatch, {State} from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
@@ -40,7 +41,7 @@ class Dashboard extends React.Component {
     }
 
     render() {
-        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
+        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
 
         const session = this.props.settings.session ? this.props.settings.session : {};
 
@@ -144,8 +145,8 @@ class Dashboard extends React.Component {
                                 <div className="block">
                                     <div className="thin-heading-2 ">Recent activity</div>
 
-                                    <div className="activity-boxes">
-                                        {feed.map(feedItem => <FeedItem feedItem={feedItem}/>)}
+                                    <div className="activity-holder">
+                                        {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
                                     </div>
                                 </div>
 

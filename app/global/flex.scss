@@ -59,14 +59,14 @@
   display: flex;
 
   &.flex-cols-large {
-    margin: 0 -40px;
+    margin: 0 -30px;
 
     .not-desktop & {
       margin: 0 -20px;
     }
 
     .flex-col {
-      padding: 0 40px;
+      padding: 0 30px;
 
       .not-desktop & {
         padding: 0 20px;
