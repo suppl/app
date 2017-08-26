@@ -30,7 +30,7 @@ class CommunityScreenMobile extends React.Component {
     componentWillReceiveProps(nextProps) {
         // console.warn('componentWillReceiveProps', nextProps.profileId,  this.props.profileId)
 
-        if (nextProps.profileId != this.props.profileId) {
+        if (nextProps.profileId !== this.props.profileId) {
             $('.content-area').scrollTop(0);
             Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId});
         }

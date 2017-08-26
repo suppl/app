@@ -73741,21 +73741,29 @@ var ProfileScreen = function (_React$Component) {
         value: function componentWillMount() {
             var _this2 = this;
 
+            (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_PROFILE_BY_ID, userId: this.props.profileId });
+
             setTimeout(function () {
                 _this2.activeClass = 'active-screen';
                 _this2.forceUpdate();
             }, 1);
         }
     }, {
-        key: 'componentWillUpdate',
-        value: function componentWillUpdate() {
-            $('.content-area').scrollTop(0);
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            // console.warn('componentWillReceiveProps', nextProps.profileId,  this.props.profileId)
+
+            if (nextProps.profileId !== this.props.profileId) {
+                $('.content-area').scrollTop(0);
+                (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId });
+            }
         }
     }, {
         key: 'render',
         value: function render() {
             var feed = (0, _dispatch.State)().profile.feed;
             var user = (0, _dispatch.State)().profile.user;
+            this.activeClass = user.name ? 'active-screen' : '';
 
             return _react2.default.createElement(
                 'div',
@@ -100559,7 +100567,7 @@ var CommunityScreenMobile = function (_React$Component) {
         value: function componentWillReceiveProps(nextProps) {
             // console.warn('componentWillReceiveProps', nextProps.profileId,  this.props.profileId)
 
-            if (nextProps.profileId != this.props.profileId) {
+            if (nextProps.profileId !== this.props.profileId) {
                 $('.content-area').scrollTop(0);
                 (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId });
             }

@@ -16,21 +16,27 @@ import ActivityItem from '../components/activity-item/activity-item';
 
 class ProfileScreen extends React.Component {
     componentWillMount() {
+        Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: this.props.profileId});
+
         setTimeout(() => {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
-
-
     }
 
-    componentWillUpdate() {
-        $('.content-area').scrollTop(0);
+    componentWillReceiveProps(nextProps) {
+        // console.warn('componentWillReceiveProps', nextProps.profileId,  this.props.profileId)
+
+        if (nextProps.profileId !== this.props.profileId) {
+            $('.content-area').scrollTop(0);
+            Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId});
+        }
     }
 
     render() {
         let feed = State().profile.feed;
         let user = State().profile.user;
+        this.activeClass = user.name ? 'active-screen' : '';
 
         return (
             <div data-screen className={`${this.activeClass}`}>
