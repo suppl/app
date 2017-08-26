@@ -13,30 +13,34 @@ import ActivityItem from '../components/activity-item/activity-item';
 import Promo from '../components/promo/promo';
 
 
+
+
+
+
 class CommunityScreenMobile extends React.Component {
     componentWillMount() {
+        Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: this.props.profileId});
+
         setTimeout(() => {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
     }
 
-    componentWillUpdate() {
-        $('.content-area').scrollTop(0);
+    componentWillReceiveProps(nextProps) {
+        // console.warn('componentWillReceiveProps', nextProps.profileId,  this.props.profileId)
+
+        if (nextProps.profileId != this.props.profileId) {
+            $('.content-area').scrollTop(0);
+            Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId});
+        }
     }
 
     render() {
-        let feed      = [];
-        let user      = this.props.public.user;
-        let profileId = this.props.profileId || this.props.public.user.uid;
 
-        const userRef = firebase.database().ref(`public/users/${profileId}`);
-        userRef.on('value', (snapshot) => {
-            user = snapshot.val();
-
-            const feedRef = firebase.database().ref(`feed/`).orderByChild('user').equalTo(user.uid).limitToLast(5);
-            feedRef.on('value', (snapshot) => feed = Object.values(snapshot.val()).reverse());
-        });
+        let feed = this.props.profile.feed;
+        let user = this.props.profile.user;
+        this.activeClass = user.name ? 'active-screen' : '';
 
         return (
             <div data-screen className={`${this.activeClass}`}>

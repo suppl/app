@@ -19,6 +19,7 @@ export const CreateReducer = (name, reducerClass) => {
         if (!actions[action.type]) return state;
 
         const newState = Object.assign({}, state, actions[action.type](action, state));
+        console.info(`NEW ${name.toUpperCase()} ACTION:`, action.type, action);
         console.info(`NEW ${name.toUpperCase()} STATE:`, action.type, newState);
 
         return newState;

@@ -20,6 +20,8 @@ class ProfileScreen extends React.Component {
             this.activeClass = 'active-screen';
             this.forceUpdate();
         }, 1);
+
+
     }
 
     componentWillUpdate() {
@@ -27,17 +29,8 @@ class ProfileScreen extends React.Component {
     }
 
     render() {
-        let feed = [];
-        let user      = this.props.public.user;
-        let profileId = this.props.profileId || this.props.public.user.uid;
-
-        const userRef = firebase.database().ref(`public/users/${profileId}`);
-        userRef.on('value', (snapshot) => {
-            user = snapshot.val();
-
-            const feedRef = firebase.database().ref(`feed/`).orderByChild('user').equalTo(user.uid).limitToLast(5);
-            feedRef.on('value', (snapshot) => feed = Object.values(snapshot.val()).reverse());
-        });
+        let feed = State().profile.feed;
+        let user = State().profile.user;
 
         return (
             <div data-screen className={`${this.activeClass}`}>

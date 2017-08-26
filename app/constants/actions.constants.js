@@ -15,6 +15,12 @@ export const SAVE_PROFILE         = 'SAVE_PROFILE';
 export const LOAD_PROFILE         = 'LOAD_PROFILE';
 export const SET_USER_CUSTOM_DATA = 'SET_USER_CUSTOM_DATA';
 
+
+export const SET_PROFILE_USER       = 'SET_PROFILE_USER';
+export const SET_PROFILE_FEED       = 'SET_PROFILE_FEED';
+export const LOAD_PROFILE_BY_ID     = 'LOAD_PROFILE_BY_ID';
+export const SET_PROFILE_DEFAULT_ID = 'SET_PROFILE_DEFAULT_ID';
+
 export const SET_SESSION   = 'SET_SESSION';
 export const SHOW_AUDIO    = 'SHOW_SESSION';
 export const HIDE_AUDIO    = 'HIDE_SESSION';
@@ -39,9 +45,9 @@ export const GIVE_AWARD = 'GIVE_AWARD';
 // export const HIDE_AWARD = 'HIDE_AWARD';
 // export const SHOW_AWARD = 'SHOW_AWARD';
 // export const SET_AWARDS = 'SET_AWARDS';
-export const GIVE_HISTORY   = 'GIVE_HISTORY';
-export const GIVE_DONE   = 'GIVE_DONE';
-export const GIVE_STREAK = 'GIVE_STREAK';
+export const GIVE_HISTORY = 'GIVE_HISTORY';
+export const GIVE_DONE    = 'GIVE_DONE';
+export const GIVE_STREAK  = 'GIVE_STREAK';
 
 export const SEND_RESET_PASSWORD_EMAIL   = 'SEND_RESET_PASSWORD_EMAIL';
 export const UPDATE_RESET_PASSWORD_EMAIL = 'UPDATE_RESET_PASSWORD_EMAIL';

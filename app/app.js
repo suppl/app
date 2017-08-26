@@ -66,6 +66,7 @@ import waitlistReducer from './reducers/waitlist.reducer';
 import communityReducer from './reducers/community.reducer';
 import feedReducer from './reducers/feed.reducer';
 import OnboardingReducer from './reducers/onboarding.reducer';
+import ProfileReducer from './reducers/profile.reducer';
 
 
 const reducer = combineReducers({
@@ -80,6 +81,7 @@ const reducer = combineReducers({
     community   : communityReducer,
     feed        : feedReducer,
     onboarding  : OnboardingReducer,
+    profile     : ProfileReducer,
 });
 
 export const store = createStore(reducer);

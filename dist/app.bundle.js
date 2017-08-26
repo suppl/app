@@ -4807,6 +4807,11 @@ var SAVE_PROFILE = exports.SAVE_PROFILE = 'SAVE_PROFILE';
 var LOAD_PROFILE = exports.LOAD_PROFILE = 'LOAD_PROFILE';
 var SET_USER_CUSTOM_DATA = exports.SET_USER_CUSTOM_DATA = 'SET_USER_CUSTOM_DATA';
 
+var SET_PROFILE_USER = exports.SET_PROFILE_USER = 'SET_PROFILE_USER';
+var SET_PROFILE_FEED = exports.SET_PROFILE_FEED = 'SET_PROFILE_FEED';
+var LOAD_PROFILE_BY_ID = exports.LOAD_PROFILE_BY_ID = 'LOAD_PROFILE_BY_ID';
+var SET_PROFILE_DEFAULT_ID = exports.SET_PROFILE_DEFAULT_ID = 'SET_PROFILE_DEFAULT_ID';
+
 var SET_SESSION = exports.SET_SESSION = 'SET_SESSION';
 var SHOW_AUDIO = exports.SHOW_AUDIO = 'SHOW_SESSION';
 var HIDE_AUDIO = exports.HIDE_AUDIO = 'HIDE_SESSION';
@@ -22318,6 +22323,7 @@ var CreateReducer = exports.CreateReducer = function CreateReducer(name, reducer
         if (!actions[action.type]) return state;
 
         var newState = Object.assign({}, state, actions[action.type](action, state));
+        console.info('NEW ' + name.toUpperCase() + ' ACTION:', action.type, action);
         console.info('NEW ' + name.toUpperCase() + ' STATE:', action.type, newState);
 
         return newState;
@@ -26649,6 +26655,10 @@ var _onboarding3 = __webpack_require__(378);
 
 var _onboarding4 = _interopRequireDefault(_onboarding3);
 
+var _profile3 = __webpack_require__(787);
+
+var _profile4 = _interopRequireDefault(_profile3);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -26671,7 +26681,8 @@ var reducer = (0, _redux.combineReducers)({
     waitlist: _waitlist4.default,
     community: _community4.default,
     feed: _feed2.default,
-    onboarding: _onboarding4.default
+    onboarding: _onboarding4.default,
+    profile: _profile4.default
 });
 
 var store = exports.store = (0, _redux.createStore)(reducer);
@@ -73743,19 +73754,8 @@ var ProfileScreen = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-            var feed = [];
-            var user = this.props.public.user;
-            var profileId = this.props.profileId || this.props.public.user.uid;
-
-            var userRef = firebase.database().ref('public/users/' + profileId);
-            userRef.on('value', function (snapshot) {
-                user = snapshot.val();
-
-                var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(user.uid).limitToLast(5);
-                feedRef.on('value', function (snapshot) {
-                    return feed = Object.values(snapshot.val()).reverse();
-                });
-            });
+            var feed = (0, _dispatch.State)().profile.feed;
+            var user = (0, _dispatch.State)().profile.user;
 
             return _react2.default.createElement(
                 'div',
@@ -100547,32 +100547,30 @@ var CommunityScreenMobile = function (_React$Component) {
         value: function componentWillMount() {
             var _this2 = this;
 
+            (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_PROFILE_BY_ID, userId: this.props.profileId });
+
             setTimeout(function () {
                 _this2.activeClass = 'active-screen';
                 _this2.forceUpdate();
             }, 1);
         }
     }, {
-        key: 'componentWillUpdate',
-        value: function componentWillUpdate() {
-            $('.content-area').scrollTop(0);
+        key: 'componentWillReceiveProps',
+        value: function componentWillReceiveProps(nextProps) {
+            // console.warn('componentWillReceiveProps', nextProps.profileId,  this.props.profileId)
+
+            if (nextProps.profileId != this.props.profileId) {
+                $('.content-area').scrollTop(0);
+                (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId });
+            }
         }
     }, {
         key: 'render',
         value: function render() {
-            var feed = [];
-            var user = this.props.public.user;
-            var profileId = this.props.profileId || this.props.public.user.uid;
 
-            var userRef = firebase.database().ref('public/users/' + profileId);
-            userRef.on('value', function (snapshot) {
-                user = snapshot.val();
-
-                var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(user.uid).limitToLast(5);
-                feedRef.on('value', function (snapshot) {
-                    return feed = Object.values(snapshot.val()).reverse();
-                });
-            });
+            var feed = this.props.profile.feed;
+            var user = this.props.profile.user;
+            this.activeClass = user.name ? 'active-screen' : '';
 
             return _react2.default.createElement(
                 'div',
@@ -100788,6 +100786,107 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(CommunityScreenMobile);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(86)))
+
+/***/ }),
+/* 787 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _actions2 = __webpack_require__(4);
+
+var ACTIONS = _interopRequireWildcard(_actions2);
+
+var _superagent = __webpack_require__(55);
+
+var Request = _interopRequireWildcard(_superagent);
+
+var _lodash = __webpack_require__(10);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _dispatch = __webpack_require__(12);
+
+var _session = __webpack_require__(25);
+
+var _session2 = _interopRequireDefault(_session);
+
+var _feed = __webpack_require__(88);
+
+var FEED_ACTIONS = _interopRequireWildcard(_feed);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var ProfileReducer = function () {
+    function ProfileReducer() {
+        var _actions;
+
+        _classCallCheck(this, ProfileReducer);
+
+        this.initialState = {
+            defaultUserId: undefined,
+            user: {},
+            feed: []
+        };
+        this.actions = (_actions = {}, _defineProperty(_actions, ACTIONS.SET_PROFILE_DEFAULT_ID, function (action, state) {
+            return { defaultUserId: action.userId };
+        }), _defineProperty(_actions, ACTIONS.SET_PROFILE_USER, function (action, state) {
+            return { user: action.user };
+        }), _defineProperty(_actions, ACTIONS.SET_PROFILE_FEED, function (action, state) {
+            return { feed: action.feed };
+        }), _defineProperty(_actions, ACTIONS.LOAD_PROFILE_BY_ID, this.loadProfile), _actions);
+
+        this.initProfile();
+    }
+
+    _createClass(ProfileReducer, [{
+        key: 'loadProfile',
+        value: function loadProfile(action, state) {
+            (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PROFILE_USER, user: {} });
+            (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PROFILE_FEED, feed: [] });
+
+            var userId = action.userId || state.defaultUserId;
+            var userRef = firebase.database().ref('public/users/' + userId);
+            userRef.on('value', function (snapshot) {
+                var user = snapshot.val();
+
+                var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(user.uid).limitToLast(10);
+                feedRef.on('value', function (snapshot) {
+                    var feed = Object.values(snapshot.val()).reverse();
+
+                    (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PROFILE_USER, user: user });
+                    (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PROFILE_FEED, feed: feed });
+                });
+            });
+        }
+    }, {
+        key: 'initProfile',
+        value: function initProfile(action, state) {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (!user) return;
+                (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PROFILE_DEFAULT_ID, userId: user.uid });
+                (0, _dispatch.Dispatch)({ type: ACTIONS.LOAD_PROFILE_BY_ID, userId: user.uid });
+            });
+        }
+    }]);
+
+    return ProfileReducer;
+}();
+
+exports.default = (0, _dispatch.CreateReducer)('ProfileReducer', new ProfileReducer());
 
 /***/ })
 /******/ ]);
