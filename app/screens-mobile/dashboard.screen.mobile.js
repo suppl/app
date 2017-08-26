@@ -31,7 +31,7 @@ class DashboardScreenMobile extends React.Component {
     }
 
     render() {
-        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
+        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
 
         const getUserFirstName = () => {
             return this.props.user.user.displayName ? this.props.user.user.displayName.split(' ')[0] : 'Anonymous';

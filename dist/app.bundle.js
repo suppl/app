@@ -69144,7 +69144,7 @@ var DashboardScreenMobile = function (_React$Component) {
         value: function render() {
             var _this3 = this;
 
-            var feed = _lodash2.default.take(_lodash2.default.sortBy(this.props.feed.feed, 'time').reverse(), 10);
+            var feed = _lodash2.default.take(_lodash2.default.sortBy(this.props.feed.feed, 'time').reverse(), 5);
 
             var getUserFirstName = function getUserFirstName() {
                 return _this3.props.user.user.displayName ? _this3.props.user.user.displayName.split(' ')[0] : 'Anonymous';
@@ -100576,7 +100576,7 @@ var CommunityScreenMobile = function (_React$Component) {
         key: 'render',
         value: function render() {
 
-            var feed = this.props.profile.feed;
+            var feed = _.take(this.props.profile.feed, 5);
             var user = this.props.profile.user;
             this.activeClass = user.name ? 'active-screen' : '';
 

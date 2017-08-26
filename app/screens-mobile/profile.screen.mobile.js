@@ -13,10 +13,6 @@ import ActivityItem from '../components/activity-item/activity-item';
 import Promo from '../components/promo/promo';
 
 
-
-
-
-
 class CommunityScreenMobile extends React.Component {
     componentWillMount() {
         Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: this.props.profileId});
@@ -38,7 +34,7 @@ class CommunityScreenMobile extends React.Component {
 
     render() {
 
-        let feed = this.props.profile.feed;
+        let feed = _.take(this.props.profile.feed, 5);
         let user = this.props.profile.user;
         this.activeClass = user.name ? 'active-screen' : '';
 
