@@ -354,10 +354,11 @@
   .main-avatar {
     height: 60px;
     width: 60px;
+    background-color: #eff2f9;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url('/statics/svg/avatar/g-avatar.png');
+    //background-image: url('/statics/svg/avatar/g-avatar.png');
     cursor: pointer;
   }
 
@@ -376,10 +377,11 @@
       margin-top: -30px;
       height: 50px;
       width: 50px;
+      background-color: #eff2f9;
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
-      background-image: url('/statics/svg/avatar/g-avatar.png');
+      //background-image: url('/statics/svg/avatar/g-avatar.png');
       cursor: pointer;
       transition: .3s;
     }
