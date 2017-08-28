@@ -66307,7 +66307,7 @@ var SESSIONS = [{
         id: 'sitting-1',
         name: 'Day 1',
         index: 1,
-        file: '/statics/audio/sitting/sitting-1',
+        file: '/statics/audio/sitting/sitting-1.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
