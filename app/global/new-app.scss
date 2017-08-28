@@ -360,6 +360,7 @@
     background-repeat: no-repeat;
     //background-image: url('/statics/svg/avatar/g-avatar.png');
     cursor: pointer;
+    border-radius:100px;
   }
 
   .other-avatars {
@@ -384,6 +385,7 @@
       //background-image: url('/statics/svg/avatar/g-avatar.png');
       cursor: pointer;
       transition: .3s;
+      border-radius:100px;
     }
 
     &.active {
