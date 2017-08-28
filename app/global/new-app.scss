@@ -400,3 +400,20 @@
 
 }
 
+.suppl-panel {
+
+  .panel-header {
+    height: 60px;
+    border-radius: 4px 4px 0 0;
+    background-color: $pale-grey-five;
+    padding: 10px;
+  }
+
+  .panel-content {
+    padding: 20px;
+    border-radius: 0 0 4px 4px;
+    border: solid 1px $pale-grey-two;
+  }
+
+}
+
