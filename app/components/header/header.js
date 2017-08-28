@@ -6,6 +6,7 @@ import * as ACTIONS from '../../constants/actions.constants';
 import {connect} from "react-redux";
 
 import classNames from 'classnames';
+import {State} from "../../services/dispatch.service";
 
 
 require('./header.scss');
@@ -28,7 +29,10 @@ class Header extends React.Component {
         return (
             <div className="header-component">
                 {/*<div className="suppl-logo">SUPPL</div>*/}
-                <Link className="user-logo" href="/profile">{this.getUserFirstLetter()}</Link>
+                <Link className="user-logo clickable"
+                      href="/profile"
+                      style={{backgroundImage: `url('${State().public.user.avatar}')`}}
+                ></Link>
                 <Link className="user-hello" href="/profile" onClick={this.props.login}>{this.getUserFirstName()}</Link>
                 <div className="header-menu">
                     <div className="menu-item"><i className="flaticon-bell"></i></div>

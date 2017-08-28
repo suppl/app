@@ -36,6 +36,12 @@
     flex: 0 0 35px;
     background-color: $pale-grey-two;
     border-radius: 100px;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/statics/svg/avatar/g-avatar.png');
+    cursor: pointer;
   }
 
   .activity-user {

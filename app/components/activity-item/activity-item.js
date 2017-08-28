@@ -28,6 +28,7 @@ class ActivityItem extends React.Component {
         let color        = '#00A2F2';
         let overlayWidth = '80%';
         let name         = this.getUser(feedItem.user).name;
+        let avatar         = this.getUser(feedItem.user).avatar;
         let text         = undefined;
         let extra        = undefined;
         let time         = moment(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow();
@@ -47,7 +48,7 @@ class ActivityItem extends React.Component {
             },
             [FEED_ACTIONS.COMPLETED_AUDIO]: () => {
                 color        = _.find(SessionList, {id: feedItem.details.sessionId}).color;
-                overlayWidth = '100%';
+                overlayWidth = '0%';
                 extra        = <div><img src="/statics/svg/icons/woohoo.svg" alt=""/> Woohoo!</div>;
                 text         = <div>
                     completed
@@ -66,7 +67,7 @@ class ActivityItem extends React.Component {
                     </div>
 
                     <div className="activity-content">
-                        <div className="activity-icon"></div>
+                        <Link className="activity-icon" href={`/profile/${feedItem.user}`} style={{backgroundImage: `url('${avatar}')`}}/>
                         <Link className="activity-user" href={`/profile/${feedItem.user}`}>{name}</Link>
                         <div className="activity-text">{text}</div>
                         <div className="activity-dash"/>

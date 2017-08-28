@@ -13,11 +13,11 @@
   border-bottom: solid 1px $pale-grey;
 
   .user-logo {
-    height: 27px;
-    width: 27px;
+    height: 40px;
+    width: 40px;
     min-width: 27px;
     border-radius: 100%;
-    background: #78e1d2;
+    //background: #78e1d2;
 
     display: flex;
     justify-content: center;
@@ -32,10 +32,16 @@
     transition: .15s;
     text-decoration: none;
 
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('/statics/svg/avatar/g-avatar.png');
+    cursor: pointer;
+
     .not-desktop & {
-      height: 30px;
-      width: 30px;
-      min-width: 30px;
+      height: 35px;
+      width: 35px;
+      min-width: 35px;
     }
 
     &:hover, &:focus {

@@ -50,7 +50,7 @@ class PublicReducer {
             standardUserRef.on('value', (snapshot) => {
                 if (!snapshot.val()) {
                     publicUserRef.update({name: user.displayName});
-                    return;
+                    return;a
                 }
 
                 let standardUserData = snapshot.val();
@@ -67,6 +67,7 @@ class PublicReducer {
                     name     : easyName,
                     fullName : user.displayName,
                     firstName: easyName.split(" ")[0],
+                    avatar   : standardUserData.avatar || '/statics/svg/avatars/bird.png',
                     awards   : standardUserData.awards,
                     history  : standardUserData.history,
                     done     : standardUserData.done,

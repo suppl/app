@@ -16,16 +16,9 @@ import Promo from '../components/promo/promo';
 class CommunityScreenMobile extends React.Component {
     componentWillMount() {
         Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: this.props.profileId});
-
-        setTimeout(() => {
-            this.activeClass = 'active-screen';
-            this.forceUpdate();
-        }, 1);
     }
 
     componentWillReceiveProps(nextProps) {
-        // console.warn('componentWillReceiveProps', nextProps.profileId,  this.props.profileId)
-
         if (nextProps.profileId !== this.props.profileId) {
             $('.content-area').scrollTop(0);
             Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId});
@@ -33,10 +26,21 @@ class CommunityScreenMobile extends React.Component {
     }
 
     render() {
+        const avatarUrls = [
+            '/statics/svg/avatars/bird.svg',
+            '/statics/svg/avatars/croc.svg',
+            '/statics/svg/avatars/flamingo.svg',
+            '/statics/svg/avatars/giraffe.svg',
+            '/statics/svg/avatars/hippo.svg',
+        ];
 
         let feed = _.take(this.props.profile.feed, 5);
         let user = this.props.profile.user;
+
         this.activeClass = user.name ? 'active-screen' : '';
+
+        const toggleAvatars = () => Dispatch(ACTIONS.TOGGLE_PROFILE_AVATARS);
+        const selectAvatar  = (avatarUrl) => Dispatch({type: ACTIONS.SET_PROFILE_AVATAR, avatar: avatarUrl});
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -51,7 +55,25 @@ class CommunityScreenMobile extends React.Component {
 
                                 <div className="block light" style={{backgroundImage: `url('/statics/svg/hero/profile-hero.svg')`}}>
                                     <div className="flex flex-row flex-between">
-                                        <div>
+                                        <div className="profile-avatars">
+                                            <div className={`main-avatar clickable`}
+                                                 style={{backgroundImage: `url('${user.avatar}')`}}
+                                                 onClick={toggleAvatars}
+                                            />
+
+                                            {user.uid == State().public.user.uid ?
+                                                <div className={`other-avatars ${State().profile.avatarsVisible ? 'active' : ''}`}>
+                                                    {avatarUrls.map(avatarUrl =>
+                                                        <div className="other-avatar clickable"
+                                                             onClick={() => selectAvatar(avatarUrl)}
+                                                             style={{backgroundImage: `url('${avatarUrl}')`}}
+                                                        />
+                                                    )}
+                                                </div> : ''
+                                            }
+                                        </div>
+
+                                        <div style={{marginRight: 'auto'}}>
                                             <div className="thin-heading">{user.name}</div>
                                             <div className="thin-subheading">is feeling <strong>Excited</strong></div>
                                         </div>
