@@ -43,10 +43,10 @@ class Header extends React.Component {
                                 <div className="item-icon icon-user"></div>
                                 <div className="item-text">Your profile</div>
                             </Link>
-                            <div className="dropdown-item">
+                            <Link className="dropdown-item" href="/account">
                                 <div className="item-icon icon-cog"></div>
-                                <div className="item-text">Settings</div>
-                            </div>
+                                <div className="item-text">Your account</div>
+                            </Link>
                             <div className="dropdown-item" onClick={this.props.logout}>
                                 <div className="item-icon icon-exit"></div>
                                 <div className="item-text">Logout</div>

@@ -35,7 +35,7 @@ class AccountScreen extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
-                                <div className="block light" style={{backgroundImage:`url('/statics/svg/hero/account-hero.svg')`}}>
+                                <div className="block light">
                                     <div className="flex flex-row flex-between">
                                         <div>
                                             <div className="thin-heading">Account</div>
@@ -44,95 +44,15 @@ class AccountScreen extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="thin-heading-2">NEAT job!</div>
-
-                                <div className="neat-banner">
-                                    <div className="neat-score">+{CalcTotals(State().public.user).NEAT}</div>
-                                    <div className="neat-text">Your <strong>NEAT</strong> score</div>
-                                </div>
-
-                                <div className="thin-heading-2">Session account</div>
-
-                                <div className="flex flex-cols flex-cols-large">
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>{CalcStreak(State().public.user)}</span>
-                                                    <span className="stat-small"> / day</span>
-                                                </div>
-                                                <div className="stat-text">Run streak</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>{CalcComplete(State().public.user)}</span>
-                                                    <span className="stat-small"></span>
-                                                </div>
-                                                <div className="stat-text">Session(s) done</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>{CalcTotals(State().public.user).durationMinutes}</span>
-                                                    <span className="stat-small"> mins</span>
-                                                </div>
-                                                <div className="stat-text">Realign time</div>
-                                            </div>
-                                        </div>
+                                <div className="suppl-panel">
+                                    <div className="panel-header">
+                                        <div className="header-tab clickable">Personal details</div>
+                                        <div className="header-tab clickable">About you</div>
+                                        <div className="header-tab clickable">Billing</div>
+                                        <div className="header-tab empty clickable" style={{marginLeft:'auto'}}>Extreme measures</div>
                                     </div>
                                 </div>
 
-
-                                <div className="thin-heading-2">Session progress</div>
-
-                                <div className="flex flex-cols flex-cols-large">
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"> / day</span>
-                                                </div>
-                                                <div className="stat-text">Run streak</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"></span>
-                                                </div>
-                                                <div className="stat-text">Sessions done</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
-                                            <div className="flex flex-min">
-                                                <div className="stat-stat">
-                                                    <span>3</span>
-                                                    <span className="stat-small"> mins</span>
-                                                </div>
-                                                <div className="stat-text">Realign time</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

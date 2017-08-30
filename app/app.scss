@@ -152,6 +152,10 @@ a {
       transition: .6s;
     }
   }
+
+  > div {
+    max-height: 100vh;
+  }
 }
 
 [data-mobile-screen] {
@@ -160,17 +164,18 @@ a {
   flex: 1 0 320px;
   max-width: 100vw;
   height: 100vh;
-  overflow-y: auto;
+  //overflow-y: auto;
   //background-color: $pale-grey-five;
   //padding: 0 20px;
 
-  overflow-y: scroll; /* has to be scroll, not auto */
+  overflow-y: hidden; /* has to be scroll, not auto */
   -webkit-overflow-scrolling: touch;
-
+  //
   [data-mobile-content] {
     display: flex;
     flex-direction: column;
     padding: 0 20px;
+    //max-height: calc(100vh - 120px);
   }
 
   [data-content] {
@@ -184,9 +189,13 @@ a {
   flex-direction: column;
   overflow: auto;
   flex: 1 1 auto !important;
+  max-height: calc(100vh - 70px);
 
   .not-desktop & {
     padding: 20px 20px 0;
+    max-height: calc(100vh - 120px);
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
   }
 }
 
@@ -489,9 +498,9 @@ i {
 }
 
 body .crisp-client .crisp-1[data-full-view=true] .crisp-40 .crisp-41 {
-  bottom: 74px!important;
+  bottom: 74px !important;
 }
 
 body .crisp-client .crisp-1 {
-  z-index: 1999!important;
+  z-index: 1999 !important;
 }

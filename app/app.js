@@ -27,6 +27,7 @@ import WaitlistScreen from './screens/waitlist.screen';
 import PositionScreen from './screens/position.screen';
 import ShareScreen from './screens/share.screen';
 import BumpScreen from './screens/bump.screen';
+import AccountScreen from './screens/account.screen';
 
 
 import ProfileScreenMobile from './screens-mobile/profile.screen.mobile';
@@ -125,6 +126,7 @@ class App extends React.Component {
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
+                            <Location path="/account" handler={AccountScreen}/>
                             <Location path="/performance" handler={PerformanceScreen}/>
                             <Location path="/journey" handler={JourneyScreen}/>
                             <Location path="/progress" handler={ProgressScreen}/>
