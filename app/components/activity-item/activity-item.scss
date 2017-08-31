@@ -95,18 +95,31 @@
   }
 }
 
+.activity-panel {
+  margin: 20px 30px 0;
+  //break-inside: avoid;
+  //padding-top: 10px;
+  //padding-bottom: 10px
+
+  flex: 1 0 300px;
+}
+
 .activity-holder {
-  column-count: 3;
-  column-gap: 60px;
-  margin-top: 10px;
+  margin: 0 -30px;
+  //column-count: 3;
+  //column-gap: 60px;
+  //margin-top: 10px;
 
   .not-desktop & {
-    column-count: 1;
+    //column-count: 1;
   }
 
-  .activity-panel {
-    break-inside: avoid;
-    padding-top: 10px;
-    padding-bottom: 10px
-  }
+}
+
+.bricklayer {
+  margin: 0 -30px;
+}
+
+.bricklayer-column {
+  padding: 0;
 }

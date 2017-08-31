@@ -14,9 +14,9 @@ import Sidebar from '../components/sidebar/sidebar';
 import FeedItem from '../components/feed-item/feed-item'
 import ActivityItem from '../components/activity-item/activity-item'
 import PlayerList from '../components/player-list/player-list.component';
-import Dispatch, {State} from '../services/dispatch.service'
+import {Dispatch, State} from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
-import {SetUrl, CalcStreak, CalcComplete, CalcTotals} from '../services/helper.service';
+import {SetUrl, CalcStreak, CalcComplete, CalcTotals, SortActivity} from '../services/helper.service';
 
 import _ from 'lodash';
 import {SessionList} from '../services/session.service';

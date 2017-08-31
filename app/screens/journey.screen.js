@@ -35,7 +35,7 @@ class JourneyScreen extends React.Component {
             return number <= CalcStreak(this.props.public.user) ? 'active' : ''
         };
 
-        const historyArray = Object.values(State().public.user.history || {});
+        const historyArray = Object.values(State().public.user.history || {}).reverse();
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -60,7 +60,7 @@ class JourneyScreen extends React.Component {
                                         <div className="journey-item" key={historyItem.date}>
                                             <div className="journey-box">
                                                 <div className="box-logo" style={{background:historyItem.color}}></div>
-                                                <div className="box-title">{historyItem.sessionName} - </div>
+                                                <Link className="box-title" href={`/sessions/${historyItem.sessionId}`}>{historyItem.sessionName} - </Link>
                                                 {historyItem.audioName}
                                                 <div className="box-time">{moment(historyItem.date).fromNow()}</div>
                                             </div>

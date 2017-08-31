@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcComplete, CalcStreak, CalcTotals, SetUrl} from '../services/helper.service';
+import {CalcComplete, CalcStreak, CalcTotals, SetUrl, SortActivity} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -24,6 +24,10 @@ class ProfileScreen extends React.Component {
             $('.content-area').scrollTop(0);
             Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: nextProps.profileId});
         }
+    }
+
+    componentDidMount() {
+        SortActivity();
     }
 
     render() {
@@ -143,7 +147,7 @@ class ProfileScreen extends React.Component {
 
                                 <div className="thin-heading-2">{user.firstName || user.name}'s latest activity</div>
 
-                                <div className="activity-holder">
+                                <div className="bricklayer">
                                     {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
                                 </div>
                             </div>

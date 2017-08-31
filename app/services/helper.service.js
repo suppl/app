@@ -1,6 +1,7 @@
 import * as React from "react";
 import moment from "moment";
 import * as _ from "lodash";
+import Bricklayer from 'bricklayer';
 
 export const SetUrl = (url) => {
     console.log('SetUrl', url);
@@ -28,7 +29,7 @@ export const CalcTotals = (user) => {
     _.each(historyItems, item => {
         totals.NEAT += item.NEAT;
         totals.durationSeconds += item.durationSeconds;
-        totals.durationMinutes += ((item.durationSeconds - (item.durationSeconds % 60))  / 60);
+        totals.durationMinutes += ((item.durationSeconds - (item.durationSeconds % 60)) / 60);
     });
 
     return totals;
@@ -69,3 +70,11 @@ export const If = React.createClass({
         return null;
     }
 });
+
+export const SortActivity = () => {
+    let bricklayer = 0;
+    let interval   = setInterval(() => {
+        bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
+        if (bricklayer.elements.length) clearInterval(interval);
+    }, 50);
+};

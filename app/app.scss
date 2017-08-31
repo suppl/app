@@ -504,3 +504,12 @@ body .crisp-client .crisp-1[data-full-view=true] .crisp-40 .crisp-41 {
 body .crisp-client .crisp-1 {
   z-index: 1999 !important;
 }
+
+.bricklayer-column-sizer {
+  /* divide by 3. */
+  width: 33.3%;
+
+  .not-desktop & {
+    width: 100%;
+  }
+}

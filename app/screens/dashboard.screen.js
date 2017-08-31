@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from "react-redux";
 import {Link} from 'react-router-component';
 import Router from 'react-router-component'
+
 const Locations = Router.Locations;
 const Location  = Router.Location;
 
@@ -14,13 +15,15 @@ import ActivityItem from '../components/activity-item/activity-item'
 import PlayerList from '../components/player-list/player-list.component';
 import Dispatch, {State} from '../services/dispatch.service'
 import * as ACTIONS from '../constants/actions.constants'
-import {SetUrl, CalcStreak, CalcComplete, CalcTotals} from '../services/helper.service';
+import {SetUrl, CalcStreak, CalcComplete, CalcTotals, SortActivity} from '../services/helper.service';
 
 import _ from 'lodash';
 import {SessionList} from '../services/session.service';
 
 
 class Dashboard extends React.Component {
+    feedLength = 10;
+
     componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active';
@@ -28,8 +31,12 @@ class Dashboard extends React.Component {
         }, 1);
     }
 
+    componentDidMount() {
+        SortActivity();
+    }
+
     render() {
-        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
+        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), this.feedLength);
 
         const getUserFirstName = () => {
             return this.props.user.user.displayName ? this.props.user.user.displayName.split(' ')[0] : 'Anonymous';
@@ -127,45 +134,45 @@ class Dashboard extends React.Component {
                                 <div className="block">
                                     <div className="thin-heading-2 ">Recent activity</div>
 
-                                    <div className="activity-holder">
+                                    <div className="bricklayer">
                                         {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
                                     </div>
                                 </div>
 
-                                <div className="block light flex flex-row">
-                                    <div className="flex flex-justify flex-min" style={{padding: '0 40px'}}>
-                                        <div className="invite-flex">
-                                            <div className="invite-title">Invite a friend</div>
-                                            <div className="invite-text">
-                                                Suppl is super fun solo but with your <br/> friend it’s even better!
-                                            </div>
-                                            <div className="banner-butn clickable">Invite friends</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="dashboard-invite">
-                                            <div className="invite-icons">
-                                                <img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{
-                                                    marginLeft: -100,
-                                                    top       : 40
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{
-                                                    marginLeft: -90,
-                                                    top       : 210
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
-                                                    marginLeft: 70,
-                                                    top       : 50
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/giraffe.svg" style={{
-                                                    marginLeft: 120,
-                                                    top       : 210
-                                                }}/>
-                                            </div>
-                                        </div>
-                                    </div>
+                                {/*<div className="block light flex flex-row">*/}
+                                    {/*<div className="flex flex-justify flex-min" style={{padding: '0 40px'}}>*/}
+                                        {/*<div className="invite-flex">*/}
+                                            {/*<div className="invite-title">Invite a friend</div>*/}
+                                            {/*<div className="invite-text">*/}
+                                                {/*Suppl is super fun solo but with your <br/> friend it’s even better!*/}
+                                            {/*</div>*/}
+                                            {/*<div className="banner-butn clickable">Invite friends</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="flex">*/}
+                                        {/*<div className="dashboard-invite">*/}
+                                            {/*<div className="invite-icons">*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{*/}
+                                                    {/*marginLeft: -100,*/}
+                                                    {/*top       : 40*/}
+                                                {/*}}/>*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{*/}
+                                                    {/*marginLeft: -90,*/}
+                                                    {/*top       : 210*/}
+                                                {/*}}/>*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{*/}
+                                                    {/*marginLeft: 70,*/}
+                                                    {/*top       : 50*/}
+                                                {/*}}/>*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/giraffe.svg" style={{*/}
+                                                    {/*marginLeft: 120,*/}
+                                                    {/*top       : 210*/}
+                                                {/*}}/>*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
 
-                                </div>
+                                {/*</div>*/}
 
 
                             </div>

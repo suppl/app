@@ -43,7 +43,7 @@ class JourneyScreenMobile extends React.Component {
     }
 
     render() {
-        const historyArray = Object.values(State().public.user.history || {});
+        const historyArray = Object.values(State().public.user.history || {}).reverse();
 
         const activeStreak = (number) => {
             return number <= CalcStreak(this.props.public.user) ? 'active' : ''
@@ -74,7 +74,7 @@ class JourneyScreenMobile extends React.Component {
                                             <div className="journey-item" key={historyItem.date}>
                                                 <div className="journey-box">
                                                     <div className="box-logo" style={{background:historyItem.color}}></div>
-                                                    <div className="box-title">{historyItem.sessionName} - </div>
+                                                    <Link className="box-title" href={`/sessions/${historyItem.sessionId}`}>{historyItem.sessionName} - </Link>
                                                     {historyItem.audioName}
                                                     <div className="box-time">{moment(historyItem.date).fromNow()}</div>
                                                 </div>

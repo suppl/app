@@ -1,4 +1,5 @@
 import React from 'react';
+import Bricklayer from 'bricklayer';
 
 import * as ACTIONS from '../constants/actions.constants';
 
@@ -9,6 +10,7 @@ import {SetUrl, CalcStreak, If} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
+
 
 class Community extends React.Component {
     componentWillMount() {
