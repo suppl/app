@@ -50,7 +50,7 @@ class PublicReducer {
             standardUserRef.on('value', (snapshot) => {
                 if (!snapshot.val()) {
                     publicUserRef.update({name: user.displayName});
-                    return;a
+                    return;
                 }
 
                 let standardUserData = snapshot.val();

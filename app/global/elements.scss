@@ -18,7 +18,7 @@
 }
 
 .suppl-multi {
-  height: 60px;
+  height: 50px;
   margin-top: 7px;
   border-radius: 2px;
   background-color: $white;
@@ -31,6 +31,9 @@
   font-weight: normal;
   user-focus: none;
   user-select: none;
+
+  font-size: 16px;
+  color: $battleship-grey;
 
   .multi-item {
     flex: 1 0 0;
@@ -61,19 +64,19 @@
       border-right: 1px solid $pinkish-grey-two;
     }
 
-    &.active {
-      background-color: $dark;
+    &.active, &[data-active='true'] {
+      background-color: $tealish;
       //border: solid 1px $pinkish-grey-two;
       color: $white;
-      border: 1px solid $dark;
+      border: 1px solid $tealish;
     }
   }
 }
 
 .suppl-input {
   margin-top: 7px;
-  height: 40px;
-  line-height: 38px;
+  height: 50px;
+  line-height: 48px;
   border-radius: 2px;
   background-color: #ffffff;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12);
@@ -84,14 +87,16 @@
   flex-direction: row;
   transition: .15s;
   font-weight: normal;
+  font-size: 16px;
+  color: $battleship-grey;
 
   &.focus {
     border: solid 1px $azure;
   }
 
   .input-icon {
-    height: 38px;
-    width: 38px;
+    height: 48px;
+    width: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -99,15 +104,15 @@
   }
 
   input {
-    height: 38px;
-    line-height: 38px;
+    height: 48px;
+    line-height: 48px;
     display: flex;
     flex: 1 1 188px;
     background: none;
     border: none;
     box-shadow: none;
     outline: none;
-    padding: 0 7px;
+    padding: 0 15px;
 
     &::-placeholder-shown {
       color: $pinkish-grey;

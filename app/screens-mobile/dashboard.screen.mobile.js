@@ -120,32 +120,32 @@ class DashboardScreenMobile extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="block light flex">
-                                    <div className="flex flex-justify flex-min" style={{padding: '40px 0 0'}}>
-                                        <div className="invite-flex">
-                                            <div className="invite-title">Invite a friend</div>
-                                            <div className="invite-text">
-                                                Suppl is super fun solo but with your <br/> friend it’s even better!
-                                            </div>
-                                            <div className="banner-butn clickable">Invite friends</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="dashboard-invite">
-                                            <div className="invite-icons">
-                                                <img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{
-                                                    marginLeft: -120,
-                                                    top       : 40
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
-                                                    marginLeft: 20,
-                                                    top       : 50
-                                                }}/>
-                                            </div>
-                                        </div>
-                                    </div>
+                                {/*<div className="block light flex">*/}
+                                    {/*<div className="flex flex-justify flex-min" style={{padding: '40px 0 0'}}>*/}
+                                        {/*<div className="invite-flex">*/}
+                                            {/*<div className="invite-title">Invite a friend</div>*/}
+                                            {/*<div className="invite-text">*/}
+                                                {/*Suppl is super fun solo but with your <br/> friend it’s even better!*/}
+                                            {/*</div>*/}
+                                            {/*<div className="banner-butn clickable">Invite friends</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="flex">*/}
+                                        {/*<div className="dashboard-invite">*/}
+                                            {/*<div className="invite-icons">*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{*/}
+                                                    {/*marginLeft: -120,*/}
+                                                    {/*top       : 40*/}
+                                                {/*}}/>*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{*/}
+                                                    {/*marginLeft: 20,*/}
+                                                    {/*top       : 50*/}
+                                                {/*}}/>*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
 
-                                </div>
+                                {/*</div>*/}
                             </div>
                         </div>
                     </div>

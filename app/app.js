@@ -68,6 +68,7 @@ import communityReducer from './reducers/community.reducer';
 import feedReducer from './reducers/feed.reducer';
 import OnboardingReducer from './reducers/onboarding.reducer';
 import ProfileReducer from './reducers/profile.reducer';
+import AccountReducer from './reducers/account.reducer';
 
 
 const reducer = combineReducers({
@@ -83,6 +84,7 @@ const reducer = combineReducers({
     feed        : feedReducer,
     onboarding  : OnboardingReducer,
     profile     : ProfileReducer,
+    account     : AccountReducer,
 });
 
 export const store = createStore(reducer);

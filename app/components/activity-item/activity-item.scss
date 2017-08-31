@@ -102,6 +102,10 @@
   //padding-bottom: 10px
 
   flex: 1 0 300px;
+
+  .not-desktop & {
+    margin: 20px 20px 0;
+  }
 }
 
 .activity-holder {
@@ -112,6 +116,7 @@
 
   .not-desktop & {
     //column-count: 1;
+    margin: 0 -20px;
   }
 
 }

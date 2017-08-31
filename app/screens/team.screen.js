@@ -150,39 +150,39 @@ class TeamScreen extends React.Component {
                                 </div>
 
 
-                                <div className="block light flex flex-row">
-                                    <div className="flex flex-justify flex-min" style={{padding: '0 40px'}}>
-                                        <div className="invite-flex">
-                                            <div className="invite-title">Invite a friend</div>
-                                            <div className="invite-text">
-                                                Suppl is super fun solo but with your <br/> friend it’s even better!
-                                            </div>
-                                            <div className="banner-butn clickable">Invite friends</div>
-                                        </div>
-                                    </div>
-                                    <div className="flex">
-                                        <div className="dashboard-invite">
-                                            <div className="invite-icons">
-                                                <img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{
-                                                    marginLeft: -100,
-                                                    top       : 40
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{
-                                                    marginLeft: -90,
-                                                    top       : 210
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{
-                                                    marginLeft: 70,
-                                                    top       : 50
-                                                }}/>
-                                                <img className="invite-icon" src="/statics/svg/dash/giraffe.svg" style={{
-                                                    marginLeft: 120,
-                                                    top       : 210
-                                                }}/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {/*<div className="block light flex flex-row">*/}
+                                    {/*<div className="flex flex-justify flex-min" style={{padding: '0 40px'}}>*/}
+                                        {/*<div className="invite-flex">*/}
+                                            {/*<div className="invite-title">Invite a friend</div>*/}
+                                            {/*<div className="invite-text">*/}
+                                                {/*Suppl is super fun solo but with your <br/> friend it’s even better!*/}
+                                            {/*</div>*/}
+                                            {/*<div className="banner-butn clickable">Invite friends</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                    {/*<div className="flex">*/}
+                                        {/*<div className="dashboard-invite">*/}
+                                            {/*<div className="invite-icons">*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{*/}
+                                                    {/*marginLeft: -100,*/}
+                                                    {/*top       : 40*/}
+                                                {/*}}/>*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/croc.svg" style={{*/}
+                                                    {/*marginLeft: -90,*/}
+                                                    {/*top       : 210*/}
+                                                {/*}}/>*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{*/}
+                                                    {/*marginLeft: 70,*/}
+                                                    {/*top       : 50*/}
+                                                {/*}}/>*/}
+                                                {/*<img className="invite-icon" src="/statics/svg/dash/giraffe.svg" style={{*/}
+                                                    {/*marginLeft: 120,*/}
+                                                    {/*top       : 210*/}
+                                                {/*}}/>*/}
+                                            {/*</div>*/}
+                                        {/*</div>*/}
+                                    {/*</div>*/}
+                                {/*</div>*/}
 
                             </div>
                         </div>
