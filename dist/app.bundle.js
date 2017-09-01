@@ -22627,7 +22627,6 @@ var Header = function (_React$Component) {
                     { className: 'user-hello', href: '/profile', onClick: this.props.login },
                     this.getUserFirstName()
                 ),
-                _react2.default.createElement('div', { className: 'dropdown-background ' + settingsClass, onClick: this.props.toggleSettings }),
                 _react2.default.createElement(
                     'div',
                     { className: 'suppl-dropdown ' + settingsClass, onClick: this.props.toggleSettings },

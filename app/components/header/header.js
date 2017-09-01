@@ -35,7 +35,7 @@ class Header extends React.Component {
                 ></Link>
                 <Link className="user-hello" href="/profile" onClick={this.props.login}>{this.getUserFirstName()}</Link>
 
-                <div className={`dropdown-background ${settingsClass}`} onClick={this.props.toggleSettings}/>
+                {/*<div className={`dropdown-background ${settingsClass}`} onClick={this.props.toggleSettings}/>*/}
                 <div className={`suppl-dropdown ${settingsClass}`} onClick={this.props.toggleSettings}>
                     <Link className="dropdown-item" href="/profile">
                         {/*<div className="item-icon icon-user"></div>*/}
