@@ -10,7 +10,7 @@ import {SessionList, isAudioAvailable, isAudioDone} from '../services/session.se
 import {CalcComplete, CalcStreak, CalcTotals, SetUrl, If} from '../services/helper.service';
 import FeedItem from '../components/feed-item/feed-item'
 import ActivityItem from '../components/activity-item/activity-item'
-import {State} from "../services/dispatch.service";
+import {Dispatch, State} from "../services/dispatch.service";
 
 
 class TeamScreenMobile extends React.Component {
@@ -22,9 +22,14 @@ class TeamScreenMobile extends React.Component {
     }
 
     render() {
-        const users = _.sortBy(State().public.users, user => CalcStreak(user)).reverse();
+        const Community = this.props.community;
 
-        const feed = _.take(_.sortBy(State().feed.feed, 'time').reverse(), 10);
+        const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
+        const feed  = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
+
+        const update = (field, value) => (e) => {
+            Dispatch({type: ACTIONS.SET_COMMUNITY_DETAILS, [field]: value ? value : e.target.value});
+        };
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -45,122 +50,93 @@ class TeamScreenMobile extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="thin-heading-2">Leaderboard</div>
 
-                                <div className="suppl-table">
-                                    <table>
-                                        <thead>
-                                        <tr>
-                                            <th className="tr-first">#</th>
-                                            <th>User</th>
-                                            <th className="tr-small">Mins</th>
-                                            <th className="tr-small">Sessions</th>
-                                            <th className="tr-small">Streak</th>
-                                            <th className="tr-small">NEAT</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
+                                <div className="suppl-panel">
+                                    <div className="panel-header">
+                                        <div className="header-tab" data-active={Community.currentTab == 'activity'} onClick={update('currentTab', 'activity')}>Activity</div>
+                                        <div className="header-tab" data-active={Community.currentTab == 'performance'   } onClick={update('currentTab', 'performance')}>Performance</div>
+                                        <div className="header-tab" data-active={Community.currentTab == 'leaderboard' } onClick={update('currentTab', 'leaderboard')}>Leaderboard</div>
+                                    </div>
 
-                                        {users.map((user, index) =>
-                                            <tr>
-                                                <td className="tr-first">{index + 1}</td>
-                                                <td>
-                                                    <div className="table-profile">
-                                                        <Link className="activity-icon clickable" href={`/profile/${user.uid}`} style={{backgroundImage: `url('${user.avatar}')`}}/>
-                                                        <Link href={`profile/${user.uid}`}>{user.name}</Link>
+                                    <div className="panel-content">
+                                        <div className="content-tab" data-visible={Community.currentTab == 'activity'}>
+                                            <div className="block">
+
+                                                <div className="activity-holder">
+                                                    {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="content-tab" data-visible={Community.currentTab == 'performance'}>
+
+                                            <div className="neat-banner">
+                                                <div className="neat-score">+{_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).NEAT, 0)}</div>
+                                                <div className="neat-text">Community <strong>NEAT</strong> score</div>
+                                            </div>
+
+                                            <div className="suppl-stat">
+                                                <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                                <div className="flex flex-min">
+                                                    <div className="stat-stat">
+                                                    <span>
+                                                        {_.reduce(State().public.users, (sum, user) => sum + CalcComplete(user), 0)}
+                                                    </span>
+                                                        <span className="stat-small"></span>
                                                     </div>
-                                                </td>
-                                                <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
-                                                <td className="tr-small">{CalcComplete(user)}</td>
-                                                <td className="tr-small">{CalcStreak(user)} day</td>
-                                                <td className="tr-small table-neat-score">+{CalcTotals(user).NEAT}</td>
-                                            </tr>
-                                        )}
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-                                <div className="thin-heading-2 ">Community performance</div>
-
-                                <div className="neat-banner">
-                                    <div className="neat-score">+{_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).NEAT, 0)}</div>
-                                    <div className="neat-text">Community <strong>NEAT</strong> score</div>
-                                </div>
-
-
-                                {/*<div className="suppl-stat">*/}
-                                    {/*<img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>*/}
-                                    {/*<div className="flex flex-min">*/}
-                                        {/*<div className="stat-stat">*/}
-                                            {/*<span>1</span>*/}
-                                            {/*<span className="stat-small"> / day</span>*/}
-                                        {/*</div>*/}
-                                        {/*<div className="stat-text">Run streak</div>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
-                                <div className="suppl-stat">
-                                    <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
-                                    <div className="flex flex-min">
-                                        <div className="stat-stat">
-                                            <span>
-                                                {_.reduce(State().public.users, (sum, user) => sum + CalcComplete(user), 0)}
-                                            </span>
-                                            <span className="stat-small"></span>
+                                                    <div className="stat-text">Total sessions done</div>
+                                                </div>
+                                            </div>
+                                            <div className="suppl-stat">
+                                                <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                                <div className="flex flex-min">
+                                                    <div className="stat-stat">
+                                                    <span>
+                                                        {_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).durationMinutes, 0)}
+                                                    </span>
+                                                        <span className="stat-small"> mins</span>
+                                                    </div>
+                                                    <div className="stat-text">Total realign time</div>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="stat-text">Total sessions done</div>
-                                    </div>
-                                </div>
-                                <div className="suppl-stat">
-                                    <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
-                                    <div className="flex flex-min">
-                                        <div className="stat-stat">
-                                            <span>
-                                                {_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).durationMinutes, 0)}
-                                            </span>
-                                            <span className="stat-small"> mins</span>
+                                        <div className="content-tab" data-visible={Community.currentTab == 'leaderboard'}>
+
+                                            <div className="suppl-table">
+                                                <table>
+                                                    <thead>
+                                                    <tr>
+                                                        <th className="tr-first">#</th>
+                                                        <th>User</th>
+                                                        <th className="tr-small">Mins</th>
+                                                        <th className="tr-small">Sessions</th>
+                                                        <th className="tr-small">Streak</th>
+                                                        <th className="tr-small">NEAT</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                    {users.map((user, index) =>
+                                                        <tr>
+                                                            <td className="tr-first">{index + 1}</td>
+                                                            <td>
+                                                                <div className="table-profile">
+                                                                    <Link className="activity-icon clickable" href={`/profile/${user.uid}`} style={{backgroundImage: `url('${user.avatar}')`}}/>
+                                                                    <Link href={`profile/${user.uid}`}>{user.name}</Link>
+                                                                </div>
+                                                            </td>
+                                                            <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
+                                                            <td className="tr-small">{CalcComplete(user)}</td>
+                                                            <td className="tr-small">{CalcStreak(user)}</td>
+                                                            <td className="tr-small table-neat-score">+{CalcTotals(user).NEAT}</td>
+                                                        </tr>
+                                                    )}
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <div className="stat-text">Total realign time</div>
+
                                     </div>
                                 </div>
-
-
-                                <div className="block">
-                                    <div className="thin-heading-2 ">Recent activity</div>
-
-                                    <div className="activity-holder">
-                                        {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
-                                    </div>
-                                </div>
-
-
-                                {/*<div className="block light flex">*/}
-                                    {/*<div className="flex flex-justify flex-min" style={{padding: '40px 0 0'}}>*/}
-                                        {/*<div className="invite-flex">*/}
-                                            {/*<div className="invite-title">Invite a friend</div>*/}
-                                            {/*<div className="invite-text">*/}a
-                                                {/*Suppl is super fun solo but with your <br/> friend it’s even better!*/}
-                                            {/*</div>*/}
-                                            {/*<div className="banner-butn clickable">Invite friends</div>*/}
-                                        {/*</div>*/}
-                                    {/*</div>*/}
-                                    {/*<div className="flex">*/}
-                                        {/*<div className="dashboard-invite">*/}
-                                            {/*<div className="invite-icons">*/}
-                                                {/*<img className="invite-icon" src="/statics/svg/dash/bird.svg" style={{*/}
-                                                    {/*marginLeft: -120,*/}
-                                                    {/*top       : 40*/}
-                                                {/*}}/>*/}
-                                                {/*<img className="invite-icon" src="/statics/svg/dash/flamingo.svg" style={{*/}
-                                                    {/*marginLeft: 20,*/}
-                                                    {/*top       : 50*/}
-                                                {/*}}/>*/}
-                                            {/*</div>*/}
-                                        {/*</div>*/}
-                                    {/*</div>*/}
-
-                                {/*</div>*/}
-
                             </div>
                         </div>
                     </div>

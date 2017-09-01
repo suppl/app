@@ -461,10 +461,21 @@
       border-bottom: solid 3px transparent;
       margin-bottom: -2px;
 
+      font-size: 18px;
+      font-weight: 300;
+      text-align: left;
+      color: #8798b4;
+
+      .not-desktop & {
+        font-size: 15px;
+        font-weight: 400;
+      }
+
       &[data-active='true'] {
         color: $tealish;
         color: $battleship-grey;
         border-bottom: solid 3px #1fb7c7;
+        color: $battleship-grey;
 
         &.rosa {
           border-color: $rosa;
