@@ -99,23 +99,26 @@ const showAudio = (action, state) => {
 
     sound.on('end', () => {
         console.log('audio end!');
-        Dispatch(ACTIONS.PAUSE_AUDIO);
-        Dispatch(ACTIONS.SHOW_COMPLETE);
+        setTimeout(() => {
 
-        Dispatch({
-            type      : ACTIONS.ADD_FEED_ITEM,
-            feedAction: FEED_ACTIONS.COMPLETED_AUDIO,
-            details   : {
-                sessionId  : action.session.id,
-                sessionName: action.session.name,
-                audioName  : action.audio.name,
-            }
-        });
+            Dispatch(ACTIONS.PAUSE_AUDIO);
+            Dispatch(ACTIONS.SHOW_COMPLETE);
 
-        state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
-        Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});
-        Dispatch({type: ACTIONS.GIVE_STREAK, audioId: action.audio.id});
-        Dispatch({type: ACTIONS.GIVE_HISTORY, audio: action.audio, session: action.session});
+            Dispatch({
+                type      : ACTIONS.ADD_FEED_ITEM,
+                feedAction: FEED_ACTIONS.COMPLETED_AUDIO,
+                details   : {
+                    sessionId  : action.session.id,
+                    sessionName: action.session.name,
+                    audioName  : action.audio.name,
+                }
+            });
+
+            state.audio.awardsGiven.forEach(awardId => Dispatch({type: ACTIONS.GIVE_AWARD, awardId}));
+            Dispatch({type: ACTIONS.GIVE_DONE, audioId: action.audio.id});
+            Dispatch({type: ACTIONS.GIVE_STREAK, audioId: action.audio.id});
+            Dispatch({type: ACTIONS.GIVE_HISTORY, audio: action.audio, session: action.session});
+        }, 2000);
     });
 
     return {

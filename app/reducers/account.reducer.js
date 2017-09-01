@@ -47,7 +47,7 @@ class AccountReducer {
         //     user.updateEmail(state.email);
         // }
 
-        user.reauthenticateWithPopup(firebase.auth.EmailAuthProvider);
+        // user.reauthenticateWithPopup(firebase.auth.EmailAuthProvider);
 
         await standardUserRef.update(obj);
 
