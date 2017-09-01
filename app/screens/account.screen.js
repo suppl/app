@@ -57,7 +57,7 @@ class AccountScreen extends React.Component {
                                     <div className="panel-header">
                                         <div className="header-tab" data-active={Account.currentTab == 'personal'} onClick={update('currentTab', 'personal')}>Personal details</div>
                                         <div className="header-tab" data-active={Account.currentTab == 'about'   } onClick={update('currentTab', 'about')}>About you</div>
-                                        <div className="header-tab" data-active={Account.currentTab == 'billing' } onClick={update('currentTab', 'billing')}>Billing</div>
+                                        {/*<div className="header-tab" data-active={Account.currentTab == 'billing' } onClick={update('currentTab', 'billing')}>Billing</div>*/}
                                         <div className="header-tab rosa"
                                              style={{marginLeft: 'auto'}}
                                              data-active={Account.currentTab == 'extreme' } onClick={update('currentTab', 'extreme')}

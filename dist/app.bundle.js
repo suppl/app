@@ -73410,11 +73410,6 @@ var AccountScreen = function (_React$Component) {
                                         ),
                                         _react2.default.createElement(
                                             'div',
-                                            { className: 'header-tab', 'data-active': Account.currentTab == 'billing', onClick: update('currentTab', 'billing') },
-                                            'Billing'
-                                        ),
-                                        _react2.default.createElement(
-                                            'div',
                                             { className: 'header-tab rosa',
                                                 style: { marginLeft: 'auto' },
                                                 'data-active': Account.currentTab == 'extreme', onClick: update('currentTab', 'extreme')
