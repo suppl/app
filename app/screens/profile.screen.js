@@ -17,6 +17,11 @@ import ActivityItem from '../components/activity-item/activity-item';
 class ProfileScreen extends React.Component {
     componentWillMount() {
         Dispatch({type: ACTIONS.LOAD_PROFILE_BY_ID, userId: this.props.profileId});
+
+        setTimeout(() => {
+            this.ready = true;
+            this.forceUpdate();
+        }, 1);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -42,7 +47,7 @@ class ProfileScreen extends React.Component {
         let feed = State().profile.feed;
         let user = State().profile.user;
 
-        this.activeClass = user.name ? 'active-screen' : '';
+        this.activeClass = user.name && this.ready ? 'active-screen' : '';
 
         const toggleAvatars = () => Dispatch(ACTIONS.TOGGLE_PROFILE_AVATARS);
         const selectAvatar  = (avatarUrl) => Dispatch({type: ACTIONS.SET_PROFILE_AVATAR, avatar: avatarUrl});
