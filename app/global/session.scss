@@ -109,6 +109,10 @@
   display: flex;
   flex-direction: column;
 
+  .not-desktop & {
+    margin: 0 -20px 0;
+  }
+
   .session-audio {
     height: 80px;
     border-radius: 4px;
@@ -119,6 +123,10 @@
     flex-direction: row;
     padding: 0 40px;
     align-items: center;
+
+    .not-desktop & {
+      padding: 0 20px;
+    }
 
     .audio-check {
       width: 50px;

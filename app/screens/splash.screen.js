@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {Link} from 'react-router-component';
 import {SetUrl} from '../services/helper.service';
 import * as ACTIONS from '../constants/actions.constants';
+import {Dispatch} from "../services/dispatch.service";
 
 
 class Splash extends React.Component {
@@ -16,6 +17,10 @@ class Splash extends React.Component {
     }
 
     render() {
+        const signInEnter = (event) => {
+            if (event.key == 'Enter') Dispatch(ACTIONS.SIGN_IN);
+
+        };
 
         return (
             <div data-screen className={`register-screen ${this.activeClass}`}>
@@ -52,7 +57,7 @@ class Splash extends React.Component {
 
                             <div className="suppl-input large">
                                 <div className="input-icon icon-uniE720"/>
-                                <input type="password" placeholder="Password" value={this.props.user.password} onChange={this.props.updateLoginPassword}/>
+                                <input type="password" placeholder="Password" value={this.props.user.password} onKeyPress={signInEnter} onChange={this.props.updateLoginPassword}/>
                             </div>
                             <p className="clearfix">
                                 <a className="pull-right" onClick={this.props.showResetPassword}>Forgot your password?</a>
