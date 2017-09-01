@@ -44,6 +44,7 @@ import SessionScreenMobile from './screens-mobile/session.screen.mobile';
 import SplashScreenMobile from './screens-mobile/splash.screen.mobile';
 import CommunityScreenMobile from './screens-mobile/community.screen.mobile';
 import TeamScreenMobile from './screens-mobile/team.screen.mobile';
+import AccountScreenMobile from './screens-mobile/account.screen.mobile';
 
 
 import PopupPassword from './components/popup-password/popup-password';
@@ -155,6 +156,7 @@ class App extends React.Component {
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>
                             <Location path="/register-style" handler={RegisterStyleScreen}/>
+                            <Location path="/account" handler={AccountScreenMobile}/>
                             <Location path="/performance" handler={PerformanceScreenMobile}/>
                             <Location path="/journey" handler={JourneyScreenMobile}/>
                             <Location path="/progress" handler={CommunityScreenMobile}/>

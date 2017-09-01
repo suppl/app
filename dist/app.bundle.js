@@ -26595,6 +26595,10 @@ var _teamScreen = __webpack_require__(400);
 
 var _teamScreen2 = _interopRequireDefault(_teamScreen);
 
+var _accountScreen = __webpack_require__(791);
+
+var _accountScreen2 = _interopRequireDefault(_accountScreen);
+
 var _popupPassword = __webpack_require__(371);
 
 var _popupPassword2 = _interopRequireDefault(_popupPassword);
@@ -26797,6 +26801,7 @@ var App = function (_React$Component) {
                             _react2.default.createElement(Location, { path: '/register-password', handler: _registerPassword2.default }),
                             _react2.default.createElement(Location, { path: '/register-job', handler: _registerJob2.default }),
                             _react2.default.createElement(Location, { path: '/register-style', handler: _registerStyle2.default }),
+                            _react2.default.createElement(Location, { path: '/account', handler: _accountScreen2.default }),
                             _react2.default.createElement(Location, { path: '/performance', handler: _performanceScreen2.default }),
                             _react2.default.createElement(Location, { path: '/journey', handler: _journeyScreen2.default }),
                             _react2.default.createElement(Location, { path: '/progress', handler: _communityScreen2.default }),
@@ -101494,6 +101499,344 @@ var AccountReducer = function () {
 }();
 
 exports.default = (0, _dispatch.CreateReducer)('Account', new AccountReducer());
+
+/***/ }),
+/* 791 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(3);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(5);
+
+var _reactRouterComponent = __webpack_require__(7);
+
+var _lodash = __webpack_require__(8);
+
+var _ = _interopRequireWildcard(_lodash);
+
+var _actions = __webpack_require__(4);
+
+var ACTIONS = _interopRequireWildcard(_actions);
+
+var _header = __webpack_require__(59);
+
+var _header2 = _interopRequireDefault(_header);
+
+var _footer = __webpack_require__(58);
+
+var _footer2 = _interopRequireDefault(_footer);
+
+var _session = __webpack_require__(22);
+
+var _helper = __webpack_require__(6);
+
+var _dispatch = __webpack_require__(11);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AccountScreenMobile = function (_React$Component) {
+    _inherits(AccountScreenMobile, _React$Component);
+
+    function AccountScreenMobile() {
+        _classCallCheck(this, AccountScreenMobile);
+
+        return _possibleConstructorReturn(this, (AccountScreenMobile.__proto__ || Object.getPrototypeOf(AccountScreenMobile)).apply(this, arguments));
+    }
+
+    _createClass(AccountScreenMobile, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.activeClass = 'active';
+                _this2.forceUpdate();
+            }, 1);
+
+            (0, _dispatch.Dispatch)(ACTIONS.LOAD_ACCOUNT_DETAILS);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var Account = this.props.account;
+            var workHoursList = ["5-8", "8-12", "12+"];
+            var workStyleList = ["Sat down", "Stood up"];
+
+            var update = function update(field, value) {
+                return function (e) {
+                    (0, _dispatch.Dispatch)(_defineProperty({ type: ACTIONS.SET_ACCOUNT_DETAILS }, field, value ? value : e.target.value));
+                };
+            };
+
+            var save = function save() {
+                (0, _dispatch.Dispatch)({ type: ACTIONS.SAVE_ACCOUNT_DETAILS });
+            };
+
+            return _react2.default.createElement(
+                'div',
+                { 'data-screen': true, className: '' + this.activeClass },
+                _react2.default.createElement(
+                    'div',
+                    { 'data-mobile-screen': true },
+                    _react2.default.createElement(_header2.default, null),
+                    _react2.default.createElement(_footer2.default, { screen: '' }),
+                    _react2.default.createElement(
+                        'div',
+                        { 'data-mobile-content': true, style: { padding: 0 } },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'content-area', style: { paddingTop: 0 } },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'content-content' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'block light' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'flex flex-row flex-between' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            null,
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'thin-heading' },
+                                                'Account'
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'thin-subheading' },
+                                                'Everything you need, and don\u2019t worry only you can see this'
+                                            )
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'suppl-panel' },
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-header' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'header-tab', 'data-active': Account.currentTab == 'personal', onClick: update('currentTab', 'personal') },
+                                            'Personal'
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'header-tab', 'data-active': Account.currentTab == 'about', onClick: update('currentTab', 'about') },
+                                            'About'
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'header-tab rosa',
+                                                style: { marginLeft: 'auto' },
+                                                'data-active': Account.currentTab == 'extreme', onClick: update('currentTab', 'extreme')
+                                            },
+                                            'Extreme measures'
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { className: 'panel-content' },
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'content-tab', 'data-visible': Account.currentTab == 'personal' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'col-md-4' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-label' },
+                                                        'Full name'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-input' },
+                                                        _react2.default.createElement('input', { type: 'text', value: Account.name, onChange: update('name') })
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-label' },
+                                                        'Email'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-input' },
+                                                        _react2.default.createElement('input', { type: 'email', value: Account.email, readOnly: 'readonly', onChange: update('email') })
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-butn-new clickable', style: { marginTop: 40 }, onClick: save },
+                                                        'Save'
+                                                    )
+                                                )
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'content-tab', 'data-visible': Account.currentTab == 'about' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'col-md-4' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-label' },
+                                                        'Your role'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-input' },
+                                                        _react2.default.createElement('input', { type: 'text', placeholder: 'E.g. Accountant', value: Account.role, onChange: update('role') })
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-label' },
+                                                        'Daily work hours'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-multi' },
+                                                        workHoursList.map(function (workHours) {
+                                                            return _react2.default.createElement(
+                                                                'div',
+                                                                { key: workHours, className: 'multi-item',
+                                                                    'data-active': Account.workHours == workHours,
+                                                                    onClick: update('workHours', workHours)
+                                                                },
+                                                                workHours
+                                                            );
+                                                        })
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-label' },
+                                                        'Regular position'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-multi' },
+                                                        workStyleList.map(function (workStyle) {
+                                                            return _react2.default.createElement(
+                                                                'div',
+                                                                { key: workStyle, className: 'multi-item',
+                                                                    'data-active': Account.workStyle == workStyle,
+                                                                    onClick: update('workStyle', workStyle)
+                                                                },
+                                                                workStyle
+                                                            );
+                                                        })
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-butn-new clickable', style: { marginTop: 40 }, onClick: save },
+                                                        'Save'
+                                                    )
+                                                )
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'content-tab', 'data-visible': Account.currentTab == 'billing' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'col-md-4' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-label' },
+                                                        'Suppl plan'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-input' },
+                                                        _react2.default.createElement('input', { type: 'text', readOnly: 'readonly', value: 'BASIC -  FREE FOREVER' })
+                                                    )
+                                                )
+                                            )
+                                        ),
+                                        _react2.default.createElement(
+                                            'div',
+                                            { className: 'content-tab', 'data-visible': Account.currentTab == 'extreme' },
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'div',
+                                                    { className: 'col-md-8' },
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-label', style: { margin: 0 } },
+                                                        'Delete account'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'p',
+                                                        null,
+                                                        'Before you go ahead and delete you account. We just wanted to say how much of a pleasure it\u2019s been having you in the community. Thanks for all of your contributions and we hope to catch you back here soon!'
+                                                    ),
+                                                    _react2.default.createElement(
+                                                        'div',
+                                                        { className: 'suppl-butn-new white clickable', style: { marginTop: 40 } },
+                                                        'Delete Your Suppl Account'
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return AccountScreenMobile;
+}(_react2.default.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (!user) (0, _helper.SetUrl)('/');
+    });
+
+    return state;
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {};
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AccountScreenMobile);
 
 /***/ })
 /******/ ]);
