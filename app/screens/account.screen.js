@@ -142,7 +142,7 @@ class AccountScreen extends React.Component {
                                         <div className="content-tab" data-visible={Account.currentTab == 'extreme'}>
                                             <div className="row">
                                                 <div className="col-md-8">
-                                                    <div className="suppl-label" style={{margin: 0}}>Delete account</div>
+                                                    <div className="suppl-label">Delete account</div>
 
                                                     <p>
                                                         Before you go ahead and delete you account. We just wanted to say how much of a pleasure it’s been having you in the community. Thanks for all of your contributions and we hope to catch you back here soon!
