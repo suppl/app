@@ -67,13 +67,10 @@ class TeamScreen extends React.Component {
                                         <div className="header-tab" data-active={Community.currentTab == 'leaderboard' } onClick={update('currentTab', 'leaderboard')}>Leaderboard</div>
                                     </div>
 
-                                    <div className="panel-content">
+                                    <div className="panel-content" style={{padding: 0}}>
                                         <div className="content-tab" data-visible={Community.currentTab == 'activity'}>
-                                            <div className="block">
-
-                                                <div className="bricklayer">
-                                                    {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
-                                                </div>
+                                            <div className="bricklayer">
+                                                {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
                                             </div>
                                         </div>
                                         <div className="content-tab" data-visible={Community.currentTab == 'performance'}>
