@@ -293,7 +293,7 @@
       vertical-align: middle;
 
       .not-desktop & {
-        font-size: 8px;
+        font-size: 10px;
         padding: 0 8px;
       }
     }
@@ -312,17 +312,11 @@
       //border: solid 1px $pale-grey;
 
       .not-desktop & {
-        font-size: 10px;
-        padding: 0 8px;
+        font-size: 14px;
+        padding: 0 0px;
         height: 40px;
       }
     }
-  }
-
-  .table-neat-score {
-    font-size: 19px;
-    font-weight: 600;
-    color: #1fb7c7;
   }
 
   .tr-first {
@@ -332,8 +326,8 @@
     color: $pinkish-grey;
 
     .not-desktop & {
-      width: 45px;
-      font-size: 10px;
+      width: 20px;
+      font-size: 12px;
     }
   }
 
@@ -342,16 +336,7 @@
     text-align: center;
 
     .not-desktop & {
-      width: 45px;
-    }
-  }
-
-  .tr-xsmall {
-    width: 120px;
-    text-align: center;
-
-    .not-desktop & {
-      width: 45px;
+      width: 50px;
     }
   }
 
@@ -375,6 +360,16 @@
     background-image: url('/statics/svg/avatar/g-avatar.png');
     cursor: pointer;
     display: flex;
+  }
+
+  .table-neat-score {
+    font-size: 19px;
+    font-weight: 600;
+    color: #1fb7c7;
+
+    .not-desktop & {
+      font-size: 16px;
+    }
   }
 
 }

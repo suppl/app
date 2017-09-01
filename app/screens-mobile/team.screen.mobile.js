@@ -51,9 +51,9 @@ class TeamScreenMobile extends React.Component {
                                     <table>
                                         <thead>
                                         <tr>
-                                            <th className="tr-small">#</th>
-                                            <th>Team member</th>
-                                            <th className="tr-small">Minutes</th>
+                                            <th className="tr-first">#</th>
+                                            <th>User</th>
+                                            <th className="tr-small">Mins</th>
                                             <th className="tr-small">Sessions</th>
                                             <th className="tr-small">Streak</th>
                                             <th className="tr-small">NEAT</th>
@@ -63,12 +63,17 @@ class TeamScreenMobile extends React.Component {
 
                                         {users.map((user, index) =>
                                             <tr>
-                                                <td className="tr-first">{index}</td>
-                                                <td>{user.name}</td>
+                                                <td className="tr-first">{index + 1}</td>
+                                                <td>
+                                                    <div className="table-profile">
+                                                        <Link className="activity-icon clickable" href={`/profile/${user.uid}`} style={{backgroundImage: `url('${user.avatar}')`}}/>
+                                                        <Link href={`profile/${user.uid}`}>{user.name}</Link>
+                                                    </div>
+                                                </td>
                                                 <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
                                                 <td className="tr-small">{CalcComplete(user)}</td>
-                                                <td className="tr-small">{CalcStreak(user)}</td>
-                                                <td className="tr-small">+{CalcTotals(user).NEAT}</td>
+                                                <td className="tr-small">{CalcStreak(user)} day</td>
+                                                <td className="tr-small table-neat-score">+{CalcTotals(user).NEAT}</td>
                                             </tr>
                                         )}
                                         </tbody>

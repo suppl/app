@@ -70,7 +70,7 @@ class TeamScreen extends React.Component {
                                         <thead>
                                         <tr>
                                             <th className="tr-first">#</th>
-                                            <th>Team member</th>
+                                            <th>User</th>
                                             <th className="tr-small">Minutes</th>
                                             <th className="tr-small">Sessions</th>
                                             <th className="tr-small">Streak</th>
@@ -87,7 +87,6 @@ class TeamScreen extends React.Component {
                                                     <Link className="activity-icon clickable" href={`/profile/${user.uid}`} style={{backgroundImage: `url('${user.avatar}')`}}/>
                                                     <Link href={`profile/${user.uid}`}>{user.name}</Link>
                                                 </div>
-
                                             </td>
                                             <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
                                             <td className="tr-small">{CalcComplete(user)}</td>
