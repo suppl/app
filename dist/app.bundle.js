@@ -22627,45 +22627,45 @@ var Header = function (_React$Component) {
                     { className: 'user-hello', href: '/profile', onClick: this.props.login },
                     this.getUserFirstName()
                 ),
+                _react2.default.createElement('div', { className: 'dropdown-background ' + settingsClass, onClick: this.props.toggleSettings }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'suppl-dropdown ' + settingsClass, onClick: this.props.toggleSettings },
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { className: 'dropdown-item', href: '/profile' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'item-text' },
+                            'Your profile'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        _reactRouterComponent.Link,
+                        { className: 'dropdown-item', href: '/account' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'item-text' },
+                            'Your account'
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'dropdown-item', onClick: this.props.logout },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'item-text' },
+                            'Logout'
+                        )
+                    )
+                ),
                 _react2.default.createElement(
                     'div',
                     { className: 'header-menu' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'menu-item ${settingsClass}', onClick: this.props.toggleSettings },
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'suppl-dropdown ' + settingsClass },
-                            _react2.default.createElement(
-                                _reactRouterComponent.Link,
-                                { className: 'dropdown-item', href: '/profile' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'item-text' },
-                                    'Your profile'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                _reactRouterComponent.Link,
-                                { className: 'dropdown-item', href: '/account' },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'item-text' },
-                                    'Your account'
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'dropdown-item', onClick: this.props.logout },
-                                _react2.default.createElement(
-                                    'div',
-                                    { className: 'item-text' },
-                                    'Logout'
-                                )
-                            )
-                        ),
-                        _react2.default.createElement('i', { className: 'flaticon-cog' }),
-                        _react2.default.createElement('i', { className: 'icon-chevron-down' })
+                        { className: 'menu-item clickable', onClick: this.props.toggleSettings },
+                        _react2.default.createElement('i', { className: 'flaticon-cog' })
                     )
                 )
             );
@@ -77222,7 +77222,7 @@ var Splash = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'suppl-input large' },
-                                _react2.default.createElement('div', { className: 'input-icon icon-envelope' }),
+                                _react2.default.createElement('div', { className: 'input-icon icon-uniE90A' }),
                                 _react2.default.createElement('input', { type: 'email', autoFocus: true, placeholder: 'E.g. barry@work.com', value: this.props.user.email, onChange: this.props.updateLoginEmail })
                             ),
                             _react2.default.createElement(
@@ -77233,7 +77233,7 @@ var Splash = function (_React$Component) {
                             _react2.default.createElement(
                                 'div',
                                 { className: 'suppl-input large' },
-                                _react2.default.createElement('div', { className: 'input-icon icon-lock' }),
+                                _react2.default.createElement('div', { className: 'input-icon icon-uniE720' }),
                                 _react2.default.createElement('input', { type: 'password', placeholder: 'Password', value: this.props.user.password, onChange: this.props.updateLoginPassword })
                             ),
                             _react2.default.createElement(

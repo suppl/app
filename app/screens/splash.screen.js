@@ -43,7 +43,7 @@ class Splash extends React.Component {
                             <div className="suppl-label">Your email</div>
 
                             <div className="suppl-input large">
-                                <div className="input-icon icon-envelope"/>
+                                <div className="input-icon icon-uniE90A"/>
                                 <input type="email" autoFocus={true} placeholder="E.g. barry@work.com" value={this.props.user.email} onChange={this.props.updateLoginEmail}/>
                             </div>
 
@@ -51,7 +51,7 @@ class Splash extends React.Component {
                             <div className="suppl-label">Your password</div>
 
                             <div className="suppl-input large">
-                                <div className="input-icon icon-lock"/>
+                                <div className="input-icon icon-uniE720"/>
                                 <input type="password" placeholder="Password" value={this.props.user.password} onChange={this.props.updateLoginPassword}/>
                             </div>
                             <p className="clearfix">
