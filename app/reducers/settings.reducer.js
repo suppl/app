@@ -1,11 +1,15 @@
 import * as ACTIONS from '../constants/actions.constants';
 import * as Request from 'superagent';
+import NoSleep from 'nosleep.js';
 import {Dispatch, State} from './../services/dispatch.service';
 import SessionList from './../services/session.service';
 import {isOnboardingAvailable} from "../services/session.service";
 import * as FEED_ACTIONS from "../constants/feed.constants";
 
 // let timeLoop;
+
+
+const noSleep = new NoSleep();
 
 const initialState = {
     loaderVisible  : true,
@@ -47,6 +51,7 @@ const hideAudio = (action, state) => {
 
 const pauseAudio = (action, state) => {
     state.sound.pause();
+    noSleep.disable();
     // state.sound.once('load', () => {
     //     setTimeout(() => state.sound.pause(), 1);
     // });
@@ -56,6 +61,10 @@ const pauseAudio = (action, state) => {
 
 const playAudio = (action, state) => {
     state.sound.play();
+    noSleep.enable();
+
+
+
     // Dispatch({type: ACTIONS.GIVE_STREAK, audioId: state.audio.id});
     // state.sound.once('load', () => {
     // if (!state.sound.)
