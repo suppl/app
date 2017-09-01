@@ -102,6 +102,15 @@
       cursor: pointer;
       transition: .15s;
 
+      &.show-settings {
+        height: 60px;
+        width: 60px;
+        margin-right: -20px;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+      }
+
       i {
         color: $battleship-grey;
         font-size: 20px;
@@ -110,6 +119,7 @@
         .not-desktop & {
           font-size: 14px;
           margin: auto 2px;
+          font-size: 19px;
         }
       }
 

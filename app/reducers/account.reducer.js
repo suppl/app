@@ -43,7 +43,11 @@ class AccountReducer {
         if (state.name != user.displayName) {
             await user.updateProfile({displayName: state.name,});
         }
-        // if (state.email != user.email) user.updateEmail(state.email);
+        // if (state.email != user.email) {
+        //     user.updateEmail(state.email);
+        // }
+
+        user.reauthenticateWithPopup(firebase.auth.EmailAuthProvider);
 
         await standardUserRef.update(obj);
 

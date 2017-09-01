@@ -33,26 +33,26 @@ class HeaderMobile extends React.Component {
                       href="/profile"
                       style={{backgroundImage: `url('${State().public.user.avatar}')`}}
                 ></Link>
+
+                <div className={`dropdown-background ${settingsClass}`} onClick={this.props.toggleSettings}/>
+                <div className={`suppl-dropdown ${settingsClass}`} onClick={this.props.toggleSettings}>
+                    <Link className="dropdown-item" href="/profile">
+                        {/*<div className="item-icon icon-user"></div>*/}
+                        <div className="item-text">Your profile</div>
+                    </Link>
+                    <Link className="dropdown-item" href="/account">
+                        {/*<div className="item-icon icon-cog"></div>*/}
+                        <div className="item-text">Your account</div>
+                    </Link>
+                    <div className="dropdown-item" onClick={this.props.logout}>
+                        {/*<div className="item-icon icon-exit"></div>*/}
+                        <div className="item-text">Logout</div>
+                    </div>
+                </div>
                 <Link className="user-hello" href="/profile" onClick={this.props.login}>{this.getUserFirstName()}</Link>
                 <div className="header-menu">
-                    <div className="menu-item"><i className="flaticon-bell"></i></div>
-                    <div className="menu-item ${settingsClass}" onClick={this.props.toggleSettings}>
-                        <div className={`suppl-dropdown ${settingsClass}`}>
-                            <Link className="dropdown-item" href="/profile">
-                                <div className="item-icon icon-user"></div>
-                                <div className="item-text">Your profile</div>
-                            </Link>
-                            <div className="dropdown-item">
-                                <div className="item-icon icon-cog"></div>
-                                <div className="item-text">Settings</div>
-                            </div>
-                            <div className="dropdown-item" onClick={this.props.logout}>
-                                <div className="item-icon icon-exit"></div>
-                                <div className="item-text">Logout</div>
-                            </div>
-                        </div>
+                    <div className={`menu-item show-settings ${settingsClass}`} onClick={this.props.toggleSettings}>
                         <i className="flaticon-cog"></i>
-                        {/*<i className="icon-chevron-down"></i>*/}
                     </div>
                 </div>
             </div>

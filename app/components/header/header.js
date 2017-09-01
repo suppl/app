@@ -35,20 +35,20 @@ class Header extends React.Component {
                 ></Link>
                 <Link className="user-hello" href="/profile" onClick={this.props.login}>{this.getUserFirstName()}</Link>
                 <div className="header-menu">
-                    <div className="menu-item"><i className="flaticon-bell"></i></div>
+                    {/*<div className="menu-item"><i className="flaticon-bell"></i></div>*/}
                     {/*<div className="menu-item"><i className="flaticon-add-user"></i></div>*/}
                     <div className="menu-item ${settingsClass}" onClick={this.props.toggleSettings}>
                         <div className={`suppl-dropdown ${settingsClass}`}>
                             <Link className="dropdown-item" href="/profile">
-                                <div className="item-icon icon-user"></div>
+                                {/*<div className="item-icon icon-user"></div>*/}
                                 <div className="item-text">Your profile</div>
                             </Link>
                             <Link className="dropdown-item" href="/account">
-                                <div className="item-icon icon-cog"></div>
+                                {/*<div className="item-icon icon-cog"></div>*/}
                                 <div className="item-text">Your account</div>
                             </Link>
                             <div className="dropdown-item" onClick={this.props.logout}>
-                                <div className="item-icon icon-exit"></div>
+                                {/*<div className="item-icon icon-exit"></div>*/}
                                 <div className="item-text">Logout</div>
                             </div>
                         </div>
