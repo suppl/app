@@ -404,28 +404,39 @@
   margin: 20px 0 0;
 
   .panel-header {
-    height: 60px;
-    border-radius: 4px 4px 0 0;
-    background-color: $pale-grey-five;
-    padding: 10px;
+    height: 40px;
+    //border-radius: 4px 4px 0 0;
+    //background-color: $pale-grey-five;
+    //padding: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    border-bottom: solid 1px $warm-grey;
 
     .header-tab {
-      height: 35px;
-      border-radius: 4px;
-      background-color: #eaf0f5;
-      padding: 0 15px 0;
+      height: 40px;
+      //border-radius: 4px;
+      //background-color: #eaf0f5;
+      //padding: 0 15px 0;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 15px;
-      color: $battleship-grey;
       margin-left: 20px;
+      color: #9ba6b7;
+      cursor: pointer;
+      transition: .15s;
+      border-bottom: solid 3px transparent;
+      margin-bottom: -2px;
 
       &[data-active='true'] {
         color: $tealish;
+        color: $battleship-grey;
+        border-bottom: solid 3px #1fb7c7;
+
+        &.rosa {
+          border-color: $rosa;
+        }
       }
 
       &:first-child {
@@ -439,9 +450,9 @@
   }
 
   .panel-content {
-    padding: 20px;
-    border-radius: 0 0 4px 4px;
-    border: solid 1px $pale-grey-two;
+    padding: 20px 0;
+    //border-radius: 0 0 4px 4px;
+    //border: solid 1px $pale-grey-two;
 
     .content-tab {
       opacity: 0;
@@ -469,7 +480,7 @@
   min-width: 150px;
   background: $azure;
   color: white;
-  border-radius: 100px;
+  border-radius: 4px;
   height: 45px;
   align-items: center;
   justify-content: center;
@@ -479,9 +490,20 @@
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  transition: .15s;
+
+  &.tealish {
+    background: $tealish;
+  }
+
+  &.white {
+    background: white;
+    border: 1px solid $battleship-grey;
+    color: $battleship-grey;
+  }
 
   &[disabled] {
-
+    opacity: 0.5;
   }
 }
 

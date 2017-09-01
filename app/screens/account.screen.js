@@ -13,8 +13,6 @@ import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 
 class AccountScreen extends React.Component {
-    currentTab = 'personal';
-
     componentWillMount() {
         setTimeout(() => {
             this.activeClass = 'active-screen';
@@ -29,10 +27,8 @@ class AccountScreen extends React.Component {
         const workHoursList = ["5-8", "8-12", "12+"];
         const workStyleList = ["Sat down", "Stood up"];
 
-        const update = (field, value) => {
-            return (e) => {
-                Dispatch({type: ACTIONS.SET_ACCOUNT_DETAILS, [field]: value ? value : e.target.value});
-            }
+        const update = (field, value) => (e) => {
+            Dispatch({type: ACTIONS.SET_ACCOUNT_DETAILS, [field]: value ? value : e.target.value});
         };
 
         const save = () => {
@@ -59,10 +55,14 @@ class AccountScreen extends React.Component {
 
                                 <div className="suppl-panel">
                                     <div className="panel-header">
-                                        <div className="header-tab clickable" data-active={Account.currentTab == 'personal'} onClick={update('currentTab', 'personal')}>Personal details</div>
-                                        <div className="header-tab clickable" data-active={Account.currentTab == 'about'} onClick={update('currentTab', 'about')}>About you</div>
-                                        <div className="header-tab clickable" data-active={Account.currentTab == 'billing'} onClick={update('currentTab', 'billing')}>Billing</div>
-                                        <div className="header-tab empty linkable" style={{marginLeft: 'auto'}}>Extreme measures</div>
+                                        <div className="header-tab" data-active={Account.currentTab == 'personal'} onClick={update('currentTab', 'personal')}>Personal details</div>
+                                        <div className="header-tab" data-active={Account.currentTab == 'about'   } onClick={update('currentTab', 'about')}>About you</div>
+                                        <div className="header-tab" data-active={Account.currentTab == 'billing' } onClick={update('currentTab', 'billing')}>Billing</div>
+                                        <div className="header-tab rosa"
+                                             style={{marginLeft: 'auto'}}
+                                             data-active={Account.currentTab == 'extreme' } onClick={update('currentTab', 'extreme')}
+                                        >Extreme measures
+                                        </div>
                                     </div>
 
                                     <div className="panel-content">
@@ -70,10 +70,10 @@ class AccountScreen extends React.Component {
                                         <div className="content-tab" data-visible={Account.currentTab == 'personal'}>
                                             <div className="row">
                                                 <div className="col-md-4">
-                                                    <div className="suppl-label" style={{margin: 0}}>Username</div>
-                                                    <div className="suppl-input">
-                                                        <input type="text" value={Account.username} onChange={update('username')}/>
-                                                    </div>
+                                                    {/*<div className="suppl-label" style={{margin: 0}}>Username</div>*/}
+                                                    {/*<div className="suppl-input">*/}
+                                                    {/*<input type="text" value={Account.username} onChange={update('username')}/>*/}
+                                                    {/*</div>*/}
 
                                                     <div className="suppl-label">Full name</div>
                                                     <div className="suppl-input">
@@ -82,7 +82,7 @@ class AccountScreen extends React.Component {
 
                                                     <div className="suppl-label">Email</div>
                                                     <div className="suppl-input">
-                                                        <input type="email" value={Account.email} onChange={update('email')}/>
+                                                        <input type="email" value={Account.email} readOnly='readonly' onChange={update('email')}/>
                                                     </div>
 
                                                     <div className="suppl-butn-new clickable" style={{marginTop: 40}} onClick={save}>Save</div>
@@ -93,7 +93,7 @@ class AccountScreen extends React.Component {
                                         <div className="content-tab" data-visible={Account.currentTab == 'about'}>
                                             <div className="row">
                                                 <div className="col-md-4">
-                                                    <div className="suppl-label" style={{margin: 0}}>Your role</div>
+                                                    <div className="suppl-label">Your role</div>
 
                                                     <div className="suppl-input">
                                                         {/*<div className="input-icon icon-tie"/>*/}
@@ -130,7 +130,7 @@ class AccountScreen extends React.Component {
                                         <div className="content-tab" data-visible={Account.currentTab == 'billing'}>
                                             <div className="row">
                                                 <div className="col-md-4">
-                                                    <div className="suppl-label" style={{margin: 0}}>Suppl plan</div>
+                                                    <div className="suppl-label">Suppl plan</div>
 
                                                     <div className="suppl-input">
                                                         <input type="text" readOnly='readonly' value="BASIC -  FREE FOREVER"/>
@@ -139,6 +139,21 @@ class AccountScreen extends React.Component {
                                             </div>
                                         </div>
 
+                                        <div className="content-tab" data-visible={Account.currentTab == 'extreme'}>
+                                            <div className="row">
+                                                <div className="col-md-8">
+                                                    <div className="suppl-label" style={{margin: 0}}>Delete account</div>
+
+                                                    <p>
+                                                        Before you go ahead and delete you account. We just wanted to say how much of a pleasure it’s been having you in the community. Thanks for all of your contributions and we hope to catch you back here soon!
+                                                    </p>
+
+                                                    <div className="suppl-butn-new white clickable" style={{marginTop: 40}}>
+                                                        Delete Your Suppl Account
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
                                     </div>
                                 </div>

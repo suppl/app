@@ -113,6 +113,7 @@
     box-shadow: none;
     outline: none;
     padding: 0 15px;
+    color: $battleship-grey;
 
     &::-placeholder-shown {
       color: $pinkish-grey;
@@ -129,6 +130,11 @@
     }
     &:-moz-placeholder { /* Firefox 18- */
       color: $pinkish-grey;
+    }
+
+    &[readonly] {
+      background: #f7f7f7;
+      color: #aaa;
     }
   }
 
