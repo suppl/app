@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcStreak, CalcComplete, SetUrl, CalcTotals} from '../services/helper.service';
+import {CalcStreak, CalcComplete, SetUrl, CalcTotals, SortActivity} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -23,9 +23,14 @@ class TeamScreen extends React.Component {
         }, 1);
     }
 
-    // isOnline(user) {
-    //     return this.props.public.online[user.uid] !== undefined;
-    // }
+    componentDidMount() {
+        SortActivity();
+    }
+
+
+    isOnline(user) {
+        return this.props.public.online[user.uid] !== undefined;
+    }
 
     render() {
         const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
@@ -64,7 +69,7 @@ class TeamScreen extends React.Component {
                                     <table>
                                         <thead>
                                         <tr>
-                                            <th className="tr-small">#</th>
+                                            <th className="tr-first">#</th>
                                             <th>Team member</th>
                                             <th className="tr-small">Minutes</th>
                                             <th className="tr-small">Sessions</th>
@@ -76,12 +81,18 @@ class TeamScreen extends React.Component {
 
                                         {users.map((user, index) =>
                                         <tr>
-                                            <td className="tr-first">{index}</td>
-                                            <td>{user.name}</td>
+                                            <td className="tr-first">{index + 1}</td>
+                                            <td>
+                                                <div className="table-profile">
+                                                    <Link className="activity-icon clickable" href={`/profile/${user.uid}`} style={{backgroundImage: `url('${user.avatar}')`}}/>
+                                                    <Link href={`profile/${user.uid}`}>{user.name}</Link>
+                                                </div>
+
+                                            </td>
                                             <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
                                             <td className="tr-small">{CalcComplete(user)}</td>
-                                            <td className="tr-small">{CalcStreak(user)}</td>
-                                            <td className="tr-small">+{CalcTotals(user).NEAT}</td>
+                                            <td className="tr-small">{CalcStreak(user)} day</td>
+                                            <td className="tr-small table-neat-score">+{CalcTotals(user).NEAT}</td>
                                         </tr>
                                         )}
                                         </tbody>
@@ -144,7 +155,7 @@ class TeamScreen extends React.Component {
                                 <div className="block">
                                     <div className="thin-heading-2 ">Recent activity</div>
 
-                                    <div className="activity-holder">
+                                    <div className="bricklayer">
                                         {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
                                     </div>
                                 </div>
