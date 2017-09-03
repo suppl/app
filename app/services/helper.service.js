@@ -57,7 +57,7 @@ export const CalcStreak = (user) => {
 
 export const CalcComplete = (user) => {
 
-    return !user.done ? 0 : Object.values(user.done).length;
+    return !user.history ? 0 : Object.values(user.history).length;
 
 };
 
