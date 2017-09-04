@@ -24,7 +24,7 @@ class TeamScreenMobile extends React.Component {
     render() {
         const Community = this.props.community;
 
-        const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
+        const users = _.sortBy(this.props.public.users, user => CalcTotals(user).NEAT).reverse();
         const feed  = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
 
         const update = (field, value) => (e) => {
@@ -53,8 +53,8 @@ class TeamScreenMobile extends React.Component {
 
                                 <div className="suppl-panel">
                                     <div className="panel-header">
-                                        <div className="header-tab" data-active={Community.currentTab == 'activity'} onClick={update('currentTab', 'activity')}>Activity</div>
-                                        <div className="header-tab" data-active={Community.currentTab == 'performance'   } onClick={update('currentTab', 'performance')}>Performance</div>
+                                        <div className="header-tab" data-active={Community.currentTab == 'activity'    } onClick={update('currentTab', 'activity')}>Activity</div>
+                                        <div className="header-tab" data-active={Community.currentTab == 'performance' } onClick={update('currentTab', 'performance')}>Performance</div>
                                         <div className="header-tab" data-active={Community.currentTab == 'leaderboard' } onClick={update('currentTab', 'leaderboard')}>Leaderboard</div>
                                     </div>
 

@@ -77,10 +77,15 @@
   }
 
   &.error {
-    background-color: $rosa;
+    //background-color: $rosa;
 
     .notification-icon {
       display: none;
+    }
+
+
+    .not-desktop & {
+      //color: white;
     }
   }
 }

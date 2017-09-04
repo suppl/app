@@ -35,6 +35,27 @@ export const CalcTotals = (user) => {
     return totals;
 };
 
+export const CalcTag = (index) => {
+
+    if (index == 1) {
+        return {text: 'Legend', color: '#ffdb73'};
+    }
+
+    if (index >= 2 && index <= 3) {
+        return {text: 'Superstar', color: '#c8d4fa'};
+    }
+
+    if (index >= 4 && index < 6) {
+        return {text: 'Hero', color: '#fad1c8'};
+    }
+
+    if (index >= 7 && index < 10) {
+        return {text: 'Champion', color: '#a1dacc'};
+    }
+
+    return null;
+};
+
 export const CalcStreak = (user) => {
     if (!user.streak) return 0;
 
@@ -74,6 +95,7 @@ export const If = React.createClass({
 export const SortActivity = () => {
     let bricklayer = 0;
     let interval   = setInterval(() => {
+        if (!document.querySelector('.bricklayer')) clearInterval(interval);
         bricklayer = new Bricklayer(document.querySelector('.bricklayer'));
         if (bricklayer.elements.length) clearInterval(interval);
     }, 50);

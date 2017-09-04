@@ -5,7 +5,7 @@ import {store} from './../app';
 
 
 const initialState = {
-    loaderVisible: true
+    // loaderVisible: true
 };
 
 const performAction = {

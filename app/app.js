@@ -9,6 +9,7 @@ const Location  = Router.Location;
 
 import {IsDesktop, IsMobile, IsTablet, If} from './services/helper.service';
 
+import SignInScreen from './screens/sign-in.screen';
 import SessionsScreen from './screens/sessions.screen';
 import SessionScreen from './screens/session.screen';
 import DashboardScreen from './screens/dashboard.screen';
@@ -30,6 +31,7 @@ import BumpScreen from './screens/bump.screen';
 import AccountScreen from './screens/account.screen';
 
 
+import SignInScreenMobile from './screens-mobile/sign-in.screen.mobile';
 import ProfileScreenMobile from './screens-mobile/profile.screen.mobile';
 import PerformanceScreenMobile from './screens-mobile/performance.screen.mobile';
 import JourneyScreenMobile from './screens-mobile/journey.screen.mobile';
@@ -70,6 +72,7 @@ import feedReducer from './reducers/feed.reducer';
 import OnboardingReducer from './reducers/onboarding.reducer';
 import ProfileReducer from './reducers/profile.reducer';
 import AccountReducer from './reducers/account.reducer';
+import SignInReducer from './reducers/sign-in.reducer';
 
 
 const reducer = combineReducers({
@@ -86,6 +89,7 @@ const reducer = combineReducers({
     onboarding  : OnboardingReducer,
     profile     : ProfileReducer,
     account     : AccountReducer,
+    signIn      : SignInReducer,
 });
 
 export const store = createStore(reducer);
@@ -124,7 +128,8 @@ class App extends React.Component {
 
                     <If condition={IsDesktop()}>
                         <Locations>
-                            <Location path="/" handler={SplashScreen}/>
+                            <Location path="/" handler={SignInScreen}/>
+                            {/*<Location path="/" handler={SplashScreen}/>*/}
                             <Location path="/register" handler={RegisterScreen}/>
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>
@@ -151,7 +156,8 @@ class App extends React.Component {
 
                     <If condition={IsTablet() || IsMobile()}>
                         <Locations>
-                            <Location path="/" handler={SplashScreenMobile}/>
+                            {/*<Location path="/" handler={SplashScreenMobile}/>*/}
+                            <Location path="/" handler={SignInScreenMobile}/>
                             <Location path="/register" handler={RegisterScreenMobile}/>
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>

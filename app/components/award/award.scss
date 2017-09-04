@@ -30,12 +30,12 @@ $light-azure: adjust-color($azure, $lightness: 20%, $saturation: -15%);
 
   transform: translateY(200px);
 
-  &.active {
-    opacity: 1;
-    visibility: visible;
-
-    transform: translateY(0);
-  }
+  //&.active {
+  //  opacity: 1;
+  //  visibility: visible;
+  //
+  //  transform: translateY(0);
+  //}
 
   .award-icon {
     flex: 1 0 auto;

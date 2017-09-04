@@ -7,7 +7,7 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcStreak, CalcComplete, SetUrl, CalcTotals, SortActivity} from '../services/helper.service';
+import {CalcStreak, CalcComplete, SetUrl, CalcTotals, SortActivity, CalcTag} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
@@ -34,7 +34,7 @@ class TeamScreen extends React.Component {
     render() {
         const Community = this.props.community;
 
-        const users = _.sortBy(this.props.public.users, user => CalcStreak(user)).reverse();
+        const users = _.sortBy(this.props.public.users, user => CalcTotals(user).NEAT).reverse();
         const feed  = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
 
         const update = (field, value) => (e) => {
@@ -62,8 +62,8 @@ class TeamScreen extends React.Component {
 
                                 <div className="suppl-panel">
                                     <div className="panel-header">
-                                        <div className="header-tab" data-active={Community.currentTab == 'activity'} onClick={update('currentTab', 'activity')}>Recent activity</div>
-                                        <div className="header-tab" data-active={Community.currentTab == 'performance'   } onClick={update('currentTab', 'performance')}>Performance</div>
+                                        <div className="header-tab" data-active={Community.currentTab == 'activity'    } onClick={update('currentTab', 'activity')}>Recent activity</div>
+                                        <div className="header-tab" data-active={Community.currentTab == 'performance' } onClick={update('currentTab', 'performance')}>Performance</div>
                                         <div className="header-tab" data-active={Community.currentTab == 'leaderboard' } onClick={update('currentTab', 'leaderboard')}>Leaderboard</div>
                                     </div>
 
@@ -87,9 +87,9 @@ class TeamScreen extends React.Component {
                                                         <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
                                                         <div className="flex flex-min">
                                                             <div className="stat-stat">
-                                                    <span>
-                                                        {_.reduce(State().public.users, (sum, user) => sum + CalcComplete(user), 0)}
-                                                    </span>
+                                                                <span>
+                                                                    {_.reduce(State().public.users, (sum, user) => sum + CalcComplete(user), 0)}
+                                                                </span>
                                                                 <span className="stat-small"></span>
                                                             </div>
                                                             <div className="stat-text">Total sessions done</div>
@@ -101,9 +101,9 @@ class TeamScreen extends React.Component {
                                                         <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
                                                         <div className="flex flex-min">
                                                             <div className="stat-stat">
-                                                    <span>
-                                                        {_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).durationMinutes, 0)}
-                                                    </span>
+                                                                <span>
+                                                                    {_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).durationMinutes, 0)}
+                                                                </span>
                                                                 <span className="stat-small"> mins</span>
                                                             </div>
                                                             <div className="stat-text">Total realign time</div>
@@ -135,6 +135,9 @@ class TeamScreen extends React.Component {
                                                                 <div className="table-profile">
                                                                     <Link className="activity-icon clickable" href={`/profile/${user.uid}`} style={{backgroundImage: `url('${user.avatar}')`}}/>
                                                                     <Link href={`profile/${user.uid}`}>{user.name}</Link>
+                                                                    {CalcTag(index + 1) ?
+                                                                        <div className="table-tag" style={{background:CalcTag(index + 1).color}}>{CalcTag(index + 1).text}</div>
+                                                                    : null}
                                                                 </div>
                                                             </td>
                                                             <td className="tr-small">{CalcTotals(user).durationMinutes}</td>

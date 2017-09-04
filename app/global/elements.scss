@@ -10,6 +10,18 @@
   color: $greyish-brown;
   margin-top: 20px;
   text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  .label-small {
+    font-size: 10px;
+    text-align: left;
+    color: #97a4b9;
+    text-transform: none;
+    align-items: center;
+  }
 
   .not-desktop & {
     font-size: 10px;
@@ -167,6 +179,14 @@
         height: 48px;
         line-height: 48px;
       }
+    }
+  }
+
+  &.wide {
+    width: 100%;
+
+    input {
+      flex: 1 0 0;
     }
   }
 }

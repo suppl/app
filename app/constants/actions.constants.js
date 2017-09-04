@@ -9,11 +9,14 @@ export const SHOW_NOTIFICATION    = 'SHOW_NOTIFICATION';
 export const HIDE_NOTIFICATION    = 'HIDE_NOTIFICATION';
 export const START_LOADING        = 'START_LOADING';
 export const DONE_LOADING         = 'DONE_LOADING';
-export const TOGGLE_SETTINGS      = 'TOGGLE_SETTINGS';
+export const TOGGLE_SETTINGS      = 'TOGGLE_SETTINGSa';
 export const SET_DISPLAY_NAME     = 'SET_DISPLAY_NAME';
 export const SAVE_PROFILE         = 'SAVE_PROFILE';
 export const LOAD_PROFILE         = 'LOAD_PROFILE';
 export const SET_USER_CUSTOM_DATA = 'SET_USER_CUSTOM_DATA';
+
+export const SET_SIGN_IN_DETAILS = 'SET_SIGN_IN_DETAILS';
+export const SIGN_IN_NEW         = 'SIGN_IN_NEW';
 
 
 export const LOAD_ACCOUNT_DETAILS = 'LOAD_ACCOUNT_DETAILS';

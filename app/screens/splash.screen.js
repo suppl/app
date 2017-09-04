@@ -19,7 +19,6 @@ class Splash extends React.Component {
     render() {
         const signInEnter = (event) => {
             if (event.key == 'Enter') Dispatch(ACTIONS.SIGN_IN);
-
         };
 
         return (
