@@ -68277,14 +68277,18 @@ var PublicReducer = function () {
     _createClass(PublicReducer, [{
         key: 'loadUsers',
         value: function loadUsers(action, state) {
-            var publicUserRef = firebase.database().ref('public/users');
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (!user) return;
 
-            publicUserRef.on('value', function (snapshot) {
-                if (!snapshot.val()) return;
+                var publicUserRef = firebase.database().ref('public/users');
 
-                var users = Object.values(snapshot.val());
+                publicUserRef.on('value', function (snapshot) {
+                    if (!snapshot.val()) return;
 
-                (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PUBLIC_USERS, users: users });
+                    var users = Object.values(snapshot.val());
+
+                    (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PUBLIC_USERS, users: users });
+                });
             });
         }
     }, {

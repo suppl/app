@@ -29,14 +29,18 @@ class PublicReducer {
     }
 
     loadUsers(action, state) {
-        const publicUserRef = firebase.database().ref(`public/users`);
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) return;
 
-        publicUserRef.on('value', (snapshot) => {
-            if (!snapshot.val()) return;
+            const publicUserRef = firebase.database().ref(`public/users`);
 
-            const users = Object.values(snapshot.val());
+            publicUserRef.on('value', (snapshot) => {
+                if (!snapshot.val()) return;
 
-            Dispatch({type: ACTIONS.SET_PUBLIC_USERS, users: users});
+                const users = Object.values(snapshot.val());
+
+                Dispatch({type: ACTIONS.SET_PUBLIC_USERS, users: users});
+            });
         });
     }
 
