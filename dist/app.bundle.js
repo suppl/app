@@ -67665,7 +67665,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 var FeedReducer = function () {
     function FeedReducer() {
-        var _actions;
+        var _actions,
+            _this = this;
 
         _classCallCheck(this, FeedReducer);
 
@@ -67675,24 +67676,20 @@ var FeedReducer = function () {
         };
         this.actions = (_actions = {}, _defineProperty(_actions, ACTIONS.SET_FEED_ARRAY, function (action, state) {
             return { feed: action.feed };
-        }), _defineProperty(_actions, ACTIONS.ADD_FEED_ITEM, this.addFeedItem), _actions);
+        }), _defineProperty(_actions, ACTIONS.ADD_FEED_ITEM, this.addFeedItem), _defineProperty(_actions, ACTIONS.ADD_FEED_ITEM, this.addFeedItem), _actions);
 
-        this.loadFeed();
+        // this.loadFeed();
         // this.signedIn();
 
-        setTimeout(function () {
-            console.log('State', _dispatch.State);
-            console.log('State()', (0, _dispatch.State)());
-        }, 1);
+        firebase.auth().onAuthStateChanged(function (user) {
+            if (!user) return;
+            _this.loadFeed();
+        });
     }
 
     _createClass(FeedReducer, [{
         key: 'signedIn',
-        value: function signedIn() {
-            firebase.auth().onAuthStateChanged(function (user) {
-                if (!user) return;
-            });
-        }
+        value: function signedIn() {}
     }, {
         key: 'loadFeed',
         value: function loadFeed(action, state) {
@@ -84700,7 +84697,7 @@ exports = module.exports = __webpack_require__(27)(undefined);
 
 
 // module
-exports.push([module.i, ".notification-component {\n  z-index: 4000;\n  position: fixed;\n  bottom: 15px;\n  left: 15px;\n  width: 355px;\n  height: 70px;\n  border-radius: 2px;\n  background-color: #00a2f2;\n  background-color: #2ccfa9;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  display: flex;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: translateY(30px); }\n  .not-desktop .notification-component {\n    left: 10px;\n    right: 10px;\n    bottom: 70px;\n    width: auto;\n    background: white;\n    color: #656f7e;\n    border-radius: 0px;\n    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.05); }\n  .notification-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: translateY(0); }\n  .notification-component .notification-content {\n    position: relative;\n    flex: 1 0 100%;\n    flex-direction: row;\n    align-items: center;\n    padding: 25px;\n    display: flex; }\n  .notification-component .notification-icon {\n    font-weight: bold; }\n  .notification-component .notification-text {\n    margin-left: 10px; }\n  .notification-component .notification-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 10px;\n    cursor: pointer; }\n  .notification-component.error .notification-icon {\n    display: none; }\n", ""]);
+exports.push([module.i, ".notification-component {\n  z-index: 4000;\n  position: fixed;\n  bottom: 15px;\n  left: 15px;\n  width: 355px;\n  height: 70px;\n  border-radius: 2px;\n  background-color: #00a2f2;\n  background-color: #2ccfa9;\n  font-size: 15px;\n  text-align: left;\n  color: #ffffff;\n  display: flex;\n  transition: .6s;\n  opacity: 0;\n  visibility: hidden;\n  transform: translateY(30px); }\n  .not-desktop .notification-component {\n    left: 10px;\n    right: 10px;\n    bottom: 70px;\n    width: auto;\n    background: white;\n    color: #656f7e;\n    border-radius: 0px;\n    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15); }\n  .notification-component.active {\n    opacity: 1;\n    visibility: visible;\n    transform: translateY(0); }\n  .notification-component .notification-content {\n    position: relative;\n    flex: 1 0 100%;\n    flex-direction: row;\n    align-items: center;\n    padding: 25px;\n    display: flex; }\n  .notification-component .notification-icon {\n    font-weight: bold; }\n  .notification-component .notification-text {\n    margin-left: 10px; }\n  .notification-component .notification-close {\n    position: absolute;\n    top: 0;\n    right: 0;\n    padding: 10px;\n    cursor: pointer; }\n  .notification-component.error {\n    background-color: #ff939f;\n    color: white; }\n    .notification-component.error .notification-icon {\n      display: none; }\n    .not-desktop .notification-component.error {\n      color: white; }\n", ""]);
 
 // exports
 

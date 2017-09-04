@@ -39,7 +39,7 @@
     border-radius: 0px;
     //border: 1px solid #ddd;
 
-    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.15)
   }
 
   &.active {
@@ -77,7 +77,8 @@
   }
 
   &.error {
-    //background-color: $rosa;
+    background-color: $rosa;
+    color: white;
 
     .notification-icon {
       display: none;
@@ -85,7 +86,7 @@
 
 
     .not-desktop & {
-      //color: white;
+      color: white;
     }
   }
 }

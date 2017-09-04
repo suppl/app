@@ -15,23 +15,20 @@ class FeedReducer {
     actions = {
         [ACTIONS.SET_FEED_ARRAY]: (action, state) => ({feed: action.feed}),
         [ACTIONS.ADD_FEED_ITEM] : this.addFeedItem,
+        [ACTIONS.ADD_FEED_ITEM] : this.addFeedItem,
     };
 
     constructor() {
-        this.loadFeed();
+        // this.loadFeed();
         // this.signedIn();
 
-        setTimeout(() => {
-            console.log('State', State);
-            console.log('State()', State());
-        }, 1);
+        firebase.auth().onAuthStateChanged(user => {
+            if (!user) return;
+            this.loadFeed();
+        });
     }
 
     signedIn() {
-        firebase.auth().onAuthStateChanged(user => {
-            if (!user) return;
-
-        });
     }
 
     loadFeed(action, state) {
