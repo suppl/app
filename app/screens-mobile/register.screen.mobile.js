@@ -18,7 +18,7 @@ class RegisterScreenMobile extends React.Component {
         console.log('this', this)
         event.persist();
         this.props.updateRegisterEmail(event);
-        this.checkEmail(event);
+        this.testEmail(event);
     }
 
     render() {

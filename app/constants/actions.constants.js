@@ -3,6 +3,9 @@ export const UPDATE_LOGIN_PASSWORD = 'UPDATE_LOGIN_PASSWORD';
 export const SET_USER              = 'SET_USER';
 export const UNSET_USER            = 'UNSET_USER';
 
+export const SET_JOIN_DETAILS = 'SET_JOIN_DETAILS';
+export const TEST_JOIN_EMAIL = 'TEST_JOIN_EMAIL';
+
 export const SIGN_IN              = 'SIGN_IN';
 export const SIGN_OUT             = 'SIGN_OUT';
 export const SHOW_NOTIFICATION    = 'SHOW_NOTIFICATION';

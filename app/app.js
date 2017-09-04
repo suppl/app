@@ -9,6 +9,7 @@ const Location  = Router.Location;
 
 import {IsDesktop, IsMobile, IsTablet, If} from './services/helper.service';
 
+import JoinScreen from './screens/join.screen';
 import SignInScreen from './screens/sign-in.screen';
 import SessionsScreen from './screens/sessions.screen';
 import SessionScreen from './screens/session.screen';
@@ -73,6 +74,7 @@ import OnboardingReducer from './reducers/onboarding.reducer';
 import ProfileReducer from './reducers/profile.reducer';
 import AccountReducer from './reducers/account.reducer';
 import SignInReducer from './reducers/sign-in.reducer';
+import JoinReducer from './reducers/join.reducer';
 
 
 const reducer = combineReducers({
@@ -90,6 +92,7 @@ const reducer = combineReducers({
     profile     : ProfileReducer,
     account     : AccountReducer,
     signIn      : SignInReducer,
+    join        : JoinReducer,
 });
 
 export const store = createStore(reducer);
@@ -99,6 +102,10 @@ require('./app.scss');
 class App extends React.Component {
 
     componentWillMount() {
+        if (!window.location.protocol.match('s') && !window.location.host.match('localhost')) {
+            window.location.protocol = 'https:'
+        }
+
         $(window).resize(() => {
             console.log('resize');
             this.forceUpdate();
@@ -130,6 +137,7 @@ class App extends React.Component {
                         <Locations>
                             <Location path="/" handler={SignInScreen}/>
                             {/*<Location path="/" handler={SplashScreen}/>*/}
+                            <Location path="/join" handler={JoinScreen}/>
                             <Location path="/register" handler={RegisterScreen}/>
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>

@@ -22,7 +22,7 @@ class SignInScreenMobile extends React.Component {
         setTimeout(() => {
             this.activeClass = 'active-screen';
             this.forceUpdate();
-        }, 50);
+        }, 1);
     }
 
     render() {

@@ -548,6 +548,10 @@
       }
 
     }
+
+    &.flush {
+      padding: 0;
+    }
   }
 }
 
@@ -581,6 +585,7 @@
 
   &[disabled] {
     opacity: 0.5;
+    pointer-events: none;
   }
 
   &.large {
@@ -631,6 +636,25 @@
     background: #f9fbff;
     background-image: url('/statics/svg/backgrounds/sign-up-background.svg');
     background-size: 800px;
+
+    transition: background 3s;
+  }
+
+  .anon-title {
+    font-size: 28px;
+    font-weight: 300;
+    color: $battleship-grey;
+  }
+
+  .anon-icon {
+    margin-top: -80px;
+    margin-bottom: 40px;
+
+    img {
+      height: 21px;
+      margin-right: 15px;
+    }
+
   }
 
   .anon-logo {
