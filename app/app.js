@@ -32,6 +32,7 @@ import BumpScreen from './screens/bump.screen';
 import AccountScreen from './screens/account.screen';
 
 
+import JoinScreenMobile from './screens-mobile/join.screen.mobile';
 import SignInScreenMobile from './screens-mobile/sign-in.screen.mobile';
 import ProfileScreenMobile from './screens-mobile/profile.screen.mobile';
 import PerformanceScreenMobile from './screens-mobile/performance.screen.mobile';
@@ -166,6 +167,7 @@ class App extends React.Component {
                         <Locations>
                             {/*<Location path="/" handler={SplashScreenMobile}/>*/}
                             <Location path="/" handler={SignInScreenMobile}/>
+                            <Location path="/join" handler={JoinScreenMobile}/>
                             <Location path="/register" handler={RegisterScreenMobile}/>
                             <Location path="/register-password" handler={RegisterPasswordScreen}/>
                             <Location path="/register-job" handler={RegisterJobScreen}/>

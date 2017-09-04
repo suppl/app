@@ -655,6 +655,11 @@
       margin-right: 15px;
     }
 
+    .not-desktop & {
+      margin-top: -20px;
+      margin-bottom: 0px;
+    }
+
   }
 
   .anon-logo {
