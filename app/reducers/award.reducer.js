@@ -61,7 +61,7 @@ const giveHistory = async (data, state) => {
         sessionId      : data.session.id,
         audioName      : data.audio.name,
         audioId        : data.audio.id,
-        NEAT           : data.audio.NEAT,
+        NEPA           : data.audio.NEPA,
         duration       : data.audio.duration,
         durationSeconds: data.audio.durationSeconds,
         date           : moment().format(),

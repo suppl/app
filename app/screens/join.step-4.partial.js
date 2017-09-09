@@ -42,8 +42,7 @@ class JoinStep4 extends React.Component {
 
         const nextStep = () => {
             Dispatch({type: ACTIONS.SET_JOIN_DETAILS, ...this.local});
-
-
+            Dispatch({type: ACTIONS.JOIN_CREATE_USER});
         };
 
         return (

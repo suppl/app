@@ -75,9 +75,9 @@ class DashboardScreenMobile extends React.Component {
 
                                 <div className="thin-heading-2 ">Your performance</div>
 
-                                <div className="neat-banner">
-                                    <div className="neat-score">+{CalcTotals(State().public.user).NEAT}</div>
-                                    <div className="neat-text">Your <strong>NEAT</strong> score</div>
+                                <div className="nepa-banner">
+                                    <div className="nepa-score">+{CalcTotals(State().public.user).NEPA}</div>
+                                    <div className="nepa-text">Your <strong>NEPA</strong> score</div>
                                 </div>
 
 

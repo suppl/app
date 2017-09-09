@@ -149,7 +149,7 @@
   }
 }
 
-.neat-banner {
+.nepa-banner {
   height: 215px;
   border-radius: 4px;
   background-color: #f0f8ff;
@@ -164,14 +164,14 @@
   background-size: contain;
   background-position: right center;
   background-repeat: no-repeat;
-  background-image: url('/statics/svg/dashboard/NEAT.svg');
+  background-image: url('/statics/svg/dashboard/NEPA.svg');
 
   .not-desktop & {
     height: 120px;
     padding-left: 20px;
   }
 
-  .neat-score {
+  .nepa-score {
     font-size: 50px;
     color: $battleship-grey;
 
@@ -180,7 +180,7 @@
     }
   }
 
-  .neat-text {
+  .nepa-text {
     font-size: 18px;
     margin-top: 10px;
     color: #b4bdcc;
@@ -392,7 +392,7 @@
     display: flex;
   }
 
-  .table-neat-score {
+  .table-nepa-score {
     font-size: 19px;
     font-weight: 600;
     color: #1fb7c7;

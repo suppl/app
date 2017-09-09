@@ -24,7 +24,7 @@ class TeamScreenMobile extends React.Component {
     render() {
         const Community = this.props.community;
 
-        const users = _.sortBy(this.props.public.users, user => CalcTotals(user).NEAT).reverse();
+        const users = _.sortBy(this.props.public.users, user => CalcTotals(user).NEPA).reverse();
         const feed  = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
 
         const update = (field, value) => (e) => {
@@ -69,9 +69,9 @@ class TeamScreenMobile extends React.Component {
                                         </div>
                                         <div className="content-tab" data-visible={Community.currentTab == 'performance'}>
 
-                                            <div className="neat-banner">
-                                                <div className="neat-score">+{_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).NEAT, 0)}</div>
-                                                <div className="neat-text">Community <strong>NEAT</strong> score</div>
+                                            <div className="nepa-banner">
+                                                <div className="nepa-score">+{_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).NEPA, 0)}</div>
+                                                <div className="nepa-text">Community <strong>NEPA</strong> score</div>
                                             </div>
 
                                             <div className="suppl-stat">
@@ -110,7 +110,7 @@ class TeamScreenMobile extends React.Component {
                                                         <th className="tr-small">Mins</th>
                                                         <th className="tr-small">Sessions</th>
                                                         <th className="tr-small">Streak</th>
-                                                        <th className="tr-small">NEAT</th>
+                                                        <th className="tr-small">NEPA</th>
                                                     </tr>
                                                     </thead>
                                                     <tbody>
@@ -127,7 +127,7 @@ class TeamScreenMobile extends React.Component {
                                                             <td className="tr-small">{CalcTotals(user).durationMinutes}</td>
                                                             <td className="tr-small">{CalcComplete(user)}</td>
                                                             <td className="tr-small">{CalcStreak(user)}</td>
-                                                            <td className="tr-small table-neat-score">+{CalcTotals(user).NEAT}</td>
+                                                            <td className="tr-small table-nepa-score">+{CalcTotals(user).NEPA}</td>
                                                         </tr>
                                                     )}
                                                     </tbody>

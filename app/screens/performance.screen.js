@@ -44,11 +44,11 @@ class PerformanceScreen extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="thin-heading-2">NEAT job!</div>
+                                <div className="thin-heading-2">NEPA job!</div>
 
-                                <div className="neat-banner">
-                                    <div className="neat-score">+{CalcTotals(State().public.user).NEAT}</div>
-                                    <div className="neat-text">Your <strong>NEAT</strong> score</div>
+                                <div className="nepa-banner">
+                                    <div className="nepa-score">+{CalcTotals(State().public.user).NEPA}</div>
+                                    <div className="nepa-text">Your <strong>NEPA</strong> score</div>
                                 </div>
 
                                 <div className="thin-heading-2">Session performance</div>

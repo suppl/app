@@ -105,6 +105,9 @@ class App extends React.Component {
     componentWillMount() {
         if (!window.location.protocol.match('s') && !window.location.host.match('localhost')) {
             window.location.protocol = 'https:'
+        } else {
+            console.log = () => {};
+            console.info = () => {};
         }
 
         $(window).resize(() => {

@@ -37,7 +37,7 @@ class JoinStep2 extends React.Component {
             [field]: value ? value : e.target.value
         });
 
-        const isReady = () => !!this.local.password;
+        const isReady = () => !!this.local.password && this.local.password.length >= 6 ;
 
         const nextStep = () => {
             Dispatch({type: ACTIONS.SET_JOIN_DETAILS, currentTab: 'step-3', ...this.local});

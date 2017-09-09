@@ -17,6 +17,7 @@ class JoinReducer {
         // [ACTIONS.LOAD_SIGN_IN_DETAILS]: this.loadJoin,
         [ACTIONS.SET_JOIN_DETAILS]: this.setJoin,
         [ACTIONS.TEST_JOIN_EMAIL] : this.testEmail,
+        [ACTIONS.JOIN_CREATE_USER]: this.createUser,
         // [ACTIONS.JOIN_REGISTER]   : this.join,
         // [ACTIONS.SAVE_SIGN_IN_DETAILS]: this.saveJoin,
     };
@@ -37,22 +38,55 @@ class JoinReducer {
         validateEmailWithFirebase(action.email);
     }
 
-    async join(action, state) {
+
+    async createUser(data, state) {
+        let user, customData;
         Dispatch(ACTIONS.START_LOADING);
 
-        const user = await firebase.auth()
-            .joinWithEmailAndPassword(action.email, action.password)
-            .catch(error => {
-                console.error('ERROR', action.type, error.message);
-                Dispatch(ACTIONS.DONE_LOADING);
-                Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: error.message, theme: 'error',});
-            });
+        try {
+            user = await firebase.auth().createUserWithEmailAndPassword(state.email, state.password)
+        } catch (error) {
+            console.error('error', error);
+            Dispatch(ACTIONS.DONE_LOADING);
+            Dispatch({type: ACTIONS.SHOW_NOTIFICATION, theme: 'error', message: error.message});
+            return;
+        }
 
-        console.warn('user', user);
+        await firebase.auth().currentUser.updateProfile({displayName: state.name,});
 
-        if (!user) return;
-        Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
-    }
+        customData = {
+            points: 0,
+            info  : {
+                workStyle: state.workStyle,
+                // workHours: state.workHours,
+                workTeam : state.workTeam,
+                role     : state.role,
+            }
+        };
+
+        await firebase.database().ref('users/' + user.uid).update(customData);
+
+        Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Registered Successfully!'});
+        // Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
+        // checkAuth();
+    };
+
+    // async join(action, state) {
+    //     Dispatch(ACTIONS.START_LOADING);
+    //
+    //     const user = await firebase.auth()
+    //         .joinWithEmailAndPassword(action.email, action.password)
+    //         .catch(error => {
+    //             console.error('ERROR', action.type, error.message);
+    //             Dispatch(ACTIONS.DONE_LOADING);
+    //             Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: error.message, theme: 'error',});
+    //         });
+    //
+    //     console.warn('user', user);
+    //
+    //     if (!user) return;
+    //     Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
+    // }
 }
 
 const validateEmailWithFirebase = _.debounce(async (email) => {

@@ -85,11 +85,11 @@ class CommunityScreenMobile extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="thin-heading-2">{user.firstName || user.name}'s NEAT score</div>
+                                <div className="thin-heading-2">{user.firstName || user.name}'s NEPA score</div>
 
-                                <div className="neat-banner">
-                                    <div className="neat-score">+{CalcTotals(user).NEAT}</div>
-                                    <div className="neat-text">Your <strong>NEAT</strong> score</div>
+                                <div className="nepa-banner">
+                                    <div className="nepa-score">+{CalcTotals(user).NEPA}</div>
+                                    <div className="nepa-text">Your <strong>NEPA</strong> score</div>
                                 </div>
 
                                 <div className="thin-heading-2">{user.firstName || user.name}'s performance</div>

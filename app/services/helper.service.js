@@ -21,13 +21,13 @@ export const CalcTotals = (user) => {
     let historyItems = Object.values(user.history || {});
 
     let totals = {
-        NEAT           : 0,
+        NEPA           : 0,
         durationSeconds: 0,
         durationMinutes: 0,
     };
 
     _.each(historyItems, item => {
-        totals.NEAT += item.NEAT;
+        totals.NEPA += item.NEPA || item.NEAT;
         totals.durationSeconds += item.durationSeconds;
         totals.durationMinutes += ((item.durationSeconds - (item.durationSeconds % 60)) / 60);
     });

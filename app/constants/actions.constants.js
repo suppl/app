@@ -4,7 +4,8 @@ export const SET_USER              = 'SET_USER';
 export const UNSET_USER            = 'UNSET_USER';
 
 export const SET_JOIN_DETAILS = 'SET_JOIN_DETAILS';
-export const TEST_JOIN_EMAIL = 'TEST_JOIN_EMAIL';
+export const TEST_JOIN_EMAIL  = 'TEST_JOIN_EMAIL';
+export const JOIN_CREATE_USER = 'JOIN_CREATE_USER';
 
 export const SIGN_IN              = 'SIGN_IN';
 export const SIGN_OUT             = 'SIGN_OUT';

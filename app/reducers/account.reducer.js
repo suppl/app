@@ -35,6 +35,7 @@ class AccountReducer {
             // username: state.username,
             info    : {
                 role     : state.role,
+                workTeam: state.workTeam,
                 workHours: state.workHours,
                 workStyle: state.workStyle,
             },
@@ -82,6 +83,7 @@ class AccountReducer {
                 let details = {
                     // username : data.username,
                     role     : data.info.role,
+                    workTeam: data.info.workTeam,
                     workHours: data.info.workHours,
                     workStyle: data.info.workStyle,
                 };

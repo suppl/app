@@ -59,8 +59,8 @@ class Complete extends React.Component {
 
                     <div className="top-stats">
                         <div className="top-stat">
-                            <div className="stat-number">+{audio.NEAT}</div>
-                            <div className="stat-text">Your NEAT score</div>
+                            <div className="stat-number">+{audio.NEPA}</div>
+                            <div className="stat-text">Your NEPA score</div>
                         </div>
                         <div className="top-stat">
                             <div className="stat-number">
