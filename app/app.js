@@ -142,10 +142,10 @@ class App extends React.Component {
                             <Location path="/" handler={SignInScreen}/>
                             {/*<Location path="/" handler={SplashScreen}/>*/}
                             <Location path="/join" handler={JoinScreen}/>
-                            <Location path="/register" handler={RegisterScreen}/>
-                            <Location path="/register-password" handler={RegisterPasswordScreen}/>
-                            <Location path="/register-job" handler={RegisterJobScreen}/>
-                            <Location path="/register-style" handler={RegisterStyleScreen}/>
+                            {/*<Location path="/register" handler={RegisterScreen}/>*/}
+                            {/*<Location path="/register-password" handler={RegisterPasswordScreen}/>*/}
+                            {/*<Location path="/register-job" handler={RegisterJobScreen}/>*/}
+                            {/*<Location path="/register-style" handler={RegisterStyleScreen}/>*/}
                             <Location path="/account" handler={AccountScreen}/>
                             <Location path="/performance" handler={PerformanceScreen}/>
                             <Location path="/journey" handler={JourneyScreen}/>
@@ -171,10 +171,10 @@ class App extends React.Component {
                             {/*<Location path="/" handler={SplashScreenMobile}/>*/}
                             <Location path="/" handler={SignInScreenMobile}/>
                             <Location path="/join" handler={JoinScreenMobile}/>
-                            <Location path="/register" handler={RegisterScreenMobile}/>
-                            <Location path="/register-password" handler={RegisterPasswordScreen}/>
-                            <Location path="/register-job" handler={RegisterJobScreen}/>
-                            <Location path="/register-style" handler={RegisterStyleScreen}/>
+                            {/*<Location path="/register" handler={RegisterScreenMobile}/>*/}
+                            {/*<Location path="/register-password" handler={RegisterPasswordScreen}/>*/}
+                            {/*<Location path="/register-job" handler={RegisterJobScreen}/>*/}
+                            {/*<Location path="/register-style" handler={RegisterStyleScreen}/>*/}
                             <Location path="/account" handler={AccountScreenMobile}/>
                             <Location path="/performance" handler={PerformanceScreenMobile}/>
                             <Location path="/journey" handler={JourneyScreenMobile}/>

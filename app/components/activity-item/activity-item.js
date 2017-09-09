@@ -38,9 +38,14 @@ class ActivityItem extends React.Component {
                 overlayWidth = '0%';
                 text         = <div>signed in</div>
             },
+            [FEED_ACTIONS.JOINED_SUPPL]      : () => {
+                overlayWidth = '0%';
+                extra        = <div><img src="/statics/svg/icons/oh-hey.svg" alt=""/> Oh hey!</div>;
+                text         = <div>joined Suppl!</div>
+            },
             [FEED_ACTIONS.STARTED_AUDIO]  : () => {
                 color        = _.find(SessionList, {id: feedItem.details.sessionId}).color;
-                overlayWidth = '80%';
+                overlayWidth = '85%';
                 text         = <div>
                     started
                     <Link className="activity-strong" href={`/sessions/${feedItem.details.sessionId}`}> {feedItem.details['sessionName']} - {feedItem.details.audioName}</Link>
@@ -57,7 +62,9 @@ class ActivityItem extends React.Component {
             },
         };
 
-        actions[feedItem.feedAction]();
+        try {
+            actions[feedItem.feedAction]();
+        } catch (e) {}
 
         return (
             <div className="activity-panel">

@@ -67,32 +67,19 @@ class JoinReducer {
         await firebase.database().ref('users/' + user.uid).update(customData);
 
         Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: 'Registered Successfully!'});
-        // Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
-        // checkAuth();
-    };
 
-    // async join(action, state) {
-    //     Dispatch(ACTIONS.START_LOADING);
-    //
-    //     const user = await firebase.auth()
-    //         .joinWithEmailAndPassword(action.email, action.password)
-    //         .catch(error => {
-    //             console.error('ERROR', action.type, error.message);
-    //             Dispatch(ACTIONS.DONE_LOADING);
-    //             Dispatch({type: ACTIONS.SHOW_NOTIFICATION, message: error.message, theme: 'error',});
-    //         });
-    //
-    //     console.warn('user', user);
-    //
-    //     if (!user) return;
-    //     Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
-    // }
+
+        Dispatch({
+            type      : ACTIONS.ADD_FEED_ITEM,
+            feedAction: FEED_ACTIONS.JOINED_SUPPL
+        });
+    };
 }
 
 const validateEmailWithFirebase = _.debounce(async (email) => {
     let response = await firebase.auth().fetchProvidersForEmail(email).catch((e) => console.error(e));
 
-    if (response.length === 0) {
+    if (!response || response.length === 0) {
         Dispatch({type: ACTIONS.SET_JOIN_DETAILS, emailIsOk: true});
         Dispatch(ACTIONS.HIDE_NOTIFICATION);
     } else {

@@ -71,7 +71,7 @@ class PublicReducer {
                     name     : easyName,
                     fullName : user.displayName,
                     firstName: easyName.split(" ")[0],
-                    avatar   : standardUserData.avatar || '/statics/svg/avatars/bird.png',
+                    avatar   : standardUserData.avatar || '/statics/svg/avatars/flamingo.svg',
                     awards   : standardUserData.awards,
                     history  : standardUserData.history,
                     done     : standardUserData.done,

@@ -45,7 +45,7 @@ export const CalcTag = (index) => {
         return {text: 'Superstar', color: '#c8d4fa'};
     }
 
-    if (index >= 4 && index < 6) {
+    if (index >= 4 && index <= 6) {
         return {text: 'Hero', color: '#fad1c8'};
     }
 

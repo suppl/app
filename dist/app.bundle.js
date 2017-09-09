@@ -22137,7 +22137,7 @@ var CalcTag = exports.CalcTag = function CalcTag(index) {
         return { text: 'Superstar', color: '#c8d4fa' };
     }
 
-    if (index >= 4 && index < 6) {
+    if (index >= 4 && index <= 6) {
         return { text: 'Hero', color: '#fad1c8' };
     }
 
@@ -25152,6 +25152,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var SIGNED_IN = exports.SIGNED_IN = 'SIGNED_IN';
 var JOINED_WAITLIST = exports.JOINED_WAITLIST = 'JOINED_WAITLIST';
+var JOINED_SUPPL = exports.JOINED_SUPPL = 'JOINED_SUPPL';
 var STARTED_AUDIO = exports.STARTED_AUDIO = 'STARTED_AUDIO';
 var COMPLETED_AUDIO = exports.COMPLETED_AUDIO = 'COMPLETED_AUDIO';
 var EARNED_BADGE = exports.EARNED_BADGE = 'EARNED_BADGE';
@@ -27629,10 +27630,6 @@ var App = function (_React$Component) {
                             null,
                             _react2.default.createElement(Location, { path: '/', handler: _signIn2.default }),
                             _react2.default.createElement(Location, { path: '/join', handler: _join2.default }),
-                            _react2.default.createElement(Location, { path: '/register', handler: _register2.default }),
-                            _react2.default.createElement(Location, { path: '/register-password', handler: _registerPassword2.default }),
-                            _react2.default.createElement(Location, { path: '/register-job', handler: _registerJob2.default }),
-                            _react2.default.createElement(Location, { path: '/register-style', handler: _registerStyle2.default }),
                             _react2.default.createElement(Location, { path: '/account', handler: _account2.default }),
                             _react2.default.createElement(Location, { path: '/performance', handler: _performance2.default }),
                             _react2.default.createElement(Location, { path: '/journey', handler: _journey2.default }),
@@ -27660,10 +27657,6 @@ var App = function (_React$Component) {
                             null,
                             _react2.default.createElement(Location, { path: '/', handler: _signInScreen2.default }),
                             _react2.default.createElement(Location, { path: '/join', handler: _joinScreen2.default }),
-                            _react2.default.createElement(Location, { path: '/register', handler: _registerScreen2.default }),
-                            _react2.default.createElement(Location, { path: '/register-password', handler: _registerPassword2.default }),
-                            _react2.default.createElement(Location, { path: '/register-job', handler: _registerJob2.default }),
-                            _react2.default.createElement(Location, { path: '/register-style', handler: _registerStyle2.default }),
                             _react2.default.createElement(Location, { path: '/account', handler: _accountScreen2.default }),
                             _react2.default.createElement(Location, { path: '/performance', handler: _performanceScreen2.default }),
                             _react2.default.createElement(Location, { path: '/journey', handler: _journeyScreen2.default }),
@@ -38881,9 +38874,22 @@ var ActivityItem = function (_React$Component) {
                     null,
                     'signed in'
                 );
+            }), _defineProperty(_actions, FEED_ACTIONS.JOINED_SUPPL, function () {
+                overlayWidth = '0%';
+                extra = _react2.default.createElement(
+                    'div',
+                    null,
+                    _react2.default.createElement('img', { src: '/statics/svg/icons/oh-hey.svg', alt: '' }),
+                    ' Oh hey!'
+                );
+                text = _react2.default.createElement(
+                    'div',
+                    null,
+                    'joined Suppl!'
+                );
             }), _defineProperty(_actions, FEED_ACTIONS.STARTED_AUDIO, function () {
                 color = _.find(_session.SessionList, { id: feedItem.details.sessionId }).color;
-                overlayWidth = '80%';
+                overlayWidth = '85%';
                 text = _react2.default.createElement(
                     'div',
                     null,
@@ -38921,7 +38927,9 @@ var ActivityItem = function (_React$Component) {
                 );
             }), _actions);
 
-            actions[feedItem.feedAction]();
+            try {
+                actions[feedItem.feedAction]();
+            } catch (e) {}
 
             return _react2.default.createElement(
                 'div',
@@ -68734,10 +68742,13 @@ var JoinReducer = function () {
                             case 19:
 
                                 (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_NOTIFICATION, message: 'Registered Successfully!' });
-                                // Dispatch({type: ACTIONS.SET_USER, isLoggedIn: true, user: user});
-                                // checkAuth();
 
-                            case 20:
+                                (0, _dispatch.Dispatch)({
+                                    type: ACTIONS.ADD_FEED_ITEM,
+                                    feedAction: FEED_ACTIONS.JOINED_SUPPL
+                                });
+
+                            case 21:
                             case 'end':
                                 return _context.stop();
                         }
@@ -68772,7 +68783,7 @@ var validateEmailWithFirebase = _.debounce(function () {
                         response = _context2.sent;
 
 
-                        if (response.length === 0) {
+                        if (!response || response.length === 0) {
                             (0, _dispatch.Dispatch)({ type: ACTIONS.SET_JOIN_DETAILS, emailIsOk: true });
                             (0, _dispatch.Dispatch)(ACTIONS.HIDE_NOTIFICATION);
                         } else {
@@ -69388,7 +69399,7 @@ var PublicReducer = function () {
                         name: easyName,
                         fullName: user.displayName,
                         firstName: easyName.split(" ")[0],
-                        avatar: standardUserData.avatar || '/statics/svg/avatars/bird.png',
+                        avatar: standardUserData.avatar || '/statics/svg/avatars/flamingo.svg',
                         awards: standardUserData.awards,
                         history: standardUserData.history,
                         done: standardUserData.done,
