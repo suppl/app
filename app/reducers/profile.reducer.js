@@ -48,11 +48,11 @@ class ProfileReducer {
         userRef.on('value', (snapshot) => {
             let user = snapshot.val();
 
-            const feedRef = firebase.database().ref(`feed/`).orderByChild('user').equalTo(userId).limitToLast(30);
+            const feedRef = firebase.database().ref(`feed/`).orderByChild('user').equalTo(user.uid).limitToLast(30);
             feedRef.on('value', (snapshot) => {
                 let feed = [];
 
-                if (snapshot.val()) Object.values(snapshot.val()).reverse();
+                if (snapshot.val()) feed = Object.values(snapshot.val()).reverse();
 
                 Dispatch({type: ACTIONS.SET_PROFILE_USER, user: user});
                 Dispatch({type: ACTIONS.SET_PROFILE_FEED, feed: feed});

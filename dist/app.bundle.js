@@ -27595,7 +27595,9 @@ var App = function (_React$Component) {
 
             if (!window.location.protocol.match('s') && !window.location.host.match('localhost')) {
                 window.location.protocol = 'https:';
-            } else {
+            }
+
+            if (!window.location.host.match('localhost')) {
                 console.log = function () {};
                 console.info = function () {};
                 console.warn = function () {};
@@ -69259,11 +69261,11 @@ var ProfileReducer = function () {
             userRef.on('value', function (snapshot) {
                 var user = snapshot.val();
 
-                var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(userId).limitToLast(30);
+                var feedRef = firebase.database().ref('feed/').orderByChild('user').equalTo(user.uid).limitToLast(30);
                 feedRef.on('value', function (snapshot) {
                     var feed = [];
 
-                    if (snapshot.val()) Object.values(snapshot.val()).reverse();
+                    if (snapshot.val()) feed = Object.values(snapshot.val()).reverse();
 
                     (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PROFILE_USER, user: user });
                     (0, _dispatch.Dispatch)({ type: ACTIONS.SET_PROFILE_FEED, feed: feed });
