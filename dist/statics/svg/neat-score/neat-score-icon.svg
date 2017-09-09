@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="132px" height="125px" viewBox="0 0 132 125" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 4</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0.362248072,88.329028 C13.5112673,92.1735141 25.5093397,91.7415359 36.3564652,87.0330934 C53.007343,79.8053999 53.7111327,48.6320265 56.0011447,39.344371 C63.6883978,8.16699653 79.0940858,12.5514014 87.4225871,12.8003447 C95.7510884,13.049288 104.859889,4.94731504 105.652438,0.170938756" id="path-1"></path>
+        <filter x="-6.6%" y="-5.5%" width="113.3%" height="115.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feMorphology radius="3" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowSpreadOuter1" result="shadowOffsetOuter1"></feOffset>
+            <feMorphology radius="3" operator="erode" in="SourceAlpha" result="shadowInner"></feMorphology>
+            <feOffset dx="0" dy="2" in="shadowInner" result="shadowInner"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.05 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-4" transform="translate(5.000000, 3.000000)">
+            <g id="Group-9">
+                <g id="Group-6" transform="translate(0.033819, 0.648033)">
+                    <polygon id="Rectangle-78" fill="#F3F3F3" points="3.58585985 101.387063 36.7048964 120.67796 126.628579 65.2418418 92.678321 48.2563244"></polygon>
+                    <polygon id="Rectangle-77" fill="#2CD0E6" points="44.2664946 27.8097516 78.9521317 35.8590448 78.9521317 85.8239469 44.2664946 64.4853195"></polygon>
+                    <polygon id="Rectangle-77" fill="#21C7DE" points="111.314605 27.8129535 78.9521317 35.9375992 78.9521317 85.8239469 111.314605 65.6607429"></polygon>
+                    <polygon id="Rectangle-78" fill="#11E4FF" points="44.1293785 27.8727927 79.0722979 46.0743734 111.515869 27.8727927 77.1174589 9.31685777"></polygon>
+                    <polygon id="Rectangle-77" fill="#00B7D0" points="1.8990931 86.6783561 36.5847302 91.2866013 36.5847302 112.985236 1.8990931 93.2012941"></polygon>
+                    <polygon id="Rectangle-77" fill="#00ABC2" points="68.9472037 86.5597963 36.5847302 91.6432877 36.5847302 112.985236 68.9472037 93.6972104"></polygon>
+                    <polygon id="Rectangle-78" fill="#00D4EF" points="1.76197695 87.6082475 36.7048964 105.809828 69.1484673 87.6082475 34.7500573 69.0523125"></polygon>
+                    <g id="Path-7" stroke-linecap="round">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                        <use stroke="#FF939F" stroke-width="6" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
