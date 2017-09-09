@@ -48,7 +48,7 @@ class ProfileReducer {
         userRef.on('value', (snapshot) => {
             let user = snapshot.val();
 
-            const feedRef = firebase.database().ref(`feed/`).orderByChild('user').equalTo(userId).limitToLast(10);
+            const feedRef = firebase.database().ref(`feed/`).orderByChild('user').equalTo(userId).limitToLast(30);
             feedRef.on('value', (snapshot) => {
                 let feed = [];
 

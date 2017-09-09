@@ -79,7 +79,7 @@ class PublicReducer {
                     streak   : standardUserData.streak,
                 };
 
-                console.error('public data', publicData);
+                // console.error('public data', publicData);
 
                 let userObject = _.omitBy(publicData, _.isUndefined);
 

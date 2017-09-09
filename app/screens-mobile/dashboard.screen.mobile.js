@@ -31,7 +31,7 @@ class DashboardScreenMobile extends React.Component {
     }
 
     render() {
-        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 5);
+        const feed = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 15);
 
         const getUserFirstName = () => {
             return this.props.user.user.displayName ? this.props.user.user.displayName.split(' ')[0] : 'Anonymous';
@@ -51,7 +51,7 @@ class DashboardScreenMobile extends React.Component {
                                     <div className="flex flex-row flex-between">
                                         <div>
                                             <div className="thin-heading">Hey {getUserFirstName()}!</div>
-                                            <div className="thin-subheading">Great to have you realigning.</div>
+                                            <div className="thin-subheading">It only takes a few minutes to change your day.</div>
                                         </div>
 
                                         <div className="realign-content">
@@ -76,6 +76,7 @@ class DashboardScreenMobile extends React.Component {
                                 <div className="thin-heading-2 ">Your performance</div>
 
                                 <div className="nepa-banner">
+                                    <div className="nepa-image"/>
                                     <div className="nepa-score">+{CalcTotals(State().public.user).NEPA}</div>
                                     <div className="nepa-text">Your <strong>NEPA</strong> score</div>
                                 </div>

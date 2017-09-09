@@ -108,6 +108,7 @@ class App extends React.Component {
         } else {
             console.log = () => {};
             console.info = () => {};
+            console.warn = () => {};
         }
 
         $(window).resize(() => {

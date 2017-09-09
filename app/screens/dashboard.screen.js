@@ -22,7 +22,7 @@ import {SessionList} from '../services/session.service';
 
 
 class Dashboard extends React.Component {
-    feedLength = 10;
+    feedLength = 30;
 
     componentWillMount() {
         setTimeout(() => {
@@ -55,7 +55,7 @@ class Dashboard extends React.Component {
                                     <div className="flex flex-row flex-between">
                                         <div>
                                             <div className="thin-heading">Hey {getUserFirstName()}!</div>
-                                            <div className="thin-subheading">Great to have you realigning.</div>
+                                            <div className="thin-subheading">It only takes a few minutes to change your day.</div>
                                         </div>
 
                                         <div className="realign-content">
@@ -87,8 +87,9 @@ class Dashboard extends React.Component {
                                 <div className="thin-heading-2 ">Your performance</div>
 
                                 <div className="nepa-banner">
+                                    <div className="nepa-image"/>
                                     <div className="nepa-score">+{CalcTotals(State().public.user).NEPA}</div>
-                                    <div className="nepa-text">Your <strong>NEPA</strong> score</div>
+                                    <div className="nepa-text" data-tooltip="NEPA is a representation of your daily activity level outside of exercise">Your <strong>NEPA</strong> score</div>
                                 </div>
 
 

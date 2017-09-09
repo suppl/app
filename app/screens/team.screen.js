@@ -35,7 +35,7 @@ class TeamScreen extends React.Component {
         const Community = this.props.community;
 
         const users = _.sortBy(this.props.public.users, user => CalcTotals(user).NEPA).reverse();
-        const feed  = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 10);
+        const feed  = _.take(_.sortBy(this.props.feed.feed, 'time').reverse(), 30);
 
         const update = (field, value) => (e) => {
             Dispatch({type: ACTIONS.SET_COMMUNITY_DETAILS, [field]: value ? value : e.target.value});
