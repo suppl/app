@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="133px" height="55px" viewBox="0 0 133 55" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 23</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Alpha-flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-23" transform="translate(1.000000, -4.000000)">
+            <polyline id="Line-6" stroke="#C7E9EC" opacity="0.5" stroke-linecap="square" transform="translate(55.017457, 46.245115) rotate(-2.000000) translate(-55.017457, -46.245115) " points="48.5 49.5 50.5 46.5 53.9363442 48 55.9582895 42.9902305 61.5349146 46.5"></polyline>
+            <polyline id="Line-6" stroke="#C7E9EC" opacity="0.5" stroke-linecap="square" transform="translate(123.017457, 8.245115) rotate(-315.000000) translate(-123.017457, -8.245115) " points="116.5 11.5 118.5 8.5 121.936344 10 123.958289 4.99023048 129.534915 8.5"></polyline>
+            <path d="M124.001697,45.1264525 L129.998303,48.8735475" id="Line-5" stroke="#A0E6DF" opacity="0.5" stroke-linecap="square"></path>
+            <g id="Group-13" transform="translate(0.000000, 6.000000)" opacity="0.5">
+                <circle id="Oval-4" fill="#8FD3DA" cx="12" cy="26" r="1"></circle>
+                <path d="M10.9252647,36.9179856 C9.4973612,27.2503508 5.43781867,38.8634428 0.00840325031,27.6874481" id="Path-4" stroke="#C7E9EC" stroke-linecap="round"></path>
+                <path d="M23.9252647,10.9179856 C22.4973612,1.25035078 18.4378187,12.8634428 13.0084033,1.68744808" id="Path-4" stroke="#C7E9EC" stroke-linecap="round" transform="translate(18.466834, 6.302717) rotate(19.000000) translate(-18.466834, -6.302717) "></path>
+            </g>
+            <path d="M7.36036465,11.7712719 L5.63963535,14.2287281" id="Line-10" stroke="#8CC7AF" opacity="0.5" stroke-linecap="round"></path>
+            <path d="M129.011181,53.817196 L131.988819,54.182804" id="Line-10" stroke="#A2E4EB" opacity="0.5" stroke-linecap="round"></path>
+            <g id="Group-13" transform="translate(71.804586, 18.663250) rotate(79.000000) translate(-71.804586, -18.663250) translate(57.804586, -6.336750)">
+                <circle id="Oval-4" fill="#A2E4EB" opacity="0.5" cx="25.7632819" cy="33.2417163" r="1.42752705"></circle>
+                <path d="M23.098807,1.88481083 C23.098807,1.09640941 22.4596814,0.457283781 21.67128,0.457283781 C20.8828786,0.457283781 20.2437529,1.09640941 20.2437529,1.88481083" id="Oval-4" stroke="#D0F1F5" opacity="0.5"></path>
+                <path d="M3.74208542,49.05808 C3.74208542,48.2696786 3.10295979,47.630553 2.31455837,47.630553 C1.52615695,47.630553 0.887031318,48.2696786 0.887031318,49.05808" id="Oval-4" stroke="#C7E9EC" opacity="0.916440217" transform="translate(2.314558, 48.344317) rotate(-135.000000) translate(-2.314558, -48.344317) "></path>
+                <path d="M16.9252647,29.9179856 C15.4973612,20.2503508 11.4378187,31.8634428 6.00840325,20.6874481" id="Path-4" stroke="#8FD3DA" opacity="0.5" stroke-linecap="round"></path>
+            </g>
+            <polygon id="Star" fill="#E2F2FB" points="15.5 18.25 14.4393398 18.5606602 14.75 17.5 14.4393398 16.4393398 15.5 16.75 16.5606602 16.4393398 16.25 17.5 16.5606602 18.5606602"></polygon>
+            <polygon id="Star" fill="#E2F2FB" points="15.9393398 57.8106602 14.8786797 58.1213203 15.1893398 57.0606602 14.8786797 56 15.9393398 56.3106602 17 56 16.6893398 57.0606602 17 58.1213203"></polygon>
+        </g>
+    </g>
+</svg>

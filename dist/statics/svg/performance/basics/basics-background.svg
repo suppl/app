@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="134px" height="54px" viewBox="0 0 134 54" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 14</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Alpha-flow" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-14">
+            <path d="M131.925265,11.9179856 C130.497361,2.25035078 126.437819,13.8634428 121.008403,2.68744808" id="Path-4" stroke="#A2E4EB" opacity="0.4453125" stroke-linecap="round" transform="translate(126.466834, 7.302717) rotate(-61.000000) translate(-126.466834, -7.302717) "></path>
+            <polyline id="Line-6" stroke="#A2E4EB" opacity="0.701086957" stroke-linecap="square" transform="translate(13.017457, 16.245115) rotate(-128.000000) translate(-13.017457, -16.245115) " points="6.5 19.5 8.5 16.5 11.9363442 18 13.9582895 12.9902305 19.5349146 16.5"></polyline>
+            <path d="M83.5,41.5 L78.5,46.5" id="Line-5" stroke="#A2E4EB" opacity="0.5" stroke-linecap="square"></path>
+            <path d="M0.414274191,24.4112283 L5.58572581,19.5887717" id="Line-5" stroke="#A1DEE5" opacity="0.5" stroke-linecap="square"></path>
+            <path d="M19.7455239,40.6185568 L26.2544761,43.3814432" id="Line-5" stroke="#A2E4EB" opacity="0.5" stroke-linecap="square"></path>
+            <circle id="Oval-4" fill="#8BE5FF" opacity="0.5" cx="77" cy="33" r="1"></circle>
+            <circle id="Oval-4" fill="#A2BDEB" opacity="0.5" cx="127" cy="33" r="1"></circle>
+            <path d="M128.5,17 L128.5,17 C129.880712,17 131,15.8807119 131,14.5 C131,13.1192881 129.880712,12 128.5,12" id="Oval-4" stroke="#A2E4EB" opacity="0.5"></path>
+            <path d="M48.5,54 L48.5,54 C49.8807119,54 51,52.8807119 51,51.5 C51,50.1192881 49.8807119,49 48.5,49" id="Oval-4" stroke="#A2E4EB" opacity="0.5" transform="translate(49.750000, 51.500000) rotate(-75.000000) translate(-49.750000, -51.500000) "></path>
+            <circle id="Oval-4" fill="#A2D6DB" opacity="0.5" cx="17" cy="6" r="1"></circle>
+            <circle id="Oval-4" fill="#94E5EF" opacity="0.5" cx="75" cy="42" r="1"></circle>
+            <polyline id="Line-6" stroke="#B6E8ED" stroke-linecap="square" points="79.5 7.5 81.5 4.5 84.9363442 6 86.9582895 0.990230484 92.5349146 4.5"></polyline>
+            <path d="M30.5,1.5 L32.5,3.5" id="Line-7" stroke="#9CD8DE" stroke-width="2" opacity="0.5" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>

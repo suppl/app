@@ -7,10 +7,11 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcComplete, CalcStreak, CalcTotals, SetUrl} from '../services/helper.service';
+import {CalcComplete, CalcCompleteCategory, CalcStreak, CalcTotals, SetUrl} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
+import {getCategoryAudioCount} from "../services/session.service";
 
 class PerformanceScreen extends React.Component {
     componentWillMount() {
@@ -25,6 +26,8 @@ class PerformanceScreen extends React.Component {
         const activeStreak = (number) => {
             return number <= CalcStreak(this.props.public.user) ? 'active' : ''
         };
+
+        const User = this.props.public.user;
 
         return (
             <div data-screen className={`${this.activeClass}`}>
@@ -55,8 +58,9 @@ class PerformanceScreen extends React.Component {
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage:`url('/statics/svg/performance/streak/streak-background.svg')`}}>
+                                            <img src="/statics/svg/performance/streak/streak-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
                                                     <span>{CalcStreak(State().public.user)}</span>
@@ -67,8 +71,9 @@ class PerformanceScreen extends React.Component {
                                         </div>
                                     </div>
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage:`url('/statics/svg/performance/sessions/sessions-background.svg')`}}>
+                                            <img src="/statics/svg/performance/sessions/sessions-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
                                                     <span>{CalcComplete(State().public.user)}</span>
@@ -79,8 +84,9 @@ class PerformanceScreen extends React.Component {
                                         </div>
                                     </div>
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage:`url('/statics/svg/performance/time/time-background.svg')`}}>
+                                            <img src="/statics/svg/performance/time/time-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
                                                     <span>{CalcTotals(State().public.user).durationMinutes}</span>
@@ -97,38 +103,41 @@ class PerformanceScreen extends React.Component {
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage:`url('/statics/svg/performance/basics/basics-background.svg')`}}>
+                                            <img src="/statics/svg/performance/basics/basics-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"> / day</span>
+                                                    <span>{CalcCompleteCategory(User, 'Foundation')}</span>
+                                                    <span className="stat-small"> / {getCategoryAudioCount('Foundation')}</span>
                                                 </div>
-                                                <div className="stat-text">Run streak</div>
+                                                <div className="stat-text">Foundation</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage:`url('/statics/svg/performance/mini/mini-background.svg')`}}>
+                                            <img src="/statics/svg/performance/mini/mini-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>1</span>
-                                                    <span className="stat-small"></span>
+                                                    <span>{CalcCompleteCategory(User, 'Minis')}</span>
+                                                    <span className="stat-small"> / {getCategoryAudioCount('Minis')}</span>
                                                 </div>
-                                                <div className="stat-text">Sessions done</div>
+                                                <div className="stat-text">Minis</div>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage:`url('/statics/svg/performance/growth/growth-background.svg')`}}>
+                                            <img src="/statics/svg/performance/growth/growth-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
-                                                    <span>3</span>
-                                                    <span className="stat-small"> mins</span>
+                                                    <span>{CalcCompleteCategory(User, 'Growth')}</span>
+                                                    <span className="stat-small"> / {getCategoryAudioCount('Growth')}</span>
                                                 </div>
-                                                <div className="stat-text">Realign time</div>
+                                                <div className="stat-text">Growth</div>
                                             </div>
                                         </div>
                                     </div>

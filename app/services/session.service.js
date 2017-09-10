@@ -36,6 +36,16 @@ export const getSessionTime = session => {
     return 25;
 };
 
+export const getCategoryAudioCount = category => {
+    let count = 0;
+
+    _.each(_.filter(SessionList, {category}), session => {
+        count += session.days > 1 ? session.days : session.audios.length;
+    });
+
+    return count;
+};
+
 export const isAudioDone = (audio) => {
     let flag = false;
 

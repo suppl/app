@@ -120,6 +120,25 @@
   color: $battleship-grey;
   font-weight: 300;
   margin-top: 40px;
+  background-size: 230px;
+  position: relative;
+
+  .stat-overlay {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    right: 0;
+
+    background: white;
+    opacity: 0.4;
+    z-index: 1;
+  }
+
+  & > .flex {
+    position: relative;
+    z-index: 2;
+  }
 
   .not-desktop & {
     margin-top: 20px;
@@ -133,6 +152,8 @@
 
   .stat-stat {
     font-size: 42px;
+
+    font-size: 22px;
     font-weight: normal;
 
     .stat-small {

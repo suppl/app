@@ -2,6 +2,7 @@ import * as React from "react";
 import moment from "moment";
 import * as _ from "lodash";
 import Bricklayer from 'bricklayer';
+import {getAudioById, SessionList} from "./session.service";
 
 export const SetUrl = (url) => {
     console.log('SetUrl', url);
@@ -77,9 +78,18 @@ export const CalcStreak = (user) => {
 };
 
 export const CalcComplete = (user) => {
-
     return !user.history ? 0 : Object.values(user.history).length;
+};
 
+export const CalcCompleteCategory = (user, category) => {
+    if (!user || !user.history) return 0;
+    let history = Object.values(user.history);
+
+    history = _.uniqBy(history, 'audioId');
+    history = _.filter(history, (item) => _.find(SessionList, {id:item.sessionId}).category == category);
+    history = _.filter(history, (item) => item.audioName != 'Intro');
+
+    return history.length;
 };
 
 export const If = React.createClass({
