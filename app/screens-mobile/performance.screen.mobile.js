@@ -59,6 +59,7 @@ class PerformanceScreenMobile extends React.Component {
                                 <div className="thin-heading-2">NEPA job!</div>
 
                                 <div className="nepa-banner">
+                                    <div className="nepa-image"/>
                                     <div className="nepa-score">+{CalcTotals(State().public.user).NEPA}</div>
                                     <div className="nepa-text">Your <strong>NEPA</strong> score</div>
                                 </div>

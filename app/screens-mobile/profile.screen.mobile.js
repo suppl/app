@@ -7,8 +7,8 @@ import * as ACTIONS from '../constants/actions.constants';
 import HeaderMobile from '../components/header/header.mobile';
 import FooterMobile from '../components/footer/footer.mobile';
 import {Dispatch, State} from './../services/dispatch.service';
-import {SessionList, isAudioAvailable, isAudioDone} from '../services/session.service';
-import {CalcComplete, CalcStreak, CalcTotals, SetUrl} from '../services/helper.service';
+import {SessionList, isAudioAvailable, isAudioDone, getCategoryAudioCount} from '../services/session.service';
+import {CalcComplete, CalcCompleteCategory, CalcStreak, CalcTotals, SetUrl} from '../services/helper.service';
 import ActivityItem from '../components/activity-item/activity-item';
 import Promo from '../components/promo/promo';
 
@@ -122,6 +122,42 @@ class CommunityScreenMobile extends React.Component {
                                             <span className="stat-small"> mins</span>
                                         </div>
                                         <div className="stat-text">Realign time</div>
+                                    </div>
+                                </div>
+
+                                <div className="thin-heading-2">{user.firstName || user.name}'s sessions</div>
+
+                                <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/basics/basics-background.svg')`}}>
+                                    <img src="/statics/svg/performance/basics/basics-icon.svg" className="stat-img"/>
+                                    <div className="stat-overlay"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>{CalcCompleteCategory(user, 'Foundation')}</span>
+                                            <span className="stat-small"> / {getCategoryAudioCount('Foundation')}</span>
+                                        </div>
+                                        <div className="stat-text">Foundation</div>
+                                    </div>
+                                </div>
+                                <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/mini/mini-background.svg')`}}>
+                                    <img src="/statics/svg/performance/mini/mini-icon.svg" className="stat-img"/>
+                                    <div className="stat-overlay"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>{CalcCompleteCategory(user, 'Minis')}</span>
+                                            <span className="stat-small"> / {getCategoryAudioCount('Minis')}</span>
+                                        </div>
+                                        <div className="stat-text">Minis</div>
+                                    </div>
+                                </div>
+                                <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/growth/growth-background.svg')`}}>
+                                    <img src="/statics/svg/performance/growth/growth-icon.svg" className="stat-img"/>
+                                    <div className="stat-overlay"/>
+                                    <div className="flex flex-min">
+                                        <div className="stat-stat">
+                                            <span>{CalcCompleteCategory(user, 'Growth')}</span>
+                                            <span className="stat-small"> / {getCategoryAudioCount('Growth')}</span>
+                                        </div>
+                                        <div className="stat-text">Growth</div>
                                     </div>
                                 </div>
 

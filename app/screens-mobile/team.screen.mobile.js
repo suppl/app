@@ -62,20 +62,26 @@ class TeamScreenMobile extends React.Component {
                                         <div className="content-tab" data-visible={Community.currentTab == 'activity'}>
                                             {/*<div className="block">*/}
 
-                                                <div className="activity-holder">
-                                                    {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
-                                                </div>
+                                            <div className="activity-holder">
+                                                {feed.map(feedItem => <ActivityItem feedItem={feedItem}/>)}
+                                            </div>
                                             {/*</div>*/}
                                         </div>
                                         <div className="content-tab" data-visible={Community.currentTab == 'performance'}>
 
+                                            <div className="thin-heading-2">Community NEPA score</div>
+
                                             <div className="nepa-banner">
+                                                <div className="nepa-image"/>
                                                 <div className="nepa-score">+{_.reduce(State().public.users, (sum, user) => sum + CalcTotals(user).NEPA, 0)}</div>
                                                 <div className="nepa-text">Community <strong>NEPA</strong> score</div>
                                             </div>
 
-                                            <div className="suppl-stat">
-                                                <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                            <div className="thin-heading-2">Combined performance</div>
+
+                                            <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/sessions/sessions-background.svg')`}}>
+                                                <img src="/statics/svg/performance/sessions/sessions-icon.svg" className="stat-img"/>
+                                                <div className="stat-overlay"/>
                                                 <div className="flex flex-min">
                                                     <div className="stat-stat">
                                                     <span>
@@ -86,8 +92,9 @@ class TeamScreenMobile extends React.Component {
                                                     <div className="stat-text">Total sessions done</div>
                                                 </div>
                                             </div>
-                                            <div className="suppl-stat">
-                                                <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                            <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/time/time-background.svg')`}}>
+                                                <img src="/statics/svg/performance/time/time-icon.svg" className="stat-img"/>
+                                                <div className="stat-overlay"/>
                                                 <div className="flex flex-min">
                                                     <div className="stat-stat">
                                                     <span>

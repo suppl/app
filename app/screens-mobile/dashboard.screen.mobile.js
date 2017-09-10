@@ -82,8 +82,9 @@ class DashboardScreenMobile extends React.Component {
                                 </div>
 
 
-                                <div className="suppl-stat">
-                                    <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
+                                <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/streak/streak-background.svg')`}}>
+                                    <img src="/statics/svg/performance/streak/streak-icon.svg" className="stat-img"/>
+                                    <div className="stat-overlay"/>
                                     <div className="flex flex-min">
                                         <div className="stat-stat">
                                             <span>{CalcStreak(State().public.user)}</span>
@@ -92,8 +93,9 @@ class DashboardScreenMobile extends React.Component {
                                         <div className="stat-text">Run streak</div>
                                     </div>
                                 </div>
-                                <div className="suppl-stat">
-                                    <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/sessions/sessions-background.svg')`}}>
+                                    <img src="/statics/svg/performance/sessions/sessions-icon.svg" className="stat-img"/>
+                                    <div className="stat-overlay"/>
                                     <div className="flex flex-min">
                                         <div className="stat-stat">
                                             <span>{CalcComplete(State().public.user)}</span>
@@ -102,8 +104,9 @@ class DashboardScreenMobile extends React.Component {
                                         <div className="stat-text">Session(s) done</div>
                                     </div>
                                 </div>
-                                <div className="suppl-stat">
-                                    <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/time/time-background.svg')`}}>
+                                    <img src="/statics/svg/performance/time/time-icon.svg" className="stat-img"/>
+                                    <div className="stat-overlay"/>
                                     <div className="flex flex-min">
                                         <div className="stat-stat">
                                             <span>{CalcTotals(State().public.user).durationMinutes}</span>

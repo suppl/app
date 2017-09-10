@@ -7,12 +7,16 @@ import * as ACTIONS from '../constants/actions.constants';
 import {connect} from "react-redux";
 
 import {Dispatch, State} from './../services/dispatch.service';
-import {CalcComplete, CalcStreak, CalcTotals, SetUrl, SortActivity} from '../services/helper.service';
+import {
+    CalcComplete, CalcCompleteCategory, CalcStreak, CalcTotals, SetUrl,
+    SortActivity
+} from '../services/helper.service';
 import SubHeader from '../components/sub-header/sub-header';
 import Header from '../components/header/header';
 import Sidebar from '../components/sidebar/sidebar';
 import Promo from '../components/promo/promo';
 import ActivityItem from '../components/activity-item/activity-item';
+import {getCategoryAudioCount} from "../services/session.service";
 
 class ProfileScreen extends React.Component {
     componentWillMount() {
@@ -99,8 +103,9 @@ class ProfileScreen extends React.Component {
 
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-streak-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/streak/streak-background.svg')`}}>
+                                            <img src="/statics/svg/performance/streak/streak-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
                                                     <span>{CalcStreak(user)}</span>
@@ -111,8 +116,9 @@ class ProfileScreen extends React.Component {
                                         </div>
                                     </div>
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/session-complete-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/sessions/sessions-background.svg')`}}>
+                                            <img src="/statics/svg/performance/sessions/sessions-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
                                                     <span>{CalcComplete(user)}</span>
@@ -123,14 +129,59 @@ class ProfileScreen extends React.Component {
                                         </div>
                                     </div>
                                     <div className="flex-col">
-                                        <div className="suppl-stat">
-                                            <img src="/statics/svg/dash/posture-minute-icon.svg" className="stat-img"/>
+                                        <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/time/time-background.svg')`}}>
+                                            <img src="/statics/svg/performance/time/time-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
                                             <div className="flex flex-min">
                                                 <div className="stat-stat">
                                                     <span>{CalcTotals(user).durationMinutes}</span>
                                                     <span className="stat-small"> mins</span>
                                                 </div>
                                                 <div className="stat-text">Realign time</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="thin-heading-2">{user.firstName || user.name}'s sessions</div>
+
+                                <div className="flex flex-cols flex-cols-large">
+                                    <div className="flex-col">
+                                        <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/basics/basics-background.svg')`}}>
+                                            <img src="/statics/svg/performance/basics/basics-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
+                                            <div className="flex flex-min">
+                                                <div className="stat-stat">
+                                                    <span>{CalcCompleteCategory(user, 'Foundation')}</span>
+                                                    <span className="stat-small"> / {getCategoryAudioCount('Foundation')}</span>
+                                                </div>
+                                                <div className="stat-text">Foundation</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex-col">
+                                        <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/mini/mini-background.svg')`}}>
+                                            <img src="/statics/svg/performance/mini/mini-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
+                                            <div className="flex flex-min">
+                                                <div className="stat-stat">
+                                                    <span>{CalcCompleteCategory(user, 'Minis')}</span>
+                                                    <span className="stat-small"> / {getCategoryAudioCount('Minis')}</span>
+                                                </div>
+                                                <div className="stat-text">Minis</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex-col">
+                                        <div className="suppl-stat" style={{backgroundImage: `url('/statics/svg/performance/growth/growth-background.svg')`}}>
+                                            <img src="/statics/svg/performance/growth/growth-icon.svg" className="stat-img"/>
+                                            <div className="stat-overlay"/>
+                                            <div className="flex flex-min">
+                                                <div className="stat-stat">
+                                                    <span>{CalcCompleteCategory(user, 'Growth')}</span>
+                                                    <span className="stat-small"> / {getCategoryAudioCount('Growth')}</span>
+                                                </div>
+                                                <div className="stat-text">Growth</div>
                                             </div>
                                         </div>
                                     </div>

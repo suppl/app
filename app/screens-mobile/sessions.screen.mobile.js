@@ -69,8 +69,8 @@ class SessionsScreenMobile extends React.Component {
 
                                 <div className="thin-heading-2">Growth</div>
                                 <div className="flex">
-                                    <Promo size="mid" sessionId={'extend'}/>
-                                    <Promo size="mid" sessionId={'motion'}/>
+                                    <Promo size="mid" sessionId={'extend'} disabled={true}/>
+                                    <Promo size="mid" sessionId={'motion'} disabled={true}/>
                                 </div>
                             </div>
                         </div>

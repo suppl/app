@@ -74,7 +74,7 @@ class SessionScreenMobile extends React.Component {
                                             </If>
 
                                             <If condition={!isAudioAvailable(audio)}>
-                                                <div className="audio-check">
+                                                <div className="audio-check">s
                                                     <i className="icon-uniE7D6"/>
                                                 </div>
                                             </If>
