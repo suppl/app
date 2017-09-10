@@ -77,6 +77,11 @@
   transition: 10000000000000s;
   text-decoration: none;
 
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
   &:hover, &:focus {
     text-decoration: none;
     color: white;
@@ -192,6 +197,11 @@
 
   justify-content: flex-start;
   align-items: flex-start;
+
+  &[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+  }
 
   .banner-title {
     font-size: 64px;

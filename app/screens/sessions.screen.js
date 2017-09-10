@@ -77,13 +77,25 @@ class Sessions extends React.Component {
                                     </div>
                                 </div>
 
+                                <div className="flex flex-cols flex-cols-large">
+                                    <div className="flex-col">
+                                        <Promo size="mid" sessionId={'ankle'}/>
+                                    </div>
+                                    <div className="flex-col">
+                                        <Promo size="mid" sessionId={'hip'}/>
+                                    </div>
+                                    <div className="flex-col">
+                                        <Promo size="mid" sessionId={'feet'}/>
+                                    </div>
+                                </div>
+
                                 <div className="thin-heading-2">Growth</div>
                                 <div className="flex flex-cols flex-cols-large">
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={'extend'}/>
+                                        <Promo size="mid" sessionId={'extend'} disabled={true}/>
                                     </div>
                                     <div className="flex-col">
-                                        <Promo size="mid" sessionId={'motion'}/>
+                                        <Promo size="mid" sessionId={'motion'} disabled={true}/>
                                     </div>
                                 </div>
 

@@ -56,7 +56,7 @@ class PerformanceScreenMobile extends React.Component {
                                     </div>
                                 </div>
 
-                                <div className="thin-heading-2">NEPA job!</div>
+                                <div className="thin-heading-2">NEPA score!</div>
 
                                 <div className="nepa-banner">
                                     <div className="nepa-image"/>

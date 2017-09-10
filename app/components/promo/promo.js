@@ -23,7 +23,7 @@ class Sidebar extends React.Component {
         return (
             <div>
                 <If condition={size === 'large'}>
-                    <Link className="dashboard-banner dashboard-banner-large" href={`/sessions/${session.slug}`} style={{
+                    <Link className="dashboard-banner dashboard-banner-large" disabled={this.props.disabled} href={`/sessions/${session.slug}`} style={{
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
@@ -40,7 +40,7 @@ class Sidebar extends React.Component {
                 </If>
 
                 <If condition={size === 'mid'}>
-                    <Link className="dashboard-banner-mid" href={`/sessions/${session.slug}`} style={{
+                    <Link className="dashboard-banner-mid" href={`/sessions/${session.slug}`} disabled={this.props.disabled} style={{
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
@@ -55,7 +55,7 @@ class Sidebar extends React.Component {
                 </If>
 
                 <If condition={size === 'small'}>
-                    <Link className="dashboard-banner-low" href={`/sessions/${session.slug}`} style={{
+                    <Link className="dashboard-banner-low" href={`/sessions/${session.slug}`} disabled={this.props.disabled} style={{
                         backgroundImage: `url('${session.pattern}')`,
                         backgroundColor: session.color,
                     }}>
