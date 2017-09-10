@@ -67462,8 +67462,8 @@ var SESSIONS = [{
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: ['sitting-4'],
-        duration: '5:44',
-        durationSeconds: 5 * 60 + 28,
+        duration: '5:27',
+        durationSeconds: 5 * 60 + 27,
         NEPA: 550
     }]
 }, {
@@ -67556,9 +67556,6 @@ var SESSIONS = [{
     category: "Minis",
     level: 1,
     days: 1,
-    // svgSmall    : "/statics/svg/work series/small/sm-desk-flex.svg",
-    // svgLarge    : "/statics/svg/work series/large/lg-sat-down.svg",
-    // icon        : "flaticon-desk-chair",
     description: "Arching your back all day? \u2026",
     caption: "",
     color: "#ffc3d9",
@@ -67625,31 +67622,31 @@ var SESSIONS = [{
     description: "Hunching your shoulders all day? \u2026",
     caption: "",
     color: "#cae7c8",
-    pattern: "/statics/svg/patterns/neck.svg",
+    pattern: "/statics/svg/patterns/shoulders-backdrop.svg",
     awardsNeeded: [],
     audiosNeeded: [],
     audios: [{
         id: 'shoulders-1',
         name: 'Mini-1',
         index: 1,
-        file: '/statics/audio/shoulders/shoulders-mini-1.mp3',
+        file: '/statics/audio/shoulders/shoulders-mini-1.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '3:41',
-        durationSeconds: 1 * 60 + 41,
-        NEPA: 350
+        duration: '2:02',
+        durationSeconds: 2 * 60 + 3,
+        NEPA: 200
     }, {
         id: 'shoulders-2',
         name: 'Mini-2',
         index: 1,
-        file: '/statics/audio/shoulders/shoulders-mini-2.mp3',
+        file: '/statics/audio/shoulders/shoulders-mini-2.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '3:24',
-        durationSeconds: 3 * 60 + 24,
-        NEPA: 350
+        duration: '2:01',
+        durationSeconds: 2 * 60 + 1,
+        NEPA: 200
     }]
 }, {
     id: "knee",
@@ -67659,7 +67656,7 @@ var SESSIONS = [{
     level: 1,
     days: 1,
     icon: "/statics/svg/session-icon/knee-icon.svg",
-    description: "Hunching your knee all day? \u2026",
+    description: "Painful kneesy? \u2026",
     caption: "",
     color: "#ffd4c3",
     pattern: "/statics/svg/patterns/knee.svg",
@@ -67685,7 +67682,7 @@ var SESSIONS = [{
     level: 1,
     days: 1,
     icon: "/statics/svg/session-icon/wrist-icon.svg",
-    description: "Hunching your wrist all day? \u2026",
+    description: "Typing too much and hurting your wrists? \u2026",
     caption: "",
     color: "#c3daff",
     pattern: "/statics/svg/patterns/wiggle.svg",
@@ -67695,13 +67692,13 @@ var SESSIONS = [{
         id: 'wrist-1',
         name: 'Mini-1',
         index: 1,
-        file: '/statics/audio/wrist/wrist-mini-1.mp3',
+        file: '/statics/audio/wrist/wrist-mini-1.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '3:03',
-        durationSeconds: 3 * 60 + 3,
-        NEPA: 300
+        duration: '1:49',
+        durationSeconds: 1 * 60 + 49,
+        NEPA: 200
     }, {
         id: 'wrist-1',
         name: 'Mini-2',
@@ -67710,20 +67707,9 @@ var SESSIONS = [{
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:26',
-        durationSeconds: 1 * 60 + 26,
-        NEPA: 150
-    }, {
-        id: 'wrist-3',
-        name: 'Mini-3',
-        index: 1,
-        file: '/statics/audio/wrist/wrist-mini-3.m4a',
-        awardsNeeded: [],
-        awardsGiven: [],
-        audiosNeeded: [],
-        duration: '1:32',
-        durationSeconds: 1 * 60 + 32,
-        NEPA: 150
+        duration: '2:08',
+        durationSeconds: 2 * 60 + 8,
+        NEPA: 200
     }]
 }, {
     id: "mindset",
@@ -67733,7 +67719,7 @@ var SESSIONS = [{
     level: 1,
     days: 1,
     icon: "/statics/svg/session-icon/mindset-icon.svg",
-    description: "Hunching your mindset all day? \u2026",
+    description: "A little bit blurred with your thoughts? \u2026",
     caption: "",
     color: "#97c2fd",
     pattern: "/statics/svg/patterns/mindset.svg",
@@ -67743,13 +67729,46 @@ var SESSIONS = [{
         id: 'mindset-1',
         name: 'Mini',
         index: 1,
-        file: '/statics/audio/mindset/mindset-mini.m4a',
+        file: '/statics/audio/mindset/mindset-mini-1.m4a',
         awardsNeeded: [],
         awardsGiven: [],
         audiosNeeded: [],
-        duration: '1:51',
-        durationSeconds: 1 * 60 + 51,
+        duration: '2:01',
+        durationSeconds: 2 * 60 + 1,
         NEPA: 200
+    }, {
+        id: 'mindset-2',
+        name: 'Mini',
+        index: 2,
+        file: '/statics/audio/mindset/mindset-mini-2.m4a',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '2:13',
+        durationSeconds: 2 * 60 + 13,
+        NEPA: 200
+    }, {
+        id: 'mindset-3',
+        name: 'Mini',
+        index: 3,
+        file: '/statics/audio/mindset/mindset-mini-3.m4a',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '1:35',
+        durationSeconds: 1 * 60 + 35,
+        NEPA: 150
+    }, {
+        id: 'mindset-full',
+        name: 'Mini',
+        index: 4,
+        file: '/statics/audio/mindset/mindset-mini-full.m4a',
+        awardsNeeded: [],
+        awardsGiven: [],
+        audiosNeeded: [],
+        duration: '2:43',
+        durationSeconds: 2 * 60 + 43,
+        NEPA: 300
     }]
 }, {
     id: "extend",
