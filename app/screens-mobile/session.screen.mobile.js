@@ -81,6 +81,12 @@ class SessionScreenMobile extends React.Component {
 
                                             <div className="audio-title">
                                                 {audio.name || 'Day ' + audio.index}
+
+                                                {isAudioDone(audio) ?
+                                                    <div className="audio-done">
+                                                        <i className="icon-uniE7D6"/>
+                                                    </div> : null
+                                                }
                                             </div>
 
                                             <div style={{margin:'auto'}}/>

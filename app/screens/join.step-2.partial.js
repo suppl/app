@@ -62,6 +62,13 @@ class JoinStep2 extends React.Component {
                     Next &nbsp; <i className="fa fa-angle-right"/>
                 </div>
 
+                <p className="super-small">
+                    By continuing you accept Suppl’s
+                    <a href="http://www.suppl.co/terms-of-service" className="linkable" target="_blank"> terms of service </a>
+                    and
+                    <a href="http://www.suppl.co/privacy-policy" className="linkable" target="_blank"> privacy policy</a>.
+                </p>
+
                 <div style={{margin: 'auto'}}/>
 
                 <div className="anon-line"/>

@@ -706,7 +706,14 @@
 }
 
 
+.super-small {
+  font-size: 11px;
+  color: $battleship-grey;
 
+  a {
+    text-decoration: underline;
+  }
+}
 
 
 

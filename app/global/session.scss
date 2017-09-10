@@ -153,6 +153,14 @@
       .not-desktop & {
         font-size: 15px;
       }
+
+      .audio-done {
+        color: $tealish;
+        display: inline-block;
+        margin-left: 10px;
+        font-weight: bold;
+
+      }
     }
 
     .audio-play {

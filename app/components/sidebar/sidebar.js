@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
         return (
             <div className="sidebar-component">
                 <div className="top-menu">
-                    <Link href="/home" className={`menu-item`} style={{padding:'25px 0'}}>
+                    <Link href="/home" className={`menu-item`} style={{padding:'25px 0'}} >
                         <img src="/statics/images/suppl-favicon.png" alt="" style={{height:24}}/>
                     </Link>
                     <Link href="/home" className={`menu-item ${isScreenClass('home')}`}>
