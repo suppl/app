@@ -25,20 +25,27 @@ class ActivityItem extends React.Component {
 
         const feedItem = this.props.feedItem;
 
+        let absoluteTime = moment(feedItem.time).isValid() ? moment(feedItem.time) : moment(feedItem.time, 'YYYYMMDD-HH:mm:ss');
+        // let diff = absoluteTime.diff(moment(), 'hours') + 1;
+        //
+        // if (diff > 0) {
+        //     absoluteTime.add(-5, 'hours');
+        // }
+
         let color        = '#00A2F2';
         let overlayWidth = '80%';
         let name         = this.getUser(feedItem.user).name;
-        let avatar         = this.getUser(feedItem.user).avatar;
+        let avatar       = this.getUser(feedItem.user).avatar;
         let text         = undefined;
         let extra        = undefined;
-        let time         = moment(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow();
+        let time         = absoluteTime.fromNow();
 
         let actions = {
             [FEED_ACTIONS.SIGNED_IN]      : () => {
                 overlayWidth = '0%';
                 text         = <div>signed in</div>
             },
-            [FEED_ACTIONS.JOINED_SUPPL]      : () => {
+            [FEED_ACTIONS.JOINED_SUPPL]   : () => {
                 overlayWidth = '0%';
                 extra        = <div><img src="/statics/svg/icons/oh-hey.svg" alt=""/> Oh hey!</div>;
                 text         = <div>joined Suppl!</div>
@@ -64,7 +71,8 @@ class ActivityItem extends React.Component {
 
         try {
             actions[feedItem.feedAction]();
-        } catch (e) {}
+        } catch (e) {
+        }
 
         return (
             <div className="activity-panel">

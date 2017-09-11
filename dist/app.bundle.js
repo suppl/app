@@ -38888,13 +38888,20 @@ var ActivityItem = function (_React$Component) {
 
             var feedItem = this.props.feedItem;
 
+            var absoluteTime = (0, _moment2.default)(feedItem.time).isValid() ? (0, _moment2.default)(feedItem.time) : (0, _moment2.default)(feedItem.time, 'YYYYMMDD-HH:mm:ss');
+            // let diff = absoluteTime.diff(moment(), 'hours') + 1;
+            //
+            // if (diff > 0) {
+            //     absoluteTime.add(-5, 'hours');
+            // }
+
             var color = '#00A2F2';
             var overlayWidth = '80%';
             var name = this.getUser(feedItem.user).name;
             var avatar = this.getUser(feedItem.user).avatar;
             var text = undefined;
             var extra = undefined;
-            var time = (0, _moment2.default)(feedItem.time, 'YYYYMMDD-HH:mm:ss').fromNow();
+            var time = absoluteTime.fromNow();
 
             var actions = (_actions = {}, _defineProperty(_actions, FEED_ACTIONS.SIGNED_IN, function () {
                 overlayWidth = '0%';
@@ -68561,7 +68568,7 @@ var FeedReducer = function () {
 
             var feedItem = {
                 user: firebase.auth().currentUser.uid,
-                time: (0, _moment2.default)().format('YYYYMMDD-HH:mm:ss'),
+                time: (0, _moment2.default)().format(),
                 feedAction: action.feedAction,
                 recipient: action.recipient,
                 details: action.details
