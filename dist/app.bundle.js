@@ -67340,25 +67340,37 @@ var ONBOARDING = [{
         text: _react2.default.createElement(
             "div",
             null,
-            "Pushing your shoulders back and lifting your chest up is a very obvious sign of poor posture!"
+            "Hey there, welcome to Suppl!"
         )
     }, {
         text: _react2.default.createElement(
             "div",
             null,
-            "This common over-correction creates tension in your neck, destabilises your shoulder joints and is not sustainable.."
+            "We\u2019ll show you how to train your body and mind to naturally realign."
         )
     }, {
         text: _react2.default.createElement(
             "div",
             null,
-            "Sitting comfortably should become a natural sustainable habit, not something forced every so often."
+            "Don\u2019t stress if you aren\u2019t always mindful of your posture."
         )
     }, {
         text: _react2.default.createElement(
             "div",
             null,
-            " Now, It helps to plug in your headphones for maximum focus during these sessions."
+            "We\u2019ll guide you through each step."
+        )
+    }, {
+        text: _react2.default.createElement(
+            "div",
+            null,
+            "In fact, this first session is a quick intro and has plenty of fun tips."
+        )
+    }, {
+        text: _react2.default.createElement(
+            "div",
+            null,
+            "Now, sit back, relax and enjoy our top tips."
         )
     }]
 }, {
@@ -67367,25 +67379,37 @@ var ONBOARDING = [{
         text: _react2.default.createElement(
             "div",
             null,
-            "Pushing your shoulders back and lifting your chest up is a very obvious sign of poor posture!"
+            "Hey there, welcome to Suppl!"
         )
     }, {
         text: _react2.default.createElement(
             "div",
             null,
-            "This common over-correction creates tension in your neck, destabilises your shoulder joints and is not sustainable.."
+            "We\u2019ll show you how to train your body and mind to naturally realign."
         )
     }, {
         text: _react2.default.createElement(
             "div",
             null,
-            "Standing comfortably should become a natural sustainable habit, not something forced every so often."
+            "Don\u2019t stress if you aren\u2019t always mindful of your posture."
         )
     }, {
         text: _react2.default.createElement(
             "div",
             null,
-            " Now, It helps to plug in your headphones for maximum focus during these sessions."
+            "We\u2019ll guide you through each step."
+        )
+    }, {
+        text: _react2.default.createElement(
+            "div",
+            null,
+            "In fact, this first session is a quick intro and has plenty of fun tips."
+        )
+    }, {
+        text: _react2.default.createElement(
+            "div",
+            null,
+            "Now, stand comfortably, relax and enjoy our top tips."
         )
     }]
 }];

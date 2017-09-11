@@ -6,19 +6,27 @@ const ONBOARDING = [
         screens: [
             {
                 text:
-                    <div>Pushing your shoulders back and lifting your chest up is a very obvious sign of poor posture!</div>
+                    <div>Hey there, welcome to Suppl!</div>
             },
             {
                 text:
-                    <div>This common over-correction creates tension in your neck, destabilises your shoulder joints and is not sustainable..</div>
+                    <div>We’ll show you how to train your body and mind to naturally realign.</div>
             },
             {
                 text:
-                    <div>Sitting comfortably should become a natural sustainable habit, not something forced every so often.</div>
+                    <div>Don’t stress if you aren’t always mindful of your posture.</div>
             },
             {
                 text:
-                    <div> Now, It helps to plug in your headphones for maximum focus during these sessions.</div>
+                    <div>We’ll guide you through each step.</div>
+            },
+            {
+                text:
+                    <div>In fact, this first session is a quick intro and has plenty of fun tips.</div>
+            },
+            {
+                text:
+                    <div>Now, sit back, relax and enjoy our top tips.</div>
             },
         ]
     },
@@ -27,19 +35,27 @@ const ONBOARDING = [
         screens: [
             {
                 text:
-                    <div>Pushing your shoulders back and lifting your chest up is a very obvious sign of poor posture!</div>
+                    <div>Hey there, welcome to Suppl!</div>
             },
             {
                 text:
-                    <div>This common over-correction creates tension in your neck, destabilises your shoulder joints and is not sustainable..</div>
+                    <div>We’ll show you how to train your body and mind to naturally realign.</div>
             },
             {
                 text:
-                    <div>Standing comfortably should become a natural sustainable habit, not something forced every so often.</div>
+                    <div>Don’t stress if you aren’t always mindful of your posture.</div>
             },
             {
                 text:
-                    <div> Now, It helps to plug in your headphones for maximum focus during these sessions.</div>
+                    <div>We’ll guide you through each step.</div>
+            },
+            {
+                text:
+                    <div>In fact, this first session is a quick intro and has plenty of fun tips.</div>
+            },
+            {
+                text:
+                    <div>Now, stand comfortably, relax and enjoy our top tips.</div>
             },
         ]
     }
