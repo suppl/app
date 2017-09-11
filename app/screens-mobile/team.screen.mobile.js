@@ -41,7 +41,7 @@ class TeamScreenMobile extends React.Component {
                         <div className="content-area" style={{paddingTop: 0}}>
                             <div className="content-content">
 
-                                <div className="block light" style={{backgroundImage: `url('/statics/svg/hero/team-hero.svg')`}}>
+                                <div className="block light" style={{backgroundImage: `url('/statics/svg/hero/community-hero.png')`, backgroundSize:'contain'}}>
                                     <div className="flex flex-row flex-between">
                                         <div>
                                             <div className="thin-heading">Community</div>
