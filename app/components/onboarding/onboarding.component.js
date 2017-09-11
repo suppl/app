@@ -40,9 +40,11 @@ class Onboarding extends React.Component {
 
                 {state.onboarding.screens.map((screen, index) =>
                     <div className={`flex-stuff ${state.currentScreen === index ? '' : 'gone'}`}>
-                        <div className="onboarding-text">
-                            {screen.text}
-                        </div>
+                        {screen.image ?
+                            <div className="onboarding-img"><img src={screen.image}/></div> : null
+                        }
+
+                        <div className="onboarding-text">{screen.text}</div>
                     </div>
                 )}
 

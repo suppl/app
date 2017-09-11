@@ -106,6 +106,19 @@
     }
   }
 
+  .onboarding-img {
+    img {
+      height: 300px;
+      margin-bottom: 40px;
+
+      .not-desktop & {
+        height: 250px;
+    }
+
+
+    }
+  }
+
   .onboarding-steps {
     position: absolute;
     display: flex;
