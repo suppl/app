@@ -115,7 +115,7 @@ const SESSIONS = [
                 name           : 'Intro',
                 intro          : true,
                 index          : 0,
-                file           : '/statics/audio/sitting/sitting-intro.mp3',
+                file           : '/statics/audio/standing/standing-intro.mp3',
                 awardsNeeded   : [],
                 awardsGiven    : [],
                 audiosNeeded   : [],
