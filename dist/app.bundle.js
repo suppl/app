@@ -22839,7 +22839,7 @@ var isOnboardingAvailable = exports.isOnboardingAvailable = function isOnboardin
 };
 
 var getOnboarding = exports.getOnboarding = function getOnboarding(audio) {
-    return _.find(_onboarding2.default, { audioId: audio.slug });
+    return _.find(_onboarding2.default, { audioId: audio.id });
 };
 
 var isAudioAvailable = exports.isAudioAvailable = function isAudioAvailable(audio) {
@@ -68889,7 +68889,7 @@ var OnboardingReducer = function () {
             currentScreen: 0
         };
         this.actions = (_actions = {}, _defineProperty(_actions, ACTIONS.SET_ONBOARDING, function (action, state) {
-            return { onboarding: action.onboarding };
+            return { onboarding: action.onboarding, currentScreen: 0 };
         }), _defineProperty(_actions, ACTIONS.SHOW_ONBOARDING, function (action, state) {
             return { visible: true };
         }), _defineProperty(_actions, ACTIONS.HIDE_ONBOARDING, function (action, state) {
@@ -69693,6 +69693,7 @@ var showAudio = function showAudio(action, state) {
     });
 
     if ((0, _session3.isOnboardingAvailable)(action.audio)) {
+        (0, _dispatch.Dispatch)({ type: ACTIONS.SET_ONBOARDING, onboarding: (0, _session3.getOnboarding)(action.audio) });
         (0, _dispatch.Dispatch)({ type: ACTIONS.SHOW_ONBOARDING });
     }
 

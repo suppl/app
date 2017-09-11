@@ -14,7 +14,7 @@ class OnboardingReducer {
     };
 
     actions = {
-        [ACTIONS.SET_ONBOARDING]               : (action, state) => ({onboarding: action.onboarding}),
+        [ACTIONS.SET_ONBOARDING]               : (action, state) => ({onboarding: action.onboarding, currentScreen: 0}),
         [ACTIONS.SHOW_ONBOARDING]              : (action, state) => ({visible: true}),
         [ACTIONS.HIDE_ONBOARDING]              : (action, state) => ({visible: false}),
         [ACTIONS.LAST_ONBOARDING_SCREEN]       : (action, state) => ({currentScreen: state.onboarding.screens.length - 1}),

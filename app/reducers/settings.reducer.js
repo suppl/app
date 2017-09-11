@@ -3,7 +3,7 @@ import * as Request from 'superagent';
 import NoSleep from 'nosleep.js';
 import {Dispatch, State} from './../services/dispatch.service';
 import SessionList from './../services/session.service';
-import {isOnboardingAvailable} from "../services/session.service";
+import {getOnboarding, isOnboardingAvailable} from "../services/session.service";
 import * as FEED_ACTIONS from "../constants/feed.constants";
 
 // let timeLoop;
@@ -89,6 +89,7 @@ const showAudio = (action, state) => {
     });
 
     if (isOnboardingAvailable(action.audio)) {
+        Dispatch({type: ACTIONS.SET_ONBOARDING, onboarding:getOnboarding(action.audio)})
         Dispatch({type: ACTIONS.SHOW_ONBOARDING})
     }
 

@@ -62,7 +62,7 @@ export const isOnboardingAvailable = (audio) => {
 };
 
 export const getOnboarding = (audio) => {
-    return _.find(ONBOARDING, {audioId: audio.slug})
+    return _.find(ONBOARDING, {audioId: audio.id})
 };
 
 export const isAudioAvailable = (audio) => {
