@@ -32,15 +32,18 @@ class FeedReducer {
     }
 
     loadFeed(action, state) {
-        const feedRef = firebase.database().ref(`feed`).orderByChild('time').limitToLast(30);
+        const feedRef = firebase.database().ref(`feed`).limitToLast(50);
 
         feedRef.on('value', (snapshot) => {
             if (!snapshot.val()) return;
 
-            const feed = Object.values(snapshot.val());
+            let feed = Object.values(snapshot.val());
+
+            feed.forEach(item => item.time = moment(item.time).isValid() ? moment(item.time).utc(0).format() : moment(item.time, 'YYYYMMDD-HH:mm:ss').utc(0).format());
+            feed = _.orderBy(feed, ['time'], ['desc']);
 
             Dispatch({type: ACTIONS.SET_FEED_ARRAY, feed: feed});
-            console.log('FEED UPDATED', state);
+            console.log('FEED UPDATED', state, feed);
         });
     }
 
@@ -49,7 +52,7 @@ class FeedReducer {
 
         let feedItem = {
             user      : firebase.auth().currentUser.uid,
-            time      : moment().format(),
+            time      : moment().utc(0).format(),
             feedAction: action.feedAction,
             recipient : action.recipient,
             details   : action.details,
