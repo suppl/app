@@ -67676,7 +67676,7 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'neck-1',
-        name: 'Mini-1',
+        name: 'Mini 1',
         index: 1,
         file: '/statics/audio/neck/neck-mini-1.m4a',
         awardsNeeded: [],
@@ -67687,7 +67687,7 @@ var SESSIONS = [{
         NEPA: 300
     }, {
         id: 'neck-2',
-        name: 'Mini-2',
+        name: 'Mini 2',
         index: 1,
         file: '/statics/audio/neck/neck-mini-2.m4a',
         awardsNeeded: [],
@@ -67713,7 +67713,7 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'shoulders-1',
-        name: 'Mini-1',
+        name: 'Mini 1',
         index: 1,
         file: '/statics/audio/shoulders/shoulders-mini-1.m4a',
         awardsNeeded: [],
@@ -67876,7 +67876,7 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'wrist-1',
-        name: 'Mini-1',
+        name: 'Mini 1',
         index: 1,
         file: '/statics/audio/wrist/wrist-mini-1.m4a',
         awardsNeeded: [],
@@ -67913,7 +67913,7 @@ var SESSIONS = [{
     audiosNeeded: [],
     audios: [{
         id: 'mindset-1',
-        name: 'Mini',
+        name: 'Mini 1',
         index: 1,
         file: '/statics/audio/mindset/mindset-mini-1.m4a',
         awardsNeeded: [],
@@ -67924,7 +67924,7 @@ var SESSIONS = [{
         NEPA: 200
     }, {
         id: 'mindset-2',
-        name: 'Mini',
+        name: 'Mini 2',
         index: 2,
         file: '/statics/audio/mindset/mindset-mini-2.m4a',
         awardsNeeded: [],
@@ -67935,7 +67935,7 @@ var SESSIONS = [{
         NEPA: 200
     }, {
         id: 'mindset-3',
-        name: 'Mini',
+        name: 'Mini 3',
         index: 3,
         file: '/statics/audio/mindset/mindset-mini-3.m4a',
         awardsNeeded: [],
@@ -67946,7 +67946,7 @@ var SESSIONS = [{
         NEPA: 150
     }, {
         id: 'mindset-full',
-        name: 'Mini',
+        name: 'Mini Full',
         index: 4,
         file: '/statics/audio/mindset/mindset-mini-full.m4a',
         awardsNeeded: [],
